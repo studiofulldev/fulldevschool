@@ -37,6 +37,9 @@ As primeiras são:
 
 Este bloco existe para te colocar no chão certo antes de acelerar.
 
+> Respiro de leitura:
+> tecnologia no começo parece mapa de RPG com a tela toda fechada. A boa notícia é que você não precisa abrir o mapa inteiro agora. Você só precisa descobrir qual é a próxima missão.
+
 ## O que é tecnologia, de forma simples
 
 Quando falamos em "trabalhar com tecnologia", muita gente pensa apenas em programação.
@@ -215,6 +218,8 @@ O erro é interpretar confusão inicial como prova de incapacidade.
 Confusão, no começo, quase sempre significa só uma coisa:
 
 **você ainda está montando o mapa mental da área.**
+
+![Meme sobre bugs e chefes finais](../99%20-%20Anexos/memes/meme-boss-final-bug.svg)
 
 ## Como usar este guia
 

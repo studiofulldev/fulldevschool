@@ -24,6 +24,8 @@ Isso gera familiaridade, mas não gera domínio.
 
 O objetivo desta etapa é te mostrar como estudar de um jeito que realmente acumule capacidade.
 
+Meme editorial: playlist infinita não é build. É side quest sem fim.
+
 ## Como estudar sozinho sem se perder
 
 Estudar sozinho não significa estudar sem estrutura.
@@ -191,6 +193,8 @@ Você está entrando em tutorial infinito quando:
 - escreva o que você faria antes de assistir
 - crie mini desafios próprios
 
+![Meme sobre tutorial infinito](../99%20-%20Anexos/memes/meme-tutorial-infinito.svg)
+
 ## Como pedir ajuda do jeito certo
 
 Pedir ajuda é parte da aprendizagem.
@@ -241,6 +245,8 @@ Exemplo melhor do que buscar heroísmo:
 Você não precisa de rotina perfeita.
 
 Precisa de continuidade suficiente para não recomeçar toda semana.
+
+Em português claro: você não precisa estudar como protagonista de anime em arco de treinamento. Você precisa aparecer todo dia o bastante para o jogo não resetar.
 
 ## Como medir se está evoluindo
 

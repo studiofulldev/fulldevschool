@@ -90,6 +90,8 @@ No mínimo, pratique até conseguir fazer isso sem hesitar:
 
 Se você salva tudo em `Downloads`, ainda não organizou nada.
 
+Piada honesta de iniciante: a pasta `Downloads` já destruiu mais produtividade do que muito bug de sistema.
+
 ## Como usar melhor o Explorador de Arquivos
 
 No Windows, o **File Explorer** é a ferramenta principal para localizar, abrir, mover e organizar arquivos e pastas.
@@ -160,6 +162,8 @@ O ideal é:
 - manter poucas abas realmente úteis
 - salvar o que importa em favoritos
 - fechar o que não está usando
+
+![Meme sobre abas demais](../99%20-%20Anexos/memes/meme-abas-do-caos.svg)
 
 ## Como pesquisar no Google sem desperdiçar tempo
 
@@ -309,6 +313,8 @@ Sempre que usar IA:
 1. verifique se a resposta faz sentido
 2. compare com fonte confiável quando necessário
 3. tente reproduzir por conta própria
+
+Referência gamer rápida: usar IA para tudo é tipo pedir save state em toda fase. Você até passa, mas não aprende o padrão do inimigo.
 
 ## Sinais de que sua base digital já está melhorando
 
