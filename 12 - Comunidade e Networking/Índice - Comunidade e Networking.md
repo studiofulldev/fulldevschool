@@ -92,6 +92,8 @@ Essa é a etapa em que você reduz atrito com termos técnicos comuns.
   https://fulldev.com.br
 - Apoio complementar:
   [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ### Presença profissional
 

@@ -301,6 +301,8 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
   https://fulldev.com.br
 - Apoio complementar:
   [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ## Verificação por tópico
 

@@ -77,6 +77,8 @@ Essa é a etapa em que você enxerga sua evolução de forma objetiva.
   [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
 - Apoio em português:
   [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ## Verificação por tópico
 

@@ -111,6 +111,8 @@ Essa é a etapa em que você transforma percepção em uma primeira direção ma
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 - Apoio em português:
   [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ### Exploração de áreas específicas
 

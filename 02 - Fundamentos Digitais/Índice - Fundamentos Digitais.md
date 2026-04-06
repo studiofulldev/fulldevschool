@@ -362,6 +362,8 @@ Essa é a etapa em que você começa a entender os conceitos-base do ecossistema
   https://edu.gcfglobal.org/en/internetbasics/
 - Apoio complementar:
   [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ### GitHub como conta importante
 

@@ -92,6 +92,8 @@ Essa é a etapa em que você entende como comunidade pode te ajudar a não camin
   https://fulldev.com.br
 - Apoio complementar:
   [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ## Verificação por tópico
 

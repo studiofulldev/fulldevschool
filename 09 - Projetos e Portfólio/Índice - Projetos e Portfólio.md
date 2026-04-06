@@ -182,6 +182,8 @@ Essa é a etapa em que você aprende a transformar prática em posicionamento pr
   https://roadmap.sh/
 - Apoio em português:
   [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ## Verificação por tópico
 

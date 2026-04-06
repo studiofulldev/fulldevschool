@@ -298,6 +298,8 @@ Essa é a etapa em que você começa a comparar caminhos reais dentro da área d
   https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
 - Apoio em português:
   [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ### Escrita, notas e registro de aprendizagem
 

@@ -12,6 +12,7 @@
 
 - [[Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 - [[Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
+- [[Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 Esta etapa existe para te dar apoio de estudo sem te afogar em link aleatório.
 
