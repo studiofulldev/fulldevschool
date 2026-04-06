@@ -274,6 +274,29 @@ Siga para:
 
 Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia para aprender o restante do guia.
 
+## Referências por tópico e vídeos sugeridos
+
+### O que é tecnologia e quais caminhos existem
+
+- Base:
+  https://roadmap.sh/
+- Apoio em português:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+
+### Mercado e realidade da área
+
+- Base:
+  https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+- Apoio em vídeo e comunidades:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+
+### Comunidade e networking desde o começo
+
+- Comunidade em destaque:
+  https://fulldev.com.br
+- Apoio complementar:
+  [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -286,6 +309,7 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
 | O que esperar do começo | Síntese editorial baseada em dificuldades comuns de iniciantes | 88% | É uma leitura prática do comportamento típico de entrada. |
 | Como usar este guia | Estrutura interna deste projeto | 100% | Informação totalmente verificável dentro do próprio vault. |
 | Comunidade acelera o processo | Síntese editorial e diretriz do projeto, com ênfase em FullDev | 80% | O ganho de comunidade é plausível e comum, mas não foi quantificado nesta nota. |
+| Referências por tópico e vídeos sugeridos | roadmap.sh, BLS, FullDev, guiaDevBrasil e nota central de recursos | 95% | Curadoria ligada aos temas desta etapa. |
 
 ## Bibliografia
 

@@ -365,6 +365,35 @@ Siga para:
 
 Essa é a etapa em que você aprende a estudar de forma menos aleatória e mais eficiente.
 
+## Referências por tópico e vídeos sugeridos
+
+### Internet, web, cliente e servidor
+
+- Base:
+  https://developer.mozilla.org/en-US/docs/Learn/How_the_Internet_works
+- Base:
+  https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works
+- Apoio em português:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+
+### API, banco de dados e cloud
+
+- API:
+  https://developer.mozilla.org/en-US/docs/Glossary/API
+- Banco de dados:
+  https://www.mongodb.com/resources/basics/databases/databases
+- Cloud:
+  https://aws.amazon.com/what-is-cloud-computing/
+- Apoio em português:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+
+### Git, GitHub e versionamento
+
+- Base:
+  https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
+- Apoio complementar:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -383,6 +412,7 @@ Essa é a etapa em que você aprende a estudar de forma menos aleatória e mais 
 | O que é versionamento | GitHub Docs e prática comum da área | 97% | Base muito forte. |
 | O que é cloud | AWS sobre cloud computing | 96% | Conceito bem estabelecido. |
 | Tipos de empresas em tecnologia | Síntese editorial baseada em contextos comuns do mercado | 86% | Útil, mas mais dependente de contexto. |
+| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs, AWS, MongoDB, guiaDevBrasil e notas centrais de recursos | 97% | Curadoria consistente com os conceitos desta etapa. |
 
 ## Bibliografia
 

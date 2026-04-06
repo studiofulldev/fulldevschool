@@ -84,6 +84,22 @@ Siga para:
 
 Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 
+## Referências por tópico e vídeos sugeridos
+
+### Comunidade e networking
+
+- Comunidade em destaque:
+  https://fulldev.com.br
+- Apoio em português:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+
+### Presença profissional
+
+- Base:
+  https://docs.github.com/
+- Apoio complementar:
+  [[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -94,6 +110,7 @@ Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 | Como usar LinkedIn | Síntese editorial | 88% | Útil, mas generalizada. |
 | Como participar de comunidades | Síntese editorial | 87% | Orientação prática, não regra absoluta. |
 | Como construir presença | Síntese editorial | 86% | Boa diretriz inicial. |
+| Referências por tópico e vídeos sugeridos | FullDev, GitHub Docs, guiaDevBrasil e links internos do vault | 95% | Curadoria útil para comunidade e presença profissional. |
 
 ## Bibliografia
 

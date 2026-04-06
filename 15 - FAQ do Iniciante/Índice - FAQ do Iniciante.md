@@ -60,6 +60,24 @@ Siga para:
 
 Essa é a etapa em que você enxerga sua evolução de forma objetiva.
 
+## Referências por tópico e vídeos sugeridos
+
+### Faculdade, mercado e tempo até vaga
+
+- Base:
+  https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+- Apoio complementar:
+  [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+
+### Inglês, prática e rotina de estudo
+
+- Apoio principal:
+  [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
+- Apoio principal:
+  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+- Apoio em português:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -69,6 +87,7 @@ Essa é a etapa em que você enxerga sua evolução de forma objetiva.
 | Idade | Diretriz editorial | 82% | Importante para destravar, mas contextual. |
 | Matemática | Síntese editorial por área | 84% | Generalização prudente. |
 | Tempo até vaga | Síntese editorial coerente com variação real de contexto | 88% | Forte como alerta contra promessas irreais. |
+| Referências por tópico e vídeos sugeridos | BLS e links internos do vault | 94% | Curadoria boa para reforçar respostas recorrentes. |
 
 ## Bibliografia
 

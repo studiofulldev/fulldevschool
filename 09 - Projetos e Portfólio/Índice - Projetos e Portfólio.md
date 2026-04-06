@@ -165,6 +165,24 @@ Siga para:
 
 Essa é a etapa em que você aprende a transformar prática em posicionamento profissional.
 
+## Referências por tópico e vídeos sugeridos
+
+### Publicação de projetos e README
+
+- Base:
+  https://docs.github.com/
+- Base:
+  https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
+- Apoio complementar:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+
+### Ideias de projeto por área
+
+- Roadmaps:
+  https://roadmap.sh/
+- Apoio em português:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -178,6 +196,7 @@ Essa é a etapa em que você aprende a transformar prática em posicionamento pr
 | Como montar portfólio | Síntese editorial | 86% | Boa diretriz, mas não regra rígida. |
 | O que evitar | Síntese editorial | 88% | Muito útil como filtro prático. |
 | Critério prático de projeto bom o suficiente | Síntese editorial | 89% | Muito útil para destravar perfeccionismo. |
+| Referências por tópico e vídeos sugeridos | GitHub Docs, roadmap.sh, guiaDevBrasil e nota central de recursos | 96% | Curadoria forte para transformar estudo em evidência. |
 
 ## Bibliografia
 

@@ -101,6 +101,28 @@ Siga para:
 
 Essa é a etapa em que você transforma percepção em uma primeira direção mais concreta.
 
+## Referências por tópico e vídeos sugeridos
+
+### Comparação de caminhos
+
+- Base:
+  https://roadmap.sh/
+- Base:
+  https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+- Apoio em português:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+
+### Exploração de áreas específicas
+
+- Navegação prática:
+  [[Áreas Principais/Desenvolvimento Frontend|Desenvolvimento Frontend]]
+- Navegação prática:
+  [[Áreas Principais/Desenvolvimento Backend|Desenvolvimento Backend]]
+- Navegação prática:
+  [[Áreas Principais/Dados|Dados]]
+- Navegação prática:
+  [[Áreas Principais/QA e Testes|QA e Testes]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -109,6 +131,7 @@ Essa é a etapa em que você transforma percepção em uma primeira direção ma
 | Como usar esta etapa | Diretriz editorial do guia | 92% | Orientação prática confiável. |
 | O que observar em cada área | Template de áreas e estratégia editorial | 95% | Muito alinhado ao desenho do projeto. |
 | Regra importante sobre escolha de área | Síntese editorial baseada em risco de hype | 86% | Orientação prática, mas interpretativa. |
+| Referências por tópico e vídeos sugeridos | roadmap.sh, BLS, guiaDevBrasil e links internos do vault | 97% | Curadoria alinhada à comparação de caminhos. |
 
 ## Bibliografia
 

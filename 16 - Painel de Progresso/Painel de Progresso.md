@@ -38,12 +38,27 @@ Use para:
 
 Se alguma etapa estiver faltando, volte para ela e resolva uma coisa por vez.
 
+## Referências por tópico e próximos retornos úteis
+
+### Base e direção
+
+- [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+- [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
+- [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+
+### Prática e empregabilidade
+
+- [[../09 - Projetos e Portfólio/Índice - Projetos e Portfólio|10 - Projetos e Portfólio]]
+- [[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+- [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Checklist principal | Estrutura real do guia | 100% | Totalmente verificável no vault. |
 | Como usar este painel | Diretriz editorial do projeto | 96% | Muito coerente com a proposta. |
+| Referências por tópico e próximos retornos úteis | Links internos do vault | 100% | Totalmente verificável no guia. |
 
 ## Bibliografia
 

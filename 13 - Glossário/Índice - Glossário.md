@@ -43,12 +43,29 @@ Siga para:
 
 Essa é a etapa em que você encontra materiais de apoio selecionados.
 
+## Referências por tópico e vídeos sugeridos
+
+### Termos gerais de web e tecnologia
+
+- Base:
+  https://developer.mozilla.org/en-US/docs/Glossary
+- Apoio complementar:
+  [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+
+### Git, GitHub e repositórios
+
+- Base:
+  https://docs.github.com/
+- Apoio em vídeo:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Propósito do glossário | Estrutura do guia | 99% | Totalmente verificável. |
 | Termos essenciais | Uso técnico comum e notas já criadas no projeto | 94% | Definições simples e confiáveis. |
+| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs e links internos do vault | 97% | Curadoria coerente com o papel de consulta desta etapa. |
 
 ## Bibliografia
 

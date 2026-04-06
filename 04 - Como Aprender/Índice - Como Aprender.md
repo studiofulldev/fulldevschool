@@ -282,6 +282,24 @@ Siga para:
 
 Essa é a etapa em que você começa a comparar caminhos reais dentro da área de tecnologia.
 
+## Referências por tópico e vídeos sugeridos
+
+### Pesquisa, prática e documentação
+
+- Base:
+  https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Soft_skills/Learning_and_getting_help
+- Base:
+  https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
+- Apoio em português:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+
+### Escrita, notas e registro de aprendizagem
+
+- Base:
+  https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
+- Apoio complementar:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -298,6 +316,7 @@ Essa é a etapa em que você começa a comparar caminhos reais dentro da área d
 | Como usar IA sem sabotar seu aprendizado | MDN Learning and Getting Help | 90% | Há recomendação explícita de cautela, com parte editorial adicional. |
 | Rotina vence intensidade | Síntese editorial sobre consistência de estudo | 83% | Útil e coerente, mas sem métrica rígida nesta nota. |
 | Como medir se está evoluindo | Síntese editorial baseada em sinais observáveis de progresso | 85% | Critérios práticos, mas não padronizados cientificamente aqui. |
+| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs, guiaDevBrasil e nota central de recursos | 96% | Curadoria forte para reforçar o método de estudo. |
 
 ## Bibliografia
 

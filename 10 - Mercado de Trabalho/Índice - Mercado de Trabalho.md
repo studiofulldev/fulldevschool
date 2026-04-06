@@ -142,6 +142,24 @@ Siga para:
 
 Essa é a etapa em que você fortalece a parte mental do processo.
 
+## Referências por tópico e vídeos sugeridos
+
+### Contexto de mercado e ocupações
+
+- Base:
+  https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+- Apoio complementar:
+  [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+
+### GitHub, currículo e presença profissional
+
+- Base:
+  https://docs.github.com/
+- Comunidade e networking:
+  https://fulldev.com.br
+- Apoio em português:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -156,6 +174,7 @@ Essa é a etapa em que você fortalece a parte mental do processo.
 | Perguntas que você precisa treinar | Síntese editorial | 89% | Muito coerente com entrevistas iniciais. |
 | Primeiras candidaturas | Diretriz editorial do guia | 89% | Boa estratégia prática, mas não universal. |
 | Sinais de que você já pode começar a aplicar | Síntese editorial | 88% | Muito útil para destravar paralisia. |
+| Referências por tópico e vídeos sugeridos | BLS, GitHub Docs, FullDev e guiaDevBrasil | 95% | Curadoria útil para ligar estudo e posicionamento profissional. |
 
 ## Bibliografia
 

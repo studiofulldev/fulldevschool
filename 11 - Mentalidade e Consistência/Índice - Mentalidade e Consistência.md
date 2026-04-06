@@ -77,6 +77,22 @@ Siga para:
 
 Essa é a etapa em que você entende como comunidade pode te ajudar a não caminhar sozinho.
 
+## Referências por tópico e vídeos sugeridos
+
+### Consistência e expectativa real
+
+- Apoio principal:
+  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+- Contexto de mercado:
+  https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+
+### Comunidade e apoio durante a jornada
+
+- Comunidade em destaque:
+  https://fulldev.com.br
+- Apoio complementar:
+  [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
@@ -86,6 +102,7 @@ Essa é a etapa em que você entende como comunidade pode te ajudar a não camin
 | Síndrome do impostor | Síntese editorial | 82% | Útil como leitura psicológica inicial. |
 | Comparação | Síntese editorial | 85% | Muito coerente com comportamento comum de iniciantes. |
 | Expectativas reais | Diretriz editorial do guia | 92% | Central para a proposta do projeto. |
+| Referências por tópico e vídeos sugeridos | BLS, FullDev e links internos do vault | 92% | Curadoria de apoio coerente com a etapa. |
 
 ## Bibliografia
 

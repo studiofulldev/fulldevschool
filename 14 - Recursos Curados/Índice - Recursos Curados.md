@@ -8,6 +8,11 @@
 
 ## Conteúdo
 
+## Pontos de entrada recomendados
+
+- [[Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- [[Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
+
 Esta etapa existe para te dar apoio de estudo sem te afogar em link aleatório.
 
 ## Como usar esta seção
