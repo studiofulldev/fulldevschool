@@ -332,6 +332,8 @@ Toda nota de área deve seguir o mesmo template:
 8. Como começar em 30 dias
 9. Primeiro projeto
 10. Próximos links internos
+11. Verificação por tópico
+12. Bibliografia final
 
 ### Modelo para notas de trilha
 
@@ -343,6 +345,8 @@ Toda nota de área deve seguir o mesmo template:
 6. Critério de progresso
 7. Erros comuns
 8. Recursos complementares
+9. Verificação por tópico
+10. Bibliografia final
 
 ### Modelo para notas de recurso
 
@@ -398,6 +402,9 @@ Tags sugeridas:
 - Sempre que possível, incluir exemplos concretos
 - Sempre separar opinião de dado de mercado
 - Priorizar conteúdo evergreen e atualizar o que envelhece rápido
+- Toda nota deve encerrar com bibliografia
+- Toda nota deve indicar, por tópico, uma **taxa de assertividade**
+- A taxa de assertividade deve distinguir dado verificado de síntese editorial
 
 ---
 

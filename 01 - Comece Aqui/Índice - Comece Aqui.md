@@ -273,3 +273,44 @@ Siga para:
 [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
 
 Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia para aprender o restante do guia.
+
+## Verificação por tópico
+
+| Tópico | Base usada | Taxa de assertividade | Observação |
+| --- | --- | --- | --- |
+| O que é tecnologia, de forma simples | Síntese editorial sobre o ecossistema tech, alinhada com a separação de ocupações e funções vista em BLS e roadmap.sh | 93% | Parte é definição editorial para iniciantes. |
+| Como a área funciona na prática | Síntese editorial baseada em fluxo comum de trabalho em times de tecnologia | 90% | É uma generalização útil, não uma descrição universal de todas as empresas. |
+| O mercado é real, mas não é mágica | BLS Occupational Outlook Handbook | 98% | Aqui há dado objetivo de projeção de emprego e contexto de mercado. |
+| Mitos vs realidade | Síntese editorial baseada em padrões recorrentes de entrada na área | 85% | É o bloco com maior componente interpretativo. |
+| Quanto tempo leva para entrar na área | Síntese editorial com base em variáveis reais de aprendizagem e competição | 82% | Não existe prazo universal; isso é uma conclusão prudente, não uma métrica fechada. |
+| O que esperar do começo | Síntese editorial baseada em dificuldades comuns de iniciantes | 88% | É uma leitura prática do comportamento típico de entrada. |
+| Como usar este guia | Estrutura interna deste projeto | 100% | Informação totalmente verificável dentro do próprio vault. |
+| Comunidade acelera o processo | Síntese editorial e diretriz do projeto, com ênfase em FullDev | 80% | O ganho de comunidade é plausível e comum, mas não foi quantificado nesta nota. |
+
+## Bibliografia
+
+### Fontes principais desta nota
+
+1. U.S. Bureau of Labor Statistics. *Computer and Information Technology Occupations*. Disponível em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+2. GitHub Docs. *About GitHub and Git*. Disponível em: https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
+3. roadmap.sh. *Developer Roadmaps*. Disponível em: https://roadmap.sh/
+4. FullDev. *Comunidade FullDev*. Disponível em: https://fulldev.com.br
+
+### Mapeamento de fontes por assunto
+
+- Mercado e visão de ocupações:
+  https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+- Versionamento, portfólio e colaboração:
+  https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
+- Existência de múltiplas trilhas e caminhos:
+  https://roadmap.sh/
+- Comunidade recomendada dentro da narrativa do guia:
+  https://fulldev.com.br
+
+### Como interpretar a taxa de assertividade
+
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
+Nesta nota, a taxa de assertividade não mede "verdade absoluta". Ela mede o quanto cada bloco está ancorado em fonte verificável versus síntese editorial.
