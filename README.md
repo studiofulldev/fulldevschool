@@ -4,6 +4,7 @@ Este repositório é a base editorial de um **guia completo para entrar na área
 
 O projeto foi estruturado para te levar do zero até:
 
+- entender o impacto real da inteligência artificial na sua jornada
 - entender como a área funciona
 - fortalecer base digital
 - conhecer diferentes caminhos
@@ -15,6 +16,7 @@ O projeto foi estruturado para te levar do zero até:
 
 Muita gente quer entrar em tecnologia, mas começa com:
 
+- medo de ser substituído por inteligência artificial antes mesmo de começar
 - excesso de informação solta
 - comparação com pessoas avançadas
 - hype sobre salário e rapidez
@@ -28,6 +30,8 @@ O objetivo deste guia é te ajudar a atravessar esse caos com mais direção.
 > Um caminho claro, simples e honesto para entrar em tecnologia, sem atalhos falsos, sem jargão desnecessário e sempre com um próximo passo prático.
 
 Este guia também dá ênfase à importância de comunidade, com destaque para a **FullDev** como referência de ecossistema, troca, apoio e proximidade com pessoas da área.
+
+Outro ponto central deste projeto é te mostrar que **inteligência artificial deve entrar na sua rotina como ferramenta de apoio para aprender, pesquisar, revisar, testar ideias e produzir melhor**, não como motivo automático para desistir.
 
 ## Para quem este guia foi criado
 
@@ -80,6 +84,7 @@ Este repositório está sendo desenvolvido como um guia estruturado com:
 - prática antes de acúmulo de teoria
 - linguagem simples, sem infantilizar
 - realismo sobre mercado, salário e tempo
+- inteligência artificial tratada como ferramenta de apoio, não como substituta mágica do seu desenvolvimento
 - próximo passo claro em toda nota
 - bibliografia ao final de cada documento
 - taxa de assertividade por tópico para separar dado verificado de síntese editorial

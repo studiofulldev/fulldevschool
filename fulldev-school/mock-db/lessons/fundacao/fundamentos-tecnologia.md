@@ -1,16 +1,16 @@
 ---
 id: fundamentos-tecnologia
 slug: fundamentos-tecnologia
-title: 4 - Fundamentos de Tecnologia
+title: 5 - Fundamentos de Tecnologia
 section: fundacao
-order: 4
+order: 5
 previousLessonId: fundamentos-digitais
 nextLessonId: como-aprender
 estimatedReadingMinutes: 8
 estimatedListeningMinutes: 7
 ---
 
-# 4 - Fundamentos de Tecnologia
+# 5 - Fundamentos de Tecnologia
 
 ## mapa-basico
 

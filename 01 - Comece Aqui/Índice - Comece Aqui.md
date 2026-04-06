@@ -8,6 +8,124 @@
 
 ## Conteúdo
 
+## Inteligência artificial, medo de substituição e realidade do mercado
+
+Se você está pensando em entrar na área hoje, existe uma chance enorme de a sua primeira trava não ser lógica, inglês ou computador.
+
+Pode ser medo.
+
+Medo de estudar e descobrir depois que a IA "acabou com tudo".
+Medo de começar tarde demais.
+Medo de investir energia em uma área que parece mudar toda semana.
+
+Esse medo não é bobo.
+
+Ele existe porque a inteligência artificial realmente está mudando a forma como muita coisa é feita. O erro não está em sentir esse medo. O erro está em transformar esse medo em paralisia antes de entender o que de fato está acontecendo.
+
+O ponto mais importante desta etapa é este:
+
+**a IA muda ferramentas, fluxos e exigências. Isso não significa que ela apaga automaticamente a necessidade de gente capaz de entender problema, validar contexto, tomar decisão, conversar com pessoas, revisar resultado, integrar sistemas e aprender continuamente.**
+
+Segundo o **Future of Jobs Report 2025** do World Economic Forum, mudanças ligadas a IA, dados e automação estão entre os principais motores de transformação do mercado, mas o mesmo movimento também aumenta a demanda por capacidades como pensamento analítico, aprendizagem contínua e domínio tecnológico. Em português claro: o jogo mudou, mas ainda existe jogo.
+
+## O que a IA ameaça de verdade
+
+A IA tende a pressionar mais tarefas:
+
+- repetitivas
+- previsíveis
+- pouco contextualizadas
+- fáceis de copiar em padrão
+
+Isso vale dentro e fora da tecnologia.
+
+Se o seu valor estiver só em repetir tutorial, copiar código sem entender ou executar tarefa mecânica sem senso crítico, o risco aumenta.
+
+Se o seu valor estiver em:
+
+- entender objetivo
+- formular pergunta boa
+- revisar saída
+- conectar ferramenta com problema real
+- aprender rápido
+- colaborar com outras pessoas
+
+então a IA vira muito mais uma alavanca do que uma sentença.
+
+## O que a IA cria de oportunidade para quem está começando
+
+Para quem está entrando agora, a IA também trouxe vantagens reais:
+
+- acelerar pesquisa
+- resumir documentação
+- gerar exemplos iniciais
+- ajudar a destravar erros
+- simular entrevistas
+- revisar texto, currículo e portfólio
+- servir como apoio de estudo quando você ainda não sabe fazer boas perguntas para pessoas da área
+
+Isso não substitui prática.
+
+Mas reduz atrito.
+
+Na prática, muita gente hoje consegue aprender mais rápido porque usa IA como:
+
+- copiloto de estudo
+- apoio para brainstorming
+- tradutor técnico
+- explicador de conceitos
+- revisor de código e texto
+
+## Como usar IA sem sabotar o seu crescimento
+
+O uso ruim da IA é terceirizar pensamento.
+
+O uso bom é acelerar aprendizado com validação.
+
+Uma regra simples:
+
+**não peça só resposta. Peça explicação, comparação, exemplo, contraexemplo, checklist, revisão e perguntas para você responder sozinho.**
+
+Boas formas de usar IA no começo:
+
+- pedir explicação em linguagem simples
+- pedir um plano de estudo curto
+- pedir quiz de revisão
+- pedir ajuda para interpretar erro
+- pedir feedback em projeto pequeno
+- pedir reescrita de currículo e apresentação profissional
+
+Formas ruins de usar IA:
+
+- copiar código sem entender
+- estudar só por resumo
+- usar resposta pronta como se fosse conhecimento seu
+- deixar a IA decidir tudo por você
+
+## Então ainda vale a pena entrar na área?
+
+Se a sua pergunta for "existe garantia?", a resposta continua não.
+
+Se a sua pergunta for "ainda existe espaço para gente boa, adaptável e capaz de usar IA a favor?", a resposta continua sim.
+
+A área de tecnologia não ficou fácil. Ela ficou mais exigente.
+
+Hoje, além de aprender fundamentos, você também ganha vantagem quando sabe:
+
+- pesquisar melhor
+- usar IA com critério
+- validar informação
+- aprender em público
+- mostrar raciocínio e projeto real
+
+Em outras palavras:
+
+**não basta disputar contra outras pessoas. Em muitos casos, você também vai disputar contra a automação de tarefas rasas.**
+
+A solução não é fugir.
+
+A solução é construir profundidade suficiente para não depender só de tarefa rasa.
+
 Se você está chegando agora, a primeira coisa importante é esta:
 
 **entrar na área de tecnologia não começa escolhendo linguagem, framework ou salário.**
@@ -233,6 +351,10 @@ A ordem recomendada é:
 6. escolher um caminho
 7. começar prática e portfólio
 
+E daqui para frente, existe uma regra transversal neste material:
+
+**sempre que fizer sentido, você deve enxergar inteligência artificial como ferramenta de apoio para aprender, testar, revisar e produzir melhor.**
+
 Se você tentar pular direto para trilhas avançadas sem base, a chance de travar aumenta.
 
 ## Como extrair valor real deste material
@@ -290,8 +412,19 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
 
 - Base:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+- Base complementar:
+  https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
 - Apoio em vídeo e comunidades:
   [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+
+### IA, automação e adaptação profissional
+
+- Base:
+  https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
+- Base complementar:
+  https://www.microsoft.com/en-us/worklab/work-trend-index
+- Apoio complementar:
+  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
 
 ### Comunidade e networking desde o começo
 
@@ -307,6 +440,10 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | O que é tecnologia, de forma simples | Síntese editorial sobre o ecossistema tech, alinhada com a separação de ocupações e funções vista em BLS e roadmap.sh | 93% | Parte é definição editorial para iniciantes. |
+| Inteligência artificial, medo de substituição e realidade do mercado | World Economic Forum, BLS e síntese editorial prudente | 91% | O medo é real e a interpretação de impacto para iniciantes exige síntese, não só dado bruto. |
+| O que a IA ameaça de verdade | Síntese editorial consistente com automação de tarefas repetitivas | 88% | É uma leitura prática, não uma lei universal para todos os contextos. |
+| O que a IA cria de oportunidade para quem está começando | Síntese editorial baseada em usos práticos já difundidos no mercado | 86% | A utilidade depende da forma de uso e da capacidade de validação. |
+| Como usar IA sem sabotar o seu crescimento | Síntese editorial com base em boas práticas de aprendizagem assistida | 87% | Orientação forte, mas ainda dependente de contexto individual. |
 | Como a área funciona na prática | Síntese editorial baseada em fluxo comum de trabalho em times de tecnologia | 90% | É uma generalização útil, não uma descrição universal de todas as empresas. |
 | O mercado é real, mas não é mágica | BLS Occupational Outlook Handbook | 98% | Aqui há dado objetivo de projeção de emprego e contexto de mercado. |
 | Mitos vs realidade | Síntese editorial baseada em padrões recorrentes de entrada na área | 85% | É o bloco com maior componente interpretativo. |
@@ -323,12 +460,18 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
 1. U.S. Bureau of Labor Statistics. *Computer and Information Technology Occupations*. Disponível em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 2. GitHub Docs. *About GitHub and Git*. Disponível em: https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
 3. roadmap.sh. *Developer Roadmaps*. Disponível em: https://roadmap.sh/
-4. FullDev. *Comunidade FullDev*. Disponível em: https://fulldev.com.br
+4. World Economic Forum. *Future of Jobs Report 2025*. Disponível em: https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
+5. Microsoft WorkLab. *Work Trend Index*. Disponível em: https://www.microsoft.com/en-us/worklab/work-trend-index
+6. FullDev. *Comunidade FullDev*. Disponível em: https://fulldev.com.br
 
 ### Mapeamento de fontes por assunto
 
 - Mercado e visão de ocupações:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+- Transformação do trabalho, IA e habilidades:
+  https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
+- Tendências de trabalho com IA:
+  https://www.microsoft.com/en-us/worklab/work-trend-index
 - Versionamento, portfólio e colaboração:
   https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
 - Existência de múltiplas trilhas e caminhos:

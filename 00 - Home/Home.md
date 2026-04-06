@@ -12,6 +12,7 @@ Este é um **guia completo para entrar na área de tecnologia**, criado por Luca
 
 O projeto foi estruturado para te levar do zero até:
 
+- entender o impacto real da inteligência artificial na sua jornada
 - entender como a área funciona
 - fortalecer base digital
 - conhecer diferentes caminhos
@@ -23,6 +24,7 @@ O projeto foi estruturado para te levar do zero até:
 
 Muita gente quer entrar em tecnologia, mas começa com:
 
+- medo de ser substituído por inteligência artificial antes mesmo de começar
 - excesso de informação solta
 - comparação com pessoas avançadas
 - hype sobre salário e rapidez
@@ -36,6 +38,8 @@ O objetivo deste guia é te ajudar a atravessar esse caos com mais direção.
 > Um caminho claro, simples e honesto para entrar em tecnologia, sem atalhos falsos, sem jargão desnecessário e sempre com um próximo passo prático.
 
 Este guia também dá ênfase à importância de comunidade, com destaque para a **FullDev** como referência de ecossistema, troca, apoio e proximidade com pessoas da área.
+
+Outro ponto central deste projeto é te mostrar que **inteligência artificial não deve ser tratada como sentença de fim de carreira, e sim como ferramenta de apoio, produtividade, estudo, pesquisa e execução**.
 
 ## O que está sendo construído aqui
 
@@ -77,6 +81,7 @@ Este projeto está sendo desenvolvido como um guia estruturado com:
 ## Ordem principal de navegação
 
 1. [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+   O primeiro assunto que você deve absorver nessa etapa é o medo de substituição por IA, a realidade do mercado e como usar IA como ferramenta de apoio.
 2. [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
 3. [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
 4. [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
@@ -102,6 +107,7 @@ Este projeto está sendo desenvolvido como um guia estruturado com:
 - prática antes de acúmulo de teoria
 - linguagem simples, sem infantilizar
 - realismo sobre mercado, salário e tempo
+- inteligência artificial tratada como ferramenta de apoio, não como substituta mágica do seu desenvolvimento
 - próximo passo claro em toda nota
 - bibliografia ao final de cada documento
 - taxa de assertividade por tópico para separar dado verificado de síntese editorial

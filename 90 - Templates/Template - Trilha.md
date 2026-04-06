@@ -16,6 +16,8 @@
 
 ## Ferramentas
 
+## Como usar inteligência artificial como apoio na trilha
+
 ## Exercícios e projetos
 
 ## Critério para avançar
@@ -32,6 +34,7 @@
 | Pré-requisitos |  |  |  |
 | Ordem sugerida |  |  |  |
 | Ferramentas |  |  |  |
+| Como usar inteligência artificial como apoio na trilha |  |  |  |
 | Exercícios e projetos |  |  |  |
 | Critério para avançar |  |  |  |
 | Erros comuns |  |  |  |

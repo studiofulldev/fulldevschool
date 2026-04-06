@@ -1,15 +1,15 @@
 ---
 id: como-aprender
 slug: como-aprender
-title: 5 - Como Aprender
+title: 6 - Como Aprender
 section: fundacao
-order: 5
+order: 6
 previousLessonId: fundamentos-tecnologia
 estimatedReadingMinutes: 8
 estimatedListeningMinutes: 7
 ---
 
-# 5 - Como Aprender
+# 6 - Como Aprender
 
 ## estudar-direito
 

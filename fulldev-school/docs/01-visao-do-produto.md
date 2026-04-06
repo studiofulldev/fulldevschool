@@ -28,9 +28,13 @@ Isso cria limitações para:
 - retenção por leitura guiada
 - futuras features de progresso, favoritos e trilhas personalizadas
 
+Além disso, o início da jornada de muita gente hoje é travado por medo de substituição por IA, confusão sobre mercado e dúvida sobre ainda valer a pena entrar na área. O produto precisa enfrentar esse tema logo no começo, sem hype e sem fatalismo.
+
 ## Objetivo principal
 
 Transformar o guia em uma aplicação web educacional com navegação clara, boa legibilidade e suporte a áudio.
+
+Também é objetivo do produto reforçar a IA como ferramenta de apoio transversal para estudo, prática, revisão e produtividade.
 
 ## Objetivos da V1
 
@@ -39,6 +43,7 @@ Transformar o guia em uma aplicação web educacional com navegação clara, boa
 - carregar páginas a partir de um banco de dados mockado
 - reproduzir áudio por página
 - preparar sincronização entre áudio e blocos de texto
+- abrir a jornada com uma etapa clara sobre IA, mercado, medo e oportunidade
 
 ## Fora da V1
 
@@ -55,4 +60,5 @@ Transformar o guia em uma aplicação web educacional com navegação clara, boa
 - arquitetura escalável desde a base
 - conteúdo desacoplado da interface
 - áudio como apoio, não como enfeite
+- inteligência artificial tratada como ferramenta de apoio, não como atalho mágico nem como sentença de substituição
 - baixo atrito para evoluir depois para site público

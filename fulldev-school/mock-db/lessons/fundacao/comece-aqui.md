@@ -1,16 +1,16 @@
 ---
 id: comece-aqui
 slug: comece-aqui
-title: 2 - Comece Aqui
+title: 3 - Comece Aqui
 section: fundacao
-order: 2
-previousLessonId: home
+order: 3
+previousLessonId: ia-mercado-e-oportunidade
 nextLessonId: fundamentos-digitais
 estimatedReadingMinutes: 8
 estimatedListeningMinutes: 7
 ---
 
-# 2 - Comece Aqui
+# 3 - Comece Aqui
 
 ## intro
 
@@ -26,9 +26,10 @@ Você precisa primeiro entender:
 - como ela funciona
 - quais caminhos existem
 - qual é o seu próximo passo
+- como usar IA como ferramenta sem terceirizar completamente o seu crescimento
 
 ## mercado
 
 O mercado existe, mas não é mágica.
 
-Você vai precisar de base, prática e consistência.
+Você vai precisar de base, prática, consistência e capacidade de usar ferramentas novas com critério.

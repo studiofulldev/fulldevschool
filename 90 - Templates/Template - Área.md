@@ -16,6 +16,8 @@
 
 ## Ferramentas comuns
 
+## Como a inteligência artificial pode te auxiliar nesta área
+
 ## Perfil mais compatível
 
 ## Prós e contras
@@ -34,6 +36,7 @@
 | O que essa pessoa faz |  |  |  |
 | Exemplo real |  |  |  |
 | Ferramentas comuns |  |  |  |
+| Como a inteligência artificial pode te auxiliar nesta área |  |  |  |
 | Perfil mais compatível |  |  |  |
 | Prós e contras |  |  |  |
 | Dificuldades do início |  |  |  |

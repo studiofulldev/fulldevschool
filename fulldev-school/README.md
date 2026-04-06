@@ -11,6 +11,8 @@ A proposta é transformar o conteúdo editorial deste repositório em uma aplica
 - destaque sincronizado de trechos durante a narração
 - suporte a conteúdo em formato estruturado, tratado como um banco de dados mockado
 
+Um dos primeiros assuntos da plataforma deve ser o medo de substituição por IA, tratado de forma prática e honesta. A linha editorial da Fulldev School deve reforçar a IA como ferramenta de apoio para estudo, pesquisa, revisão, simulação e produtividade ao longo de toda a jornada.
+
 ## Objetivo desta pasta
 
 Esta pasta existe para concentrar a fundação técnica do produto:
@@ -39,6 +41,17 @@ Já existe uma base funcional da aplicação Angular com:
 - carregamento de lição a partir do `mock-db`
 - player fixo no rodapé usando TTS como primeira versão
 - underline sincronizado por bloco durante a leitura
+
+## Diretriz editorial de IA
+
+Na Fulldev School, inteligência artificial não entra como propaganda vazia nem como discurso apocalíptico.
+
+Ela entra como:
+
+- tema central de contexto de mercado
+- ferramenta de apoio ao estudo
+- copiloto para prática orientada
+- camada transversal a todas as trilhas e áreas
 
 ## Voz mais natural
 

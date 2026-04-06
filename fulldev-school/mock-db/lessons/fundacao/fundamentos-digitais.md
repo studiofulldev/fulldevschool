@@ -1,16 +1,16 @@
 ---
 id: fundamentos-digitais
 slug: fundamentos-digitais
-title: 3 - Fundamentos Digitais
+title: 4 - Fundamentos Digitais
 section: fundacao
-order: 3
+order: 4
 previousLessonId: comece-aqui
 nextLessonId: fundamentos-tecnologia
 estimatedReadingMinutes: 7
 estimatedListeningMinutes: 6
 ---
 
-# 3 - Fundamentos Digitais
+# 4 - Fundamentos Digitais
 
 ## autonomia-minima
 
