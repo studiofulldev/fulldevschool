@@ -15,9 +15,9 @@
 
     <mat-divider />
 
-    <nav class="nav Box Box--condensed">
+    <nav class="nav">
       @for (section of navSections(); track section.key) {
-        <section class="nav__section Box Box--condensed">
+        <div class="nav__section">
           <div class="nav__section-label">{{ section.title }}</div>
           <mat-nav-list>
             @for (node of section.nodes; track node.id) {
@@ -32,7 +32,7 @@
               </a>
             }
           </mat-nav-list>
-        </section>
+        </div>
       }
     </nav>
   </mat-sidenav>
@@ -40,10 +40,8 @@
   <mat-sidenav-content class="shell__content">
     <mat-toolbar class="shell__toolbar">
       @if (isHandset()) {
-        <button mat-icon-button type="button" (click)="drawer.toggle()" aria-label="Abrir menu">
-          <svg viewBox="0 0 16 16" class="octicon octicon-three-bars" role="img" aria-hidden="true">
-            <path fill-rule="evenodd" d="M3 12h10v-2H3v2zm0-4h10V6H3v2zm0-4h10V2H3v2z"/>
-          </svg>
+        <button mat-icon-button type="button" (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
         </button>
       }
 
@@ -91,29 +89,20 @@
           mat-icon-button
           type="button"
           (click)="audio.seekToSecond(0)"
-          aria-label="Voltar para o início"
+          aria-label="Voltar para o inicio"
         >
-          <svg viewBox="0 0 16 16" class="octicon octicon-arrow-left" role="img" aria-hidden="true">
-            <path fill-rule="evenodd" d="M11.03 3.47a.75.75 0 0 0-1.06 0L6.22 7.22a.75.75 0 0 0 0 1.06l3.74 3.75a.75.75 0 0 0 1.06-1.06L8.06 8l3.97-3.97a.75.75 0 0 0 0-1.06z"/>
-          </svg>
+          <mat-icon>skip_previous</mat-icon>
         </button>
         <button mat-icon-button type="button" (click)="audio.previous()" aria-label="Voltar">
-          <svg viewBox="0 0 16 16" class="octicon octicon-chevron-left" role="img" aria-hidden="true">
-            <path fill-rule="evenodd" d="M11.03 3.47a.75.75 0 0 0-1.06 0L6.22 7.22a.75.75 0 0 0 0 1.06l3.74 3.75a.75.75 0 0 0 1.06-1.06L8.06 8l3.97-3.97a.75.75 0 0 0 0-1.06z"/>
-          </svg>
+          <mat-icon>replay_10</mat-icon>
         </button>
         <button mat-flat-button type="button" color="primary" (click)="audio.togglePlayback()">
-          <svg viewBox="0 0 16 16" class="octicon" role="img" aria-hidden="true">
-            <path *ngIf="audio.isPlaying()" fill-rule="evenodd" d="M6.25 3.5A1.25 1.25 0 0 0 5 4.75v6.5A1.25 1.25 0 0 0 6.25 12.5h.5A1.25 1.25 0 0 0 8 11.25v-6.5A1.25 1.25 0 0 0 6.75 3.5h-.5zM9.75 3.5A1.25 1.25 0 0 0 8.5 4.75v6.5A1.25 1.25 0 0 0 9.75 12.5h.5A1.25 1.25 0 0 0 11.5 11.25v-6.5A1.25 1.25 0 0 0 10.25 3.5h-.5z"></path>
-            <path *ngIf="!audio.isPlaying()" fill-rule="evenodd" d="M3.25 2.93a.75.75 0 0 0-.75.75v8.64a.75.75 0 0 0 1.14.64l7.5-4.48a.75.75 0 0 0 0-1.28L3.25 2.93z"></path>
-          </svg>
+          <mat-icon>{{ audio.isPlaying() ? 'pause' : 'play_arrow' }}</mat-icon>
           {{ audio.isPlaying() ? 'Pausar' : 'Play' }}
         </button>
         <button mat-stroked-button type="button" (click)="audio.stop()">Parar</button>
-        <button mat-icon-button type="button" (click)="audio.next()" aria-label="Avançar">
-          <svg viewBox="0 0 16 16" class="octicon octicon-chevron-right" role="img" aria-hidden="true">
-            <path fill-rule="evenodd" d="M4.97 3.47a.75.75 0 0 1 1.06 0L9.78 7.22a.75.75 0 0 1 0 1.06L5.88 11.97a.75.75 0 0 1-1.06-1.06L7.94 8 4.97 4.03a.75.75 0 0 1 0-1.06z"/>
-          </svg>
+        <button mat-icon-button type="button" (click)="audio.next()" aria-label="Avancar">
+          <mat-icon>forward_10</mat-icon>
         </button>
         <button
           mat-icon-button
@@ -121,9 +110,7 @@
           (click)="audio.seekToSecond(audio.duration())"
           aria-label="Ir para o fim"
         >
-          <svg viewBox="0 0 16 16" class="octicon octicon-arrow-right" role="img" aria-hidden="true">
-            <path fill-rule="evenodd" d="M4.97 3.47a.75.75 0 0 1 1.06 0L9.78 7.22a.75.75 0 0 1 0 1.06L5.88 11.97a.75.75 0 0 1-1.06-1.06L7.94 8 4.97 4.03a.75.75 0 0 1 0-1.06z"/>
-          </svg>
+          <mat-icon>skip_next</mat-icon>
         </button>
         <button mat-stroked-button type="button" (click)="audio.decreaseRate()">
           {{ audio.playbackRate().toFixed(1) }}x

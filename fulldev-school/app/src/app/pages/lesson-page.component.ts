@@ -26,7 +26,7 @@ import { AudioNarrationService } from '../services/audio-narration.service';
   template: `
     @if (lesson(); as currentLesson) {
       <section class="lesson">
-        <header class="lesson__hero Box Box--condensed">
+        <header class="lesson__hero">
           <div>
             <span class="lesson__eyebrow">Jornada guiada</span>
             <h1>{{ currentLesson.meta.title }}</h1>
@@ -53,11 +53,11 @@ import { AudioNarrationService } from '../services/audio-narration.service';
           <span>{{ currentLesson.meta.title }}</span>
         </nav>
 
-        <article class="lesson__body Box Box--condensed">
+        <article class="lesson__body">
           @for (block of currentLesson.blocks; track block.id) {
             <section
               #lessonBlock
-              class="lesson__block Box"
+              class="lesson__block"
               [attr.data-block-id]="block.id"
               [class.is-active]="audio.currentBlockId() === block.id"
             >
@@ -66,7 +66,7 @@ import { AudioNarrationService } from '../services/audio-narration.service';
           }
         </article>
 
-          <footer class="lesson__footer-nav Box Box--condensed">
+        <footer class="lesson__footer-nav">
           @if (content.previousLesson(); as previous) {
             <a mat-stroked-button [routerLink]="['/', previous.slug]">
               <mat-icon>arrow_back</mat-icon>
@@ -103,9 +103,9 @@ import { AudioNarrationService } from '../services/audio-narration.service';
         justify-content: space-between;
         gap: 24px;
         padding: 28px;
-        border-radius: 6px;
+        border: 1px solid var(--fd-border);
+        border-radius: 0;
         background: color-mix(in srgb, var(--fd-surface) 92%, transparent);
-        box-shadow: var(--primer-shadow-medium, 0 2px 4px rgba(15, 23, 42, 0.09));
       }
 
       .lesson__eyebrow {
@@ -164,16 +164,18 @@ import { AudioNarrationService } from '../services/audio-narration.service';
 
       .lesson__body {
         padding: 32px;
-        border-radius: 6px;
+        border: 1px solid var(--fd-border);
+        border-radius: 0;
         background: var(--fd-surface);
-        box-shadow: var(--primer-shadow-medium, 0 2px 6px rgba(15, 23, 42, 0.08));
       }
 
       .lesson__block {
         position: relative;
         padding: 12px 0 18px;
         border-bottom: 1px solid var(--fd-border);
-        transition: background-color 180ms ease, box-shadow 180ms ease;
+        transition:
+          background-color 180ms ease,
+          box-shadow 180ms ease;
       }
 
       .lesson__block.is-active {
@@ -189,9 +191,6 @@ import { AudioNarrationService } from '../services/audio-narration.service';
         display: flex;
         justify-content: space-between;
         gap: 16px;
-        padding: 18px 0 0;
-        border-top: 1px solid var(--fd-border);
-        align-items: center;
       }
 
       .lesson--empty {

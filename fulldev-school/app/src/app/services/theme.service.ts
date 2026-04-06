@@ -9,8 +9,6 @@ export class ThemeService {
     effect(() => {
       const dark = this.isDark();
       document.documentElement.classList.toggle('fd-theme-dark', dark);
-      document.documentElement.classList.toggle('color-mode-dark', dark);
-      document.documentElement.setAttribute('data-color-mode', dark ? 'dark' : 'light');
       localStorage.setItem(this.storageKey, dark ? 'dark' : 'light');
     });
   }
