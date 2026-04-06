@@ -16,8 +16,7 @@
   React em 1h, com Mayk Brito
   https://www.youtube.com/watch?ab_channel=MaykBrito&v=K65wUN-2no4
 - Opção 2:
-  Curso de React para Iniciantes, no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  React para iniciantes em português, selecionado pela curadoria editorial do guia
 
 ## TypeScript
 
@@ -41,8 +40,7 @@
   COMEÇANDO COM NODE.JS EM 2022, com Rocketseat
   https://www.youtube.com/watch?ab_channel=Rocketseat&t=1s&v=fm4_EuCsQwg
 - Opção 2:
-  Curso de Node.js, no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  Node.js para iniciantes em português, selecionado pela curadoria editorial do guia
 
 ## SQL
 
@@ -52,8 +50,7 @@
   Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
   https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
 - Opção 2:
-  Cursos e trilhas de SQL, no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  SQL para iniciantes em português, selecionado pela curadoria editorial do guia
 
 ## Docker
 
@@ -66,8 +63,7 @@
   Curso Completo de Docker, da Kipper Dev
   https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
 - Opção 3:
-  Cursos e referências de Docker, no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  Docker em português, selecionado pela curadoria editorial do guia
 
 ## Git e GitHub
 
@@ -89,8 +85,8 @@
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Seleção de tópicos | roadmap.sh e trilhas do vault | 95% | Muito alinhado ao guia. |
-| Seleção de vídeos | guiaDevBrasil, YouTube, Kipper Dev e curadoria editorial | 89% | Curadoria prática com mais de uma opção por tópico. |
+| Seleção de tópicos | roadmap.sh e trilhas do guia | 95% | Muito alinhado ao guia. |
+| Seleção de vídeos | YouTube, Kipper Dev e curadoria editorial | 89% | Curadoria prática com mais de uma opção por tópico. |
 | Como usar esta nota | Diretriz editorial | 94% | Forte e consistente com o projeto. |
 
 ## Bibliografia
@@ -98,16 +94,15 @@
 ### Fontes principais desta nota
 
 1. roadmap.sh. https://roadmap.sh/
-2. guiaDevBrasil. https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
-3. Kipper Dev. https://fernandakipper.com/
-4. YouTube. https://www.youtube.com/
+2. Kipper Dev. https://fernandakipper.com/
+3. YouTube. https://www.youtube.com/
 
 ### Mapeamento de fontes por assunto
 
 - roadmaps:
   https://roadmap.sh/
 - vídeos e canais citados:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  curadoria editorial do próprio guia
 - vídeos em português pesquisados:
   https://www.youtube.com/
 - cursos da Fernanda Kipper:

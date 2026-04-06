@@ -69,8 +69,7 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
   COMEÇANDO COM NODE.JS EM 2022, com Rocketseat
   https://www.youtube.com/watch?ab_channel=Rocketseat&t=1s&v=fm4_EuCsQwg
 - Opção 2:
-  referências adicionais de Node.js no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### TypeScript no backend
 
@@ -96,8 +95,7 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
   Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
   https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
 - Opção 2:
-  referências adicionais de SQL no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ## Verificação por tópico
 
@@ -113,9 +111,7 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
 
 1. https://roadmap.sh/backend
 2. https://developer.mozilla.org/
-3. Repositório guiaDevBrasil, seção Git, TypeScript e Node.js:
-   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
-4. Kipper Dev TypeScript:
+3. Kipper Dev TypeScript:
    https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
 
 ### Mapeamento de fontes por assunto
@@ -124,8 +120,8 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
   https://roadmap.sh/backend
 - fundamentos web:
   https://developer.mozilla.org/
-- vídeos e referências:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+- vídeos por tópico:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Como interpretar a taxa de assertividade
 

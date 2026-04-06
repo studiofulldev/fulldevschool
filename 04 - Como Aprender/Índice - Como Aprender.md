@@ -291,7 +291,7 @@ Essa é a etapa em que você começa a comparar caminhos reais dentro da área d
 - Base:
   https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
 - Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 
 ### Escrita, notas e registro de aprendizagem
 
@@ -316,7 +316,7 @@ Essa é a etapa em que você começa a comparar caminhos reais dentro da área d
 | Como usar IA sem sabotar seu aprendizado | MDN Learning and Getting Help | 90% | Há recomendação explícita de cautela, com parte editorial adicional. |
 | Rotina vence intensidade | Síntese editorial sobre consistência de estudo | 83% | Útil e coerente, mas sem métrica rígida nesta nota. |
 | Como medir se está evoluindo | Síntese editorial baseada em sinais observáveis de progresso | 85% | Critérios práticos, mas não padronizados cientificamente aqui. |
-| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs, guiaDevBrasil e nota central de recursos | 96% | Curadoria forte para reforçar o método de estudo. |
+| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs e nota central de recursos | 96% | Curadoria forte para reforçar o método de estudo. |
 
 ## Bibliografia
 

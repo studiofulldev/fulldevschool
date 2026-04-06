@@ -70,8 +70,7 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
   React em 1h, com Mayk Brito
   https://www.youtube.com/watch?ab_channel=MaykBrito&v=K65wUN-2no4
 - Opção 2:
-  referências adicionais de React no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### TypeScript
 
@@ -98,7 +97,7 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
 | --- | --- | --- | --- |
 | Ordem sugerida | MDN e roadmap frontend | 95% | Sequência muito usada. |
 | Exercícios e projetos | Diretriz editorial | 88% | Projetos plausíveis e úteis. |
-| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN, YouTube e curadoria de vídeos do guiaDevBrasil | 91% | Curadoria voltada para didática inicial com mais de uma opção por assunto. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN, YouTube e curadoria editorial | 91% | Curadoria voltada para didática inicial com mais de uma opção por assunto. |
 
 ## Bibliografia
 
@@ -106,9 +105,7 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
 
 1. https://roadmap.sh/frontend
 2. https://developer.mozilla.org/en-US/docs/Learn
-3. Repositório guiaDevBrasil, seção React e TypeScript:
-   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
-4. Kipper Dev TypeScript:
+3. Kipper Dev TypeScript:
    https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
 
 ### Mapeamento de fontes por assunto
@@ -117,8 +114,8 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
   https://roadmap.sh/frontend
 - fundamentos:
   https://developer.mozilla.org/en-US/docs/Learn
-- referências de vídeos:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+- vídeos por tópico:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Como interpretar a taxa de assertividade
 

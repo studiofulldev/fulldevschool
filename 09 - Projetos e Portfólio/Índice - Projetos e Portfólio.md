@@ -181,7 +181,7 @@ Essa é a etapa em que você aprende a transformar prática em posicionamento pr
 - Roadmaps:
   https://roadmap.sh/
 - Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
 
 ## Verificação por tópico
 
@@ -189,14 +189,14 @@ Essa é a etapa em que você aprende a transformar prática em posicionamento pr
 | --- | --- | --- | --- |
 | Por que projetos importam | Síntese editorial baseada em prática comum da área | 92% | Muito coerente com a realidade de entrada. |
 | O que é um bom primeiro projeto | Síntese editorial | 87% | Útil, mas interpretativo. |
-| Exemplos por caminho | Síntese editorial alinhada às trilhas do vault | 89% | Muito úteis para início. |
+| Exemplos por caminho | Síntese editorial alinhada às trilhas do guia | 89% | Muito úteis para início. |
 | Como sair do tutorial | Síntese editorial baseada em prática real | 90% | Orientação forte e prática. |
 | Como documentar projeto | GitHub Docs e boas práticas editoriais | 94% | Forte como orientação prática. |
 | Como publicar no GitHub | GitHub Docs | 97% | Bem sustentado por documentação. |
 | Como montar portfólio | Síntese editorial | 86% | Boa diretriz, mas não regra rígida. |
 | O que evitar | Síntese editorial | 88% | Muito útil como filtro prático. |
 | Critério prático de projeto bom o suficiente | Síntese editorial | 89% | Muito útil para destravar perfeccionismo. |
-| Referências por tópico e vídeos sugeridos | GitHub Docs, roadmap.sh, guiaDevBrasil e nota central de recursos | 96% | Curadoria forte para transformar estudo em evidência. |
+| Referências por tópico e vídeos sugeridos | GitHub Docs, roadmap.sh e nota central de recursos | 96% | Curadoria forte para transformar estudo em evidência. |
 
 ## Bibliografia
 

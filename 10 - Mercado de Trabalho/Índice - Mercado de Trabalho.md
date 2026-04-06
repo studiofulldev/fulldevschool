@@ -157,8 +157,8 @@ Essa é a etapa em que você fortalece a parte mental do processo.
   https://docs.github.com/
 - Comunidade e networking:
   https://fulldev.com.br
-- Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+- Apoio complementar:
+  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
 
 ## Verificação por tópico
 
@@ -174,7 +174,7 @@ Essa é a etapa em que você fortalece a parte mental do processo.
 | Perguntas que você precisa treinar | Síntese editorial | 89% | Muito coerente com entrevistas iniciais. |
 | Primeiras candidaturas | Diretriz editorial do guia | 89% | Boa estratégia prática, mas não universal. |
 | Sinais de que você já pode começar a aplicar | Síntese editorial | 88% | Muito útil para destravar paralisia. |
-| Referências por tópico e vídeos sugeridos | BLS, GitHub Docs, FullDev e guiaDevBrasil | 95% | Curadoria útil para ligar estudo e posicionamento profissional. |
+| Referências por tópico e vídeos sugeridos | BLS, GitHub Docs, FullDev e nota de recursos | 95% | Curadoria útil para ligar estudo e posicionamento profissional. |
 
 ## Bibliografia
 

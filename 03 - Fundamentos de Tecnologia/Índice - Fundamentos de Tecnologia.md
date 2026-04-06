@@ -385,7 +385,7 @@ Essa é a etapa em que você aprende a estudar de forma menos aleatória e mais 
 - Cloud:
   https://aws.amazon.com/what-is-cloud-computing/
 - Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Git, GitHub e versionamento
 
@@ -412,7 +412,7 @@ Essa é a etapa em que você aprende a estudar de forma menos aleatória e mais 
 | O que é versionamento | GitHub Docs e prática comum da área | 97% | Base muito forte. |
 | O que é cloud | AWS sobre cloud computing | 96% | Conceito bem estabelecido. |
 | Tipos de empresas em tecnologia | Síntese editorial baseada em contextos comuns do mercado | 86% | Útil, mas mais dependente de contexto. |
-| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs, AWS, MongoDB, guiaDevBrasil e notas centrais de recursos | 97% | Curadoria consistente com os conceitos desta etapa. |
+| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs, AWS, MongoDB e notas centrais de recursos | 97% | Curadoria consistente com os conceitos desta etapa. |
 
 ## Bibliografia
 

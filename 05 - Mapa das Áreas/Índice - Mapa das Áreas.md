@@ -110,7 +110,7 @@ Essa é a etapa em que você transforma percepção em uma primeira direção ma
 - Base:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 - Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
 
 ### Exploração de áreas específicas
 
@@ -127,11 +127,11 @@ Essa é a etapa em que você transforma percepção em uma primeira direção ma
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Propósito do mapa das áreas | Estrutura interna do vault e PRD | 99% | Totalmente verificável no projeto. |
+| Propósito do mapa das áreas | Estrutura interna do guia e PRD | 99% | Totalmente verificável no projeto. |
 | Como usar esta etapa | Diretriz editorial do guia | 92% | Orientação prática confiável. |
 | O que observar em cada área | Template de áreas e estratégia editorial | 95% | Muito alinhado ao desenho do projeto. |
 | Regra importante sobre escolha de área | Síntese editorial baseada em risco de hype | 86% | Orientação prática, mas interpretativa. |
-| Referências por tópico e vídeos sugeridos | roadmap.sh, BLS, guiaDevBrasil e links internos do vault | 97% | Curadoria alinhada à comparação de caminhos. |
+| Referências por tópico e vídeos sugeridos | roadmap.sh, BLS e links internos do guia | 97% | Curadoria alinhada à comparação de caminhos. |
 
 ## Bibliografia
 

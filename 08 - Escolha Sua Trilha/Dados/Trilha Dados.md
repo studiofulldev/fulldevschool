@@ -59,16 +59,14 @@ Avance quando você conseguir responder uma pergunta com dados e explicar seu ra
   Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
   https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
 - Opção 2:
-  referências adicionais de SQL no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Dashboard e BI
 
 - Recurso:
   https://learn.microsoft.com/power-bi/
 - Opção complementar:
-  trilhas e referências de dados no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
 
 ## Verificação por tópico
 
@@ -84,8 +82,7 @@ Avance quando você conseguir responder uma pergunta com dados e explicar seu ra
 
 1. https://roadmap.sh/data-analyst
 2. https://learn.microsoft.com/power-bi/
-3. Repositório guiaDevBrasil, seção SQL:
-   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+3. Curadoria interna de recursos do guia.
 
 ### Mapeamento de fontes por assunto
 
@@ -93,6 +90,8 @@ Avance quando você conseguir responder uma pergunta com dados e explicar seu ra
   https://roadmap.sh/data-analyst
 - BI:
   https://learn.microsoft.com/power-bi/
+- vídeos por tópico:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Como interpretar a taxa de assertividade
 

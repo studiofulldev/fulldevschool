@@ -9,7 +9,7 @@
 
 ## Conteúdo
 
-Este repositório é a base editorial do **Guia Dev**, um guia em Obsidian criado para te ajudar a entrar na área de tecnologia com mais clareza, menos ruído e um próximo passo bem definido.
+Este repositório é a base editorial de um **guia completo para entrar na área de tecnologia**, criado por Lucas Pedro, fundador da **FullDev**, para te ajudar a avançar com mais clareza, menos ruído e um próximo passo bem definido.
 
 O projeto foi estruturado para te levar do zero até:
 
@@ -47,7 +47,7 @@ Este guia também dá ênfase à importância de comunidade, com destaque para a
 
 ## O que está sendo construído aqui
 
-Este repositório está sendo desenvolvido como um vault estruturado de Obsidian com:
+Este repositório está sendo desenvolvido como um guia estruturado com:
 
 - onboarding para iniciantes absolutos
 - fundamentos digitais
@@ -130,7 +130,11 @@ Referências-base do projeto:
 - [GitHub Docs](https://docs.github.com/)
 - [FullDev](https://fulldev.com.br)
 
-Fonte de abastecimento para descoberta de links:
+Base usada para descoberta e comparação inicial de referências:
+
+- [guiaDevBrasil](https://github.com/arthurspk/guiadevbrasil)
+
+Fonte de abastecimento adicional para descoberta de links:
 
 - [MrClaro/ConhecimentoFree](https://github.com/MrClaro/ConhecimentoFree)
 
@@ -142,7 +146,7 @@ Observação:
 ## Créditos
 
 - idealização, direção e complementação de conteúdo: Lucas Pedro
-- estruturação editorial e desenvolvimento inicial do vault: Codex
+- estruturação editorial e desenvolvimento inicial do guia: Codex
 - referência comunitária em destaque: [FullDev](https://fulldev.com.br)
 - fonte de abastecimento de links para curadoria: [MrClaro/ConhecimentoFree](https://github.com/MrClaro/ConhecimentoFree)
 
@@ -156,10 +160,10 @@ Se encontrar algum erro, link quebrado, informação fraca ou quiser sugerir mel
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Objetivo do repositório | PRD e estado atual do vault | 99% | Informação diretamente verificável no projeto. |
+| Objetivo do repositório | PRD e estado atual do projeto | 99% | Informação diretamente verificável no projeto. |
 | Problema que o projeto resolve | PRD | 97% | Base forte do documento de produto. |
 | Estrutura do projeto | Estrutura real de pastas e notas | 100% | Totalmente verificável no repositório. |
-| Ordem principal de navegação | Estrutura editorial definida no vault | 98% | Pode evoluir no futuro, mas está correta no estado atual. |
+| Ordem principal de navegação | Estrutura editorial definida no guia | 98% | Pode evoluir no futuro, mas está correta no estado atual. |
 | Princípios editoriais | PRD e templates do projeto | 98% | Informação interna verificável. |
 | Fontes de apoio e curadoria | PRD, README e notas de recursos | 96% | Base documental clara. |
 | Créditos e canal de issues | Estado atual do repositório | 100% | Totalmente verificável. |
@@ -168,19 +172,22 @@ Se encontrar algum erro, link quebrado, informação fraca ou quiser sugerir mel
 
 ### Fontes principais desta nota
 
-1. PRD interno do projeto. `PRD — Guia de Entrada na Área de Tecnologia (Obsidian).md`
+1. PRD interno do projeto.
 2. Estrutura real do repositório `LucasPedruo/guia-dev`
 3. FullDev. Disponível em: https://fulldev.com.br
-4. MrClaro/ConhecimentoFree. Disponível em: https://github.com/MrClaro/ConhecimentoFree
+4. guiaDevBrasil. Disponível em: https://github.com/arthurspk/guiadevbrasil
+5. MrClaro/ConhecimentoFree. Disponível em: https://github.com/MrClaro/ConhecimentoFree
 
 ### Mapeamento de fontes por assunto
 
 - visão, objetivo, problema e critérios editoriais:
-  `PRD — Guia de Entrada na Área de Tecnologia (Obsidian).md`
-- estrutura efetiva do vault:
+  PRD interno do projeto
+- estrutura efetiva do guia:
   repositório local e árvore de pastas
 - comunidade em destaque:
   https://fulldev.com.br
+- base usada para descoberta e comparação de referências:
+  https://github.com/arthurspk/guiadevbrasil
 - abastecimento de links para curadoria:
   https://github.com/MrClaro/ConhecimentoFree
 

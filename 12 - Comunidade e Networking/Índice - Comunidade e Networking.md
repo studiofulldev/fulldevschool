@@ -90,8 +90,8 @@ Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 
 - Comunidade em destaque:
   https://fulldev.com.br
-- Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+- Apoio complementar:
+  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
 
 ### Presença profissional
 
@@ -110,7 +110,7 @@ Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 | Como usar LinkedIn | Síntese editorial | 88% | Útil, mas generalizada. |
 | Como participar de comunidades | Síntese editorial | 87% | Orientação prática, não regra absoluta. |
 | Como construir presença | Síntese editorial | 86% | Boa diretriz inicial. |
-| Referências por tópico e vídeos sugeridos | FullDev, GitHub Docs, guiaDevBrasil e links internos do vault | 95% | Curadoria útil para comunidade e presença profissional. |
+| Referências por tópico e vídeos sugeridos | FullDev, GitHub Docs e links internos do guia | 95% | Curadoria útil para comunidade e presença profissional. |
 
 ## Bibliografia
 

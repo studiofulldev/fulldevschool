@@ -307,9 +307,9 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
 | Mitos vs realidade | Síntese editorial baseada em padrões recorrentes de entrada na área | 85% | É o bloco com maior componente interpretativo. |
 | Quanto tempo leva para entrar na área | Síntese editorial com base em variáveis reais de aprendizagem e competição | 82% | Não existe prazo universal; isso é uma conclusão prudente, não uma métrica fechada. |
 | O que esperar do começo | Síntese editorial baseada em dificuldades comuns de iniciantes | 88% | É uma leitura prática do comportamento típico de entrada. |
-| Como usar este guia | Estrutura interna deste projeto | 100% | Informação totalmente verificável dentro do próprio vault. |
+| Como usar este guia | Estrutura interna deste projeto | 100% | Informação totalmente verificável dentro do próprio guia. |
 | Comunidade acelera o processo | Síntese editorial e diretriz do projeto, com ênfase em FullDev | 80% | O ganho de comunidade é plausível e comum, mas não foi quantificado nesta nota. |
-| Referências por tópico e vídeos sugeridos | roadmap.sh, BLS, FullDev, guiaDevBrasil e nota central de recursos | 95% | Curadoria ligada aos temas desta etapa. |
+| Referências por tópico e vídeos sugeridos | roadmap.sh, BLS, FullDev e nota central de recursos | 95% | Curadoria ligada aos temas desta etapa. |
 
 ## Bibliografia
 

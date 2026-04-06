@@ -64,8 +64,7 @@ Avance quando você entender o fluxo de build, deploy e ambiente.
   Curso Completo de Docker, da Kipper Dev
   https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
 - Opção 3:
-  referências adicionais de Docker no guiaDevBrasil
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Cloud
 
@@ -90,8 +89,7 @@ Avance quando você entender o fluxo de build, deploy e ambiente.
 2. https://aws.amazon.com/what-is-cloud-computing/
 3. Kipper Dev Docker:
    https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
-4. Repositório guiaDevBrasil, seção Docker:
-   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+4. Curadoria interna de vídeos por tópico do guia.
 
 ### Mapeamento de fontes por assunto
 
@@ -99,6 +97,8 @@ Avance quando você entender o fluxo de build, deploy e ambiente.
   https://roadmap.sh/devops
 - cloud:
   https://aws.amazon.com/what-is-cloud-computing/
+- vídeos por tópico:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Como interpretar a taxa de assertividade
 

@@ -56,15 +56,15 @@ Se alguma etapa estiver faltando, volte para ela e resolva uma coisa por vez.
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Checklist principal | Estrutura real do guia | 100% | Totalmente verificável no vault. |
+| Checklist principal | Estrutura real do guia | 100% | Totalmente verificável no guia. |
 | Como usar este painel | Diretriz editorial do projeto | 96% | Muito coerente com a proposta. |
-| Referências por tópico e próximos retornos úteis | Links internos do vault | 100% | Totalmente verificável no guia. |
+| Referências por tópico e próximos retornos úteis | Links internos do guia | 100% | Totalmente verificável no guia. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. Estrutura real do vault
+1. Estrutura real do guia
 2. PRD interno do projeto. `PRD — Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Mapeamento de fontes por assunto

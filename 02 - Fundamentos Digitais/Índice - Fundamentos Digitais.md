@@ -348,7 +348,7 @@ Essa é a etapa em que você começa a entender os conceitos-base do ecossistema
 - Base:
   https://support.microsoft.com/en-us/windows/97fbc472-c603-9d90-91d0-1166d1d9f4b5
 - Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 
 ### Navegador, abas, pesquisa e internet básica
 
@@ -362,7 +362,7 @@ Essa é a etapa em que você começa a entender os conceitos-base do ecossistema
 - Base:
   https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
 - Apoio em português:
-  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 
 ## Verificação por tópico
 
@@ -378,7 +378,7 @@ Essa é a etapa em que você começa a entender os conceitos-base do ecossistema
 | Atalhos úteis | Windows e navegação web em contexto comum de produtividade | 90% | Os atalhos são verificáveis; a seleção deles é editorial. |
 | Inglês para tecnologia | Síntese editorial baseada no uso real de ferramentas e documentação | 84% | Diretriz útil, mas menos quantificável. |
 | Como usar IA com responsabilidade | Diretriz editorial do projeto | 78% | É o bloco mais interpretativo desta nota. |
-| Referências por tópico e vídeos sugeridos | Microsoft Support, GCFGlobal, GitHub Docs, guiaDevBrasil e nota central de recursos | 96% | Curadoria forte para reforçar a base digital. |
+| Referências por tópico e vídeos sugeridos | Microsoft Support, GCFGlobal, GitHub Docs e nota central de recursos | 96% | Curadoria forte para reforçar a base digital. |
 
 ## Bibliografia
 
