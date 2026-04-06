@@ -98,6 +98,24 @@ interface ProjectTreeNode {
                   }
                 </section>
               }
+
+              @if (shouldShowVideoSlot(block.title)) {
+                <section class="lesson__video-slot" aria-label="Espaço para vídeo complementar do tópico">
+                  <div class="lesson__video-frame">
+                    <div class="lesson__video-placeholder">
+                      <mat-icon>play_circle</mat-icon>
+                    </div>
+                  </div>
+
+                  <div class="lesson__video-copy">
+                    <strong>Vídeo complementar do tópico</strong>
+                    <p>
+                      Aqui entra o vídeo de apoio deste bloco, reforçando o conteúdo principal
+                      com uma explicação prática ou visual.
+                    </p>
+                  </div>
+                </section>
+              }
             </mat-expansion-panel>
           }
         </article>
@@ -652,7 +670,15 @@ export class LessonPageComponent {
 
   protected readonly lesson = computed(() => this.lessonResult());
   protected readonly topicCount = computed(() => this.lesson()?.blocks.length ?? 0);
-  protected readonly videoCount = computed(() => (this.shouldShowWelcomePanel() ? 1 : 0));
+  protected readonly videoCount = computed(() => {
+    const lesson = this.lesson();
+    if (!lesson) {
+      return 0;
+    }
+
+    const blockVideoCount = lesson.blocks.filter((block) => this.shouldShowVideoSlot(block.title)).length;
+    return blockVideoCount + (this.shouldShowWelcomePanel() ? 1 : 0);
+  });
   protected readonly videoCountLabel = computed(() => {
     const count = this.videoCount();
     return `${count} vídeo${count === 1 ? '' : 's'}`;
@@ -698,6 +724,24 @@ export class LessonPageComponent {
     return this.shouldShowWelcomePanel() && blockTitle.trim().toLowerCase() === 'estrutura do projeto';
   }
 
+  protected shouldShowVideoSlot(blockTitle: string): boolean {
+    if (this.shouldShowWelcomePanel()) {
+      return false;
+    }
+
+    const normalizedTitle = this.normalizeTitle(blockTitle);
+    const excludedTitles = new Set([
+      'visao-geral',
+      'proxima-acao-pratica',
+      'referencias-por-topico-e-videos-sugeridos',
+      'topicos-do-roadmap-e-videos-sugeridos',
+      'verificacao-por-topico',
+      'bibliografia'
+    ]);
+
+    return !excludedTitles.has(normalizedTitle);
+  }
+
   protected hasChildren(node: ProjectTreeNode): boolean {
     return Boolean(node.children?.length);
   }
@@ -737,6 +781,15 @@ export class LessonPageComponent {
 
   private blockStateKey(slug: string, blockId: string): string {
     return `${slug}::${blockId}`;
+  }
+
+  private normalizeTitle(value: string): string {
+    return value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
   }
 
   private readExpandedBlocks(): Record<string, boolean> {
