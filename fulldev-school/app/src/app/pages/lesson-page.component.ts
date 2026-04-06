@@ -1,67 +1,41 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  computed,
-  effect,
-  inject,
-  viewChildren
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs/operators';
-import { of, from } from 'rxjs';
-import { MarkdownComponent } from 'ngx-markdown';
-import { MatCardModule } from '@angular/material/card';
+import { from, of } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SchoolContentService } from '../data/school-content.service';
-import { AudioNarrationService } from '../services/audio-narration.service';
 
 @Component({
   selector: 'app-lesson-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, MarkdownComponent, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, RouterLink, MatButtonModule, MatIconModule],
   template: `
     @if (lesson(); as currentLesson) {
       <section class="lesson">
         <header class="lesson__hero">
           <div>
-            <span class="lesson__eyebrow">Jornada guiada</span>
+            <span class="lesson__eyebrow">Fulldev School</span>
             <h1>{{ currentLesson.meta.title }}</h1>
             <p>
-              Experiência simples, com leitura confortável, tema ajustável e áudio guiado no rodapé.
+              Leitura guiada e navegação simples para acompanhar a jornada sem perder contexto.
             </p>
-          </div>
-
-          <div class="lesson__stats">
-            <mat-card appearance="outlined">
-              <strong>{{ currentLesson.meta.estimatedReadingMinutes || '-' }} min</strong>
-              <span>leitura</span>
-            </mat-card>
-            <mat-card appearance="outlined">
-              <strong>{{ currentLesson.meta.estimatedListeningMinutes || '-' }} min</strong>
-              <span>áudio</span>
-            </mat-card>
           </div>
         </header>
 
         <nav class="lesson__breadcrumbs">
-          <a routerLink="/">Fulldev School</a>
+          <a routerLink="/home">Fulldev School</a>
           <span>/</span>
           <span>{{ currentLesson.meta.title }}</span>
         </nav>
 
         <article class="lesson__body">
           @for (block of currentLesson.blocks; track block.id) {
-            <section
-              #lessonBlock
-              class="lesson__block"
-              [attr.data-block-id]="block.id"
-              [class.is-active]="audio.currentBlockId() === block.id"
-            >
-              <markdown [data]="block.markdown"></markdown>
+            <section class="lesson__block">
+              <div [innerHTML]="blockHtml(block.id)"></div>
             </section>
           }
         </article>
@@ -83,8 +57,11 @@ import { AudioNarrationService } from '../services/audio-narration.service';
         </footer>
       </section>
     } @else {
-      <section class="lesson lesson--empty">
-        <h1>Carregando conteúdo...</h1>
+      <section class="lesson lesson--loading" aria-label="Carregando conteúdo">
+        <div class="lesson__skeleton lesson__skeleton--hero"></div>
+        <div class="lesson__skeleton lesson__skeleton--breadcrumbs"></div>
+        <div class="lesson__skeleton lesson__skeleton--body"></div>
+        <div class="lesson__skeleton lesson__skeleton--body"></div>
       </section>
     }
   `,
@@ -93,26 +70,25 @@ import { AudioNarrationService } from '../services/audio-narration.service';
       .lesson {
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        max-width: 980px;
+        gap: 12px;
+        max-width: var(--fd-content-width);
         margin: 0 auto;
+        font-family: var(--fd-font-family);
       }
 
       .lesson__hero {
-        display: flex;
-        justify-content: space-between;
-        gap: 24px;
-        padding: 28px;
+        display: grid;
+        gap: 20px;
+        padding: 24px;
         border: 1px solid var(--fd-border);
-        border-radius: 0;
-        background: color-mix(in srgb, var(--fd-surface) 92%, transparent);
+        background: var(--fd-surface-overlay);
       }
 
       .lesson__eyebrow {
         display: inline-block;
         margin-bottom: 12px;
-        color: var(--fd-muted);
-        font-size: 0.78rem;
+        color: var(--fd-soft);
+        font-size: var(--fd-text-xs);
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -120,41 +96,28 @@ import { AudioNarrationService } from '../services/audio-narration.service';
 
       .lesson__hero h1 {
         margin: 0 0 8px;
-        font-size: clamp(2rem, 4vw, 3.4rem);
-        line-height: 1.05;
+        font-size: clamp(var(--fd-text-xl), 4.8vw, 4rem);
+        line-height: 0.98;
+        letter-spacing: -0.03em;
       }
 
       .lesson__hero p {
         max-width: 62ch;
         margin: 0;
         color: var(--fd-muted);
+        font-size: var(--fd-text-md);
+        line-height: var(--fd-leading-loose);
       }
 
-      .lesson__stats {
-        display: flex;
-        gap: 12px;
-      }
-
-      .lesson__stats mat-card {
-        min-width: 120px;
-        padding: 16px;
-        text-align: center;
-      }
-
-      .lesson__stats strong {
-        display: block;
-        font-size: 1.5rem;
-      }
-
-      .lesson__stats span,
       .lesson__breadcrumbs {
-        color: var(--fd-muted);
+        color: var(--fd-soft);
       }
 
       .lesson__breadcrumbs {
         display: flex;
         gap: 10px;
-        font-size: 0.92rem;
+        font-size: var(--fd-text-sm);
+        padding: 0 6px;
       }
 
       .lesson__breadcrumbs a {
@@ -165,22 +128,16 @@ import { AudioNarrationService } from '../services/audio-narration.service';
       .lesson__body {
         padding: 32px;
         border: 1px solid var(--fd-border);
-        border-radius: 0;
-        background: var(--fd-surface);
+        background: var(--fd-surface-overlay);
       }
 
       .lesson__block {
         position: relative;
-        padding: 12px 0 18px;
+        padding: 18px 0 24px;
         border-bottom: 1px solid var(--fd-border);
         transition:
           background-color 180ms ease,
           box-shadow 180ms ease;
-      }
-
-      .lesson__block.is-active {
-        background: color-mix(in srgb, var(--fd-accent-line) 8%, transparent);
-        box-shadow: inset 0 -3px 0 var(--fd-accent-line);
       }
 
       .lesson__block:last-child {
@@ -193,19 +150,109 @@ import { AudioNarrationService } from '../services/audio-narration.service';
         gap: 16px;
       }
 
-      .lesson--empty {
+      .lesson--loading {
         min-height: 50vh;
-        justify-content: center;
+      }
+
+      .lesson__skeleton {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--fd-border);
+        background: var(--fd-surface-overlay);
+      }
+
+      .lesson__skeleton::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+        animation: lesson-skeleton 1.25s ease infinite;
+      }
+
+      .lesson__skeleton--hero {
+        min-height: 180px;
+      }
+
+      .lesson__skeleton--breadcrumbs {
+        min-height: 28px;
+      }
+
+      .lesson__skeleton--body {
+        min-height: 220px;
+      }
+
+      @keyframes lesson-skeleton {
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      :host ::ng-deep .lesson__block h2 {
+        margin: 0 0 12px;
+        font-size: var(--fd-text-lg);
+        line-height: 1.15;
+      }
+
+      :host ::ng-deep .lesson__block p,
+      :host ::ng-deep .lesson__block li {
+        color: var(--fd-muted);
+        font-size: var(--fd-text-md);
+        line-height: var(--fd-leading-loose);
+      }
+
+      :host ::ng-deep .lesson__block ul,
+      :host ::ng-deep .lesson__block ol {
+        padding-left: 1.3rem;
+      }
+
+      :host ::ng-deep .lesson__block h3 {
+        margin: 18px 0 10px;
+        color: var(--fd-text);
+        font-size: var(--fd-text-md);
+        line-height: 1.25;
+      }
+
+      :host ::ng-deep .lesson__block strong {
+        color: var(--fd-text);
+      }
+
+      :host ::ng-deep .lesson__block code {
+        padding: 0.12rem 0.35rem;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--fd-text);
+      }
+
+      :host ::ng-deep .lesson__block a {
+        color: var(--fd-text);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.22);
+      }
+
+      :host ::ng-deep .lesson__block table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 18px;
+      }
+
+      :host ::ng-deep .lesson__block th,
+      :host ::ng-deep .lesson__block td {
+        padding: 12px;
+        border: 1px solid var(--fd-border);
+        text-align: left;
+        vertical-align: top;
+        color: var(--fd-muted);
+        font-size: var(--fd-text-sm);
+      }
+
+      :host ::ng-deep .lesson__block th {
+        color: var(--fd-text);
+        background: rgba(255, 255, 255, 0.03);
       }
 
       @media (max-width: 960px) {
-        .lesson__hero,
         .lesson__footer-nav {
-          flex-direction: column;
-        }
-
-        .lesson__stats {
-          flex-wrap: wrap;
+          grid-template-columns: 1fr;
         }
       }
     `
@@ -214,10 +261,8 @@ import { AudioNarrationService } from '../services/audio-narration.service';
 })
 export class LessonPageComponent {
   private readonly route = inject(ActivatedRoute);
+  private readonly sanitizer = inject(DomSanitizer);
   protected readonly content = inject(SchoolContentService);
-  protected readonly audio = inject(AudioNarrationService);
-  private readonly blockElements = viewChildren<ElementRef<HTMLElement>>('lessonBlock');
-  private lastScrolledBlockId: string | null = null;
 
   private readonly lessonResult = toSignal(
     this.route.paramMap.pipe(
@@ -231,33 +276,8 @@ export class LessonPageComponent {
 
   protected readonly lesson = computed(() => this.lessonResult());
 
-  constructor() {
-    effect(() => {
-      this.lesson();
-      this.lastScrolledBlockId = null;
-    });
-
-    effect(() => {
-      const activeId = this.audio.currentBlockId();
-      const blocks = this.blockElements();
-
-      if (!activeId || !blocks.length) {
-        return;
-      }
-
-      if (this.lastScrolledBlockId === activeId) {
-        return;
-      }
-
-      const activeBlock = blocks.find((item) => item.nativeElement.dataset['blockId'] === activeId);
-      if (activeBlock) {
-        this.lastScrolledBlockId = activeId;
-        activeBlock.nativeElement.scrollIntoView({
-          block: 'nearest',
-          inline: 'nearest',
-          behavior: 'smooth'
-        });
-      }
-    });
+  protected blockHtml(blockId: string): SafeHtml {
+    const block = this.lesson()?.blocks.find((item) => item.id === blockId);
+    return this.sanitizer.bypassSecurityTrustHtml(block?.html ?? '');
   }
 }

@@ -5,40 +5,36 @@
     [mode]="isHandset() ? 'over' : 'side'"
     [opened]="!isHandset()"
   >
-    <div class="brand">
-      <div class="brand__badge">FS</div>
-      <div class="brand__copy">
-        <strong>Fulldev School</strong>
-        <span>Seu guia da area de tecnologia</span>
-      </div>
-    </div>
-
-    <mat-divider />
-
     <nav class="nav">
       @for (section of navSections(); track section.key) {
-        <div class="nav__section">
-          <div class="nav__section-label">{{ section.title }}</div>
-          <mat-nav-list>
-            @for (node of section.nodes; track node.id) {
-              <a
-                mat-list-item
-                [routerLink]="lessonLink(node)"
-                routerLinkActive="is-active"
-                [routerLinkActiveOptions]="{ exact: true }"
-                (click)="isHandset() && drawer.close()"
-              >
-                <span matListItemTitle>{{ node.title }}</span>
-              </a>
-            }
-          </mat-nav-list>
+        <div class="sidebar__panel">
+          <button
+            class="sidebar__panel-trigger"
+            type="button"
+            (click)="toggleSection(section.key)"
+            [attr.aria-expanded]="isSectionExpanded(section.key)"
+          >
+            <span>{{ section.title }}</span>
+            <mat-icon class="sidebar__panel-icon">{{ isSectionExpanded(section.key) ? 'expand_less' : 'expand_more' }}</mat-icon>
+          </button>
+
+          @if (isSectionExpanded(section.key)) {
+            <div class="sidebar__nav">
+              @for (node of section.nodes; track node.id) {
+                <a
+                  class="sidebar__nav-item"
+                  [routerLink]="lessonLink(node)"
+                  routerLinkActive="sidebar__nav-item--active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="isHandset() && drawer.close()"
+                >
+                  <span>{{ node.navTitle || node.title }}</span>
+                </a>
+              }
+            </div>
+          }
         </div>
       }
-      <mat-nav-list class="nav__experiment">
-        <a mat-list-item routerLink="/reader" routerLinkActive="is-active">
-          <span matListItemTitle>Reader</span>
-        </a>
-      </mat-nav-list>
     </nav>
   </mat-sidenav>
 
@@ -56,71 +52,25 @@
       </div>
 
       <span class="toolbar-spacer"></span>
-
-      <mat-slide-toggle
-        [checked]="theme.isDark()"
-        (change)="theme.toggle()"
-        aria-label="Alternar tema"
-      >
-        {{ theme.isDark() ? 'Dark' : 'Light' }}
-      </mat-slide-toggle>
     </mat-toolbar>
 
     <main class="shell__page">
       <router-outlet />
     </main>
 
-    <footer class="player-bar">
-      <div class="player-bar__meta">
-        <span class="player-bar__label">Audio guide</span>
-        <strong>{{ audio.currentLabel() || 'Selecione uma etapa para ouvir' }}</strong>
-        <span class="player-bar__engine">{{ audio.engineLabel() }}</span>
+    <footer class="shell__footer">
+      <div class="shell__footer-brand">
+        <img class="brand__logo-image" src="logo-fulldev.svg" alt="FullDev" />
+        <div>
+          <p>Fulldev Sistemas de informatica S.A</p>
+          <p>CNPJ --</p>
+          <p>Leblon - Rio de Janeiro</p>
+        </div>
       </div>
 
-      <div class="player-bar__timeline">
-        <span>{{ audio.currentTimeLabel() }}</span>
-        <input
-          type="range"
-          min="0"
-          max="100"
-          [value]="audio.progressPercent()"
-          (input)="audio.seekToRatio($any($event.target).value / 100)"
-        />
-        <span>{{ audio.durationLabel() }}</span>
-      </div>
-
-      <div class="player-bar__controls">
-        <button
-          mat-icon-button
-          type="button"
-          (click)="audio.seekToSecond(0)"
-          aria-label="Voltar para o inicio"
-        >
-          <mat-icon>skip_previous</mat-icon>
-        </button>
-        <button mat-icon-button type="button" (click)="audio.previous()" aria-label="Voltar">
-          <mat-icon>replay_10</mat-icon>
-        </button>
-        <button mat-flat-button type="button" color="primary" (click)="audio.togglePlayback()">
-          <mat-icon>{{ audio.isPlaying() ? 'pause' : 'play_arrow' }}</mat-icon>
-          {{ audio.isPlaying() ? 'Pausar' : 'Play' }}
-        </button>
-        <button mat-stroked-button type="button" (click)="audio.stop()">Parar</button>
-        <button mat-icon-button type="button" (click)="audio.next()" aria-label="Avancar">
-          <mat-icon>forward_10</mat-icon>
-        </button>
-        <button
-          mat-icon-button
-          type="button"
-          (click)="audio.seekToSecond(audio.duration())"
-          aria-label="Ir para o fim"
-        >
-          <mat-icon>skip_next</mat-icon>
-        </button>
-        <button mat-stroked-button type="button" (click)="audio.decreaseRate()">
-          {{ audio.playbackRate().toFixed(1) }}x
-        </button>
-        <button mat-stroked-button type="button" (click)="audio.increaseRate()">+</button>
+      <div class="shell__footer-signature">
+        <span>BY DEV</span>
+        <span>FOR DEV</span>
       </div>
     </footer>
   </mat-sidenav-content>

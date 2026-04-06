@@ -1,56 +1,128 @@
 @use '@angular/material' as mat;
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
   @include mat.theme(
     (
       color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette
+        primary: mat.$orange-palette,
+        tertiary: mat.$red-palette
       ),
-      typography: Roboto,
+      typography: Inter,
       density: 0
     )
   );
+}
+
+:root {
+  --fd-font-family: Inter, 'Segoe UI', sans-serif;
+  --fd-text-xs: 0.75rem;
+  --fd-text-sm: 0.875rem;
+  --fd-text-md: 1rem;
+  --fd-text-lg: 1.5rem;
+  --fd-text-xl: 2rem;
+  --fd-text-2xl: 3rem;
+  --fd-leading-tight: 1.1;
+  --fd-leading-base: 1.5;
+  --fd-leading-loose: 1.75;
+  --fd-white: #ffffff;
+  --fd-black: #111111;
+  --fd-page-bg: #111111;
+  --fd-surface: #1f1f1f;
+  --fd-surface-alt: #161616;
+  --fd-surface-header: #0d0d0d;
+  --fd-surface-overlay: #1c1c1c;
+  --fd-text: #ffffff;
+  --fd-muted: #bababa;
+  --fd-soft: #989898;
+  --fd-dim: #696969;
+  --fd-border: #2c2c2c;
+  --fd-border-strong: #4c4c4c;
+  --fd-nav-active: #1f1f1f;
+  --fd-accent: #b22d00;
+  --fd-accent-strong: #cf3500;
+  --fd-accent-dark: #7e2000;
+  --fd-accent-fade: rgba(178, 45, 0, 0.18);
+  --fd-accent-line: #b22d00;
+  --fd-success: #00a859;
+  --fd-danger: #ff9f82;
+  --fd-content-width: 1200px;
+  --fd-radius: 4px;
+  --fd-motion-fast: 180ms ease;
+  color-scheme: dark;
+  font-family: var(--fd-font-family);
 }
 
 html,
 body {
   margin: 0;
   min-height: 100%;
-  background: var(--fd-page-bg);
+  background:
+    radial-gradient(circle at top, rgba(178, 45, 0, 0.16), transparent 28%),
+    linear-gradient(180deg, #0b0b0b 0%, #111111 100%);
   color: var(--fd-text);
-  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: var(--fd-font-family);
+  font-size: var(--fd-text-md);
+  line-height: var(--fd-leading-base);
 }
 
 body {
-  --fd-page-bg: #f4f8fc;
-  --fd-surface: #ffffff;
-  --fd-text: #0f172a;
-  --fd-muted: #5b6b7d;
-  --fd-border: rgba(15, 23, 42, 0.1);
-  --fd-nav-active: rgba(0, 120, 212, 0.12);
-  --fd-accent-fade: rgba(0, 120, 212, 0.12);
-  --fd-accent-line: #0a84ff;
+  min-height: 100vh;
+  background: var(--fd-page-bg);
 }
 
-html.fd-theme-dark {
-  color-scheme: dark;
-}
-
+html.fd-theme-dark,
 html.fd-theme-dark body {
-  --fd-page-bg: #0d1117;
-  --fd-surface: #161b22;
-  --fd-text: #f3f6fb;
-  --fd-muted: #93a4b8;
-  --fd-border: rgba(255, 255, 255, 0.08);
-  --fd-nav-active: rgba(96, 165, 250, 0.16);
-  --fd-accent-fade: rgba(56, 189, 248, 0.1);
-  --fd-accent-line: #58a6ff;
+  color-scheme: dark;
 }
 
 * {
   box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  font-family: var(--fd-font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--fd-font-family);
+  line-height: var(--fd-leading-tight);
+}
+
+p,
+li,
+span,
+a,
+small,
+label {
+  font-family: var(--fd-font-family);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a,
+input {
+  transition:
+    background-color var(--fd-motion-fast),
+    border-color var(--fd-motion-fast),
+    color var(--fd-motion-fast),
+    opacity var(--fd-motion-fast),
+    box-shadow var(--fd-motion-fast),
+    transform var(--fd-motion-fast);
 }
 
 .mat-mdc-card,
@@ -62,26 +134,32 @@ html.fd-theme-dark body {
 .mdc-notched-outline,
 .mat-drawer,
 .mat-toolbar {
-  border-radius: 0 !important;
+  border-radius: var(--fd-radius) !important;
+}
+
+.mat-mdc-card {
+  border-color: var(--fd-border) !important;
+  background: var(--fd-surface) !important;
+}
+
+.mat-mdc-button-base {
+  letter-spacing: 0.01em;
+}
+
+.mat-mdc-unelevated-button.mat-primary {
+  background: var(--fd-accent) !important;
+  color: var(--fd-white) !important;
+}
+
+.mat-mdc-outlined-button {
+  border-color: var(--fd-border) !important;
+  color: var(--fd-muted) !important;
+}
+
+.mat-mdc-icon-button {
+  color: var(--fd-muted) !important;
 }
 
 .mat-drawer-inner-container {
   scrollbar-width: thin;
-}
-
-markdown h1,
-markdown h2,
-markdown h3 {
-  line-height: 1.1;
-}
-
-markdown p,
-markdown li {
-  color: var(--fd-text);
-  line-height: 1.75;
-}
-
-markdown ul,
-markdown ol {
-  padding-left: 1.4rem;
 }

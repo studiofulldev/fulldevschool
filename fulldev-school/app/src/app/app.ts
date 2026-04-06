@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, computed, inject, signal } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
@@ -6,13 +6,8 @@ import { map } from 'rxjs/operators';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatDividerModule } from '@angular/material/divider';
 import { NavigationNode, SchoolContentService } from './data/school-content.service';
 import { ThemeService } from './services/theme.service';
-import { AudioNarrationService } from './services/audio-narration.service';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +17,7 @@ import { AudioNarrationService } from './services/audio-narration.service';
     RouterLinkActive,
     MatToolbarModule,
     MatSidenavModule,
-    MatIconModule,
-    MatButtonModule,
-    MatListModule,
-    MatSlideToggleModule,
-    MatDividerModule
+    MatIconModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
@@ -39,20 +30,17 @@ export class App {
 
   protected readonly content = inject(SchoolContentService);
   protected readonly theme = inject(ThemeService);
-  protected readonly audio = inject(AudioNarrationService);
 
+  protected readonly expandedSections = signal<Record<string, boolean>>({});
   protected readonly navTree = this.content.navigationTree;
   protected readonly navSections = computed(() => {
-    const sections = new Map<
-      string,
-      { key: string; title: string; nodes: NavigationNode[] }
-    >();
+    const sections = new Map<string, { key: string; title: string; nodes: NavigationNode[] }>();
 
     for (const node of this.navTree()) {
       if (!sections.has(node.section)) {
         sections.set(node.section, {
           key: node.section,
-          title: this.humanizeSection(node.section),
+          title: node.sectionTitle ?? this.humanizeSection(node.section),
           nodes: []
         });
       }
@@ -70,18 +58,27 @@ export class App {
     this.router.events.pipe(map(() => this.router.url)),
     { initialValue: this.router.url }
   );
-  protected readonly currentTitle = computed(
-    () => this.content.currentLesson()?.meta.title ?? 'Fulldev School'
-  );
+  protected readonly currentTitle = computed(() => this.content.currentLesson()?.meta.title ?? 'Fulldev School');
 
   constructor() {
-    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
-      this.audio.stop();
-    });
+    void this.content.ensureNavigationLoaded();
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
+  }
+
+  protected toggleSection(sectionKey: string): void {
+    this.expandedSections.update((current) => ({
+      ...current,
+      [sectionKey]: !current[sectionKey]
+    }));
+  }
+
+  protected isSectionExpanded(sectionKey: string): boolean {
+    const expanded = this.expandedSections();
+    return expanded[sectionKey] ?? true;
   }
 
   protected lessonLink(node: NavigationNode): string {
-    return node.slug ? `/${node.slug}` : '/';
+    return `/${node.slug}`;
   }
 
   private humanizeSection(section: string): string {

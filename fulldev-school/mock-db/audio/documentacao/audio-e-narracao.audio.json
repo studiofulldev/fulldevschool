@@ -1,0 +1,12 @@
+{
+  "lessonId": "audio-narracao",
+  "mode": "tts",
+  "audioSrc": null,
+  "voice": {
+    "lang": "pt-BR",
+    "name": null,
+    "rate": 1,
+    "pitch": 1
+  },
+  "segments": []
+}
