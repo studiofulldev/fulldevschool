@@ -25,9 +25,30 @@ Esta pasta existe para concentrar a fundação técnica do produto:
 
 - `docs/`: documentação técnica e arquitetural
 - `mock-db/`: conteúdo estruturado, navegação, metadados e manifestos de áudio
+- `app/`: aplicação Angular
 
 ## Estado atual
 
 V1 de planejamento técnico.
 
-Ainda não existe a aplicação Angular implementada aqui. O foco atual é deixar a base pronta para construir o frontend sem improviso.
+Já existe uma base funcional da aplicação Angular com:
+
+- app shell responsivo
+- sidebar lateral
+- dark mode / light mode
+- carregamento de lição a partir do `mock-db`
+- player fixo no rodapé usando TTS como primeira versão
+
+## Como rodar a aplicação
+
+```bash
+cd fulldev-school/app
+npm install
+npm start
+```
+
+Depois, abra:
+
+```text
+http://localhost:4200
+```

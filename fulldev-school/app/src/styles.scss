@@ -1,0 +1,73 @@
+@use '@angular/material' as mat;
+
+html {
+  color-scheme: light;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette
+      ),
+      typography: Roboto,
+      density: 0
+    )
+  );
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--fd-page-bg);
+  color: var(--fd-text);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+body {
+  --fd-page-bg: #f4f8fc;
+  --fd-surface: #ffffff;
+  --fd-text: #0f172a;
+  --fd-muted: #5b6b7d;
+  --fd-border: rgba(15, 23, 42, 0.1);
+  --fd-nav-active: rgba(0, 120, 212, 0.12);
+  --fd-accent-fade: rgba(0, 120, 212, 0.12);
+}
+
+html.fd-theme-dark {
+  color-scheme: dark;
+}
+
+html.fd-theme-dark body {
+  --fd-page-bg: #0d1117;
+  --fd-surface: #161b22;
+  --fd-text: #f3f6fb;
+  --fd-muted: #93a4b8;
+  --fd-border: rgba(255, 255, 255, 0.08);
+  --fd-nav-active: rgba(96, 165, 250, 0.16);
+  --fd-accent-fade: rgba(56, 189, 248, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mat-drawer-inner-container {
+  scrollbar-width: thin;
+}
+
+markdown h1,
+markdown h2,
+markdown h3 {
+  line-height: 1.1;
+}
+
+markdown p,
+markdown li {
+  color: var(--fd-text);
+  line-height: 1.75;
+}
+
+markdown ul,
+markdown ol {
+  padding-left: 1.4rem;
+}
