@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  computed,
+  effect,
+  inject,
+  viewChildren
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -9,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SchoolContentService } from '../data/school-content.service';
+import { AudioNarrationService } from '../services/audio-narration.service';
 
 @Component({
   selector: 'app-lesson-page',
@@ -45,7 +54,16 @@ import { SchoolContentService } from '../data/school-content.service';
         </nav>
 
         <article class="lesson__body">
-          <markdown [data]="currentLesson.markdown"></markdown>
+          @for (block of currentLesson.blocks; track block.id) {
+            <section
+              #lessonBlock
+              class="lesson__block"
+              [attr.data-block-id]="block.id"
+              [class.is-active]="audio.currentBlockId() === block.id"
+            >
+              <markdown [data]="block.markdown"></markdown>
+            </section>
+          }
         </article>
 
         <footer class="lesson__footer-nav">
@@ -86,7 +104,7 @@ import { SchoolContentService } from '../data/school-content.service';
         gap: 24px;
         padding: 28px;
         border: 1px solid var(--fd-border);
-        border-radius: 28px;
+        border-radius: 0;
         background: color-mix(in srgb, var(--fd-surface) 92%, transparent);
       }
 
@@ -147,8 +165,26 @@ import { SchoolContentService } from '../data/school-content.service';
       .lesson__body {
         padding: 32px;
         border: 1px solid var(--fd-border);
-        border-radius: 28px;
+        border-radius: 0;
         background: var(--fd-surface);
+      }
+
+      .lesson__block {
+        position: relative;
+        padding: 12px 0 18px;
+        border-bottom: 1px solid var(--fd-border);
+        transition:
+          background-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .lesson__block.is-active {
+        background: color-mix(in srgb, var(--fd-accent-line) 8%, transparent);
+        box-shadow: inset 0 -3px 0 var(--fd-accent-line);
+      }
+
+      .lesson__block:last-child {
+        border-bottom: 0;
       }
 
       .lesson__footer-nav {
@@ -179,6 +215,9 @@ import { SchoolContentService } from '../data/school-content.service';
 export class LessonPageComponent {
   private readonly route = inject(ActivatedRoute);
   protected readonly content = inject(SchoolContentService);
+  protected readonly audio = inject(AudioNarrationService);
+  private readonly blockElements = viewChildren<ElementRef<HTMLElement>>('lessonBlock');
+  private lastScrolledBlockId: string | null = null;
 
   private readonly lessonResult = toSignal(
     this.route.paramMap.pipe(
@@ -191,4 +230,34 @@ export class LessonPageComponent {
   );
 
   protected readonly lesson = computed(() => this.lessonResult());
+
+  constructor() {
+    effect(() => {
+      this.lesson();
+      this.lastScrolledBlockId = null;
+    });
+
+    effect(() => {
+      const activeId = this.audio.currentBlockId();
+      const blocks = this.blockElements();
+
+      if (!activeId || !blocks.length) {
+        return;
+      }
+
+      if (this.lastScrolledBlockId === activeId) {
+        return;
+      }
+
+      const activeBlock = blocks.find((item) => item.nativeElement.dataset['blockId'] === activeId);
+      if (activeBlock) {
+        this.lastScrolledBlockId = activeId;
+        activeBlock.nativeElement.scrollIntoView({
+          block: 'nearest',
+          inline: 'nearest',
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
 }

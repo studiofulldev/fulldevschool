@@ -28,6 +28,13 @@ export interface LessonMeta {
 export interface LessonContent {
   meta: LessonMeta;
   markdown: string;
+  blocks: LessonBlock[];
+}
+
+export interface LessonBlock {
+  id: string;
+  title: string;
+  markdown: string;
 }
 
 export interface AudioManifest {
@@ -112,7 +119,8 @@ export class SchoolContentService {
     const meta = this.parseFrontmatter(rawMeta);
     return {
       meta,
-      markdown: markdown.trim()
+      markdown: markdown.trim(),
+      blocks: this.parseBlocks(markdown.trim())
     };
   }
 
@@ -142,5 +150,41 @@ export class SchoolContentService {
         ? Number(parsed['estimatedListeningMinutes'])
         : undefined
     };
+  }
+
+  private parseBlocks(markdown: string): LessonBlock[] {
+    const withoutPageTitle = markdown.replace(/^#\s+.+\n+/m, '').trim();
+    const sections = withoutPageTitle.split(/\n(?=##\s+)/g).filter(Boolean);
+
+    return sections.map((section, index) => {
+      const lines = section.split('\n');
+      const heading = lines[0].replace(/^##\s+/, '').trim();
+      const id = this.slugify(heading || `bloco-${index + 1}`);
+      const title = this.humanizeHeading(heading || `Bloco ${index + 1}`);
+      const body = lines.slice(1).join('\n').trim();
+
+      return {
+        id,
+        title,
+        markdown: `## ${title}\n\n${body}`.trim()
+      };
+    });
+  }
+
+  private slugify(value: string): string {
+    return value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  private humanizeHeading(value: string): string {
+    return value
+      .split('-')
+      .filter(Boolean)
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
   }
 }

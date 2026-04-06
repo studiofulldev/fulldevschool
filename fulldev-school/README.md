@@ -38,6 +38,34 @@ Já existe uma base funcional da aplicação Angular com:
 - dark mode / light mode
 - carregamento de lição a partir do `mock-db`
 - player fixo no rodapé usando TTS como primeira versão
+- underline sincronizado por bloco durante a leitura
+
+## Voz mais natural
+
+A aplicação agora suporta dois modos de voz:
+
+- `Azure Neural Voice` quando houver configuração do Azure Speech
+- `Voz do navegador` como fallback
+
+Para habilitar Azure Speech em ambiente local, defina no navegador:
+
+```js
+window.__FULLDEV_SCHOOL_CONFIG__ = {
+  azureSpeech: {
+    key: 'SUA_CHAVE',
+    region: 'SUA_REGION',
+    voice: 'pt-BR-FranciscaNeural'
+  }
+}
+```
+
+Ou use `localStorage`:
+
+```js
+localStorage.setItem('fds.azure.key', 'SUA_CHAVE')
+localStorage.setItem('fds.azure.region', 'SUA_REGION')
+localStorage.setItem('fds.azure.voice', 'pt-BR-FranciscaNeural')
+```
 
 ## Como rodar a aplicação
 

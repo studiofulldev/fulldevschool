@@ -42,6 +42,26 @@ export class App {
   protected readonly audio = inject(AudioNarrationService);
 
   protected readonly navTree = this.content.navigationTree;
+  protected readonly navSections = computed(() => {
+    const sections = new Map<
+      string,
+      { key: string; title: string; nodes: NavigationNode[] }
+    >();
+
+    for (const node of this.navTree()) {
+      if (!sections.has(node.section)) {
+        sections.set(node.section, {
+          key: node.section,
+          title: this.humanizeSection(node.section),
+          nodes: []
+        });
+      }
+
+      sections.get(node.section)?.nodes.push(node);
+    }
+
+    return [...sections.values()];
+  });
   protected readonly isHandset = toSignal(
     this.breakpointObserver.observe('(max-width: 960px)').pipe(map((state) => state.matches)),
     { initialValue: false }
@@ -62,5 +82,13 @@ export class App {
 
   protected lessonLink(node: NavigationNode): string {
     return node.slug ? `/${node.slug}` : '/';
+  }
+
+  private humanizeSection(section: string): string {
+    return section
+      .split('-')
+      .filter(Boolean)
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
   }
 }

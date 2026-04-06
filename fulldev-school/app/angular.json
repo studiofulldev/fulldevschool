@@ -47,6 +47,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": [
+              "howler",
               "speak-tts"
             ],
             "assets": [
