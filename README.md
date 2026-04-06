@@ -1,3 +1,4 @@
+![Capa do Guia Dev](./99%20-%20Anexos/thumb.png)
 # 1 - Home
 
 **Objetivo:** te apresentar a visão geral do guia, te mostrar o objetivo do repositório, a estrutura do projeto e a melhor ordem para começar.

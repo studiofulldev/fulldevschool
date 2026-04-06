@@ -51,12 +51,33 @@ Avance quando você entender o fluxo de build, deploy e ambiente.
 - roadmap.sh/devops
 - AWS basics
 
+## Tópicos do roadmap e vídeos sugeridos
+
+### Docker
+
+- Roadmap:
+  https://roadmap.sh/docker
+- Vídeo:
+  Curso de Docker para iniciantes, com Matheus Battisti
+  https://www.youtube.com/watch?ab_channel=MatheusBattisti-HoradeCodar&t=1s&v=np_vyd7QlXk
+- Vídeo complementar:
+  Curso Completo de Docker, da Kipper Dev
+  https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
+
+### Cloud
+
+- Roadmap:
+  https://roadmap.sh/aws
+- Base conceitual:
+  https://aws.amazon.com/what-is-cloud-computing/
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Ordem sugerida | Roadmap DevOps | 94% | Sequência muito comum. |
 | Projetos iniciais | Diretriz editorial | 86% | Bons para começo. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh e curadoria de vídeos | 90% | Boa didática para início. |
 
 ## Bibliografia
 
@@ -64,6 +85,10 @@ Avance quando você entender o fluxo de build, deploy e ambiente.
 
 1. https://roadmap.sh/devops
 2. https://aws.amazon.com/what-is-cloud-computing/
+3. Kipper Dev Docker:
+   https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
+4. Repositório guiaDevBrasil, seção Docker:
+   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### Mapeamento de fontes por assunto
 

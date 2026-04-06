@@ -55,12 +55,44 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
 - MDN
 - roadmap.sh/frontend
 
+## Tópicos do roadmap e vídeos sugeridos
+
+### Base web
+
+- HTML/CSS/JavaScript:
+  https://developer.mozilla.org/en-US/docs/Learn
+
+### React
+
+- Roadmap:
+  https://roadmap.sh/react
+- Vídeo:
+  React em 1h, com Mayk Brito
+  https://www.youtube.com/watch?ab_channel=MaykBrito&v=K65wUN-2no4
+
+### TypeScript
+
+- Roadmap:
+  https://roadmap.sh/typescript
+- Vídeo:
+  TypeScript - Zero to Hero | O que é TypeScript? #01
+  https://www.youtube.com/watch?ab_channel=GlauciaLemos&list=PLb2HQ45KP0Wsk-p_0c6ImqBAEFEY-LU9H&v=u7K1sdnCv5Y
+- Vídeo complementar:
+  TypeScript #001 - Bem-vindos ao TypeScript
+  https://www.youtube.com/watch?ab_channel=Jo%C3%A3oRibeiro&list=PLXik_5Br-zO9SEz-3tuy1UIcU6X0GZo4i&v=DF9jY0ITt3Q
+
+### Projeto prático
+
+- Lista de tarefas em React com TypeScript:
+  https://www.youtube.com/watch?ab_channel=BoniekyLacerda&index=3&list=PL_kvSTSEFm2CwHCtvTk0llGDvM0L2jx3O&t=2s&v=95sAtAareR8
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Ordem sugerida | MDN e roadmap frontend | 95% | Sequência muito usada. |
 | Exercícios e projetos | Diretriz editorial | 88% | Projetos plausíveis e úteis. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN e curadoria de vídeos do guiaDevBrasil | 90% | Curadoria voltada para didática inicial. |
 
 ## Bibliografia
 
@@ -68,6 +100,8 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
 
 1. https://roadmap.sh/frontend
 2. https://developer.mozilla.org/en-US/docs/Learn
+3. Repositório guiaDevBrasil, seção React e TypeScript:
+   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### Mapeamento de fontes por assunto
 
@@ -75,6 +109,8 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
   https://roadmap.sh/frontend
 - fundamentos:
   https://developer.mozilla.org/en-US/docs/Learn
+- referências de vídeos:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### Como interpretar a taxa de assertividade
 

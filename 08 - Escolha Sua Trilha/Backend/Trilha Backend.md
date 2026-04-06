@@ -52,12 +52,51 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
 - roadmap.sh/backend
 - MDN HTTP
 
+## Tópicos do roadmap e vídeos sugeridos
+
+### HTTP e APIs
+
+- Roadmap:
+  https://roadmap.sh/backend
+- Base conceitual:
+  https://developer.mozilla.org/
+
+### Node.js
+
+- Roadmap:
+  https://roadmap.sh/nodejs
+- Vídeo:
+  COMEÇANDO COM NODE.JS EM 2022, com Rocketseat
+  https://www.youtube.com/watch?ab_channel=Rocketseat&t=1s&v=fm4_EuCsQwg
+
+### TypeScript no backend
+
+- Roadmap:
+  https://roadmap.sh/typescript
+- Vídeo:
+  Curso de Typescript para Iniciantes, da Kipper Dev
+  https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
+
+### Git e GitHub
+
+- Roadmap:
+  https://roadmap.sh/git-github
+- Instalação oficial do Git:
+  https://git-scm.com/downloads/
+
+### SQL
+
+- Vídeo:
+  Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
+  https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Ordem sugerida | Roadmap backend | 94% | Sequência muito comum. |
 | Projetos iniciais | Diretriz editorial | 87% | Úteis para começo. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN e curadoria de vídeos | 90% | Curadoria introdutória forte. |
 
 ## Bibliografia
 
@@ -65,6 +104,10 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
 
 1. https://roadmap.sh/backend
 2. https://developer.mozilla.org/
+3. Repositório guiaDevBrasil, seção Git, TypeScript e Node.js:
+   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+4. Kipper Dev TypeScript:
+   https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
 
 ### Mapeamento de fontes por assunto
 
@@ -72,6 +115,8 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
   https://roadmap.sh/backend
 - fundamentos web:
   https://developer.mozilla.org/
+- vídeos e referências:
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### Como interpretar a taxa de assertividade
 

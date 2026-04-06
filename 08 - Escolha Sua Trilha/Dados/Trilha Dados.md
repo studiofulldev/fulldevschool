@@ -49,12 +49,28 @@ Avance quando você conseguir responder uma pergunta com dados e explicar seu ra
 
 - roadmap.sh/data-analyst
 
+## Tópicos do roadmap e vídeos sugeridos
+
+### SQL
+
+- Roadmap:
+  https://roadmap.sh/sql
+- Vídeo:
+  Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
+  https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
+
+### Dashboard e BI
+
+- Recurso:
+  https://learn.microsoft.com/power-bi/
+
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Ordem sugerida | Roadmap data analyst | 93% | Sequência plausível. |
 | Projetos iniciais | Diretriz editorial | 87% | Muito úteis para começo. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh e curadoria de vídeos | 89% | Boa camada didática inicial. |
 
 ## Bibliografia
 
@@ -62,6 +78,8 @@ Avance quando você conseguir responder uma pergunta com dados e explicar seu ra
 
 1. https://roadmap.sh/data-analyst
 2. https://learn.microsoft.com/power-bi/
+3. Repositório guiaDevBrasil, seção SQL:
+   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### Mapeamento de fontes por assunto
 
