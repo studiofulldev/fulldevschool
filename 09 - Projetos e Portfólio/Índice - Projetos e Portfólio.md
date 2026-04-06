@@ -48,6 +48,43 @@ Um bom primeiro projeto não é o mais ambicioso.
 - copiado sem adaptação
 - abandonado na metade
 
+## Exemplos de bom primeiro projeto por caminho
+
+### Frontend
+
+- landing page responsiva
+- lista de tarefas
+- página consumindo API simples
+
+### Backend
+
+- API de tarefas
+- cadastro simples com autenticação básica
+
+### QA
+
+- plano de testes de aplicação pequena
+- registro estruturado de bugs
+
+### Dados
+
+- análise exploratória com SQL e dashboard
+
+### UX/UI
+
+- redesign de fluxo com justificativa
+
+## Como sair do tutorial
+
+O jeito mais simples de sair do tutorial é este:
+
+1. reproduza uma versão pequena
+2. altere uma funcionalidade
+3. troque alguma regra
+4. tente explicar o que mudou e por quê
+
+Se você não altera nada, ainda está mais perto de reprodução do que de projeto.
+
 ## Como documentar projeto
 
 Mesmo projeto simples fica melhor quando você registra:
@@ -67,6 +104,13 @@ No começo, o essencial é:
 3. explicar o que ele faz
 4. deixar o repositório organizado
 
+Se possível, inclua também:
+
+- screenshot
+- instruções de uso
+- tecnologias usadas
+- limitações atuais
+
 ## Como montar portfólio
 
 Você não precisa de dez projetos.
@@ -78,6 +122,14 @@ Você não precisa de dez projetos.
 - com clareza
 - com progressão
 
+Uma estrutura simples de portfólio funciona melhor quando cada projeto mostra:
+
+- o problema
+- a solução
+- o que você usou
+- o que você aprendeu
+- o que faria depois
+
 ## O que evitar
 
 - projeto copiado sem entender
@@ -85,6 +137,17 @@ Você não precisa de dez projetos.
 - repositório sem explicação
 - link quebrado
 - projeto que você não consegue explicar
+
+## Critério prático para saber se um projeto está bom o suficiente
+
+Seu projeto inicial está bom o suficiente quando você consegue:
+
+1. explicar o objetivo em poucas frases
+2. mostrar o que funciona
+3. dizer o que foi mais difícil
+4. apontar o próximo passo
+
+Se você consegue fazer isso, ele já tem valor.
 
 ## O que você deve sair sabendo ao terminar esta etapa
 
@@ -108,10 +171,13 @@ Essa é a etapa em que você aprende a transformar prática em posicionamento pr
 | --- | --- | --- | --- |
 | Por que projetos importam | Síntese editorial baseada em prática comum da área | 92% | Muito coerente com a realidade de entrada. |
 | O que é um bom primeiro projeto | Síntese editorial | 87% | Útil, mas interpretativo. |
+| Exemplos por caminho | Síntese editorial alinhada às trilhas do vault | 89% | Muito úteis para início. |
+| Como sair do tutorial | Síntese editorial baseada em prática real | 90% | Orientação forte e prática. |
 | Como documentar projeto | GitHub Docs e boas práticas editoriais | 94% | Forte como orientação prática. |
 | Como publicar no GitHub | GitHub Docs | 97% | Bem sustentado por documentação. |
 | Como montar portfólio | Síntese editorial | 86% | Boa diretriz, mas não regra rígida. |
 | O que evitar | Síntese editorial | 88% | Muito útil como filtro prático. |
+| Critério prático de projeto bom o suficiente | Síntese editorial | 89% | Muito útil para destravar perfeccionismo. |
 
 ## Bibliografia
 

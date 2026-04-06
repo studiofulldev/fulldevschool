@@ -16,6 +16,14 @@ Dados é a área que transforma informação em análise, decisão e insight.
 
 Você coleta, organiza, consulta, trata e interpreta dados para responder perguntas do negócio.
 
+No dia a dia, isso pode significar:
+
+- montar consulta SQL
+- limpar dados
+- comparar indicadores
+- construir dashboard
+- explicar achado para outra área
+
 ## Exemplo real
 
 Descobrir por que vendas caíram ou quais usuários estão abandonando um fluxo.
@@ -31,6 +39,12 @@ Descobrir por que vendas caíram ou quais usuários estão abandonando um fluxo.
 ## Perfil mais compatível
 
 Pode combinar com você se você gosta de padrão, análise, leitura de contexto e organização de informação.
+
+Talvez combine menos com você se:
+
+- você não gosta de trabalhar com número e padrão
+- você quer retorno mais visual de interface
+- você evita leitura analítica
 
 ## Prós e contras
 
@@ -49,6 +63,8 @@ Contras:
 - aprender SQL
 - limpar dados
 - não confundir gráfico bonito com análise boa
+- entender pergunta de negócio
+- comunicar achado com clareza
 
 ## Como começar em 30 dias
 
@@ -56,10 +72,33 @@ Contras:
 2. analisar conjuntos simples de dados
 3. montar dashboard inicial
 4. explicar achados com clareza
+5. relacionar análise com decisão
+
+## Como saber se essa área combina com você
+
+Sinais positivos:
+
+- você gosta de procurar padrão
+- você sente curiosidade por métricas
+- você gosta de responder pergunta com evidência
+
+Sinais de atenção:
+
+- você se irrita com limpeza e organização de informação
+- você quer fugir totalmente de planilha, dado e análise
+- você não gosta de explicar conclusão
 
 ## Primeiro projeto sugerido
 
 Análise exploratória simples com dashboard e conclusão escrita.
+
+## Faixa de entrada
+
+Dados pode ser uma boa entrada, especialmente em análise, mas exige cuidado para não virar só ferramenta sem raciocínio.
+
+O diferencial não é só montar gráfico.
+
+É interpretar.
 
 ## Verificação por tópico
 
@@ -68,7 +107,9 @@ Análise exploratória simples com dashboard e conclusão escrita.
 | O que é | Uso comum da área | 94% | Definição estável. |
 | Ferramentas comuns | Ecossistema de análise atual | 92% | Ferramentas iniciais recorrentes. |
 | Perfil mais compatível | Síntese editorial | 84% | Orientativo. |
+| Como saber se essa área combina com você | Síntese editorial | 82% | Leitura orientativa. |
 | Como começar em 30 dias | Diretriz editorial | 87% | Sequência plausível. |
+| Faixa de entrada | Síntese editorial | 87% | Útil para iniciante, mas contextual. |
 
 ## Bibliografia
 

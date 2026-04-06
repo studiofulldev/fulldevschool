@@ -47,6 +47,17 @@ O essencial:
 - o que você já construiu
 - links úteis
 
+### Estrutura simples que já resolve
+
+- nome
+- contato
+- título ou objetivo
+- resumo curto
+- projetos
+- formação
+- cursos relevantes
+- links
+
 ## LinkedIn
 
 LinkedIn não é só rede social.
@@ -60,6 +71,13 @@ No começo, tenha pelo menos:
 - resumo simples
 - links para GitHub ou portfólio
 
+### Exemplo de título melhor
+
+Em vez de algo vago, prefira algo como:
+
+- `Desenvolvedor Frontend em formação | HTML, CSS, JavaScript | Projetos no GitHub`
+- `Analista de Dados em formação | SQL, Excel, Power BI | Projetos práticos`
+
 ## Entrevistas
 
 Na entrevista, você não precisa parecer saber tudo.
@@ -71,6 +89,14 @@ Você precisa mostrar:
 - vontade de aprender
 - capacidade de explicar o que já fez
 
+### Perguntas que você precisa treinar
+
+- quem é você hoje?
+- por que escolheu essa área?
+- o que você já construiu?
+- o que foi difícil no seu projeto?
+- o que você está estudando agora?
+
 ## Primeiras candidaturas
 
 No começo, o ideal é aplicar com volume e critério.
@@ -80,6 +106,25 @@ Isso significa:
 - não esperar estar "100% pronto"
 - não aplicar de forma totalmente aleatória
 - ajustar currículo e perfil conforme aprende
+
+### Estratégia prática
+
+- escolha vagas plausíveis
+- registre onde aplicou
+- observe padrões de retorno
+- ajuste seus materiais com base nisso
+
+## Sinais de que você já pode começar a aplicar
+
+Você não precisa esperar perfeição.
+
+Mas ajuda quando você já tem:
+
+- uma área escolhida
+- um ou dois projetos explicáveis
+- GitHub organizado
+- currículo minimamente claro
+- LinkedIn coerente
 
 ## O que você deve sair sabendo ao terminar esta etapa
 
@@ -104,9 +149,13 @@ Essa é a etapa em que você fortalece a parte mental do processo.
 | Como funcionam vagas | Síntese editorial baseada em prática comum de recrutamento | 88% | Útil, mas contextual. |
 | O que empresas costumam procurar | Síntese editorial baseada em entrada no mercado | 90% | Muito plausível e recorrente. |
 | Currículo | Diretriz editorial prática | 91% | Orientação confiável. |
+| Estrutura simples de currículo | Diretriz editorial prática | 92% | Muito útil para iniciante. |
 | LinkedIn | Diretriz editorial prática | 90% | Boa recomendação inicial. |
+| Exemplo de título melhor | Diretriz editorial | 88% | Orientação muito útil, mas adaptável. |
 | Entrevistas | Síntese editorial baseada em dinâmica comum de entrevistas | 87% | Não cobre todos os formatos. |
+| Perguntas que você precisa treinar | Síntese editorial | 89% | Muito coerente com entrevistas iniciais. |
 | Primeiras candidaturas | Diretriz editorial do guia | 89% | Boa estratégia prática, mas não universal. |
+| Sinais de que você já pode começar a aplicar | Síntese editorial | 88% | Muito útil para destravar paralisia. |
 
 ## Bibliografia
 
