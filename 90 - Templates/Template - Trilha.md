@@ -1,6 +1,14 @@
-# Trilha {{nome-da-trilha}}
+# {{numero-da-etapa}} - Trilha {{nome-da-trilha}}
 
-## Objetivo
+**Objetivo:** transformar interesse em execução com uma ordem prática de estudo e projetos.
+
+**Passo anterior:** [[caminho-da-nota-anterior|etapa anterior]]
+
+**Próximo passo:** [[caminho-da-proxima-nota|próxima etapa]]
+
+## Conteúdo
+
+## Objetivo da trilha
 
 ## Pré-requisitos
 
