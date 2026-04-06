@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { NavigationNode, SchoolContentService } from './data/school-content.service';
 import { ThemeService } from './services/theme.service';
 import { AudioNarrationService } from './services/audio-narration.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { AudioNarrationService } from './services/audio-narration.service';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
+    CommonModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
