@@ -16,9 +16,7 @@
 }
 
 .shell__content {
-  background:
-    radial-gradient(circle at top right, var(--fd-accent-fade), transparent 28%),
-    linear-gradient(180deg, var(--fd-page-bg), var(--fd-page-bg));
+  background: var(--fd-page-bg);
 }
 
 .shell__toolbar {
@@ -109,22 +107,22 @@
   flex: 1;
 }
 
-.player-bar {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  left: 344px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 16px 20px;
-  border: 1px solid var(--fd-border);
-  border-radius: 0;
-  background: color-mix(in srgb, var(--fd-surface) 98%, transparent);
-  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
-  backdrop-filter: blur(18px);
-}
+  .player-bar {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    left: 344px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid var(--fd-border);
+    border-radius: 16px;
+    background: var(--color-canvas-muted);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(8px);
+  }
 
 .player-bar__meta {
   display: flex;

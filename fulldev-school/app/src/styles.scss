@@ -20,24 +20,20 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  background: var(--fd-page-bg);
-  color: var(--fd-text);
+  background: var(--color-canvas-default);
+  color: var(--color-text-primary);
   font-family: 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 body {
   --fd-page-bg: var(--color-canvas-default);
-  --fd-surface: var(--color-surface-default);
+  --fd-surface: var(--color-canvas-inset);
   --fd-text: var(--color-text-primary);
   --fd-muted: var(--color-text-secondary);
   --fd-border: var(--color-border-default);
-  --fd-nav-active: var(--color-accent-muted);
-  --fd-accent-fade: var(--color-accent-emphasis);
+  --fd-nav-active: rgba(18, 133, 210, 0.12);
+  --fd-accent-fade: var(--color-accent-muted);
   --fd-accent-line: var(--color-accent-fg);
-}
-
-html.fd-theme-dark {
-  color-scheme: dark;
 }
 
 html.fd-theme-dark body {
@@ -47,7 +43,6 @@ html.fd-theme-dark body {
   --fd-muted: var(--color-text-secondary);
   --fd-border: rgba(255, 255, 255, 0.15);
   --fd-nav-active: rgba(255, 255, 255, 0.08);
-  --fd-accent-fade: var(--color-accent-muted);
   --fd-accent-line: var(--color-accent-fg);
 }
 
@@ -64,7 +59,7 @@ html.fd-theme-dark body {
 .mdc-notched-outline,
 .mat-drawer,
 .mat-toolbar {
-  border-radius: 0 !important;
+  border-radius: 8px !important;
 }
 
 .mat-drawer-inner-container {
@@ -78,13 +73,13 @@ html.fd-theme-dark body {
 markdown h1,
 markdown h2,
 markdown h3 {
-  line-height: 1.1;
+  line-height: 1.3;
 }
 
 markdown p,
 markdown li {
   color: var(--fd-text);
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 markdown ul,
