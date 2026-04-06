@@ -24,6 +24,8 @@ Implementação do frontend e da publicação local do guia de tecnologia.
 - página de leitura com hero, breadcrumb, blocos expansíveis e navegação anterior/próxima
 - tipografia padronizada com `Inter`
 - paleta escura com acento vermelho
+- painéis retos, sem sombras padrão do Material
+- itens laterais com labels abreviados quando necessário para caber em uma linha
 
 ## Status do áudio
 

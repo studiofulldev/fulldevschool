@@ -10,6 +10,7 @@ Repositório do guia editorial da FullDev com uma aplicação Angular para naveg
 - a navegação lateral usa a estrutura de `fulldev-school/mock-db/navigation/tree.json`
 - cada página é carregada por `slug`
 - cada seção interna do Markdown com `##` vira um bloco expansível na leitura
+- os painéis do menu lateral e do conteúdo usam visual reto, sem sombra padrão do Material
 
 ## Produto atual
 
@@ -36,6 +37,7 @@ O projeto hoje não é mais um reader estilo Speechify. O fluxo principal é um 
 - a sidebar abre seções por painel expansível
 - o conteúdo da página abre subtópicos por painéis expansíveis simples
 - a UI usa `Inter` como tipografia base
+- os títulos do menu lateral podem ser abreviados para manter uma linha só
 
 ## Pontos em aberto
 

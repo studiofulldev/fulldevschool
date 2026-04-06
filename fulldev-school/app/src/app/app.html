@@ -32,7 +32,7 @@
                 [routerLinkActiveOptions]="{ exact: true }"
                 (click)="isHandset() && drawer.close()"
               >
-                <span>{{ node.navTitle || node.title }}</span>
+                <span>{{ navLabel(node) }}</span>
               </a>
             }
           </div>

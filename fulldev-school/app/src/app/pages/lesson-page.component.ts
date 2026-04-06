@@ -32,7 +32,7 @@ import { SchoolContentService } from '../data/school-content.service';
 
         <article class="lesson__body">
           @for (block of currentLesson.blocks; track block.id) {
-            <mat-expansion-panel class="lesson__block" hideToggle>
+            <mat-expansion-panel class="lesson__block" hideToggle [expanded]="true">
               <mat-expansion-panel-header class="lesson__block-header">
                 <mat-panel-title>{{ block.title }}</mat-panel-title>
                 <mat-icon class="lesson__block-icon">expand_more</mat-icon>
@@ -128,19 +128,19 @@ import { SchoolContentService } from '../data/school-content.service';
       .lesson__block {
         background: transparent;
         box-shadow: none;
-        border: 1px solid var(--fd-border);
+        border: 0;
         border-radius: var(--fd-radius);
       }
 
       .lesson__block-header {
         min-height: 56px;
-        padding: 0 18px;
+        padding: 0 10px;
         background: transparent;
       }
 
       .lesson__block-header mat-panel-title {
         color: var(--fd-text);
-        font-size: var(--fd-text-md);
+        font-size: var(--fd-text-lg);
         font-weight: 600;
         line-height: 1.25;
       }
@@ -155,7 +155,7 @@ import { SchoolContentService } from '../data/school-content.service';
       }
 
       :host ::ng-deep .lesson__block .mat-expansion-panel-body {
-        padding: 0 18px 18px;
+        padding: 0 10px 18px;
       }
 
       .lesson__block-body {

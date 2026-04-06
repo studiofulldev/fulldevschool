@@ -17,6 +17,8 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - renderização de conteúdo a partir de `mock-db/doc`
 - skeleton durante carregamento
 - blocos internos expansíveis por seção
+- sidebar com seções expansíveis e labels abreviados quando necessário
+- blocos internos abertos por padrão, com visual simples de leitura
 
 ## Arquivos centrais
 
@@ -44,3 +46,4 @@ npm run build
 - a interface de áudio está adiada
 - o conteúdo depende de `fulldev-school/mock-db/doc`
 - ainda existem arquivos `.md` com encoding a revisar
+- existe um warning pequeno de style budget em `lesson-page.component.ts`

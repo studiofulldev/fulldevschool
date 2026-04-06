@@ -92,6 +92,22 @@ export class App {
     return `/${node.slug}`;
   }
 
+  protected navLabel(node: NavigationNode): string {
+    const source = node.navTitle || node.title;
+
+    return source
+      .replace('Fundamentos de Tecnologia', 'Fund. de Tecnologia')
+      .replace('Fundamentos Digitais', 'Fund. Digitais')
+      .replace('Mentalidade e Consistência', 'Mentalidade e Consist.')
+      .replace('Comunidade e Networking', 'Comunidade e Netw.')
+      .replace('Projetos e Portfólio', 'Projetos e Portfólio')
+      .replace('Mercado de Trabalho', 'Mercado de Trabalho')
+      .replace('FAQ do Iniciante', 'FAQ do Iniciante')
+      .replace('Recursos Curados', 'Recursos Curados')
+      .replace('Mapa das Áreas', 'Mapa das Áreas')
+      .replace('Visão Geral do Guia', 'Visão Geral');
+  }
+
   private humanizeSection(section: string): string {
     return section
       .split('-')
