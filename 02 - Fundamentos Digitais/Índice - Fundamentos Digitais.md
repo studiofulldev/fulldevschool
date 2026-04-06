@@ -163,8 +163,6 @@ O ideal é:
 - salvar o que importa em favoritos
 - fechar o que não está usando
 
-![Meme sobre abas demais](../99%20-%20Anexos/memes/meme-abas-do-caos.svg)
-
 ## Como pesquisar no Google sem desperdiçar tempo
 
 Pesquisar bem é uma habilidade central para qualquer pessoa em tecnologia.

@@ -193,8 +193,6 @@ Você está entrando em tutorial infinito quando:
 - escreva o que você faria antes de assistir
 - crie mini desafios próprios
 
-![Meme sobre tutorial infinito](../99%20-%20Anexos/memes/meme-tutorial-infinito.svg)
-
 ## Como pedir ajuda do jeito certo
 
 Pedir ajuda é parte da aprendizagem.

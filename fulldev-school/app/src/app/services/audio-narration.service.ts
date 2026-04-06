@@ -25,6 +25,7 @@ export class AudioNarrationService {
     }
 
     await this.ensureInitialized();
+    const audioManifest = this.content.currentAudio();
     const text = lesson.markdown
       .replace(/^#+\s?/gm, '')
       .replace(/[-*]\s/g, '')
@@ -37,7 +38,8 @@ export class AudioNarrationService {
         onend: () => this.isPlaying.set(false)
       },
       rate: this.playbackRate(),
-      pitch: 1
+      pitch: audioManifest?.voice?.pitch ?? 1,
+      lang: audioManifest?.voice?.lang ?? 'pt-BR'
     });
   }
 

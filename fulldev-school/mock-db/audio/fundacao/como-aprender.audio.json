@@ -1,0 +1,28 @@
+{
+  "lessonId": "como-aprender",
+  "mode": "tts",
+  "audioSrc": null,
+  "voice": {
+    "lang": "pt-BR",
+    "name": null,
+    "rate": 1,
+    "pitch": 1
+  },
+  "segments": [
+    {
+      "blockId": "estudar-direito",
+      "start": 0,
+      "end": 12
+    },
+    {
+      "blockId": "como-praticar",
+      "start": 12,
+      "end": 24
+    },
+    {
+      "blockId": "constancia",
+      "start": 24,
+      "end": 35
+    }
+  ]
+}

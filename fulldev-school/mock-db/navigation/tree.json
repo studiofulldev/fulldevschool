@@ -4,38 +4,53 @@
   "root": [
     {
       "id": "home",
-      "slug": "",
+      "slug": "home",
       "title": "1 - Home",
       "type": "page",
-      "order": 1
+      "order": 1,
+      "section": "fundacao",
+      "markdownPath": "mock-db/lessons/fundacao/home.md",
+      "audioManifestPath": "mock-db/audio/fundacao/home.audio.json"
     },
     {
       "id": "comece-aqui",
       "slug": "comece-aqui",
       "title": "2 - Comece Aqui",
       "type": "page",
-      "order": 2
+      "order": 2,
+      "section": "fundacao",
+      "markdownPath": "mock-db/lessons/fundacao/comece-aqui.md",
+      "audioManifestPath": "mock-db/audio/fundacao/comece-aqui.audio.json"
     },
     {
       "id": "fundamentos-digitais",
       "slug": "fundamentos-digitais",
       "title": "3 - Fundamentos Digitais",
       "type": "page",
-      "order": 3
+      "order": 3,
+      "section": "fundacao",
+      "markdownPath": "mock-db/lessons/fundacao/fundamentos-digitais.md",
+      "audioManifestPath": "mock-db/audio/fundacao/fundamentos-digitais.audio.json"
     },
     {
       "id": "fundamentos-tecnologia",
       "slug": "fundamentos-tecnologia",
       "title": "4 - Fundamentos de Tecnologia",
       "type": "page",
-      "order": 4
+      "order": 4,
+      "section": "fundacao",
+      "markdownPath": "mock-db/lessons/fundacao/fundamentos-tecnologia.md",
+      "audioManifestPath": "mock-db/audio/fundacao/fundamentos-tecnologia.audio.json"
     },
     {
       "id": "como-aprender",
       "slug": "como-aprender",
       "title": "5 - Como Aprender",
       "type": "page",
-      "order": 5
+      "order": 5,
+      "section": "fundacao",
+      "markdownPath": "mock-db/lessons/fundacao/como-aprender.md",
+      "audioManifestPath": "mock-db/audio/fundacao/como-aprender.audio.json"
     }
   ]
 }

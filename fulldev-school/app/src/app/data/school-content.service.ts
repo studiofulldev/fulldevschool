@@ -8,6 +8,9 @@ export interface NavigationNode {
   title: string;
   type: 'page';
   order: number;
+  section: string;
+  markdownPath: string;
+  audioManifestPath: string;
 }
 
 export interface LessonMeta {
@@ -85,29 +88,18 @@ export class SchoolContentService {
       return null;
     }
 
-    const markdownPath = this.resolveMarkdownPath(target.slug);
-    const source = await firstValueFrom(this.http.get(markdownPath, { responseType: 'text' }));
+    const source = await firstValueFrom(this.http.get(target.markdownPath, { responseType: 'text' }));
     const lesson = this.parseLessonSource(source);
     this._currentLesson.set(lesson);
 
     try {
-      const audio = await firstValueFrom(
-        this.http.get<AudioManifest>(this.resolveAudioPath(lesson.meta.section, lesson.meta.slug))
-      );
+      const audio = await firstValueFrom(this.http.get<AudioManifest>(target.audioManifestPath));
       this._currentAudio.set(audio);
     } catch {
       this._currentAudio.set(null);
     }
 
     return lesson;
-  }
-
-  private resolveMarkdownPath(slug: string): string {
-    return `mock-db/lessons/fundacao/${slug}.md`;
-  }
-
-  private resolveAudioPath(section: string, slug: string): string {
-    return `mock-db/audio/${section}/${slug}.audio.json`;
   }
 
   private parseLessonSource(source: string): LessonContent {

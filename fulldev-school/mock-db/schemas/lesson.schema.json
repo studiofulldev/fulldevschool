@@ -8,7 +8,8 @@
     "title",
     "section",
     "order",
-    "markdownPath"
+    "markdownPath",
+    "audioManifestPath"
   ],
   "properties": {
     "id": { "type": "string" },
@@ -19,7 +20,7 @@
     "previousLessonId": { "type": ["string", "null"] },
     "nextLessonId": { "type": ["string", "null"] },
     "markdownPath": { "type": "string" },
-    "audioManifestPath": { "type": ["string", "null"] },
+    "audioManifestPath": { "type": "string" },
     "estimatedReadingMinutes": { "type": ["integer", "null"] },
     "estimatedListeningMinutes": { "type": ["integer", "null"] }
   },

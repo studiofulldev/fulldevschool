@@ -219,8 +219,6 @@ Confusão, no começo, quase sempre significa só uma coisa:
 
 **você ainda está montando o mapa mental da área.**
 
-![Meme sobre bugs e chefes finais](../99%20-%20Anexos/memes/meme-boss-final-bug.svg)
-
 ## Como usar este guia
 
 Este guia foi organizado para evitar que você pule etapas importantes.

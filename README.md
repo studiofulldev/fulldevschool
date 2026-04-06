@@ -52,27 +52,6 @@ Este repositório está sendo desenvolvido como um guia estruturado com:
 - bibliografia por nota
 - taxa de assertividade por tópico
 
-## Estrutura do projeto
-
-- `00 - Home`: visão geral do guia
-- `01 - Comece Aqui`: alinhamento de expectativa e introdução à área
-- `02 - Fundamentos Digitais`: base operacional de computador, navegador, pesquisa e autonomia
-- `03 - Fundamentos de Tecnologia`: conceitos-base do ecossistema tech
-- `04 - Como Aprender`: método de estudo e prática
-- `05 - Mapa das Áreas`: visão das áreas principais e complementares
-- `06 - Teste de Perfil`: orientação inicial de encaixe
-- `07 - Comparando Caminhos`: comparação prática entre áreas
-- `08 - Escolha Sua Trilha`: trilhas iniciais por caminho
-- `09 - Projetos e Portfólio`: prática e prova de capacidade
-- `10 - Mercado de Trabalho`: currículo, LinkedIn, vagas e entrevistas
-- `11 - Mentalidade e Consistência`: sustentação emocional e expectativas
-- `12 - Comunidade e Networking`: apoio e presença profissional
-- `13 - Glossário`: termos essenciais
-- `14 - Recursos Curados`: links, materiais e referências
-- `15 - FAQ do Iniciante`: dúvidas recorrentes
-- `16 - Painel de Progresso`: acompanhamento da jornada
-- `90 - Templates`: padrões editoriais
-
 ## Ordem principal de navegação
 
 1. [2 - Comece Aqui](./01%20-%20Comece%20Aqui/%C3%8Dndice%20-%20Comece%20Aqui.md)

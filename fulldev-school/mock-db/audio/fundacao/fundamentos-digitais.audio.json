@@ -1,0 +1,28 @@
+{
+  "lessonId": "fundamentos-digitais",
+  "mode": "tts",
+  "audioSrc": null,
+  "voice": {
+    "lang": "pt-BR",
+    "name": null,
+    "rate": 1,
+    "pitch": 1
+  },
+  "segments": [
+    {
+      "blockId": "autonomia-minima",
+      "start": 0,
+      "end": 12
+    },
+    {
+      "blockId": "organizacao",
+      "start": 12,
+      "end": 25
+    },
+    {
+      "blockId": "navegador-e-pesquisa",
+      "start": 25,
+      "end": 37
+    }
+  ]
+}

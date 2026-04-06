@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'comece-aqui'
+    redirectTo: 'home'
   },
   {
     path: ':slug',
@@ -13,6 +13,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'comece-aqui'
+    redirectTo: 'home'
   }
 ];
