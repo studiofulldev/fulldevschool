@@ -104,8 +104,9 @@ import { AudioNarrationService } from '../services/audio-narration.service';
         gap: 24px;
         padding: 28px;
         border: 1px solid var(--fd-border);
-        border-radius: 0;
+        border-radius: 6px;
         background: color-mix(in srgb, var(--fd-surface) 92%, transparent);
+        box-shadow: 0 2px 4px rgba(15, 23, 42, 0.09);
       }
 
       .lesson__eyebrow {
@@ -165,8 +166,9 @@ import { AudioNarrationService } from '../services/audio-narration.service';
       .lesson__body {
         padding: 32px;
         border: 1px solid var(--fd-border);
-        border-radius: 0;
+        border-radius: 6px;
         background: var(--fd-surface);
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
       }
 
       .lesson__block {
@@ -191,6 +193,9 @@ import { AudioNarrationService } from '../services/audio-narration.service';
         display: flex;
         justify-content: space-between;
         gap: 16px;
+        padding: 18px 0 0;
+        border-top: 1px solid var(--fd-border);
+        align-items: center;
       }
 
       .lesson--empty {

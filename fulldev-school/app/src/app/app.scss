@@ -71,6 +71,9 @@
 
 .nav {
   padding: 16px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .nav__section + .nav__section {
@@ -118,7 +121,7 @@
   padding: 16px 20px;
   border: 1px solid var(--fd-border);
   border-radius: 0;
-  background: color-mix(in srgb, var(--fd-surface) 88%, transparent);
+  background: color-mix(in srgb, var(--fd-surface) 98%, transparent);
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
   backdrop-filter: blur(18px);
 }

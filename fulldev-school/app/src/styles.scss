@@ -1,5 +1,7 @@
 @use '@angular/material' as mat;
 
+@use '@primer/css/index.scss' as *;
+
 html {
   color-scheme: light;
   @include mat.theme(
@@ -24,14 +26,14 @@ body {
 }
 
 body {
-  --fd-page-bg: #f4f8fc;
-  --fd-surface: #ffffff;
-  --fd-text: #0f172a;
-  --fd-muted: #5b6b7d;
-  --fd-border: rgba(15, 23, 42, 0.1);
-  --fd-nav-active: rgba(0, 120, 212, 0.12);
-  --fd-accent-fade: rgba(0, 120, 212, 0.12);
-  --fd-accent-line: #0a84ff;
+  --fd-page-bg: var(--color-canvas-default);
+  --fd-surface: var(--color-surface-default);
+  --fd-text: var(--color-text-primary);
+  --fd-muted: var(--color-text-secondary);
+  --fd-border: var(--color-border-default);
+  --fd-nav-active: var(--color-accent-muted);
+  --fd-accent-fade: var(--color-accent-emphasis);
+  --fd-accent-line: var(--color-accent-fg);
 }
 
 html.fd-theme-dark {
@@ -39,14 +41,14 @@ html.fd-theme-dark {
 }
 
 html.fd-theme-dark body {
-  --fd-page-bg: #0d1117;
-  --fd-surface: #161b22;
-  --fd-text: #f3f6fb;
-  --fd-muted: #93a4b8;
-  --fd-border: rgba(255, 255, 255, 0.08);
-  --fd-nav-active: rgba(96, 165, 250, 0.16);
-  --fd-accent-fade: rgba(56, 189, 248, 0.1);
-  --fd-accent-line: #58a6ff;
+  --fd-page-bg: var(--color-canvas-subtle);
+  --fd-surface: var(--color-canvas-inset);
+  --fd-text: var(--color-text-primary);
+  --fd-muted: var(--color-text-secondary);
+  --fd-border: rgba(255, 255, 255, 0.15);
+  --fd-nav-active: rgba(255, 255, 255, 0.08);
+  --fd-accent-fade: var(--color-accent-muted);
+  --fd-accent-line: var(--color-accent-fg);
 }
 
 * {
@@ -67,6 +69,10 @@ html.fd-theme-dark body {
 
 .mat-drawer-inner-container {
   scrollbar-width: thin;
+}
+
+.Mat-Drawer {
+  border-right: none;
 }
 
 markdown h1,
