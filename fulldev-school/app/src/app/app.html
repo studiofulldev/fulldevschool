@@ -15,9 +15,9 @@
 
     <mat-divider />
 
-    <nav class="nav">
+    <nav class="nav Box Box--condensed">
       @for (section of navSections(); track section.key) {
-        <div class="nav__section">
+        <section class="nav__section Box Box--condensed">
           <div class="nav__section-label">{{ section.title }}</div>
           <mat-nav-list>
             @for (node of section.nodes; track node.id) {
@@ -32,7 +32,7 @@
               </a>
             }
           </mat-nav-list>
-        </div>
+        </section>
       }
     </nav>
   </mat-sidenav>
