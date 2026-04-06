@@ -1,0 +1,41 @@
+{
+  "product": "fulldev-school",
+  "version": 1,
+  "root": [
+    {
+      "id": "home",
+      "slug": "",
+      "title": "1 - Home",
+      "type": "page",
+      "order": 1
+    },
+    {
+      "id": "comece-aqui",
+      "slug": "comece-aqui",
+      "title": "2 - Comece Aqui",
+      "type": "page",
+      "order": 2
+    },
+    {
+      "id": "fundamentos-digitais",
+      "slug": "fundamentos-digitais",
+      "title": "3 - Fundamentos Digitais",
+      "type": "page",
+      "order": 3
+    },
+    {
+      "id": "fundamentos-tecnologia",
+      "slug": "fundamentos-tecnologia",
+      "title": "4 - Fundamentos de Tecnologia",
+      "type": "page",
+      "order": 4
+    },
+    {
+      "id": "como-aprender",
+      "slug": "como-aprender",
+      "title": "5 - Como Aprender",
+      "type": "page",
+      "order": 5
+    }
+  ]
+}

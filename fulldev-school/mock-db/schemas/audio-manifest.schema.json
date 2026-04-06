@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AudioManifest",
+  "type": "object",
+  "required": [
+    "lessonId",
+    "mode",
+    "segments"
+  ],
+  "properties": {
+    "lessonId": { "type": "string" },
+    "mode": {
+      "type": "string",
+      "enum": ["tts", "prerecorded"]
+    },
+    "audioSrc": { "type": ["string", "null"] },
+    "voice": {
+      "type": ["object", "null"],
+      "properties": {
+        "lang": { "type": "string" },
+        "name": { "type": ["string", "null"] },
+        "rate": { "type": "number" },
+        "pitch": { "type": "number" }
+      },
+      "required": ["lang", "name", "rate", "pitch"],
+      "additionalProperties": false
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["blockId", "start", "end"],
+        "properties": {
+          "blockId": { "type": "string" },
+          "start": { "type": "number" },
+          "end": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

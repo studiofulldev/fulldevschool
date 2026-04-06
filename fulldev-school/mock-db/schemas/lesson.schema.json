@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lesson",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "section",
+    "order",
+    "markdownPath"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "slug": { "type": "string" },
+    "title": { "type": "string" },
+    "section": { "type": "string" },
+    "order": { "type": "integer" },
+    "previousLessonId": { "type": ["string", "null"] },
+    "nextLessonId": { "type": ["string", "null"] },
+    "markdownPath": { "type": "string" },
+    "audioManifestPath": { "type": ["string", "null"] },
+    "estimatedReadingMinutes": { "type": ["integer", "null"] },
+    "estimatedListeningMinutes": { "type": ["integer", "null"] }
+  },
+  "additionalProperties": false
+}
