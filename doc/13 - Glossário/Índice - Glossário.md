@@ -1,81 +1,81 @@
-## ConteÃºdo
+## Conteúdo
 
-Esta etapa existe para reduzir o atrito com o vocabulÃ¡rio da Ã¡rea.
+Esta etapa existe para reduzir o atrito com o vocabulário da área.
 
-VocÃª nÃ£o precisa decorar tudo agora.
+Você não precisa decorar tudo agora.
 
-Mas precisa ter um lugar simples para consultar quando um termo aparecer vÃ¡rias vezes.
+Mas precisa ter um lugar simples para consultar quando um termo aparecer várias vezes.
 
 ## Termos essenciais
 
-- **API**: forma de comunicaÃ§Ã£o entre sistemas.
-- **Backend**: parte da aplicaÃ§Ã£o que cuida de regras, dados e integraÃ§Ãµes.
+- **API**: forma de comunicação entre sistemas.
+- **Backend**: parte da aplicação que cuida de regras, dados e integrações.
 - **Bug**: erro ou comportamento incorreto em um sistema.
-- **Cloud**: uso remoto de infraestrutura e serviÃ§os pela internet.
-- **Deploy**: ato de publicar ou disponibilizar uma aplicaÃ§Ã£o.
+- **Cloud**: uso remoto de infraestrutura e serviços pela internet.
+- **Deploy**: ato de publicar ou disponibilizar uma aplicação.
 - **Frontend**: parte visual e interativa de um sistema.
 - **Framework**: estrutura pronta que acelera desenvolvimento.
 - **Git**: ferramenta de versionamento.
 - **GitHub**: plataforma para hospedar projetos e colaborar.
-- **Issue**: registro de problema, tarefa ou sugestÃ£o em um repositÃ³rio.
-- **Library**: conjunto de funcionalidades reutilizÃ¡veis.
+- **Issue**: registro de problema, tarefa ou sugestão em um repositório.
+- **Library**: conjunto de funcionalidades reutilizáveis.
 - **README**: arquivo que explica um projeto.
 - **Repository**: local onde um projeto fica versionado.
 - **Stack**: conjunto de tecnologias usado em um projeto.
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha um ponto de consulta simples para os termos mais comuns do guia.
+Ao concluir esta página, o ideal é que você tenha um ponto de consulta simples para os termos mais comuns do guia.
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
+[[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
 
-Essa Ã© a etapa em que vocÃª encontra materiais de apoio selecionados.
+Essa é a etapa em que você encontra materiais de apoio selecionados.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
 ### Termos gerais de web e tecnologia
 
 - Base:
   https://developer.mozilla.org/en-US/docs/Glossary
 - Apoio complementar:
-  [[../03 - Fundamentos de Tecnologia/Ãndice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+  [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
 
-### Git, GitHub e repositÃ³rios
+### Git, GitHub e repositórios
 
 - Base:
   https://docs.github.com/
-- Apoio em vÃ­deo:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+- Apoio em vídeo:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| PropÃ³sito do glossÃ¡rio | Estrutura do guia | 99% | Totalmente verificÃ¡vel. |
-| Termos essenciais | Uso tÃ©cnico comum e notas jÃ¡ criadas no projeto | 94% | DefiniÃ§Ãµes simples e confiÃ¡veis. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | MDN, GitHub Docs e links internos do vault | 97% | Curadoria coerente com o papel de consulta desta etapa. |
+| Propósito do glossário | Estrutura do guia | 99% | Totalmente verificável. |
+| Termos essenciais | Uso técnico comum e notas já criadas no projeto | 94% | Definições simples e confiáveis. |
+| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs e links internos do vault | 97% | Curadoria coerente com o papel de consulta desta etapa. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. MDN Glossary. DisponÃ­vel em: https://developer.mozilla.org/en-US/docs/Glossary
-2. GitHub Docs. DisponÃ­vel em: https://docs.github.com/
+1. MDN Glossary. Disponível em: https://developer.mozilla.org/en-US/docs/Glossary
+2. GitHub Docs. Disponível em: https://docs.github.com/
 
 ### Mapeamento de fontes por assunto
 
 - termos gerais de web e tecnologia:
   https://developer.mozilla.org/en-US/docs/Glossary
-- termos ligados a Git, GitHub e repositÃ³rios:
+- termos ligados a Git, GitHub e repositórios:
   https://docs.github.com/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

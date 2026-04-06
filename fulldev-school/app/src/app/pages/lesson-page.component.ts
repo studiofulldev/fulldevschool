@@ -6,13 +6,14 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs/operators';
 import { from } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { SchoolContentService } from '../data/school-content.service';
 
 @Component({
   selector: 'app-lesson-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatButtonModule, MatIconModule],
+  imports: [CommonModule, RouterLink, MatButtonModule, MatExpansionModule, MatIconModule],
   template: `
     @if (lesson(); as currentLesson) {
       <section class="lesson">
@@ -31,9 +32,14 @@ import { SchoolContentService } from '../data/school-content.service';
 
         <article class="lesson__body">
           @for (block of currentLesson.blocks; track block.id) {
-            <section class="lesson__block">
-              <div [innerHTML]="blockHtml(block.id)"></div>
-            </section>
+            <mat-expansion-panel class="lesson__block" hideToggle>
+              <mat-expansion-panel-header class="lesson__block-header">
+                <mat-panel-title>{{ block.title }}</mat-panel-title>
+                <mat-icon class="lesson__block-icon">expand_more</mat-icon>
+              </mat-expansion-panel-header>
+
+              <div class="lesson__block-body" [innerHTML]="blockHtml(block.id)"></div>
+            </mat-expansion-panel>
           }
         </article>
 
@@ -112,22 +118,54 @@ import { SchoolContentService } from '../data/school-content.service';
       }
 
       .lesson__body {
+        display: grid;
+        gap: 12px;
         padding: 32px;
         border: 1px solid var(--fd-border);
         background: var(--fd-surface-overlay);
       }
 
       .lesson__block {
-        position: relative;
-        padding: 18px 0 24px;
-        border-bottom: 1px solid var(--fd-border);
-        transition:
-          background-color 180ms ease,
-          box-shadow 180ms ease;
+        background: transparent;
+        box-shadow: none;
+        border: 1px solid var(--fd-border);
+        border-radius: var(--fd-radius);
       }
 
-      .lesson__block:last-child {
-        border-bottom: 0;
+      .lesson__block-header {
+        min-height: 56px;
+        padding: 0 18px;
+        background: transparent;
+      }
+
+      .lesson__block-header mat-panel-title {
+        color: var(--fd-text);
+        font-size: var(--fd-text-md);
+        font-weight: 600;
+        line-height: 1.25;
+      }
+
+      .lesson__block-icon {
+        color: var(--fd-soft);
+        transition: transform var(--fd-motion-fast);
+      }
+
+      :host ::ng-deep .lesson__block.mat-expanded .lesson__block-icon {
+        transform: rotate(180deg);
+      }
+
+      :host ::ng-deep .lesson__block .mat-expansion-panel-body {
+        padding: 0 18px 18px;
+      }
+
+      .lesson__block-body {
+        padding-top: 4px;
+      }
+
+      :host ::ng-deep .lesson__block .mat-expansion-panel-header:hover,
+      :host ::ng-deep .lesson__block .mat-expansion-panel-header:focus,
+      :host ::ng-deep .lesson__block .mat-expansion-panel-header.mat-expanded {
+        background: transparent;
       }
 
       .lesson__footer-nav {
@@ -205,55 +243,49 @@ import { SchoolContentService } from '../data/school-content.service';
         }
       }
 
-      :host ::ng-deep .lesson__block h2 {
-        margin: 0 0 12px;
-        font-size: var(--fd-text-lg);
-        line-height: 1.15;
-      }
-
-      :host ::ng-deep .lesson__block p,
-      :host ::ng-deep .lesson__block li {
+      :host ::ng-deep .lesson__block-body p,
+      :host ::ng-deep .lesson__block-body li {
         color: var(--fd-muted);
         font-size: var(--fd-text-md);
         line-height: var(--fd-leading-loose);
       }
 
-      :host ::ng-deep .lesson__block ul,
-      :host ::ng-deep .lesson__block ol {
+      :host ::ng-deep .lesson__block-body ul,
+      :host ::ng-deep .lesson__block-body ol {
         padding-left: 1.3rem;
       }
 
-      :host ::ng-deep .lesson__block h3 {
+      :host ::ng-deep .lesson__block-body h3 {
         margin: 18px 0 10px;
         color: var(--fd-text);
         font-size: var(--fd-text-md);
         line-height: 1.25;
       }
 
-      :host ::ng-deep .lesson__block strong {
+      :host ::ng-deep .lesson__block-body strong {
         color: var(--fd-text);
       }
 
-      :host ::ng-deep .lesson__block code {
+      :host ::ng-deep .lesson__block-body code {
         padding: 0.12rem 0.35rem;
         background: rgba(255, 255, 255, 0.06);
         color: var(--fd-text);
       }
 
-      :host ::ng-deep .lesson__block a {
+      :host ::ng-deep .lesson__block-body a {
         color: var(--fd-text);
         text-decoration: underline;
         text-decoration-color: rgba(255, 255, 255, 0.22);
       }
 
-      :host ::ng-deep .lesson__block table {
+      :host ::ng-deep .lesson__block-body table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 18px;
       }
 
-      :host ::ng-deep .lesson__block th,
-      :host ::ng-deep .lesson__block td {
+      :host ::ng-deep .lesson__block-body th,
+      :host ::ng-deep .lesson__block-body td {
         padding: 12px;
         border: 1px solid var(--fd-border);
         text-align: left;
@@ -262,7 +294,7 @@ import { SchoolContentService } from '../data/school-content.service';
         font-size: var(--fd-text-sm);
       }
 
-      :host ::ng-deep .lesson__block th {
+      :host ::ng-deep .lesson__block-body th {
         color: var(--fd-text);
         background: rgba(255, 255, 255, 0.03);
       }

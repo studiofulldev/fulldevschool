@@ -296,10 +296,10 @@ Para cada trilha:
 ### 15. FAQ do Iniciante
 
 - "Preciso de faculdade?"
-- "Preciso saber inglês?"
-- "Estou velho para começar?"
-- "Preciso ser bom em matemática?"
-- "Quanto tempo até conseguir vaga?"
+- "Preciso saber ingl�s?"
+- "Estou velho para come�ar?"
+- "Preciso ser bom em matem�tica?"
+- "Quanto tempo at� conseguir vaga?"
 - "Preciso pagar curso caro?"
 
 ### 16. Painel de Progresso

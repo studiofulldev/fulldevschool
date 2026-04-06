@@ -1,52 +1,52 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-Te levar da base de produto atÃ© uma primeira anÃ¡lise estruturada de problema e soluÃ§Ã£o.
+Te levar da base de produto até uma primeira análise estruturada de problema e solução.
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
-- curiosidade por negÃ³cio e usuÃ¡rio
+- curiosidade por negócio e usuário
 
 ## Ordem sugerida
 
 1. fundamentos de produto
-2. problema e hipÃ³tese
+2. problema e hipótese
 3. backlog e prioridade
-4. anÃ¡lise de produto real
-5. documentaÃ§Ã£o de proposta
+4. análise de produto real
+5. documentação de proposta
 
 ## Ferramentas
 
 - Notion
 - Jira
-- documentaÃ§Ã£o
+- documentação
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
-- anÃ¡lise de app real
+- análise de app real
 - backlog simples
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
-Avance quando vocÃª conseguir justificar prioridade e problema com clareza.
+Avance quando você conseguir justificar prioridade e problema com clareza.
 
 ## Erros comuns
 
-- confundir opiniÃ£o com estratÃ©gia
-- pular contexto de usuÃ¡rio
+- confundir opinião com estratégia
+- pular contexto de usuário
 
 ## Recursos complementares
 
 - Atlassian Agile
 - Product School
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Ordem sugerida | Uso comum da Ã¡rea | 89% | PlausÃ­vel e prÃ¡tica. |
-| Projetos iniciais | Diretriz editorial | 86% | Bons para comeÃ§o. |
+| Ordem sugerida | Uso comum da área | 89% | Plausível e prática. |
+| Projetos iniciais | Diretriz editorial | 86% | Bons para começo. |
 
 ## Bibliografia
 
@@ -64,7 +64,7 @@ Avance quando vocÃª conseguir justificar prioridade e problema com clareza.
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

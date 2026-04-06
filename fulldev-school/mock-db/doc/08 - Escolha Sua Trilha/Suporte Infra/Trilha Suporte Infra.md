@@ -1,10 +1,10 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-Te levar da base operacional atÃ© uma rotina inicial de suporte e infraestrutura.
+Te levar da base operacional até uma rotina inicial de suporte e infraestrutura.
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
 - fundamentos digitais
 - vontade de lidar com ambiente real
@@ -12,9 +12,9 @@ Te levar da base operacional atÃ© uma rotina inicial de suporte e infraestrutu
 ## Ordem sugerida
 
 1. sistemas operacionais
-2. redes bÃ¡sicas
-3. diagnÃ³stico
-4. registro de soluÃ§Ã£o
+2. redes básicas
+3. diagnóstico
+4. registro de solução
 5. rotina de chamados
 
 ## Ferramentas
@@ -23,14 +23,14 @@ Te levar da base operacional atÃ© uma rotina inicial de suporte e infraestrutu
 - Linux
 - ferramentas de suporte
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
 - base de conhecimento
-- resoluÃ§Ã£o documentada de problemas comuns
+- resolução documentada de problemas comuns
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
-Avance quando vocÃª conseguir diagnosticar problema bÃ¡sico e registrar soluÃ§Ã£o com clareza.
+Avance quando você conseguir diagnosticar problema básico e registrar solução com clareza.
 
 ## Erros comuns
 
@@ -42,12 +42,12 @@ Avance quando vocÃª conseguir diagnosticar problema bÃ¡sico e registrar solu
 - Microsoft Learn
 - Cisco Skills for All
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Ordem sugerida | PrÃ¡tica operacional comum | 90% | SequÃªncia plausÃ­vel. |
-| Projetos iniciais | Diretriz editorial | 87% | Muito Ãºteis para entrada. |
+| Ordem sugerida | Prática operacional comum | 90% | Sequência plausível. |
+| Projetos iniciais | Diretriz editorial | 87% | Muito úteis para entrada. |
 
 ## Bibliografia
 
@@ -65,7 +65,7 @@ Avance quando vocÃª conseguir diagnosticar problema bÃ¡sico e registrar solu
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

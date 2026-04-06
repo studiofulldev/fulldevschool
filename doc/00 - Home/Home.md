@@ -1,126 +1,126 @@
-## ConteÃºdo
+## Conteúdo
 
-Este Ã© um **guia completo para entrar na Ã¡rea de tecnologia**, criado por Lucas Pedro, fundador da **FullDev**, para te ajudar a avanÃ§ar com mais clareza, menos ruÃ­do e um prÃ³ximo passo bem definido.
+Este é um **guia completo para entrar na área de tecnologia**, pensado para te ajudar a avançar com mais clareza, menos ruído e um próximo passo bem definido.
 
-O projeto foi estruturado para te levar do zero atÃ©:
+O projeto foi estruturado para te levar do zero até:
 
-- entender o impacto real da inteligÃªncia artificial na sua jornada
-- entender como a Ã¡rea funciona
+- entender o impacto real da inteligência artificial na sua jornada
+- entender como a área funciona
 - fortalecer base digital
 - conhecer diferentes caminhos
 - escolher uma trilha inicial
-- comeÃ§ar prÃ¡tica e portfÃ³lio
+- começar prática e portfólio
 - se preparar para buscar a primeira vaga
 
 ## Problema que este projeto resolve
 
-Muita gente quer entrar em tecnologia, mas comeÃ§a com:
+Muita gente quer entrar em tecnologia, mas começa com:
 
-- medo de ser substituÃ­do por inteligÃªncia artificial antes mesmo de comeÃ§ar
-- excesso de informaÃ§Ã£o solta
-- comparaÃ§Ã£o com pessoas avanÃ§adas
-- hype sobre salÃ¡rio e rapidez
-- pouca noÃ§Ã£o das diferenÃ§as entre Ã¡reas
-- dificuldade para transformar estudo em prÃ¡tica
+- medo de ser substituído por inteligência artificial antes mesmo de começar
+- excesso de informação solta
+- comparação com pessoas avançadas
+- hype sobre salário e rapidez
+- pouca noção das diferenças entre áreas
+- dificuldade para transformar estudo em prática
 
-O objetivo deste guia Ã© te ajudar a atravessar esse caos com mais direÃ§Ã£o.
+O objetivo deste guia é te ajudar a atravessar esse caos com mais direção.
 
 ## Proposta de valor
 
-> Um caminho claro, simples e honesto para entrar em tecnologia, sem atalhos falsos, sem jargÃ£o desnecessÃ¡rio e sempre com um prÃ³ximo passo prÃ¡tico.
+> Um caminho claro, simples e honesto para entrar em tecnologia, sem atalhos falsos, sem jargão desnecessário e sempre com um próximo passo prático.
 
-Este guia tambÃ©m dÃ¡ Ãªnfase Ã  importÃ¢ncia de comunidade, com destaque para a **FullDev** como referÃªncia de ecossistema, troca, apoio e proximidade com pessoas da Ã¡rea.
+Este guia também dá ênfase à importância de comunidade, com destaque para a **FullDev** como referência de ecossistema, troca, apoio e proximidade com pessoas da área.
 
-Outro ponto central deste projeto Ã© te mostrar que **inteligÃªncia artificial nÃ£o deve ser tratada como sentenÃ§a de fim de carreira, e sim como ferramenta de apoio, produtividade, estudo, pesquisa e execuÃ§Ã£o**.
+Outro ponto central deste projeto é te mostrar que **inteligência artificial não deve ser tratada como sentença de fim de carreira, e sim como ferramenta de apoio, produtividade, estudo, pesquisa e execução**.
 
-## O que estÃ¡ sendo construÃ­do aqui
+## O que está sendo construído aqui
 
-Este projeto estÃ¡ sendo desenvolvido como um guia estruturado com:
+Este projeto está sendo desenvolvido como um guia estruturado com:
 
 - onboarding para iniciantes absolutos
 - fundamentos digitais
 - fundamentos de tecnologia
-- mÃ©todo de estudo
-- mapa das Ã¡reas
+- método de estudo
+- mapa das áreas
 - trilhas por caminho
-- portfÃ³lio e empregabilidade
+- portfólio e empregabilidade
 - comunidade, FAQ e painel de progresso
 - templates editoriais
 - bibliografia por nota
-- taxa de assertividade por tÃ³pico
+- taxa de assertividade por tópico
 
 ## Estrutura do projeto
 
-- `00 - Home`: visÃ£o geral do guia
-- `01 - Comece Aqui`: alinhamento de expectativa e introduÃ§Ã£o Ã  Ã¡rea
+- `00 - Home`: visão geral do guia
+- `01 - Comece Aqui`: alinhamento de expectativa e introdução à área
 - `02 - Fundamentos Digitais`: base operacional de computador, navegador, pesquisa e autonomia
 - `03 - Fundamentos de Tecnologia`: conceitos-base do ecossistema tech
-- `04 - Como Aprender`: mÃ©todo de estudo e prÃ¡tica
-- `05 - Mapa das Ãreas`: visÃ£o das Ã¡reas principais e complementares
-- `06 - Teste de Perfil`: orientaÃ§Ã£o inicial de encaixe
-- `07 - Comparando Caminhos`: comparaÃ§Ã£o prÃ¡tica entre Ã¡reas
+- `04 - Como Aprender`: método de estudo e prática
+- `05 - Mapa das Áreas`: visão das áreas principais e complementares
+- `06 - Teste de Perfil`: orientação inicial de encaixe
+- `07 - Comparando Caminhos`: comparação prática entre áreas
 - `08 - Escolha Sua Trilha`: trilhas iniciais por caminho
-- `09 - Projetos e PortfÃ³lio`: prÃ¡tica e prova de capacidade
-- `10 - Mercado de Trabalho`: currÃ­culo, LinkedIn, vagas e entrevistas
-- `11 - Mentalidade e ConsistÃªncia`: sustentaÃ§Ã£o emocional e expectativas
-- `12 - Comunidade e Networking`: apoio e presenÃ§a profissional
-- `13 - GlossÃ¡rio`: termos essenciais
-- `14 - Recursos Curados`: links, materiais e referÃªncias
-- `15 - FAQ do Iniciante`: dÃºvidas recorrentes
+- `09 - Projetos e Portfólio`: prática e prova de capacidade
+- `10 - Mercado de Trabalho`: currículo, LinkedIn, vagas e entrevistas
+- `11 - Mentalidade e Consistência`: sustentação emocional e expectativas
+- `12 - Comunidade e Networking`: apoio e presença profissional
+- `13 - Glossário`: termos essenciais
+- `14 - Recursos Curados`: links, materiais e referências
+- `15 - FAQ do Iniciante`: dúvidas recorrentes
 - `16 - Painel de Progresso`: acompanhamento da jornada
-- `90 - Templates`: padrÃµes editoriais
+- `90 - Templates`: padrões editoriais
 
-## Ordem principal de navegaÃ§Ã£o
+## Ordem principal de navegação
 
-1. [[../01 - Comece Aqui/Ãndice - Comece Aqui|2 - Comece Aqui]]
-   O primeiro assunto que vocÃª deve absorver nessa etapa Ã© o medo de substituiÃ§Ã£o por IA, a realidade do mercado e como usar IA como ferramenta de apoio.
-2. [[../02 - Fundamentos Digitais/Ãndice - Fundamentos Digitais|3 - Fundamentos Digitais]]
-3. [[../03 - Fundamentos de Tecnologia/Ãndice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
-4. [[../04 - Como Aprender/Ãndice - Como Aprender|5 - Como Aprender]]
-5. [[../05 - Mapa das Ãreas/Ãndice - Mapa das Ãreas|6 - Mapa das Ãreas]]
+1. [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+   O primeiro assunto que você deve absorver nessa etapa é o medo de substituição por IA, a realidade do mercado e como usar IA como ferramenta de apoio.
+2. [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
+3. [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+4. [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+5. [[../05 - Mapa das Áreas/Índice - Mapa das Áreas|6 - Mapa das Áreas]]
 6. [[../06 - Teste de Perfil/Teste de Perfil|7 - Teste de Perfil]]
 7. [[../07 - Comparando Caminhos/Comparando Caminhos|8 - Comparando Caminhos]]
-8. [[../08 - Escolha Sua Trilha/Ãndice - Trilhas|9 - Escolha Sua Trilha]]
-9. [[../09 - Projetos e PortfÃ³lio/Ãndice - Projetos e PortfÃ³lio|10 - Projetos e PortfÃ³lio]]
-10. [[../10 - Mercado de Trabalho/Ãndice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+8. [[../08 - Escolha Sua Trilha/Índice - Trilhas|9 - Escolha Sua Trilha]]
+9. [[../09 - Projetos e Portfólio/Índice - Projetos e Portfólio|10 - Projetos e Portfólio]]
+10. [[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
 
 ## Etapas de apoio
 
-- [[../11 - Mentalidade e ConsistÃªncia/Ãndice - Mentalidade e ConsistÃªncia|12 - Mentalidade e ConsistÃªncia]]
-- [[../12 - Comunidade e Networking/Ãndice - Comunidade e Networking|13 - Comunidade e Networking]]
-- [[../13 - GlossÃ¡rio/Ãndice - GlossÃ¡rio|14 - GlossÃ¡rio]]
-- [[../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
-- [[../15 - FAQ do Iniciante/Ãndice - FAQ do Iniciante|16 - FAQ do Iniciante]]
+- [[../11 - Mentalidade e Consistência/Índice - Mentalidade e Consistência|12 - Mentalidade e Consistência]]
+- [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+- [[../13 - Glossário/Índice - Glossário|14 - Glossário]]
+- [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+- [[../15 - FAQ do Iniciante/Índice - FAQ do Iniciante|16 - FAQ do Iniciante]]
 - [[../16 - Painel de Progresso/Painel de Progresso|17 - Painel de Progresso]]
 
-## PrincÃ­pios editoriais
+## Princípios editoriais
 
 - clareza antes de profundidade
-- prÃ¡tica antes de acÃºmulo de teoria
+- prática antes de acúmulo de teoria
 - linguagem simples, sem infantilizar
-- realismo sobre mercado, salÃ¡rio e tempo
-- inteligÃªncia artificial tratada como ferramenta de apoio, nÃ£o como substituta mÃ¡gica do seu desenvolvimento
-- prÃ³ximo passo claro em toda nota
+- realismo sobre mercado, salário e tempo
+- inteligência artificial tratada como ferramenta de apoio, não como substituta mágica do seu desenvolvimento
+- próximo passo claro em toda nota
 - bibliografia ao final de cada documento
-- taxa de assertividade por tÃ³pico para separar dado verificado de sÃ­ntese editorial
+- taxa de assertividade por tópico para separar dado verificado de síntese editorial
 
 ## Fontes de apoio e curadoria
 
 O projeto prioriza:
 
-- documentaÃ§Ã£o oficial
-- dados estÃ¡veis e fontes abertas
+- documentação oficial
+- dados estáveis e fontes abertas
 - materiais gratuitos e legais
-- conteÃºdo curado em vez de lista bruta
+- conteúdo curado em vez de lista bruta
 
-ReferÃªncias-base do projeto:
+Referências-base do projeto:
 
 - roadmap.sh
 - BLS Occupational Outlook Handbook
 - GitHub Docs
 - FullDev
 
-Base usada para descoberta e comparaÃ§Ã£o inicial de referÃªncias:
+Base usada para descoberta e comparação inicial de referências:
 
 - guiaDevBrasil
 
@@ -128,62 +128,62 @@ Fonte de abastecimento adicional para descoberta de links:
 
 - MrClaro/ConhecimentoFree
 
-ObservaÃ§Ã£o:
+Observação:
 
-- links vindos de fontes agregadoras nÃ£o entram automaticamente no guia
-- toda inclusÃ£o deve passar por curadoria editorial
+- links vindos de fontes agregadoras não entram automaticamente no guia
+- toda inclusão deve passar por curadoria editorial
 
-## CrÃ©ditos
+## Créditos
 
-- idealizaÃ§Ã£o, direÃ§Ã£o e complementaÃ§Ã£o de conteÃºdo: Lucas Pedro
-- estruturaÃ§Ã£o editorial e desenvolvimento inicial do guia: Codex
-- referÃªncia comunitÃ¡ria em destaque: FullDev
+- idealização e direção editorial: equipe FullDev
+- estruturação editorial e desenvolvimento inicial do guia: Codex
+- referência comunitária em destaque: FullDev
 - fonte de abastecimento de links para curadoria: MrClaro/ConhecimentoFree
 
-## Erros, sugestÃµes e melhorias
+## Erros, sugestões e melhorias
 
-Se encontrar algum erro, link quebrado, informaÃ§Ã£o fraca ou quiser sugerir melhoria, abra uma issue:
+Se encontrar algum erro, link quebrado, informação fraca ou quiser sugerir melhoria, abra uma issue:
 
 - https://github.com/LucasPedruo/guia-dev/issues
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Objetivo do projeto | PRD e estado atual do projeto | 99% | InformaÃ§Ã£o diretamente verificÃ¡vel no projeto. |
+| Objetivo do projeto | PRD e estado atual do projeto | 99% | Informação diretamente verificável no projeto. |
 | Problema que o projeto resolve | PRD | 97% | Base forte do documento de produto. |
-| Estrutura do projeto | Estrutura real de pastas e notas | 100% | Totalmente verificÃ¡vel no guia. |
-| Ordem principal de navegaÃ§Ã£o | Estrutura editorial definida no guia | 98% | Pode evoluir no futuro, mas estÃ¡ correta no estado atual. |
-| PrincÃ­pios editoriais | PRD e templates do projeto | 98% | InformaÃ§Ã£o interna verificÃ¡vel. |
+| Estrutura do projeto | Estrutura real de pastas e notas | 100% | Totalmente verificável no guia. |
+| Ordem principal de navegação | Estrutura editorial definida no guia | 98% | Pode evoluir no futuro, mas está correta no estado atual. |
+| Princípios editoriais | PRD e templates do projeto | 98% | Informação interna verificável. |
 | Fontes de apoio e curadoria | PRD, notas de recursos e README | 96% | Base documental clara. |
-| CrÃ©ditos e canal de issues | Estado atual do repositÃ³rio | 100% | Totalmente verificÃ¡vel. |
+| Créditos e canal de issues | Estado atual do repositório | 100% | Totalmente verificável. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
 1. PRD interno do projeto.
-2. Estrutura real do repositÃ³rio `LucasPedruo/guia-dev`
-3. FullDev. DisponÃ­vel em: https://fulldev.com.br
-4. guiaDevBrasil. DisponÃ­vel em: https://github.com/arthurspk/guiadevbrasil
-5. MrClaro/ConhecimentoFree. DisponÃ­vel em: https://github.com/MrClaro/ConhecimentoFree
+2. Estrutura real do repositório `LucasPedruo/guia-dev`
+3. FullDev. Disponível em: https://fulldev.com.br
+4. guiaDevBrasil. Disponível em: https://github.com/arthurspk/guiadevbrasil
+5. MrClaro/ConhecimentoFree. Disponível em: https://github.com/MrClaro/ConhecimentoFree
 
 ### Mapeamento de fontes por assunto
 
-- visÃ£o, objetivo, problema e critÃ©rios editoriais:
+- visão, objetivo, problema e critérios editoriais:
   PRD interno do projeto
 - estrutura efetiva do guia:
-  repositÃ³rio local e Ã¡rvore de pastas
+  repositório local e árvore de pastas
 - comunidade em destaque:
   https://fulldev.com.br
-- base usada para descoberta e comparaÃ§Ã£o de referÃªncias:
+- base usada para descoberta e comparação de referências:
   https://github.com/arthurspk/guiadevbrasil
 - abastecimento de links para curadoria:
   https://github.com/MrClaro/ConhecimentoFree
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

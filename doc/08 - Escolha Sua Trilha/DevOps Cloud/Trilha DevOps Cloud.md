@@ -1,22 +1,22 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-Te levar da base operacional atÃ© automaÃ§Ã£o e entendimento inicial de cloud.
+Te levar da base operacional até automação e entendimento inicial de cloud.
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
 - fundamentos de tecnologia
 - conforto com terminal ajuda
 
 ## Ordem sugerida
 
-1. Linux bÃ¡sico
-2. redes bÃ¡sicas
+1. Linux básico
+2. redes básicas
 3. Git
 4. Docker
 5. CI/CD
-6. cloud bÃ¡sica
+6. cloud básica
 
 ## Ferramentas
 
@@ -24,14 +24,14 @@ Te levar da base operacional atÃ© automaÃ§Ã£o e entendimento inicial de cl
 - Docker
 - GitHub Actions
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
 - containerizar app
 - automatizar pipeline simples
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
-Avance quando vocÃª entender o fluxo de build, deploy e ambiente.
+Avance quando você entender o fluxo de build, deploy e ambiente.
 
 ## Erros comuns
 
@@ -43,20 +43,20 @@ Avance quando vocÃª entender o fluxo de build, deploy e ambiente.
 - roadmap.sh/devops
 - AWS basics
 
-## TÃ³picos do roadmap e vÃ­deos sugeridos
+## Tópicos do roadmap e vídeos sugeridos
 
 ### Docker
 
 - Roadmap:
   https://roadmap.sh/docker
-- OpÃ§Ã£o 1:
+- Opção 1:
   Curso de Docker para iniciantes, com Matheus Battisti
   https://www.youtube.com/watch?ab_channel=MatheusBattisti-HoradeCodar&t=1s&v=np_vyd7QlXk
-- OpÃ§Ã£o 2:
+- Opção 2:
   Curso Completo de Docker, da Kipper Dev
   https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
-- OpÃ§Ã£o 3:
-  [[../../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+- Opção 3:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Cloud
 
@@ -65,13 +65,13 @@ Avance quando vocÃª entender o fluxo de build, deploy e ambiente.
 - Base conceitual:
   https://aws.amazon.com/what-is-cloud-computing/
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Ordem sugerida | Roadmap DevOps | 94% | SequÃªncia muito comum. |
-| Projetos iniciais | Diretriz editorial | 86% | Bons para comeÃ§o. |
-| TÃ³picos do roadmap e vÃ­deos sugeridos | roadmap.sh, AWS, YouTube e curadoria de vÃ­deos | 91% | Boa didÃ¡tica para inÃ­cio com mais de uma opÃ§Ã£o por assunto. |
+| Ordem sugerida | Roadmap DevOps | 94% | Sequência muito comum. |
+| Projetos iniciais | Diretriz editorial | 86% | Bons para começo. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, AWS, YouTube e curadoria de vídeos | 91% | Boa didática para início com mais de uma opção por assunto. |
 
 ## Bibliografia
 
@@ -81,7 +81,7 @@ Avance quando vocÃª entender o fluxo de build, deploy e ambiente.
 2. https://aws.amazon.com/what-is-cloud-computing/
 3. Kipper Dev Docker:
    https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
-4. Curadoria interna de vÃ­deos por tÃ³pico do guia.
+4. Curadoria interna de vídeos por tópico do guia.
 
 ### Mapeamento de fontes por assunto
 
@@ -89,12 +89,12 @@ Avance quando vocÃª entender o fluxo de build, deploy e ambiente.
   https://roadmap.sh/devops
 - cloud:
   https://aws.amazon.com/what-is-cloud-computing/
-- vÃ­deos por tÃ³pico:
-  [[../../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+- vídeos por tópico:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

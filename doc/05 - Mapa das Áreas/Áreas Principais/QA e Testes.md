@@ -1,12 +1,12 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-QA Ã© a Ã¡rea que ajuda a garantir qualidade, confiabilidade e reduÃ§Ã£o de erro em produtos digitais.
+QA é a área que ajuda a garantir qualidade, confiabilidade e redução de erro em produtos digitais.
 
 ## O que essa pessoa faz
 
-VocÃª testa fluxos, identifica falhas, documenta bugs e ajuda o time a evitar problemas em produÃ§Ã£o.
+Você testa fluxos, identifica falhas, documenta bugs e ajuda o time a evitar problemas em produção.
 
 No dia a dia, isso pode significar:
 
@@ -18,70 +18,70 @@ No dia a dia, isso pode significar:
 
 ## Exemplo real
 
-Validar cadastro, login, compra, formulÃ¡rio e comportamento antes de uma entrega ir para o usuÃ¡rio.
+Validar cadastro, login, compra, formulário e comportamento antes de uma entrega ir para o usuário.
 
 ## Ferramentas comuns
 
 - Jira
 - Postman
 - ferramentas de teste
-- documentaÃ§Ã£o de bugs
+- documentação de bugs
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de detalhe, validaÃ§Ã£o, organizaÃ§Ã£o e prevenÃ§Ã£o de erro.
+Pode combinar com você se você gosta de detalhe, validação, organização e prevenção de erro.
 
-Talvez combine menos com vocÃª se:
+Talvez combine menos com você se:
 
-- vocÃª se irrita muito com repetiÃ§Ã£o
-- vocÃª nÃ£o gosta de observar detalhe
-- vocÃª nÃ£o tem paciÃªncia para registrar problema com clareza
+- você se irrita muito com repetição
+- você não gosta de observar detalhe
+- você não tem paciência para registrar problema com clareza
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
 - boa porta de entrada
 - treina pensamento de qualidade
 
 Contras:
 
-- pode ser subestimada por quem nÃ£o entende a Ã¡rea
-- exige consistÃªncia e atenÃ§Ã£o
+- pode ser subestimada por quem não entende a área
+- exige consistência e atenção
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-- aprender a testar com critÃ©rio
+- aprender a testar com critério
 - escrever bug com clareza
-- nÃ£o transformar QA em clique aleatÃ³rio
+- não transformar QA em clique aleatório
 - entender prioridade de falha
-- separar evidÃªncia de opiniÃ£o
+- separar evidência de opinião
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 1. entender tipos de teste
-2. praticar escrita de cenÃ¡rios
+2. praticar escrita de cenários
 3. usar Postman e ferramentas simples
-4. testar projetos pequenos com mÃ©todo
-5. aprender automaÃ§Ã£o depois da base
+4. testar projetos pequenos com método
+5. aprender automação depois da base
 
-## Como saber se essa Ã¡rea combina com vocÃª
+## Como saber se essa área combina com você
 
 Sinais positivos:
 
-- vocÃª percebe detalhe que outras pessoas deixam passar
-- vocÃª gosta de validar e organizar
-- vocÃª sente satisfaÃ§Ã£o em encontrar causa de problema
+- você percebe detalhe que outras pessoas deixam passar
+- você gosta de validar e organizar
+- você sente satisfação em encontrar causa de problema
 
-Sinais de atenÃ§Ã£o:
+Sinais de atenção:
 
-- vocÃª acha que testar Ã© sÃ³ clicar
-- vocÃª rejeita documentaÃ§Ã£o
-- vocÃª nÃ£o gosta de revisar fluxo com paciÃªncia
+- você acha que testar é só clicar
+- você rejeita documentação
+- você não gosta de revisar fluxo com paciência
 
 ## Primeiro projeto sugerido
 
-Criar um plano simples de testes para uma aplicaÃ§Ã£o pequena e registrar bugs.
+Criar um plano simples de testes para uma aplicação pequena e registrar bugs.
 
 ## Faixa de entrada
 
@@ -89,20 +89,20 @@ QA costuma ser uma porta de entrada concreta e subestimada.
 
 Ela pode te dar:
 
-- visÃ£o real de produto
+- visão real de produto
 - disciplina de qualidade
 - entendimento de fluxo e erro
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum de QA no mercado | 94% | Conceito estÃ¡vel. |
-| O que essa pessoa faz | SÃ­ntese editorial | 91% | Muito coerente com a Ã¡rea. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 85% | Orientativo. |
-| Como saber se essa Ã¡rea combina com vocÃª | SÃ­ntese editorial | 83% | Leitura orientativa. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 88% | SequÃªncia inicial plausÃ­vel. |
-| Faixa de entrada | SÃ­ntese editorial | 89% | Boa leitura para iniciantes. |
+| O que é | Uso comum de QA no mercado | 94% | Conceito estável. |
+| O que essa pessoa faz | Síntese editorial | 91% | Muito coerente com a área. |
+| Perfil mais compatível | Síntese editorial | 85% | Orientativo. |
+| Como saber se essa área combina com você | Síntese editorial | 83% | Leitura orientativa. |
+| Como começar em 30 dias | Diretriz editorial | 88% | Sequência inicial plausível. |
+| Faixa de entrada | Síntese editorial | 89% | Boa leitura para iniciantes. |
 
 ## Bibliografia
 
@@ -120,7 +120,7 @@ Ela pode te dar:
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

@@ -1,12 +1,12 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-QA AutomaÃ§Ã£o usa cÃ³digo e ferramentas para automatizar testes e reduzir esforÃ§o manual repetitivo.
+QA Automação usa código e ferramentas para automatizar testes e reduzir esforço manual repetitivo.
 
 ## O que essa pessoa faz
 
-VocÃª cria testes automatizados, integra validaÃ§Ã£o ao fluxo do time e melhora cobertura.
+Você cria testes automatizados, integra validação ao fluxo do time e melhora cobertura.
 
 ## Exemplo real
 
@@ -19,33 +19,33 @@ Automatizar testes de login, cadastro e compra.
 - Selenium
 - APIs
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de qualidade com lÃ³gica mais tÃ©cnica.
+Pode combinar com você se você gosta de qualidade com lógica mais técnica.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s: une testes e automaÃ§Ã£o.
+Prós: une testes e automação.
 Contras: costuma exigir base maior que QA manual.
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-Aprender teste e cÃ³digo ao mesmo tempo.
+Aprender teste e código ao mesmo tempo.
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-Estudar testes bÃ¡sicos e uma ferramenta simples de automaÃ§Ã£o.
+Estudar testes básicos e uma ferramenta simples de automação.
 
 ## Primeiro projeto sugerido
 
-Automatizar fluxo simples de aplicaÃ§Ã£o pequena.
+Automatizar fluxo simples de aplicação pequena.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 92% | DefiniÃ§Ã£o estÃ¡vel. |
-| Como comeÃ§ar | Diretriz editorial | 85% | SequÃªncia plausÃ­vel. |
+| O que é | Uso comum da área | 92% | Definição estável. |
+| Como começar | Diretriz editorial | 85% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -56,13 +56,13 @@ Automatizar fluxo simples de aplicaÃ§Ã£o pequena.
 
 ### Mapeamento de fontes por assunto
 
-- automaÃ§Ã£o de testes:
+- automação de testes:
   https://playwright.dev/
   https://docs.cypress.io/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

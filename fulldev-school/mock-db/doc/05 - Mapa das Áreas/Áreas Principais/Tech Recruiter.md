@@ -1,83 +1,83 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Tech Recruiter Ã© a Ã¡rea de recrutamento voltada para contrataÃ§Ã£o de profissionais de tecnologia.
+Tech Recruiter é a área de recrutamento voltada para contratação de profissionais de tecnologia.
 
 ## O que essa pessoa faz
 
-VocÃª busca talento, conversa com candidatos, alinha perfil com empresa e acompanha processo seletivo.
+Você busca talento, conversa com candidatos, alinha perfil com empresa e acompanha processo seletivo.
 
 ## Exemplo real
 
-Abrir processo para backend jÃºnior, filtrar perfis e conduzir entrevistas iniciais.
+Abrir processo para backend júnior, filtrar perfis e conduzir entrevistas iniciais.
 
 ## Ferramentas comuns
 
 - LinkedIn
 - ATS
 - planilhas
-- comunicaÃ§Ã£o com candidatos
+- comunicação com candidatos
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de pessoas, comunicaÃ§Ã£o, contexto de carreira e conexÃ£o entre empresa e candidato.
+Pode combinar com você se você gosta de pessoas, comunicação, contexto de carreira e conexão entre empresa e candidato.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
 - contato intenso com o mercado
 - forte componente humano
 
 Contras:
 
-- depende de comunicaÃ§Ã£o e ritmo comercial
-- exige leitura de perfil tÃ©cnico sem ser necessariamente dev
+- depende de comunicação e ritmo comercial
+- exige leitura de perfil técnico sem ser necessariamente dev
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-- entender as Ã¡reas tÃ©cnicas
+- entender as áreas técnicas
 - avaliar alinhamento sem superficialidade
-- lidar com pressÃ£o de contrataÃ§Ã£o
+- lidar com pressão de contratação
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-1. aprender as Ã¡reas de tecnologia
-2. entender vocabulÃ¡rio de vagas
+1. aprender as áreas de tecnologia
+2. entender vocabulário de vagas
 3. estudar processo seletivo
-4. observar perfis e descriÃ§Ãµes reais
+4. observar perfis e descrições reais
 
 ## Primeiro projeto sugerido
 
 Mapa simples comparando perfis de vagas tech e habilidades exigidas.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 92% | DefiniÃ§Ã£o estÃ¡vel. |
-| O que essa pessoa faz | SÃ­ntese editorial | 89% | Pode variar por empresa. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 84% | Orientativo. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 86% | SequÃªncia plausÃ­vel. |
+| O que é | Uso comum da área | 92% | Definição estável. |
+| O que essa pessoa faz | Síntese editorial | 89% | Pode variar por empresa. |
+| Perfil mais compatível | Síntese editorial | 84% | Orientativo. |
+| Como começar em 30 dias | Diretriz editorial | 86% | Sequência plausível. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
 1. LinkedIn Talent Solutions. https://business.linkedin.com/talent-solutions
-2. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+2. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Mapeamento de fontes por assunto
 
 - recrutamento e mercado:
   https://business.linkedin.com/talent-solutions
-- papel da Ã¡rea dentro do guia:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+- papel da área dentro do guia:
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

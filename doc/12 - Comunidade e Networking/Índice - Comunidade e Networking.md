@@ -1,128 +1,128 @@
-## ConteÃºdo
+## Conteúdo
 
-Aprender sozinho nÃ£o precisa significar aprender isolado.
+Aprender sozinho não precisa significar aprender isolado.
 
-Ter contato com comunidade melhora a sua leitura do mercado e reduz o tempo perdido em dÃºvidas mal formuladas.
+Ter contato com comunidade melhora a sua leitura do mercado e reduz o tempo perdido em dúvidas mal formuladas.
 
 ## Por que comunidade importa
 
-Comunidade ajuda vocÃª a:
+Comunidade ajuda você a:
 
-- ouvir experiÃªncias reais
+- ouvir experiências reais
 - entender o que vale a pena estudar
-- tirar dÃºvida com mais contexto
+- tirar dúvida com mais contexto
 - encontrar pessoas com o mesmo objetivo
-- ver como outras pessoas comeÃ§aram
+- ver como outras pessoas começaram
 
 ## Comunidade recomendada
 
-Dentro da narrativa deste guia, a comunidade em destaque Ã©:
+Dentro da narrativa deste guia, a comunidade em destaque é:
 
 - **FullDev**: https://fulldev.com.br
 
 ## Como pedir ajuda melhor
 
-Quando vocÃª for pedir ajuda:
+Quando você for pedir ajuda:
 
-- explique o que estÃ¡ tentando fazer
-- diga o que jÃ¡ tentou
-- mostre a dÃºvida especÃ­fica
+- explique o que está tentando fazer
+- diga o que já tentou
+- mostre a dúvida específica
 - seja claro
 
 ## Como usar LinkedIn
 
 Use LinkedIn para:
 
-- construir presenÃ§a profissional
-- acompanhar pessoas da Ã¡rea
+- construir presença profissional
+- acompanhar pessoas da área
 - observar vagas
-- registrar sua evoluÃ§Ã£o com sobriedade
+- registrar sua evolução com sobriedade
 
 ## Como participar de comunidades
 
-VocÃª nÃ£o precisa entrar em todo grupo.
+Você não precisa entrar em todo grupo.
 
-Ã‰ melhor:
+�0 melhor:
 
-- escolher poucos espaÃ§os
-- acompanhar com constÃ¢ncia
+- escolher poucos espaços
+- acompanhar com constância
 - observar a qualidade das trocas
 - contribuir aos poucos
 
-## Como construir presenÃ§a
+## Como construir presença
 
-No comeÃ§o, presenÃ§a nÃ£o significa virar creator.
+No começo, presença não significa virar creator.
 
 Significa:
 
-- ser encontrÃ¡vel
+- ser encontrável
 - ter perfil claro
-- mostrar evoluÃ§Ã£o real
+- mostrar evolução real
 - interagir com maturidade
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha clareza sobre:
+Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
 1. comunidade pode acelerar seu processo
 2. pedir ajuda bem melhora a qualidade da resposta
-3. presenÃ§a profissional comeÃ§a simples
+3. presença profissional começa simples
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../13 - GlossÃ¡rio/Ãndice - GlossÃ¡rio|14 - GlossÃ¡rio]]
+[[../13 - Glossário/Índice - Glossário|14 - Glossário]]
 
-Essa Ã© a etapa em que vocÃª reduz atrito com termos tÃ©cnicos comuns.
+Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
 ### Comunidade e networking
 
 - Comunidade em destaque:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
-### PresenÃ§a profissional
+### Presença profissional
 
 - Base:
   https://docs.github.com/
 - Apoio complementar:
-  [[../10 - Mercado de Trabalho/Ãndice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+  [[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Por que comunidade importa | SÃ­ntese editorial | 88% | Coerente com dinÃ¢mica de aprendizagem e networking. |
-| Comunidade recomendada | Diretriz do projeto | 100% | Totalmente verificÃ¡vel no projeto. |
-| Como pedir ajuda melhor | Diretriz editorial e prÃ¡tica comum de comunidades tÃ©cnicas | 92% | Forte como orientaÃ§Ã£o prÃ¡tica. |
-| Como usar LinkedIn | SÃ­ntese editorial | 88% | Ãštil, mas generalizada. |
-| Como participar de comunidades | SÃ­ntese editorial | 87% | OrientaÃ§Ã£o prÃ¡tica, nÃ£o regra absoluta. |
-| Como construir presenÃ§a | SÃ­ntese editorial | 86% | Boa diretriz inicial. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | FullDev, GitHub Docs e links internos do guia | 95% | Curadoria Ãºtil para comunidade e presenÃ§a profissional. |
+| Por que comunidade importa | Síntese editorial | 88% | Coerente com dinâmica de aprendizagem e networking. |
+| Comunidade recomendada | Diretriz do projeto | 100% | Totalmente verificável no projeto. |
+| Como pedir ajuda melhor | Diretriz editorial e prática comum de comunidades técnicas | 92% | Forte como orientação prática. |
+| Como usar LinkedIn | Síntese editorial | 88% | �atil, mas generalizada. |
+| Como participar de comunidades | Síntese editorial | 87% | Orientação prática, não regra absoluta. |
+| Como construir presença | Síntese editorial | 86% | Boa diretriz inicial. |
+| Referências por tópico e vídeos sugeridos | FullDev, GitHub Docs e links internos do guia | 95% | Curadoria útil para comunidade e presença profissional. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. FullDev. DisponÃ­vel em: https://fulldev.com.br
-2. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+1. FullDev. Disponível em: https://fulldev.com.br
+2. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Mapeamento de fontes por assunto
 
 - comunidade em destaque:
   https://fulldev.com.br
-- funÃ§Ã£o desta etapa e Ãªnfase comunitÃ¡ria:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+- função desta etapa e ênfase comunitária:
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

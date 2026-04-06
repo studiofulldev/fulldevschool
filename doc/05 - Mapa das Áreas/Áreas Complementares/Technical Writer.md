@@ -1,51 +1,51 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Technical Writer Ã© a Ã¡rea que transforma conhecimento tÃ©cnico em documentaÃ§Ã£o clara e Ãºtil.
+Technical Writer é a área que transforma conhecimento técnico em documentação clara e útil.
 
 ## O que essa pessoa faz
 
-VocÃª escreve guias, referÃªncias, tutoriais e materiais explicativos para produto ou tecnologia.
+Você escreve guias, referências, tutoriais e materiais explicativos para produto ou tecnologia.
 
 ## Exemplo real
 
-Documentar API, fluxo de integraÃ§Ã£o ou guia de onboarding tÃ©cnico.
+Documentar API, fluxo de integração ou guia de onboarding técnico.
 
 ## Ferramentas comuns
 
-- documentaÃ§Ã£o
+- documentação
 - Markdown
 - Git
 - entrevistas com times
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de clareza, escrita e organizaÃ§Ã£o de conhecimento.
+Pode combinar com você se você gosta de clareza, escrita e organização de conhecimento.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s: grande valor para produto e times.
-Contras: exige comunicaÃ§Ã£o muito clara e contexto tÃ©cnico.
+Prós: grande valor para produto e times.
+Contras: exige comunicação muito clara e contexto técnico.
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 Explicar bem sem simplificar demais.
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-Praticar escrita tÃ©cnica e documentaÃ§Ã£o de projetos simples.
+Praticar escrita técnica e documentação de projetos simples.
 
 ## Primeiro projeto sugerido
 
 Documentar um projeto pessoal como se fosse para outro iniciante.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 92% | DefiniÃ§Ã£o estÃ¡vel. |
-| Como comeÃ§ar | Diretriz editorial | 86% | SequÃªncia plausÃ­vel. |
+| O que é | Uso comum da área | 92% | Definição estável. |
+| Como começar | Diretriz editorial | 86% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -55,12 +55,12 @@ Documentar um projeto pessoal como se fosse para outro iniciante.
 
 ### Mapeamento de fontes por assunto
 
-- documentaÃ§Ã£o tÃ©cnica:
+- documentação técnica:
   https://www.writethedocs.org/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

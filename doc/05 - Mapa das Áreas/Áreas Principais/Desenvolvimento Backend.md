@@ -1,24 +1,24 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Backend Ã© a Ã¡rea que cuida das regras, integraÃ§Ãµes, autenticaÃ§Ã£o, processamento e acesso a dados de um sistema.
+Backend é a área que cuida das regras, integrações, autenticação, processamento e acesso a dados de um sistema.
 
 ## O que essa pessoa faz
 
-VocÃª trabalha na parte que o usuÃ¡rio normalmente nÃ£o vÃª, mas que faz o sistema funcionar por trÃ¡s.
+Você trabalha na parte que o usuário normalmente não vê, mas que faz o sistema funcionar por trás.
 
 No dia a dia, isso pode significar:
 
 - criar rotas e APIs
 - validar dados
 - integrar banco de dados
-- controlar autenticaÃ§Ã£o
-- organizar regras de negÃ³cio
+- controlar autenticação
+- organizar regras de negócio
 
 ## Exemplo real
 
-Criar a lÃ³gica de cadastro de usuÃ¡rio, integraÃ§Ã£o com pagamento ou API de um sistema.
+Criar a lógica de cadastro de usuário, integração com pagamento ou API de um sistema.
 
 ## Ferramentas comuns
 
@@ -30,86 +30,86 @@ Criar a lÃ³gica de cadastro de usuÃ¡rio, integraÃ§Ã£o com pagamento ou A
 - APIs
 - Git
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar mais com vocÃª se vocÃª gosta de:
+Pode combinar mais com você se você gosta de:
 
-- lÃ³gica
+- lógica
 - regras
 - estrutura
-- resoluÃ§Ã£o de problema menos visual
+- resolução de problema menos visual
 
-Talvez combine menos com vocÃª se:
+Talvez combine menos com você se:
 
-- vocÃª depende muito de retorno visual para manter interesse
-- vocÃª rejeita abstraÃ§Ã£o logo no comeÃ§o
-- vocÃª nÃ£o gosta de lidar com regras e estrutura
+- você depende muito de retorno visual para manter interesse
+- você rejeita abstração logo no começo
+- você não gosta de lidar com regras e estrutura
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
-- forte base lÃ³gica
-- muitas possibilidades de atuaÃ§Ã£o
+- forte base lógica
+- muitas possibilidades de atuação
 
 Contras:
 
-- feedback menos visual no comeÃ§o
-- mais abstraÃ§Ã£o logo cedo
+- feedback menos visual no começo
+- mais abstração logo cedo
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 - entender servidor, API e banco de dados
 - testar sem interface visual pronta
-- organizar lÃ³gica sem se perder
-- entender autenticaÃ§Ã£o
+- organizar lógica sem se perder
+- entender autenticação
 - aprender a debugar sem feedback visual claro
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 1. escolher uma linguagem inicial
 2. entender HTTP e APIs
-3. aprender lÃ³gica bÃ¡sica de backend
+3. aprender lógica básica de backend
 4. montar uma API simples
-5. conectar banco de dados bÃ¡sico
+5. conectar banco de dados básico
 
-## Como saber se essa Ã¡rea combina com vocÃª
+## Como saber se essa área combina com você
 
 Sinais positivos:
 
-- vocÃª gosta de entender estrutura e regra
-- vocÃª curte resolver problema menos visual
-- vocÃª sente interesse por API, dados e lÃ³gica
+- você gosta de entender estrutura e regra
+- você curte resolver problema menos visual
+- você sente interesse por API, dados e lógica
 
-Sinais de atenÃ§Ã£o:
+Sinais de atenção:
 
-- vocÃª precisa de retorno visual constante para sustentar motivaÃ§Ã£o
-- vocÃª se irrita cedo com abstraÃ§Ã£o
-- vocÃª evita completamente temas como dados e estrutura
+- você precisa de retorno visual constante para sustentar motivação
+- você se irrita cedo com abstração
+- você evita completamente temas como dados e estrutura
 
 ## Primeiro projeto sugerido
 
-Uma API de tarefas ou cadastro simples com persistÃªncia bÃ¡sica.
+Uma API de tarefas ou cadastro simples com persistência básica.
 
 ## Faixa de entrada
 
-Backend pode ser uma boa entrada, mas costuma exigir mais abstraÃ§Ã£o no comeÃ§o do que frontend visual.
+Backend pode ser uma boa entrada, mas costuma exigir mais abstração no começo do que frontend visual.
 
-Isso nÃ£o Ã© pior.
+Isso não é pior.
 
-SÃ³ significa que vocÃª precisa aceitar um comeÃ§o com menos feedback visual.
+Só significa que você precisa aceitar um começo com menos feedback visual.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | roadmap.sh e prÃ¡tica comum de backend | 95% | Bem consolidado. |
-| O que essa pessoa faz | SÃ­ntese editorial | 90% | Pode variar por contexto. |
+| O que é | roadmap.sh e prática comum de backend | 95% | Bem consolidado. |
+| O que essa pessoa faz | Síntese editorial | 90% | Pode variar por contexto. |
 | Ferramentas comuns | Roadmaps e ecossistema atual | 92% | Exemplos iniciais comuns. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 84% | Orientativo. |
-| Como saber se essa Ã¡rea combina com vocÃª | SÃ­ntese editorial | 82% | Leitura orientativa. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 87% | SequÃªncia prÃ¡tica inicial. |
-| Faixa de entrada | SÃ­ntese editorial | 86% | Muito Ãºtil, mas contextual. |
+| Perfil mais compatível | Síntese editorial | 84% | Orientativo. |
+| Como saber se essa área combina com você | Síntese editorial | 82% | Leitura orientativa. |
+| Como começar em 30 dias | Diretriz editorial | 87% | Sequência prática inicial. |
+| Faixa de entrada | Síntese editorial | 86% | Muito útil, mas contextual. |
 
 ## Bibliografia
 
@@ -127,7 +127,7 @@ SÃ³ significa que vocÃª precisa aceitar um comeÃ§o com menos feedback visu
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

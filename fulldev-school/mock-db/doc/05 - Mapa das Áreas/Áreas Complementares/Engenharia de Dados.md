@@ -1,16 +1,16 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Engenharia de Dados cuida do fluxo, estrutura e disponibilidade dos dados para outras Ã¡reas.
+Engenharia de Dados cuida do fluxo, estrutura e disponibilidade dos dados para outras áreas.
 
 ## O que essa pessoa faz
 
-VocÃª constrÃ³i pipelines, integra fontes, organiza armazenamento e garante qualidade de dados.
+Você constrói pipelines, integra fontes, organiza armazenamento e garante qualidade de dados.
 
 ## Exemplo real
 
-Levar dados de vÃ¡rios sistemas para um ambiente de anÃ¡lise.
+Levar dados de vários sistemas para um ambiente de análise.
 
 ## Ferramentas comuns
 
@@ -19,20 +19,20 @@ Levar dados de vÃ¡rios sistemas para um ambiente de anÃ¡lise.
 - ETL
 - cloud
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de estrutura, dados e processamento.
+Pode combinar com você se você gosta de estrutura, dados e processamento.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s: Ã¡rea forte e tÃ©cnica.
+Prós: área forte e técnica.
 Contras: entrada costuma exigir mais base.
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 Entender pipeline, modelagem e arquitetura.
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 Fortalecer SQL, Python e fundamentos de dados.
 
@@ -40,12 +40,12 @@ Fortalecer SQL, Python e fundamentos de dados.
 
 Pipeline simples de coleta, limpeza e carga.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 93% | DefiniÃ§Ã£o estÃ¡vel. |
-| Como comeÃ§ar | Diretriz editorial | 84% | Entrada mais exigente. |
+| O que é | Uso comum da área | 93% | Definição estável. |
+| Como começar | Diretriz editorial | 84% | Entrada mais exigente. |
 
 ## Bibliografia
 
@@ -60,7 +60,7 @@ Pipeline simples de coleta, limpeza e carga.
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

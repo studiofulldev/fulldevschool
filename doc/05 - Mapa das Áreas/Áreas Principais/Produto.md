@@ -1,12 +1,12 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Produto Ã© a Ã¡rea que ajuda a definir o que deve ser construÃ­do, por quÃª e em que ordem.
+Produto é a área que ajuda a definir o que deve ser construído, por quê e em que ordem.
 
 ## O que essa pessoa faz
 
-VocÃª alinha contexto, prioridade, necessidade de usuÃ¡rio e objetivo de negÃ³cio com o time.
+Você alinha contexto, prioridade, necessidade de usuário e objetivo de negócio com o time.
 
 ## Exemplo real
 
@@ -16,51 +16,51 @@ Definir prioridade de funcionalidades, organizar backlog e alinhar entrega com p
 
 - Jira
 - Notion
-- mÃ©tricas
+- métricas
 - pesquisa
-- documentaÃ§Ã£o
+- documentação
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de contexto, comunicaÃ§Ã£o, priorizaÃ§Ã£o e visÃ£o sistÃªmica.
+Pode combinar com você se você gosta de contexto, comunicação, priorização e visão sistêmica.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
-- visÃ£o ampla do produto
-- muita interaÃ§Ã£o com times
+- visão ampla do produto
+- muita interação com times
 
 Contras:
 
-- entrada jÃºnior pode ser menos direta
-- exige comunicaÃ§Ã£o forte
+- entrada júnior pode ser menos direta
+- exige comunicação forte
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-- diferenciar opiniÃ£o de prioridade
-- entender problema de negÃ³cio
+- diferenciar opinião de prioridade
+- entender problema de negócio
 - lidar com ambiguidade
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 1. entender fundamentos de produto
-2. estudar backlog e priorizaÃ§Ã£o
+2. estudar backlog e priorização
 3. analisar produtos reais
 4. escrever propostas simples de melhoria
 
 ## Primeiro projeto sugerido
 
-AnÃ¡lise de produto conhecido com mapeamento de problema, hipÃ³tese e melhoria sugerida.
+Análise de produto conhecido com mapeamento de problema, hipótese e melhoria sugerida.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 93% | DefiniÃ§Ã£o estÃ¡vel. |
-| O que essa pessoa faz | SÃ­ntese editorial | 89% | Pode variar conforme empresa. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 84% | Orientativo. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 86% | SequÃªncia plausÃ­vel. |
+| O que é | Uso comum da área | 93% | Definição estável. |
+| O que essa pessoa faz | Síntese editorial | 89% | Pode variar conforme empresa. |
+| Perfil mais compatível | Síntese editorial | 84% | Orientativo. |
+| Como começar em 30 dias | Diretriz editorial | 86% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -78,7 +78,7 @@ AnÃ¡lise de produto conhecido com mapeamento de problema, hipÃ³tese e melhor
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

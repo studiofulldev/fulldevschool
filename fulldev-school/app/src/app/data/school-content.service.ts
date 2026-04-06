@@ -220,12 +220,13 @@ export class SchoolContentService {
       const heading = lines[0].replace(/^##\s+/, '').trim();
       const id = this.slugify(heading || `bloco-${index + 1}`);
       const title = heading || `Bloco ${index + 1}`;
+      const bodyMarkdown = lines.slice(1).join('\n').trim();
 
       return {
         id,
         title,
-        markdown: trimmedSection,
-        html: this.renderMarkdown(trimmedSection)
+        markdown: bodyMarkdown,
+        html: this.renderMarkdown(bodyMarkdown)
       };
     });
   }

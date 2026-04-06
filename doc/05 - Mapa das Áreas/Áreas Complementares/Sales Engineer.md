@@ -1,50 +1,50 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Sales Engineer Ã© a atuaÃ§Ã£o que conecta contexto tÃ©cnico e processo comercial.
+Sales Engineer é a atuação que conecta contexto técnico e processo comercial.
 
 ## O que essa pessoa faz
 
-VocÃª ajuda a explicar soluÃ§Ã£o tÃ©cnica para cliente, demonstra produto e reduz dÃºvida tÃ©cnica em venda.
+Você ajuda a explicar solução técnica para cliente, demonstra produto e reduz dúvida técnica em venda.
 
 ## Exemplo real
 
-Apresentar integraÃ§Ã£o de produto SaaS para cliente potencial.
+Apresentar integração de produto SaaS para cliente potencial.
 
 ## Ferramentas comuns
 
 - demos
-- documentaÃ§Ã£o
-- reuniÃµes com cliente
+- documentação
+- reuniões com cliente
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de tecnologia, comunicaÃ§Ã£o e contexto de negÃ³cio.
+Pode combinar com você se você gosta de tecnologia, comunicação e contexto de negócio.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s: mistura tÃ©cnica e comunicaÃ§Ã£o.
+Prós: mistura técnica e comunicação.
 Contras: depende de ambiente comercial.
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-Traduzir tÃ©cnico sem confundir cliente.
+Traduzir técnico sem confundir cliente.
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-Entender produto, casos de uso e comunicaÃ§Ã£o tÃ©cnica.
+Entender produto, casos de uso e comunicação técnica.
 
 ## Primeiro projeto sugerido
 
-Criar demonstraÃ§Ã£o simples de soluÃ§Ã£o e roteiro tÃ©cnico-comercial.
+Criar demonstração simples de solução e roteiro técnico-comercial.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da atuaÃ§Ã£o | 90% | Pode variar por empresa. |
-| Como comeÃ§ar | Diretriz editorial | 84% | SequÃªncia plausÃ­vel. |
+| O que é | Uso comum da atuação | 90% | Pode variar por empresa. |
+| Como começar | Diretriz editorial | 84% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -59,7 +59,7 @@ Criar demonstraÃ§Ã£o simples de soluÃ§Ã£o e roteiro tÃ©cnico-comercial
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

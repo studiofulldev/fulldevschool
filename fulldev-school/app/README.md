@@ -1,27 +1,30 @@
 # Fulldev School App
 
-Aplicação Angular da `Fulldev School`.
-
-## Objetivo
-
-Entregar a experiência guiada da `Fulldev School` com:
-
-- leitura guiada do conteúdo editorial via `mock-db`
-- áudio por blocos usando a voz do navegador
-- navegação por árvore e rota de lições
+Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Markdown.
 
 ## Stack
 
-- Angular 19+
+- Angular 19
 - standalone components
 - Signals
-- Speech Synthesis API do navegador
+- Angular Material
+- `marked` para renderização de Markdown
 
-## Componentes esperados
+## Fluxo atual
 
-- `SchoolContentService`
-- `LessonPageComponent`
-- `AudioNarrationService`
+- sidebar baseada na árvore de navegação
+- carregamento de páginas por `slug`
+- renderização de conteúdo a partir de `mock-db/doc`
+- skeleton durante carregamento
+- blocos internos expansíveis por seção
+
+## Arquivos centrais
+
+- `src/app/app.ts`
+- `src/app/app.html`
+- `src/app/app.scss`
+- `src/app/pages/lesson-page.component.ts`
+- `src/app/data/school-content.service.ts`
 
 ## Rodando localmente
 
@@ -30,11 +33,14 @@ npm install
 npm start
 ```
 
-Abra `http://localhost:4200`.
+## Build
 
-## Direção de implementação
+```bash
+npm run build
+```
 
-- usar `ChangeDetectionStrategy.OnPush`
-- manter a `Fulldev School` como fluxo principal
-- usar `speechSynthesis` no player das lições
-- evoluir a navegação e a leitura guiada sem acoplar conteúdo na UI
+## Observações
+
+- a interface de áudio está adiada
+- o conteúdo depende de `fulldev-school/mock-db/doc`
+- ainda existem arquivos `.md` com encoding a revisar

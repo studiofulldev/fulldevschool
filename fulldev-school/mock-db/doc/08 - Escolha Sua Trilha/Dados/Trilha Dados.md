@@ -1,21 +1,21 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-Te levar da base analÃ­tica atÃ© um dashboard ou anÃ¡lise inicial explicÃ¡vel.
+Te levar da base analítica até um dashboard ou análise inicial explicável.
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
-- lÃ³gica bÃ¡sica
+- lógica básica
 - conforto com planilha ajuda
 
 ## Ordem sugerida
 
 1. SQL
 2. planilha e limpeza
-3. anÃ¡lise exploratÃ³ria
-4. visualizaÃ§Ã£o
-5. dashboard ou relatÃ³rio
+3. análise exploratória
+4. visualização
+5. dashboard ou relatório
 
 ## Ferramentas
 
@@ -23,50 +23,50 @@ Te levar da base analÃ­tica atÃ© um dashboard ou anÃ¡lise inicial explicÃ
 - Excel
 - Power BI ou similar
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
-- anÃ¡lise de dados pÃºblicos
+- análise de dados públicos
 - dashboard simples
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
-Avance quando vocÃª conseguir responder uma pergunta com dados e explicar seu raciocÃ­nio.
+Avance quando você conseguir responder uma pergunta com dados e explicar seu raciocínio.
 
 ## Erros comuns
 
-- focar sÃ³ em grÃ¡fico
-- ignorar pergunta de negÃ³cio
+- focar só em gráfico
+- ignorar pergunta de negócio
 
 ## Recursos complementares
 
 - roadmap.sh/data-analyst
 
-## TÃ³picos do roadmap e vÃ­deos sugeridos
+## Tópicos do roadmap e vídeos sugeridos
 
 ### SQL
 
 - Roadmap:
   https://roadmap.sh/sql
-- OpÃ§Ã£o 1:
+- Opção 1:
   Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
   https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
-- OpÃ§Ã£o 2:
-  [[../../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+- Opção 2:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Dashboard e BI
 
 - Recurso:
   https://learn.microsoft.com/power-bi/
-- OpÃ§Ã£o complementar:
-  [[../../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
+- Opção complementar:
+  [[../../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Ordem sugerida | Roadmap data analyst | 93% | SequÃªncia plausÃ­vel. |
-| Projetos iniciais | Diretriz editorial | 87% | Muito Ãºteis para comeÃ§o. |
-| TÃ³picos do roadmap e vÃ­deos sugeridos | roadmap.sh, Microsoft Learn, YouTube e curadoria de vÃ­deos | 90% | Boa camada didÃ¡tica inicial com alternativas em portuguÃªs. |
+| Ordem sugerida | Roadmap data analyst | 93% | Sequência plausível. |
+| Projetos iniciais | Diretriz editorial | 87% | Muito úteis para começo. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, Microsoft Learn, YouTube e curadoria de vídeos | 90% | Boa camada didática inicial com alternativas em português. |
 
 ## Bibliografia
 
@@ -82,12 +82,12 @@ Avance quando vocÃª conseguir responder uma pergunta com dados e explicar seu 
   https://roadmap.sh/data-analyst
 - BI:
   https://learn.microsoft.com/power-bi/
-- vÃ­deos por tÃ³pico:
-  [[../../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+- vídeos por tópico:
+  [[../../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

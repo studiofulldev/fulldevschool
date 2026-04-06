@@ -1,36 +1,36 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-Te levar da base de redes e sistemas atÃ© uma prÃ¡tica inicial sÃ©ria em seguranÃ§a.
+Te levar da base de redes e sistemas até uma prática inicial séria em segurança.
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
 - fundamentos de tecnologia
-- vontade de estudar base antes de especializaÃ§Ã£o
+- vontade de estudar base antes de especialização
 
 ## Ordem sugerida
 
 1. redes
 2. Linux
 3. sistemas e logs
-4. fundamentos de seguranÃ§a
-5. prÃ¡tica segura em laboratÃ³rio
+4. fundamentos de segurança
+5. prática segura em laboratório
 
 ## Ferramentas
 
 - Linux
 - lab seguro
-- documentaÃ§Ã£o de seguranÃ§a
+- documentação de segurança
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
-- checklist de seguranÃ§a
-- laboratÃ³rio bÃ¡sico controlado
+- checklist de segurança
+- laboratório básico controlado
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
-Avance quando vocÃª entender risco, superfÃ­cie de ataque e fundamentos antes de buscar tÃ©cnicas avanÃ§adas.
+Avance quando você entender risco, superfície de ataque e fundamentos antes de buscar técnicas avançadas.
 
 ## Erros comuns
 
@@ -42,12 +42,12 @@ Avance quando vocÃª entender risco, superfÃ­cie de ataque e fundamentos ante
 - roadmap.sh/cyber-security
 - OWASP
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Ordem sugerida | Roadmap security | 93% | SequÃªncia muito comum. |
-| Projetos iniciais | Diretriz editorial | 84% | Prudentes para comeÃ§o. |
+| Ordem sugerida | Roadmap security | 93% | Sequência muito comum. |
+| Projetos iniciais | Diretriz editorial | 84% | Prudentes para começo. |
 
 ## Bibliografia
 
@@ -60,12 +60,12 @@ Avance quando vocÃª entender risco, superfÃ­cie de ataque e fundamentos ante
 
 - trilha:
   https://roadmap.sh/cyber-security
-- seguranÃ§a:
+- segurança:
   https://owasp.org/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

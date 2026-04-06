@@ -1,21 +1,21 @@
-## ConteÃºdo
+## Conteúdo
 
-Depois de ganhar mais autonomia no computador, o prÃ³ximo passo Ã© entender os conceitos que aparecem o tempo todo quando alguÃ©m fala de tecnologia.
+Depois de ganhar mais autonomia no computador, o próximo passo é entender os conceitos que aparecem o tempo todo quando alguém fala de tecnologia.
 
-Sem isso, a pessoa atÃ© consegue seguir tutorial, mas continua perdida no vocabulÃ¡rio.
+Sem isso, a pessoa até consegue seguir tutorial, mas continua perdida no vocabulário.
 
-O objetivo desta etapa Ã© te ajudar a montar um mapa mental simples.
+O objetivo desta etapa é te ajudar a montar um mapa mental simples.
 
-VocÃª nÃ£o precisa sair daqui dominando tudo.
+Você não precisa sair daqui dominando tudo.
 
-VocÃª precisa sair entendendo o bÃ¡sico sem depender de adivinhaÃ§Ã£o.
+Você precisa sair entendendo o básico sem depender de adivinhação.
 
 ## Hardware e software
 
-Uma das primeiras distinÃ§Ãµes importantes Ã© esta:
+Uma das primeiras distinções importantes é esta:
 
-- **hardware** Ã© a parte fÃ­sica
-- **software** Ã© a parte lÃ³gica
+- **hardware** é a parte física
+- **software** é a parte lógica
 
 Hardware inclui, por exemplo:
 
@@ -23,56 +23,56 @@ Hardware inclui, por exemplo:
 - teclado
 - monitor
 - HD ou SSD
-- memÃ³ria RAM
+- memória RAM
 
 Software inclui:
 
 - sistema operacional
 - navegador
-- editor de cÃ³digo
+- editor de código
 - aplicativo de banco
 - jogo
-- sistema de gestÃ£o
+- sistema de gestão
 
 Em resumo:
 
-- hardware Ã© o que vocÃª consegue tocar
-- software Ã© o que roda e faz o computador executar tarefas
+- hardware é o que você consegue tocar
+- software é o que roda e faz o computador executar tarefas
 
-## Internet e Web nÃ£o sÃ£o a mesma coisa
+## Internet e Web não são a mesma coisa
 
-Esse ponto gera muita confusÃ£o.
+Esse ponto gera muita confusão.
 
-A **internet** Ã© a infraestrutura de comunicaÃ§Ã£o.
+A **internet** é a infraestrutura de comunicação.
 
-A **web** Ã© um sistema que funciona em cima dessa infraestrutura.
+A **web** é um sistema que funciona em cima dessa infraestrutura.
 
 De forma simples:
 
 - a internet conecta computadores e redes
-- a web permite acessar pÃ¡ginas, sites e recursos usando navegador
+- a web permite acessar páginas, sites e recursos usando navegador
 
-Por isso, dizer "internet" e "site" como se fossem a mesma coisa estÃ¡ tecnicamente errado, embora no uso comum muita gente misture.
+Por isso, dizer "internet" e "site" como se fossem a mesma coisa está tecnicamente errado, embora no uso comum muita gente misture.
 
-## Como a internet funciona, em visÃ£o simples
+## Como a internet funciona, em visão simples
 
-Na base, a internet Ã© uma grande rede de computadores se comunicando.
+Na base, a internet é uma grande rede de computadores se comunicando.
 
 Para acessar algo online, normalmente acontece algo assim:
 
-1. vocÃª digita um endereÃ§o
+1. você digita um endereço
 2. seu navegador tenta encontrar o destino
-3. uma conexÃ£o Ã© feita
+3. uma conexão é feita
 4. o servidor responde
-5. o conteÃºdo aparece na sua tela
+5. o conteúdo aparece na sua tela
 
-VocÃª nÃ£o precisa decorar todos os detalhes agora.
+Você não precisa decorar todos os detalhes agora.
 
-Mas precisa entender a lÃ³gica:
+Mas precisa entender a lógica:
 
 - existe um cliente
 - existe um servidor
-- existe uma troca de informaÃ§Ã£o
+- existe uma troca de informação
 
 ## Cliente e servidor
 
@@ -80,62 +80,62 @@ Esses dois termos aparecem o tempo todo.
 
 ### Cliente
 
-Ã‰ quem faz uma requisiÃ§Ã£o.
+�0 quem faz uma requisição.
 
 Exemplos:
 
 - navegador
 - aplicativo no celular
-- programa que consome dados de outro serviÃ§o
+- programa que consome dados de outro serviço
 
 ### Servidor
 
-Ã‰ quem responde ou fornece um recurso.
+�0 quem responde ou fornece um recurso.
 
 Exemplos:
 
 - servidor que entrega um site
 - servidor que guarda dados
-- servidor que processa autenticaÃ§Ã£o
+- servidor que processa autenticação
 
-Nem sempre "cliente" significa pessoa e nem sempre "servidor" significa uma mÃ¡quina Ãºnica.
+Nem sempre "cliente" significa pessoa e nem sempre "servidor" significa uma máquina única.
 
-Esses termos descrevem papÃ©is em uma comunicaÃ§Ã£o.
+Esses termos descrevem papéis em uma comunicação.
 
-## Site, pÃ¡gina, sistema e aplicativo
+## Site, página, sistema e aplicativo
 
-Esses termos tambÃ©m costumam se misturar no comeÃ§o.
+Esses termos também costumam se misturar no começo.
 
-### PÃ¡gina
+### Página
 
-Ã‰ uma unidade especÃ­fica de conteÃºdo.
+�0 uma unidade específica de conteúdo.
 
 Exemplo:
 
-- a pÃ¡gina inicial de um site
-- a pÃ¡gina de um produto
+- a página inicial de um site
+- a página de um produto
 
 ### Site
 
-Ã‰ um conjunto de pÃ¡ginas conectadas.
+�0 um conjunto de páginas conectadas.
 
 Exemplo:
 
-- um portal de notÃ­cias
+- um portal de notícias
 - um site institucional
 
 ### Sistema
 
-Ã‰ uma soluÃ§Ã£o digital com regras, processos e funcionalidades mais amplas.
+�0 uma solução digital com regras, processos e funcionalidades mais amplas.
 
 Exemplo:
 
-- sistema de gestÃ£o escolar
+- sistema de gestão escolar
 - sistema de controle financeiro
 
 ### Aplicativo
 
-Ã‰ um software voltado para uma tarefa ou conjunto de tarefas.
+�0 um software voltado para uma tarefa ou conjunto de tarefas.
 
 Pode ser:
 
@@ -143,11 +143,11 @@ Pode ser:
 - desktop
 - web
 
-## URL, domÃ­nio e HTTPS
+## URL, domínio e HTTPS
 
-Quando vocÃª abre um site, costuma usar um endereÃ§o.
+Quando você abre um site, costuma usar um endereço.
 
-Esse endereÃ§o faz parte da URL.
+Esse endereço faz parte da URL.
 
 Exemplo:
 
@@ -155,37 +155,37 @@ Exemplo:
 
 Partes importantes:
 
-- `https`: protocolo seguro usado na comunicaÃ§Ã£o
-- `github.com`: domÃ­nio
+- `https`: protocolo seguro usado na comunicação
+- `github.com`: domínio
 
-VocÃª nÃ£o precisa aprofundar alÃ©m disso agora.
+Você não precisa aprofundar além disso agora.
 
-Mas Ã© Ãºtil perceber que existe uma estrutura por trÃ¡s de cada endereÃ§o web.
+Mas é útil perceber que existe uma estrutura por trás de cada endereço web.
 
-## O que Ã© programaÃ§Ã£o
+## O que é programação
 
-ProgramaÃ§Ã£o Ã© o processo de escrever instruÃ§Ãµes para que um computador execute aÃ§Ãµes.
+Programação é o processo de escrever instruções para que um computador execute ações.
 
-Essas instruÃ§Ãµes podem:
+Essas instruções podem:
 
-- mostrar conteÃºdo
-- fazer cÃ¡lculos
+- mostrar conteúdo
+- fazer cálculos
 - validar dados
-- buscar informaÃ§Ãµes
+- buscar informações
 - automatizar tarefas
 
-Programar nÃ£o Ã© "conversar com a mÃ¡quina por talento".
+Programar não é "conversar com a máquina por talento".
 
-Ã‰ aprender a:
+�0 aprender a:
 
 - pensar em etapas
 - descrever regras
 - testar
 - corrigir
 
-## Linguagem de programaÃ§Ã£o
+## Linguagem de programação
 
-Uma linguagem de programaÃ§Ã£o Ã© um meio formal de escrever instruÃ§Ãµes compreensÃ­veis para sistemas computacionais.
+Uma linguagem de programação é um meio formal de escrever instruções compreensíveis para sistemas computacionais.
 
 Exemplos:
 
@@ -194,53 +194,53 @@ Exemplos:
 - Java
 - C#
 
-VocÃª nÃ£o precisa escolher sua linguagem nesta etapa.
+Você não precisa escolher sua linguagem nesta etapa.
 
-Primeiro, precisa entender que linguagem Ã© ferramenta, nÃ£o identidade.
+Primeiro, precisa entender que linguagem é ferramenta, não identidade.
 
-## O que Ã© uma API
+## O que é uma API
 
-API Ã© um termo muito comum e costuma assustar mais do que deveria.
+API é um termo muito comum e costuma assustar mais do que deveria.
 
-De forma simples, uma API Ã© uma interface que permite que um sistema converse com outro de maneira definida.
+De forma simples, uma API é uma interface que permite que um sistema converse com outro de maneira definida.
 
 Pense assim:
 
 - um sistema oferece certos caminhos e regras
-- outro sistema usa esses caminhos para pedir ou enviar informaÃ§Ãµes
+- outro sistema usa esses caminhos para pedir ou enviar informações
 
 Exemplos comuns:
 
-- um app de clima buscando dados de previsÃ£o
+- um app de clima buscando dados de previsão
 - um sistema de pagamento se conectando a um gateway
 - um site consultando dados de um servidor
 
-API nÃ£o Ã© "mÃ¡gica".
+API não é "mágica".
 
-Ã‰ contrato de comunicaÃ§Ã£o entre partes de software.
+�0 contrato de comunicação entre partes de software.
 
-## O que Ã© banco de dados
+## O que é banco de dados
 
-Banco de dados Ã© um sistema organizado para armazenar, consultar e manipular informaÃ§Ãµes.
+Banco de dados é um sistema organizado para armazenar, consultar e manipular informações.
 
 Exemplos do que um banco pode guardar:
 
-- usuÃ¡rios
+- usuários
 - produtos
 - pedidos
 - mensagens
-- histÃ³rico financeiro
+- histórico financeiro
 
-Quase todo sistema sÃ©rio depende de algum tipo de armazenamento estruturado.
+Quase todo sistema sério depende de algum tipo de armazenamento estruturado.
 
-VocÃª nÃ£o precisa aprender modelagem agora.
+Você não precisa aprender modelagem agora.
 
 Mas precisa entender que:
 
 - software quase sempre lida com dados
 - esses dados precisam ser guardados de forma organizada
 
-## Frontend e backend, em visÃ£o simples
+## Frontend e backend, em visão simples
 
 Esses dois termos aparecem cedo demais para muita gente.
 
@@ -248,72 +248,72 @@ Vamos simplificar:
 
 ### Frontend
 
-Ã‰ a parte com a qual a pessoa interage diretamente.
+�0 a parte com a qual a pessoa interage diretamente.
 
 Exemplos:
 
 - telas
-- botÃµes
-- formulÃ¡rios
+- botões
+- formulários
 - layout
 
 ### Backend
 
-Ã‰ a parte que processa regras, integraÃ§Ãµes e acesso a dados.
+�0 a parte que processa regras, integrações e acesso a dados.
 
 Exemplos:
 
-- autenticaÃ§Ã£o
-- lÃ³gica de negÃ³cio
-- conexÃ£o com banco de dados
-- integraÃ§Ã£o com APIs
+- autenticação
+- lógica de negócio
+- conexão com banco de dados
+- integração com APIs
 
-Nem todo projeto separa isso do mesmo jeito, mas essa visÃ£o jÃ¡ ajuda bastante.
+Nem todo projeto separa isso do mesmo jeito, mas essa visão já ajuda bastante.
 
-## O que Ã© versionamento
+## O que é versionamento
 
-Versionamento Ã© a prÃ¡tica de registrar mudanÃ§as em arquivos e projetos ao longo do tempo.
+Versionamento é a prática de registrar mudanças em arquivos e projetos ao longo do tempo.
 
 Isso permite:
 
-- acompanhar alteraÃ§Ãµes
-- recuperar versÃµes anteriores
+- acompanhar alterações
+- recuperar versões anteriores
 - colaborar com outras pessoas
-- entender o histÃ³rico de um projeto
+- entender o histórico de um projeto
 
-Na prÃ¡tica, um dos nomes mais importantes aqui Ã©:
+Na prática, um dos nomes mais importantes aqui é:
 
 - **Git**
 
-E uma plataforma muito importante para hospedar projetos Ã©:
+E uma plataforma muito importante para hospedar projetos é:
 
 - **GitHub**
 
-VocÃª ainda nÃ£o precisa dominar Git agora.
+Você ainda não precisa dominar Git agora.
 
-Mas precisa saber que versionamento Ã© um pilar real da rotina tÃ©cnica.
+Mas precisa saber que versionamento é um pilar real da rotina técnica.
 
-## O que Ã© cloud
+## O que é cloud
 
-Cloud, ou computaÃ§Ã£o em nuvem, Ã© o uso sob demanda de recursos de tecnologia pela internet.
+Cloud, ou computação em nuvem, é o uso sob demanda de recursos de tecnologia pela internet.
 
-Em vez de comprar, manter e operar toda a infraestrutura fÃ­sica diretamente, empresas podem usar serviÃ§os sob demanda para:
+Em vez de comprar, manter e operar toda a infraestrutura física diretamente, empresas podem usar serviços sob demanda para:
 
 - processamento
 - armazenamento
 - banco de dados
 - hospedagem
-- automaÃ§Ã£o
+- automação
 
-VocÃª nÃ£o precisa imaginar "nuvem" como algo abstrato flutuando no ar.
+Você não precisa imaginar "nuvem" como algo abstrato flutuando no ar.
 
 Pense assim:
 
-Ã© infraestrutura e serviÃ§o acessado remotamente, de forma flexÃ­vel.
+é infraestrutura e serviço acessado remotamente, de forma flexível.
 
 ## Tipos de empresas em tecnologia
 
-Nem toda empresa de tecnologia Ã© igual.
+Nem toda empresa de tecnologia é igual.
 
 Isso importa porque o trabalho muda bastante conforme o contexto.
 
@@ -330,34 +330,34 @@ Exemplos:
 Isso afeta:
 
 - velocidade
-- pressÃ£o
+- pressão
 - escopo
-- especializaÃ§Ã£o
-- forma de contrataÃ§Ã£o
+- especialização
+- forma de contratação
 
-## O que vocÃª precisa guardar desta etapa
+## O que você precisa guardar desta etapa
 
-Se vocÃª esquecer detalhes, tudo bem.
+Se você esquecer detalhes, tudo bem.
 
 Mas tente sair daqui lembrando isto:
 
-1. tecnologia Ã© um ecossistema de sistemas, dados, comunicaÃ§Ã£o e pessoas
-2. internet e web nÃ£o sÃ£o a mesma coisa
-3. cliente e servidor descrevem papÃ©is de comunicaÃ§Ã£o
-4. API Ã© uma interface de comunicaÃ§Ã£o entre sistemas
-5. banco de dados guarda informaÃ§Ã£o estruturada
-6. frontend e backend sÃ£o partes diferentes de uma soluÃ§Ã£o
-7. versionamento e cloud fazem parte do vocabulÃ¡rio real da Ã¡rea
+1. tecnologia é um ecossistema de sistemas, dados, comunicação e pessoas
+2. internet e web não são a mesma coisa
+3. cliente e servidor descrevem papéis de comunicação
+4. API é uma interface de comunicação entre sistemas
+5. banco de dados guarda informação estruturada
+6. frontend e backend são partes diferentes de uma solução
+7. versionamento e cloud fazem parte do vocabulário real da área
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../04 - Como Aprender/Ãndice - Como Aprender|5 - Como Aprender]]
+[[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
 
-Essa Ã© a etapa em que vocÃª aprende a estudar de forma menos aleatÃ³ria e mais eficiente.
+Essa é a etapa em que você aprende a estudar de forma menos aleatória e mais eficiente.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
 ### Internet, web, cliente e servidor
 
@@ -365,10 +365,10 @@ Essa Ã© a etapa em que vocÃª aprende a estudar de forma menos aleatÃ³ria e
   https://developer.mozilla.org/en-US/docs/Learn/How_the_Internet_works
 - Base:
   https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works
-- Apoio em portuguÃªs:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+- Apoio em português:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ### API, banco de dados e cloud
 
@@ -378,51 +378,51 @@ Essa Ã© a etapa em que vocÃª aprende a estudar de forma menos aleatÃ³ria e
   https://www.mongodb.com/resources/basics/databases/databases
 - Cloud:
   https://aws.amazon.com/what-is-cloud-computing/
-- Apoio em portuguÃªs:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+- Apoio em português:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ### Git, GitHub e versionamento
 
 - Base:
   https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
 - Apoio complementar:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Hardware e software | Conceitos estÃ¡veis de computaÃ§Ã£o e explicaÃ§Ã£o editorial introdutÃ³ria | 97% | Conceito bÃ¡sico e amplamente consolidado. |
-| Internet e web nÃ£o sÃ£o a mesma coisa | MDN sobre como a internet funciona e como a web funciona | 98% | Base forte e estÃ¡vel. |
-| Como a internet funciona, em visÃ£o simples | MDN Learn Web Development | 95% | SimplificaÃ§Ã£o editorial fiel ao conceito-base. |
-| Cliente e servidor | MDN sobre funcionamento da web e HTTP | 94% | HÃ¡ sÃ­ntese editorial para facilitar entendimento. |
-| Site, pÃ¡gina, sistema e aplicativo | SÃ­ntese editorial alinhada ao uso tÃ©cnico comum | 88% | Ãštil e confiÃ¡vel, mas mais interpretativo. |
-| URL, domÃ­nio e HTTPS | MDN sobre URLs, domÃ­nio e web | 96% | Conceitos bem definidos. |
-| O que Ã© programaÃ§Ã£o | SÃ­ntese editorial sobre lÃ³gica de instruÃ§Ãµes computacionais | 90% | GeneralizaÃ§Ã£o didÃ¡tica confiÃ¡vel. |
-| Linguagem de programaÃ§Ã£o | SÃ­ntese editorial alinhada ao uso tÃ©cnico comum | 91% | Conceito estÃ¡vel em linguagem simples. |
-| O que Ã© uma API | MDN Glossary sobre API | 96% | Forte base conceitual. |
-| O que Ã© banco de dados | MongoDB basics sobre databases e explicaÃ§Ã£o editorial | 94% | Conceito sÃ³lido, com simplificaÃ§Ã£o didÃ¡tica. |
-| Frontend e backend, em visÃ£o simples | SÃ­ntese editorial baseada na separaÃ§Ã£o usual de responsabilidades | 89% | Ã‰ didÃ¡tico, mas nÃ£o cobre todos os modelos possÃ­veis. |
-| O que Ã© versionamento | GitHub Docs e prÃ¡tica comum da Ã¡rea | 97% | Base muito forte. |
-| O que Ã© cloud | AWS sobre cloud computing | 96% | Conceito bem estabelecido. |
-| Tipos de empresas em tecnologia | SÃ­ntese editorial baseada em contextos comuns do mercado | 86% | Ãštil, mas mais dependente de contexto. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | MDN, GitHub Docs, AWS, MongoDB e notas centrais de recursos | 97% | Curadoria consistente com os conceitos desta etapa. |
+| Hardware e software | Conceitos estáveis de computação e explicação editorial introdutória | 97% | Conceito básico e amplamente consolidado. |
+| Internet e web não são a mesma coisa | MDN sobre como a internet funciona e como a web funciona | 98% | Base forte e estável. |
+| Como a internet funciona, em visão simples | MDN Learn Web Development | 95% | Simplificação editorial fiel ao conceito-base. |
+| Cliente e servidor | MDN sobre funcionamento da web e HTTP | 94% | Há síntese editorial para facilitar entendimento. |
+| Site, página, sistema e aplicativo | Síntese editorial alinhada ao uso técnico comum | 88% | �atil e confiável, mas mais interpretativo. |
+| URL, domínio e HTTPS | MDN sobre URLs, domínio e web | 96% | Conceitos bem definidos. |
+| O que é programação | Síntese editorial sobre lógica de instruções computacionais | 90% | Generalização didática confiável. |
+| Linguagem de programação | Síntese editorial alinhada ao uso técnico comum | 91% | Conceito estável em linguagem simples. |
+| O que é uma API | MDN Glossary sobre API | 96% | Forte base conceitual. |
+| O que é banco de dados | MongoDB basics sobre databases e explicação editorial | 94% | Conceito sólido, com simplificação didática. |
+| Frontend e backend, em visão simples | Síntese editorial baseada na separação usual de responsabilidades | 89% | �0 didático, mas não cobre todos os modelos possíveis. |
+| O que é versionamento | GitHub Docs e prática comum da área | 97% | Base muito forte. |
+| O que é cloud | AWS sobre cloud computing | 96% | Conceito bem estabelecido. |
+| Tipos de empresas em tecnologia | Síntese editorial baseada em contextos comuns do mercado | 86% | �atil, mas mais dependente de contexto. |
+| Referências por tópico e vídeos sugeridos | MDN, GitHub Docs, AWS, MongoDB e notas centrais de recursos | 97% | Curadoria consistente com os conceitos desta etapa. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. MDN. *How does the Internet work?* DisponÃ­vel em: https://developer.mozilla.org/en-US/docs/Learn/How_the_Internet_works
-2. MDN. *How the web works*. DisponÃ­vel em: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works
-3. MDN. *Domain - Glossary*. DisponÃ­vel em: https://developer.mozilla.org/en-US/docs/Glossary/Domain
-4. MDN. *API - Glossary*. DisponÃ­vel em: https://developer.mozilla.org/es/docs/Glossary/API
-5. GitHub Docs. *About GitHub and Git*. DisponÃ­vel em: https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
-6. AWS. *What is cloud computing?* DisponÃ­vel em: https://aws.amazon.com/what-is-cloud-computing/
-7. MongoDB. *What is a Database?* DisponÃ­vel em: https://www.mongodb.com/resources/basics/databases/databases
+1. MDN. *How does the Internet work?* Disponível em: https://developer.mozilla.org/en-US/docs/Learn/How_the_Internet_works
+2. MDN. *How the web works*. Disponível em: https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works
+3. MDN. *Domain - Glossary*. Disponível em: https://developer.mozilla.org/en-US/docs/Glossary/Domain
+4. MDN. *API - Glossary*. Disponível em: https://developer.mozilla.org/es/docs/Glossary/API
+5. GitHub Docs. *About GitHub and Git*. Disponível em: https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
+6. AWS. *What is cloud computing?* Disponível em: https://aws.amazon.com/what-is-cloud-computing/
+7. MongoDB. *What is a Database?* Disponível em: https://www.mongodb.com/resources/basics/databases/databases
 
 ### Mapeamento de fontes por assunto
 
-- internet, web, URLs, domÃ­nio e comunicaÃ§Ã£o web:
+- internet, web, URLs, domínio e comunicação web:
   https://developer.mozilla.org/en-US/docs/Learn/How_the_Internet_works
   https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works
   https://developer.mozilla.org/en-US/docs/Glossary/Domain
@@ -437,7 +437,7 @@ Essa Ã© a etapa em que vocÃª aprende a estudar de forma menos aleatÃ³ria e
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

@@ -1,16 +1,16 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Business Intelligence transforma dados em visÃ£o operacional e gerencial para apoiar decisÃ£o.
+Business Intelligence transforma dados em visão operacional e gerencial para apoiar decisão.
 
 ## O que essa pessoa faz
 
-VocÃª organiza indicadores, monta dashboards e ajuda Ã¡reas a enxergarem o negÃ³cio com mais clareza.
+Você organiza indicadores, monta dashboards e ajuda áreas a enxergarem o negócio com mais clareza.
 
 ## Exemplo real
 
-Criar painel de vendas, metas ou performance de operaÃ§Ã£o.
+Criar painel de vendas, metas ou performance de operação.
 
 ## Ferramentas comuns
 
@@ -18,33 +18,33 @@ Criar painel de vendas, metas ou performance de operaÃ§Ã£o.
 - Power BI
 - Excel
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de anÃ¡lise, indicador e clareza visual de informaÃ§Ã£o.
+Pode combinar com você se você gosta de análise, indicador e clareza visual de informação.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s: entrada relativamente objetiva.
-Contras: risco de virar sÃ³ painel sem anÃ¡lise.
+Prós: entrada relativamente objetiva.
+Contras: risco de virar só painel sem análise.
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-Transformar dado em interpretaÃ§Ã£o Ãºtil.
+Transformar dado em interpretação útil.
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-Aprender SQL bÃ¡sico, BI e montar dashboard simples.
+Aprender SQL básico, BI e montar dashboard simples.
 
 ## Primeiro projeto sugerido
 
-Dashboard com indicadores de negÃ³cio.
+Dashboard com indicadores de negócio.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum de BI | 93% | DefiniÃ§Ã£o estÃ¡vel. |
-| Como comeÃ§ar | Diretriz editorial | 86% | SequÃªncia plausÃ­vel. |
+| O que é | Uso comum de BI | 93% | Definição estável. |
+| Como começar | Diretriz editorial | 86% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -59,7 +59,7 @@ Dashboard com indicadores de negÃ³cio.
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

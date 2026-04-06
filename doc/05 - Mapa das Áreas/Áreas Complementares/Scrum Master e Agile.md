@@ -1,12 +1,12 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Essa atuaÃ§Ã£o ajuda times a organizarem fluxo, cerimÃ´nias, impedimentos e melhoria contÃ­nua.
+Essa atuação ajuda times a organizarem fluxo, cerimônias, impedimentos e melhoria contínua.
 
 ## O que essa pessoa faz
 
-VocÃª facilita rotina, remove bloqueios e ajuda o time a trabalhar com mais clareza.
+Você facilita rotina, remove bloqueios e ajuda o time a trabalhar com mais clareza.
 
 ## Exemplo real
 
@@ -16,35 +16,35 @@ Conduzir planning, retrospectiva e acompanhar impedimentos.
 
 - Jira
 - boards
-- facilitaÃ§Ã£o
+- facilitação
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de comunicaÃ§Ã£o, organizaÃ§Ã£o e dinÃ¢mica de time.
+Pode combinar com você se você gosta de comunicação, organização e dinâmica de time.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s: forte contato humano.
+Prós: forte contato humano.
 Contras: depende muito de contexto de equipe.
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 Lidar com ambiguidades e facilitar sem virar burocracia.
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-Estudar agile, Scrum e observar dinÃ¢mica de times.
+Estudar agile, Scrum e observar dinâmica de times.
 
 ## Primeiro projeto sugerido
 
-Documentar fluxo simples de time fictÃ­cio com cerimÃ´nias e melhorias.
+Documentar fluxo simples de time fictício com cerimônias e melhorias.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da atuaÃ§Ã£o | 90% | Pode variar por empresa. |
-| Como comeÃ§ar | Diretriz editorial | 84% | SequÃªncia plausÃ­vel. |
+| O que é | Uso comum da atuação | 90% | Pode variar por empresa. |
+| Como começar | Diretriz editorial | 84% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -59,7 +59,7 @@ Documentar fluxo simples de time fictÃ­cio com cerimÃ´nias e melhorias.
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

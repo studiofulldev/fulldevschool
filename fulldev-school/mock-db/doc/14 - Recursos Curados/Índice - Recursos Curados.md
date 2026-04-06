@@ -1,93 +1,93 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Pontos de entrada recomendados
 
-- [[Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
-- [[Canais/VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
-- [[Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+- [[Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- [[Canais/Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
+- [[Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
-Esta etapa existe para te dar apoio de estudo sem te afogar em link aleatÃ³rio.
+Esta etapa existe para te dar apoio de estudo sem te afogar em link aleatório.
 
-## Como usar esta seÃ§Ã£o
+## Como usar esta seção
 
 Use os recursos para:
 
-- aprofundar o que vocÃª jÃ¡ estÃ¡ estudando
-- destravar dÃºvida especÃ­fica
-- encontrar documentaÃ§Ã£o oficial
-- complementar prÃ¡tica
+- aprofundar o que você já está estudando
+- destravar dúvida específica
+- encontrar documentação oficial
+- complementar prática
 
-NÃ£o use esta seÃ§Ã£o para:
+Não use esta seção para:
 
 - sair acumulando aba
 - trocar de recurso todo dia
-- substituir execuÃ§Ã£o por curadoria infinita
+- substituir execução por curadoria infinita
 
-## Tipos de recurso que vocÃª vai encontrar aqui
+## Tipos de recurso que você vai encontrar aqui
 
 - cursos
-- documentaÃ§Ãµes
+- documentações
 - roadmaps
 - canais
 - livros
 - comunidades
 - ferramentas
 
-## CritÃ©rio de curadoria
+## Critério de curadoria
 
 O guia prioriza:
 
 - fontes oficiais
-- materiais abertos ou gratuitos quando possÃ­vel
-- recursos estÃ¡veis
-- materiais que ajudam vocÃª a agir
+- materiais abertos ou gratuitos quando possível
+- recursos estáveis
+- materiais que ajudam você a agir
 
 ## Fonte de abastecimento
 
-Parte da descoberta de links passa pelo repositÃ³rio:
+Parte da descoberta de links passa pelo repositório:
 
 - [[ConhecimentoFree - Fonte de Curadoria|ConhecimentoFree - Fonte de Curadoria]]
 
-Mas todo recurso precisa passar por curadoria antes de entrar como recomendaÃ§Ã£o efetiva.
+Mas todo recurso precisa passar por curadoria antes de entrar como recomendação efetiva.
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha clareza sobre como usar recursos de apoio sem se perder em excesso.
+Ao concluir esta página, o ideal é que você tenha clareza sobre como usar recursos de apoio sem se perder em excesso.
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../15 - FAQ do Iniciante/Ãndice - FAQ do Iniciante|16 - FAQ do Iniciante]]
+[[../15 - FAQ do Iniciante/Índice - FAQ do Iniciante|16 - FAQ do Iniciante]]
 
-Essa Ã© a etapa em que vocÃª destrava dÃºvidas muito comuns de quem estÃ¡ comeÃ§ando.
+Essa é a etapa em que você destrava dúvidas muito comuns de quem está começando.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Como usar esta seÃ§Ã£o | Diretriz editorial do projeto | 97% | Alinhado ao objetivo do guia. |
-| Tipos de recurso | Estrutura real do vault | 100% | Totalmente verificÃ¡vel. |
-| CritÃ©rio de curadoria | PRD e nota de curadoria | 98% | Muito bem ancorado no projeto. |
-| Fonte de abastecimento | Nota de curadoria e README | 99% | VerificÃ¡vel no vault. |
+| Como usar esta seção | Diretriz editorial do projeto | 97% | Alinhado ao objetivo do guia. |
+| Tipos de recurso | Estrutura real do vault | 100% | Totalmente verificável. |
+| Critério de curadoria | PRD e nota de curadoria | 98% | Muito bem ancorado no projeto. |
+| Fonte de abastecimento | Nota de curadoria e README | 99% | Verificável no vault. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+1. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 2. `ConhecimentoFree - Fonte de Curadoria.md`
 
 ### Mapeamento de fontes por assunto
 
-- critÃ©rio editorial de curadoria:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+- critério editorial de curadoria:
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 - fonte de abastecimento de links:
   `ConhecimentoFree - Fonte de Curadoria.md`
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

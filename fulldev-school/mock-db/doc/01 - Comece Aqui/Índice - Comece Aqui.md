@@ -1,191 +1,191 @@
-## ConteÃºdo
+## Conteúdo
 
-## InteligÃªncia artificial, medo de substituiÃ§Ã£o e realidade do mercado
+## Inteligência artificial, medo de substituição e realidade do mercado
 
-Se vocÃª estÃ¡ pensando em entrar na Ã¡rea hoje, existe uma chance enorme de a sua primeira trava nÃ£o ser lÃ³gica, inglÃªs ou computador.
+Se você está pensando em entrar na área hoje, existe uma chance enorme de a sua primeira trava não ser lógica, inglês ou computador.
 
 Pode ser medo.
 
 Medo de estudar e descobrir depois que a IA "acabou com tudo".
-Medo de comeÃ§ar tarde demais.
-Medo de investir energia em uma Ã¡rea que parece mudar toda semana.
+Medo de começar tarde demais.
+Medo de investir energia em uma área que parece mudar toda semana.
 
-Esse medo nÃ£o Ã© bobo.
+Esse medo não é bobo.
 
-Ele existe porque a inteligÃªncia artificial realmente estÃ¡ mudando a forma como muita coisa Ã© feita. O erro nÃ£o estÃ¡ em sentir esse medo. O erro estÃ¡ em transformar esse medo em paralisia antes de entender o que de fato estÃ¡ acontecendo.
+Ele existe porque a inteligência artificial realmente está mudando a forma como muita coisa é feita. O erro não está em sentir esse medo. O erro está em transformar esse medo em paralisia antes de entender o que de fato está acontecendo.
 
-O ponto mais importante desta etapa Ã© este:
+O ponto mais importante desta etapa é este:
 
-**a IA muda ferramentas, fluxos e exigÃªncias. Isso nÃ£o significa que ela apaga automaticamente a necessidade de gente capaz de entender problema, validar contexto, tomar decisÃ£o, conversar com pessoas, revisar resultado, integrar sistemas e aprender continuamente.**
+**a IA muda ferramentas, fluxos e exigências. Isso não significa que ela apaga automaticamente a necessidade de gente capaz de entender problema, validar contexto, tomar decisão, conversar com pessoas, revisar resultado, integrar sistemas e aprender continuamente.**
 
-Segundo o **Future of Jobs Report 2025** do World Economic Forum, mudanÃ§as ligadas a IA, dados e automaÃ§Ã£o estÃ£o entre os principais motores de transformaÃ§Ã£o do mercado, mas o mesmo movimento tambÃ©m aumenta a demanda por capacidades como pensamento analÃ­tico, aprendizagem contÃ­nua e domÃ­nio tecnolÃ³gico. Em portuguÃªs claro: o jogo mudou, mas ainda existe jogo.
+Segundo o **Future of Jobs Report 2025** do World Economic Forum, mudanças ligadas a IA, dados e automação estão entre os principais motores de transformação do mercado, mas o mesmo movimento também aumenta a demanda por capacidades como pensamento analítico, aprendizagem contínua e domínio tecnológico. Em português claro: o jogo mudou, mas ainda existe jogo.
 
-## O que a IA ameaÃ§a de verdade
+## O que a IA ameaça de verdade
 
 A IA tende a pressionar mais tarefas:
 
 - repetitivas
-- previsÃ­veis
+- previsíveis
 - pouco contextualizadas
-- fÃ¡ceis de copiar em padrÃ£o
+- fáceis de copiar em padrão
 
 Isso vale dentro e fora da tecnologia.
 
-Se o seu valor estiver sÃ³ em repetir tutorial, copiar cÃ³digo sem entender ou executar tarefa mecÃ¢nica sem senso crÃ­tico, o risco aumenta.
+Se o seu valor estiver só em repetir tutorial, copiar código sem entender ou executar tarefa mecânica sem senso crítico, o risco aumenta.
 
 Se o seu valor estiver em:
 
 - entender objetivo
 - formular pergunta boa
-- revisar saÃ­da
+- revisar saída
 - conectar ferramenta com problema real
-- aprender rÃ¡pido
+- aprender rápido
 - colaborar com outras pessoas
 
-entÃ£o a IA vira muito mais uma alavanca do que uma sentenÃ§a.
+então a IA vira muito mais uma alavanca do que uma sentença.
 
-## O que a IA cria de oportunidade para quem estÃ¡ comeÃ§ando
+## O que a IA cria de oportunidade para quem está começando
 
-Para quem estÃ¡ entrando agora, a IA tambÃ©m trouxe vantagens reais:
+Para quem está entrando agora, a IA também trouxe vantagens reais:
 
 - acelerar pesquisa
-- resumir documentaÃ§Ã£o
+- resumir documentação
 - gerar exemplos iniciais
 - ajudar a destravar erros
 - simular entrevistas
-- revisar texto, currÃ­culo e portfÃ³lio
-- servir como apoio de estudo quando vocÃª ainda nÃ£o sabe fazer boas perguntas para pessoas da Ã¡rea
+- revisar texto, currículo e portfólio
+- servir como apoio de estudo quando você ainda não sabe fazer boas perguntas para pessoas da área
 
-Isso nÃ£o substitui prÃ¡tica.
+Isso não substitui prática.
 
 Mas reduz atrito.
 
-Na prÃ¡tica, muita gente hoje consegue aprender mais rÃ¡pido porque usa IA como:
+Na prática, muita gente hoje consegue aprender mais rápido porque usa IA como:
 
 - copiloto de estudo
 - apoio para brainstorming
-- tradutor tÃ©cnico
+- tradutor técnico
 - explicador de conceitos
-- revisor de cÃ³digo e texto
+- revisor de código e texto
 
 ## Como usar IA sem sabotar o seu crescimento
 
-O uso ruim da IA Ã© terceirizar pensamento.
+O uso ruim da IA é terceirizar pensamento.
 
-O uso bom Ã© acelerar aprendizado com validaÃ§Ã£o.
+O uso bom é acelerar aprendizado com validação.
 
 Uma regra simples:
 
-**nÃ£o peÃ§a sÃ³ resposta. PeÃ§a explicaÃ§Ã£o, comparaÃ§Ã£o, exemplo, contraexemplo, checklist, revisÃ£o e perguntas para vocÃª responder sozinho.**
+**não peça só resposta. Peça explicação, comparação, exemplo, contraexemplo, checklist, revisão e perguntas para você responder sozinho.**
 
-Boas formas de usar IA no comeÃ§o:
+Boas formas de usar IA no começo:
 
-- pedir explicaÃ§Ã£o em linguagem simples
+- pedir explicação em linguagem simples
 - pedir um plano de estudo curto
-- pedir quiz de revisÃ£o
+- pedir quiz de revisão
 - pedir ajuda para interpretar erro
 - pedir feedback em projeto pequeno
-- pedir reescrita de currÃ­culo e apresentaÃ§Ã£o profissional
+- pedir reescrita de currículo e apresentação profissional
 
 Formas ruins de usar IA:
 
-- copiar cÃ³digo sem entender
-- estudar sÃ³ por resumo
+- copiar código sem entender
+- estudar só por resumo
 - usar resposta pronta como se fosse conhecimento seu
-- deixar a IA decidir tudo por vocÃª
+- deixar a IA decidir tudo por você
 
-## EntÃ£o ainda vale a pena entrar na Ã¡rea?
+## Então ainda vale a pena entrar na área?
 
-Se a sua pergunta for "existe garantia?", a resposta continua nÃ£o.
+Se a sua pergunta for "existe garantia?", a resposta continua não.
 
-Se a sua pergunta for "ainda existe espaÃ§o para gente boa, adaptÃ¡vel e capaz de usar IA a favor?", a resposta continua sim.
+Se a sua pergunta for "ainda existe espaço para gente boa, adaptável e capaz de usar IA a favor?", a resposta continua sim.
 
-A Ã¡rea de tecnologia nÃ£o ficou fÃ¡cil. Ela ficou mais exigente.
+A área de tecnologia não ficou fácil. Ela ficou mais exigente.
 
-Hoje, alÃ©m de aprender fundamentos, vocÃª tambÃ©m ganha vantagem quando sabe:
+Hoje, além de aprender fundamentos, você também ganha vantagem quando sabe:
 
 - pesquisar melhor
-- usar IA com critÃ©rio
-- validar informaÃ§Ã£o
-- aprender em pÃºblico
-- mostrar raciocÃ­nio e projeto real
+- usar IA com critério
+- validar informação
+- aprender em público
+- mostrar raciocínio e projeto real
 
 Em outras palavras:
 
-**nÃ£o basta disputar contra outras pessoas. Em muitos casos, vocÃª tambÃ©m vai disputar contra a automaÃ§Ã£o de tarefas rasas.**
+**não basta disputar contra outras pessoas. Em muitos casos, você também vai disputar contra a automação de tarefas rasas.**
 
-A soluÃ§Ã£o nÃ£o Ã© fugir.
+A solução não é fugir.
 
-A soluÃ§Ã£o Ã© construir profundidade suficiente para nÃ£o depender sÃ³ de tarefa rasa.
+A solução é construir profundidade suficiente para não depender só de tarefa rasa.
 
-Se vocÃª estÃ¡ chegando agora, a primeira coisa importante Ã© esta:
+Se você está chegando agora, a primeira coisa importante é esta:
 
-**entrar na Ã¡rea de tecnologia nÃ£o comeÃ§a escolhendo linguagem, framework ou salÃ¡rio.**
+**entrar na área de tecnologia não começa escolhendo linguagem, framework ou salário.**
 
-ComeÃ§a entendendo:
+Começa entendendo:
 
-- o que Ã© a Ã¡rea
-- como ela funciona na prÃ¡tica
+- o que é a área
+- como ela funciona na prática
 - quais tipos de trabalho existem
-- o que vocÃª realmente precisa aprender primeiro
+- o que você realmente precisa aprender primeiro
 
-Muita gente trava logo no inÃ­cio porque tenta responder perguntas avanÃ§adas cedo demais:
+Muita gente trava logo no início porque tenta responder perguntas avançadas cedo demais:
 
 - "Devo estudar Java ou Python?"
 - "Frontend paga mais que dados?"
 - "Consigo vaga em 3 meses?"
 - "Preciso de faculdade?"
 
-Essas perguntas importam, mas ainda nÃ£o sÃ£o as primeiras.
+Essas perguntas importam, mas ainda não são as primeiras.
 
-As primeiras sÃ£o:
+As primeiras são:
 
-- VocÃª entende minimamente como a Ã¡rea de tecnologia funciona?
-- VocÃª consegue usar o computador com autonomia?
-- VocÃª sabe estudar sem depender de aleatoriedade?
-- VocÃª sabe diferenciar as Ã¡reas sem cair em hype?
+- Você entende minimamente como a área de tecnologia funciona?
+- Você consegue usar o computador com autonomia?
+- Você sabe estudar sem depender de aleatoriedade?
+- Você sabe diferenciar as áreas sem cair em hype?
 
-Este bloco existe para te colocar no chÃ£o certo antes de acelerar.
+Este bloco existe para te colocar no chão certo antes de acelerar.
 
 > Respiro de leitura:
-> tecnologia no comeÃ§o parece mapa de RPG com a tela toda fechada. A boa notÃ­cia Ã© que vocÃª nÃ£o precisa abrir o mapa inteiro agora. VocÃª sÃ³ precisa descobrir qual Ã© a prÃ³xima missÃ£o.
+> tecnologia no começo parece mapa de RPG com a tela toda fechada. A boa notícia é que você não precisa abrir o mapa inteiro agora. Você só precisa descobrir qual é a próxima missão.
 
-## O que Ã© tecnologia, de forma simples
+## O que é tecnologia, de forma simples
 
-Quando falamos em "trabalhar com tecnologia", muita gente pensa apenas em programaÃ§Ã£o.
+Quando falamos em "trabalhar com tecnologia", muita gente pensa apenas em programação.
 
-Isso estÃ¡ incompleto.
+Isso está incompleto.
 
-Tecnologia, na prÃ¡tica, Ã© o conjunto de pessoas, processos e ferramentas que criam, mantÃªm, melhoram, vendem, testam, protegem ou operam soluÃ§Ãµes digitais.
+Tecnologia, na prática, é o conjunto de pessoas, processos e ferramentas que criam, mantêm, melhoram, vendem, testam, protegem ou operam soluções digitais.
 
 Exemplos:
 
 - um aplicativo de banco
 - um site de e-commerce
-- um sistema de gestÃ£o para empresa
-- uma plataforma de vÃ­deos
+- um sistema de gestão para empresa
+- uma plataforma de vídeos
 - um painel de dados
 - uma infraestrutura em nuvem
 
-Para tudo isso funcionar, existem vÃ¡rias funÃ§Ãµes:
+Para tudo isso funcionar, existem várias funções:
 
 - quem desenvolve
 - quem testa
-- quem desenha a experiÃªncia
+- quem desenha a experiência
 - quem analisa dados
 - quem cuida da infraestrutura
 - quem protege sistemas
 - quem organiza produto
-- quem atende usuÃ¡rios ou faz suporte
-- quem recruta profissionais da Ã¡rea
+- quem atende usuários ou faz suporte
+- quem recruta profissionais da área
 
 Ou seja:
 
-**tecnologia nÃ£o Ã© uma profissÃ£o sÃ³.**
+**tecnologia não é uma profissão só.**
 
-Ã‰ um ecossistema com muitas portas de entrada.
+�0 um ecossistema com muitas portas de entrada.
 
-## Como a Ã¡rea funciona na prÃ¡tica
+## Como a área funciona na prática
 
 A maior parte do trabalho em tecnologia gira em torno de resolver problemas reais.
 
@@ -197,79 +197,79 @@ Exemplos:
 - automatizar uma tarefa manual
 - organizar dados
 - reduzir falhas
-- deixar um produto mais fÃ¡cil de usar
+- deixar um produto mais fácil de usar
 
-Na prÃ¡tica, isso costuma envolver:
+Na prática, isso costuma envolver:
 
 1. entender o problema
-2. propor uma soluÃ§Ã£o
+2. propor uma solução
 3. testar
 4. ajustar
 5. documentar
 6. continuar melhorando
 
-Por isso, trabalhar com tecnologia nÃ£o Ã© sÃ³ "escrever cÃ³digo".
+Por isso, trabalhar com tecnologia não é só "escrever código".
 
-TambÃ©m envolve:
+Também envolve:
 
-- comunicaÃ§Ã£o
-- organizaÃ§Ã£o
+- comunicação
+- organização
 - pesquisa
 - leitura
-- paciÃªncia
-- prÃ¡tica constante
+- paciência
+- prática constante
 
-## O mercado Ã© real, mas nÃ£o Ã© mÃ¡gica
+## O mercado é real, mas não é mágica
 
-Existe mercado em tecnologia, mas ele nÃ£o funciona como propaganda de internet.
+Existe mercado em tecnologia, mas ele não funciona como propaganda de internet.
 
-Segundo o **U.S. Bureau of Labor Statistics**, ocupaÃ§Ãµes de computaÃ§Ã£o e tecnologia da informaÃ§Ã£o seguem projetadas para crescer mais rÃ¡pido que a mÃ©dia entre **2024 e 2034**, com cerca de **317.700 aberturas por ano**, em mÃ©dia, nesse grupo ocupacional.
+Segundo o **U.S. Bureau of Labor Statistics**, ocupações de computação e tecnologia da informação seguem projetadas para crescer mais rápido que a média entre **2024 e 2034**, com cerca de **317.700 aberturas por ano**, em média, nesse grupo ocupacional.
 
 Isso mostra que:
 
-- a Ã¡rea continua relevante
+- a área continua relevante
 - existe demanda
-- existem vÃ¡rias ocupaÃ§Ãµes dentro do ecossistema
+- existem várias ocupações dentro do ecossistema
 
-Mas isso **nÃ£o** significa:
+Mas isso **não** significa:
 
-- vaga fÃ¡cil para qualquer pessoa em qualquer prazo
-- salÃ¡rio alto imediato
-- contrataÃ§Ã£o sem prÃ¡tica
-- progresso sem consistÃªncia
+- vaga fácil para qualquer pessoa em qualquer prazo
+- salário alto imediato
+- contratação sem prática
+- progresso sem consistência
 
-O mercado recompensa gente que consegue provar alguma combinaÃ§Ã£o de:
+O mercado recompensa gente que consegue provar alguma combinação de:
 
 - base
-- prÃ¡tica
+- prática
 - capacidade de aprender
-- comunicaÃ§Ã£o
-- consistÃªncia
+- comunicação
+- consistência
 
 ## Mitos vs realidade
 
-### Mito: "Tecnologia Ã© sÃ³ para gÃªnios"
+### Mito: "Tecnologia é só para gênios"
 
-**Realidade:** a Ã¡rea exige estudo e prÃ¡tica, nÃ£o genialidade.
+**Realidade:** a área exige estudo e prática, não genialidade.
 
-O que mais derruba iniciantes geralmente nÃ£o Ã© falta de inteligÃªncia, e sim:
+O que mais derruba iniciantes geralmente não é falta de inteligência, e sim:
 
-- desorganizaÃ§Ã£o
+- desorganização
 - expectativa irreal
-- comparaÃ§Ã£o excessiva
+- comparação excessiva
 - abandono cedo demais
 
-### Mito: "Preciso saber tudo antes de comeÃ§ar"
+### Mito: "Preciso saber tudo antes de começar"
 
-**Realidade:** ninguÃ©m comeÃ§a sabendo tudo.
+**Realidade:** ninguém começa sabendo tudo.
 
-VocÃª sÃ³ precisa de base suficiente para dar o prÃ³ximo passo.
+Você só precisa de base suficiente para dar o próximo passo.
 
-### Mito: "ProgramaÃ§Ã£o Ã© a Ãºnica entrada"
+### Mito: "Programação é a única entrada"
 
-**Realidade:** programaÃ§Ã£o Ã© uma entrada forte, mas nÃ£o Ã© a Ãºnica.
+**Realidade:** programação é uma entrada forte, mas não é a única.
 
-Existem Ã¡reas como:
+Existem áreas como:
 
 - QA
 - UX/UI
@@ -278,204 +278,204 @@ Existem Ã¡reas como:
 - recrutamento tech
 - dados
 
-### Mito: "Se eu consumir muito conteÃºdo, vou evoluir"
+### Mito: "Se eu consumir muito conteúdo, vou evoluir"
 
-**Realidade:** consumir conteÃºdo sem prÃ¡tica gera sensaÃ§Ã£o de avanÃ§o, nÃ£o avanÃ§o real.
+**Realidade:** consumir conteúdo sem prática gera sensação de avanço, não avanço real.
 
-### Mito: "Se eu escolher a Ã¡rea errada, acabou"
+### Mito: "Se eu escolher a área errada, acabou"
 
-**Realidade:** a primeira escolha nÃ£o precisa ser perfeita.
+**Realidade:** a primeira escolha não precisa ser perfeita.
 
-Ela sÃ³ precisa ser boa o suficiente para vocÃª comeÃ§ar com direÃ§Ã£o.
+Ela só precisa ser boa o suficiente para você começar com direção.
 
-## Quanto tempo leva para entrar na Ã¡rea
+## Quanto tempo leva para entrar na área
 
-NÃ£o existe prazo honesto universal.
+Não existe prazo honesto universal.
 
 O tempo depende de:
 
 - sua base atual
-- tempo disponÃ­vel por semana
+- tempo disponível por semana
 - qualidade da rotina
 - capacidade de praticar
-- Ã¡rea escolhida
-- nÃ­vel de competiÃ§Ã£o no momento
+- área escolhida
+- nível de competição no momento
 
-Uma visÃ£o mais realista:
+Uma visão mais realista:
 
 - algumas pessoas constroem base inicial em poucos meses
-- muitas demoram mais para consolidar portfÃ³lio e confianÃ§a
-- entrar na Ã¡rea costuma ser um processo, nÃ£o um evento Ãºnico
+- muitas demoram mais para consolidar portfólio e confiança
+- entrar na área costuma ser um processo, não um evento único
 
-Se alguÃ©m promete um prazo exato para qualquer perfil, desconfie.
+Se alguém promete um prazo exato para qualquer perfil, desconfie.
 
-## O que esperar do comeÃ§o
+## O que esperar do começo
 
-No inÃ­cio, Ã© normal:
+No início, é normal:
 
-- nÃ£o entender vÃ¡rios termos
+- não entender vários termos
 - sentir que todo mundo sabe mais
-- achar que estÃ¡ lento demais
-- ficar confuso entre tantas opÃ§Ãµes
+- achar que está lento demais
+- ficar confuso entre tantas opções
 - ter dificuldade com autonomia
 
-Isso nÃ£o Ã© sinal de fracasso.
+Isso não é sinal de fracasso.
 
-Isso Ã© parte normal da fase inicial.
+Isso é parte normal da fase inicial.
 
-O erro Ã© interpretar confusÃ£o inicial como prova de incapacidade.
+O erro é interpretar confusão inicial como prova de incapacidade.
 
-ConfusÃ£o, no comeÃ§o, quase sempre significa sÃ³ uma coisa:
+Confusão, no começo, quase sempre significa só uma coisa:
 
-**vocÃª ainda estÃ¡ montando o mapa mental da Ã¡rea.**
+**você ainda está montando o mapa mental da área.**
 
 ## Como usar este guia
 
-Este guia foi organizado para evitar que vocÃª pule etapas importantes.
+Este guia foi organizado para evitar que você pule etapas importantes.
 
-A ordem recomendada Ã©:
+A ordem recomendada é:
 
-1. entender a Ã¡rea
+1. entender a área
 2. fortalecer fundamentos digitais
 3. aprender fundamentos de tecnologia
 4. entender como estudar
-5. comparar Ã¡reas
+5. comparar áreas
 6. escolher um caminho
-7. comeÃ§ar prÃ¡tica e portfÃ³lio
+7. começar prática e portfólio
 
 E daqui para frente, existe uma regra transversal neste material:
 
-**sempre que fizer sentido, vocÃª deve enxergar inteligÃªncia artificial como ferramenta de apoio para aprender, testar, revisar e produzir melhor.**
+**sempre que fizer sentido, você deve enxergar inteligência artificial como ferramenta de apoio para aprender, testar, revisar e produzir melhor.**
 
-Se vocÃª tentar pular direto para trilhas avanÃ§adas sem base, a chance de travar aumenta.
+Se você tentar pular direto para trilhas avançadas sem base, a chance de travar aumenta.
 
 ## Como extrair valor real deste material
 
-Enquanto lÃª, faÃ§a o seguinte:
+Enquanto lê, faça o seguinte:
 
-1. anote dÃºvidas
-2. marque o que jÃ¡ domina
+1. anote dúvidas
+2. marque o que já domina
 3. destaque o que parece novo
-4. nÃ£o tente resolver a carreira inteira em um dia
-5. foque sempre no prÃ³ximo passo
+4. não tente resolver a carreira inteira em um dia
+5. foque sempre no próximo passo
 
 ## Comunidade acelera o processo
 
-Aprender sozinho nÃ£o precisa significar aprender isolado.
+Aprender sozinho não precisa significar aprender isolado.
 
 Ter contato com comunidade ajuda a:
 
-- entender como a Ã¡rea realmente funciona
-- ouvir experiÃªncias reais
+- entender como a área realmente funciona
+- ouvir experiências reais
 - pedir ajuda melhor
-- reduzir sensaÃ§Ã£o de estar perdido
+- reduzir sensação de estar perdido
 
-Dentro da narrativa deste guia, a **FullDev** Ã© uma referÃªncia importante de comunidade para acompanhar, aprender e se aproximar de pessoas da Ã¡rea:
+Dentro da narrativa deste guia, a **FullDev** é uma referência importante de comunidade para acompanhar, aprender e se aproximar de pessoas da área:
 
 - https://fulldev.com.br
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha clareza sobre quatro pontos:
+Ao concluir esta página, o ideal é que você tenha clareza sobre quatro pontos:
 
-1. tecnologia Ã© um ecossistema com vÃ¡rias Ã¡reas
-2. entrar na Ã¡rea exige direÃ§Ã£o, prÃ¡tica e consistÃªncia
-3. nÃ£o faz sentido escolher especializaÃ§Ã£o antes da base
-4. o prÃ³ximo passo correto agora Ã© fortalecer seus fundamentos digitais
+1. tecnologia é um ecossistema com várias áreas
+2. entrar na área exige direção, prática e consistência
+3. não faz sentido escolher especialização antes da base
+4. o próximo passo correto agora é fortalecer seus fundamentos digitais
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../02 - Fundamentos Digitais/Ãndice - Fundamentos Digitais|3 - Fundamentos Digitais]]
+[[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
 
-Essa Ã© a etapa que vai reduzir atrito tÃ©cnico bÃ¡sico e aumentar sua autonomia para aprender o restante do guia.
+Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia para aprender o restante do guia.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
-### O que Ã© tecnologia e quais caminhos existem
+### O que é tecnologia e quais caminhos existem
 
 - Base:
   https://roadmap.sh/
-- Apoio em portuguÃªs:
+- Apoio em português:
   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
-### Mercado e realidade da Ã¡rea
+### Mercado e realidade da área
 
 - Base:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 - Base complementar:
   https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
-- Apoio em vÃ­deo e comunidades:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
+- Apoio em vídeo e comunidades:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 
-### IA, automaÃ§Ã£o e adaptaÃ§Ã£o profissional
+### IA, automação e adaptação profissional
 
 - Base:
   https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
 - Base complementar:
   https://www.microsoft.com/en-us/worklab/work-trend-index
 - Apoio complementar:
-  [[../04 - Como Aprender/Ãndice - Como Aprender|5 - Como Aprender]]
+  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
 
-### Comunidade e networking desde o comeÃ§o
+### Comunidade e networking desde o começo
 
 - Comunidade em destaque:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../12 - Comunidade e Networking/Ãndice - Comunidade e Networking|13 - Comunidade e Networking]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+  [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© tecnologia, de forma simples | SÃ­ntese editorial sobre o ecossistema tech, alinhada com a separaÃ§Ã£o de ocupaÃ§Ãµes e funÃ§Ãµes vista em BLS e roadmap.sh | 93% | Parte Ã© definiÃ§Ã£o editorial para iniciantes. |
-| InteligÃªncia artificial, medo de substituiÃ§Ã£o e realidade do mercado | World Economic Forum, BLS e sÃ­ntese editorial prudente | 91% | O medo Ã© real e a interpretaÃ§Ã£o de impacto para iniciantes exige sÃ­ntese, nÃ£o sÃ³ dado bruto. |
-| O que a IA ameaÃ§a de verdade | SÃ­ntese editorial consistente com automaÃ§Ã£o de tarefas repetitivas | 88% | Ã‰ uma leitura prÃ¡tica, nÃ£o uma lei universal para todos os contextos. |
-| O que a IA cria de oportunidade para quem estÃ¡ comeÃ§ando | SÃ­ntese editorial baseada em usos prÃ¡ticos jÃ¡ difundidos no mercado | 86% | A utilidade depende da forma de uso e da capacidade de validaÃ§Ã£o. |
-| Como usar IA sem sabotar o seu crescimento | SÃ­ntese editorial com base em boas prÃ¡ticas de aprendizagem assistida | 87% | OrientaÃ§Ã£o forte, mas ainda dependente de contexto individual. |
-| Como a Ã¡rea funciona na prÃ¡tica | SÃ­ntese editorial baseada em fluxo comum de trabalho em times de tecnologia | 90% | Ã‰ uma generalizaÃ§Ã£o Ãºtil, nÃ£o uma descriÃ§Ã£o universal de todas as empresas. |
-| O mercado Ã© real, mas nÃ£o Ã© mÃ¡gica | BLS Occupational Outlook Handbook | 98% | Aqui hÃ¡ dado objetivo de projeÃ§Ã£o de emprego e contexto de mercado. |
-| Mitos vs realidade | SÃ­ntese editorial baseada em padrÃµes recorrentes de entrada na Ã¡rea | 85% | Ã‰ o bloco com maior componente interpretativo. |
-| Quanto tempo leva para entrar na Ã¡rea | SÃ­ntese editorial com base em variÃ¡veis reais de aprendizagem e competiÃ§Ã£o | 82% | NÃ£o existe prazo universal; isso Ã© uma conclusÃ£o prudente, nÃ£o uma mÃ©trica fechada. |
-| O que esperar do comeÃ§o | SÃ­ntese editorial baseada em dificuldades comuns de iniciantes | 88% | Ã‰ uma leitura prÃ¡tica do comportamento tÃ­pico de entrada. |
-| Como usar este guia | Estrutura interna deste projeto | 100% | InformaÃ§Ã£o totalmente verificÃ¡vel dentro do prÃ³prio guia. |
-| Comunidade acelera o processo | SÃ­ntese editorial e diretriz do projeto, com Ãªnfase em FullDev | 80% | O ganho de comunidade Ã© plausÃ­vel e comum, mas nÃ£o foi quantificado nesta nota. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | roadmap.sh, BLS, FullDev e nota central de recursos | 95% | Curadoria ligada aos temas desta etapa. |
+| O que é tecnologia, de forma simples | Síntese editorial sobre o ecossistema tech, alinhada com a separação de ocupações e funções vista em BLS e roadmap.sh | 93% | Parte é definição editorial para iniciantes. |
+| Inteligência artificial, medo de substituição e realidade do mercado | World Economic Forum, BLS e síntese editorial prudente | 91% | O medo é real e a interpretação de impacto para iniciantes exige síntese, não só dado bruto. |
+| O que a IA ameaça de verdade | Síntese editorial consistente com automação de tarefas repetitivas | 88% | �0 uma leitura prática, não uma lei universal para todos os contextos. |
+| O que a IA cria de oportunidade para quem está começando | Síntese editorial baseada em usos práticos já difundidos no mercado | 86% | A utilidade depende da forma de uso e da capacidade de validação. |
+| Como usar IA sem sabotar o seu crescimento | Síntese editorial com base em boas práticas de aprendizagem assistida | 87% | Orientação forte, mas ainda dependente de contexto individual. |
+| Como a área funciona na prática | Síntese editorial baseada em fluxo comum de trabalho em times de tecnologia | 90% | �0 uma generalização útil, não uma descrição universal de todas as empresas. |
+| O mercado é real, mas não é mágica | BLS Occupational Outlook Handbook | 98% | Aqui há dado objetivo de projeção de emprego e contexto de mercado. |
+| Mitos vs realidade | Síntese editorial baseada em padrões recorrentes de entrada na área | 85% | �0 o bloco com maior componente interpretativo. |
+| Quanto tempo leva para entrar na área | Síntese editorial com base em variáveis reais de aprendizagem e competição | 82% | Não existe prazo universal; isso é uma conclusão prudente, não uma métrica fechada. |
+| O que esperar do começo | Síntese editorial baseada em dificuldades comuns de iniciantes | 88% | �0 uma leitura prática do comportamento típico de entrada. |
+| Como usar este guia | Estrutura interna deste projeto | 100% | Informação totalmente verificável dentro do próprio guia. |
+| Comunidade acelera o processo | Síntese editorial e diretriz do projeto, com ênfase em FullDev | 80% | O ganho de comunidade é plausível e comum, mas não foi quantificado nesta nota. |
+| Referências por tópico e vídeos sugeridos | roadmap.sh, BLS, FullDev e nota central de recursos | 95% | Curadoria ligada aos temas desta etapa. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. U.S. Bureau of Labor Statistics. *Computer and Information Technology Occupations*. DisponÃ­vel em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
-2. GitHub Docs. *About GitHub and Git*. DisponÃ­vel em: https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
-3. roadmap.sh. *Developer Roadmaps*. DisponÃ­vel em: https://roadmap.sh/
-4. World Economic Forum. *Future of Jobs Report 2025*. DisponÃ­vel em: https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
-5. Microsoft WorkLab. *Work Trend Index*. DisponÃ­vel em: https://www.microsoft.com/en-us/worklab/work-trend-index
-6. FullDev. *Comunidade FullDev*. DisponÃ­vel em: https://fulldev.com.br
+1. U.S. Bureau of Labor Statistics. *Computer and Information Technology Occupations*. Disponível em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+2. GitHub Docs. *About GitHub and Git*. Disponível em: https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
+3. roadmap.sh. *Developer Roadmaps*. Disponível em: https://roadmap.sh/
+4. World Economic Forum. *Future of Jobs Report 2025*. Disponível em: https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
+5. Microsoft WorkLab. *Work Trend Index*. Disponível em: https://www.microsoft.com/en-us/worklab/work-trend-index
+6. FullDev. *Comunidade FullDev*. Disponível em: https://fulldev.com.br
 
 ### Mapeamento de fontes por assunto
 
-- Mercado e visÃ£o de ocupaÃ§Ãµes:
+- Mercado e visão de ocupações:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
-- TransformaÃ§Ã£o do trabalho, IA e habilidades:
+- Transformação do trabalho, IA e habilidades:
   https://www3.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf
-- TendÃªncias de trabalho com IA:
+- Tendências de trabalho com IA:
   https://www.microsoft.com/en-us/worklab/work-trend-index
-- Versionamento, portfÃ³lio e colaboraÃ§Ã£o:
+- Versionamento, portfólio e colaboração:
   https://docs.github.com/en/get-started/start-your-journey/about-github-and-git
-- ExistÃªncia de mÃºltiplas trilhas e caminhos:
+- Existência de múltiplas trilhas e caminhos:
   https://roadmap.sh/
 - Comunidade recomendada dentro da narrativa do guia:
   https://fulldev.com.br
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 
-Nesta nota, a taxa de assertividade nÃ£o mede "verdade absoluta". Ela mede o quanto cada bloco estÃ¡ ancorado em fonte verificÃ¡vel versus sÃ­ntese editorial.
+Nesta nota, a taxa de assertividade não mede "verdade absoluta". Ela mede o quanto cada bloco está ancorado em fonte verificável versus síntese editorial.
 

@@ -1,16 +1,16 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Suporte e infraestrutura Ã© a Ã¡rea que ajuda ambientes e usuÃ¡rios a continuarem funcionando com menos interrupÃ§Ã£o.
+Suporte e infraestrutura é a área que ajuda ambientes e usuários a continuarem funcionando com menos interrupção.
 
 ## O que essa pessoa faz
 
-VocÃª atende incidentes, organiza acessos, mantÃ©m mÃ¡quinas, rede e serviÃ§os bÃ¡sicos operando.
+Você atende incidentes, organiza acessos, mantém máquinas, rede e serviços básicos operando.
 
 ## Exemplo real
 
-Resolver problema de acesso, configurar equipamento ou apoiar operaÃ§Ã£o de rede e ambiente.
+Resolver problema de acesso, configurar equipamento ou apoiar operação de rede e ambiente.
 
 ## Ferramentas comuns
 
@@ -20,47 +20,47 @@ Resolver problema de acesso, configurar equipamento ou apoiar operaÃ§Ã£o de 
 - chamados
 - Active Directory
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de rotina operacional, resoluÃ§Ã£o prÃ¡tica de problema e suporte direto.
+Pode combinar com você se você gosta de rotina operacional, resolução prática de problema e suporte direto.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
 - porta de entrada concreta
-- contato forte com operaÃ§Ã£o real
+- contato forte com operação real
 
 Contras:
 
 - pode ter rotina reativa
-- Ã s vezes menos glamourosa para quem cai em hype
+- às vezes menos glamourosa para quem cai em hype
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 - aprender muita coisa operacional ao mesmo tempo
 - documentar bem atendimento
-- ganhar ritmo sem virar sÃ³ apagador de incÃªndio
+- ganhar ritmo sem virar só apagador de incêndio
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-1. entender sistemas operacionais e rede bÃ¡sica
-2. praticar atendimento e diagnÃ³stico
+1. entender sistemas operacionais e rede básica
+2. praticar atendimento e diagnóstico
 3. estudar rotina de suporte
-4. registrar soluÃ§Ãµes
+4. registrar soluções
 
 ## Primeiro projeto sugerido
 
-Base de conhecimento simples com soluÃ§Ãµes de problemas operacionais comuns.
+Base de conhecimento simples com soluções de problemas operacionais comuns.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 93% | DefiniÃ§Ã£o estÃ¡vel. |
+| O que é | Uso comum da área | 93% | Definição estável. |
 | Ferramentas comuns | Ecossistema operacional comum | 91% | Ferramentas recorrentes. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 84% | Orientativo. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 87% | SequÃªncia plausÃ­vel. |
+| Perfil mais compatível | Síntese editorial | 84% | Orientativo. |
+| Como começar em 30 dias | Diretriz editorial | 87% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -78,7 +78,7 @@ Base de conhecimento simples com soluÃ§Ãµes de problemas operacionais comuns
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

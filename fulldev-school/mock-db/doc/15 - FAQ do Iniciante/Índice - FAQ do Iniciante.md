@@ -1,105 +1,105 @@
-## ConteÃºdo
+## Conteúdo
 
 ### Preciso de faculdade?
 
-NÃ£o necessariamente para comeÃ§ar a estudar e construir base.
+Não necessariamente para começar a estudar e construir base.
 
 Em algumas vagas, faculdade ajuda.
 
-Mas ela nÃ£o substitui prÃ¡tica, portfÃ³lio e clareza.
+Mas ela não substitui prática, portfólio e clareza.
 
-### Preciso saber inglÃªs?
+### Preciso saber inglês?
 
-VocÃª nÃ£o precisa ser fluente para comeÃ§ar.
+Você não precisa ser fluente para começar.
 
-Mas vai ganhar vantagem se parar de adiar contato com inglÃªs desde o inÃ­cio.
+Mas vai ganhar vantagem se parar de adiar contato com inglês desde o início.
 
-### Estou velho para comeÃ§ar?
+### Estou velho para começar?
 
-NÃ£o existe idade Ãºnica para comeÃ§ar.
+Não existe idade única para começar.
 
-O que pesa mais Ã©:
+O que pesa mais é:
 
 - clareza
-- consistÃªncia
+- consistência
 - capacidade de sustentar processo
 
-### Preciso ser bom em matemÃ¡tica?
+### Preciso ser bom em matemática?
 
-Depende da Ã¡rea.
+Depende da área.
 
-Para vÃ¡rias entradas iniciais, vocÃª nÃ£o precisa ser avanÃ§ado em matemÃ¡tica.
+Para várias entradas iniciais, você não precisa ser avançado em matemática.
 
-VocÃª precisa, antes de tudo, desenvolver raciocÃ­nio e organizaÃ§Ã£o.
+Você precisa, antes de tudo, desenvolver raciocínio e organização.
 
-### Quanto tempo atÃ© conseguir vaga?
+### Quanto tempo até conseguir vaga?
 
-NÃ£o existe prazo honesto universal.
+Não existe prazo honesto universal.
 
-Isso depende de base, rotina, prÃ¡tica, Ã¡rea escolhida e contexto do mercado.
+Isso depende de base, rotina, prática, área escolhida e contexto do mercado.
 
 Desconfie de prazo exato vendido para qualquer perfil.
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha menos medo de perguntas que costumam travar iniciantes cedo demais.
+Ao concluir esta página, o ideal é que você tenha menos medo de perguntas que costumam travar iniciantes cedo demais.
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
 [[../16 - Painel de Progresso/Painel de Progresso|17 - Painel de Progresso]]
 
-Essa Ã© a etapa em que vocÃª enxerga sua evoluÃ§Ã£o de forma objetiva.
+Essa é a etapa em que você enxerga sua evolução de forma objetiva.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
-### Faculdade, mercado e tempo atÃ© vaga
+### Faculdade, mercado e tempo até vaga
 
 - Base:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 - Apoio complementar:
-  [[../01 - Comece Aqui/Ãndice - Comece Aqui|2 - Comece Aqui]]
+  [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
 
-### InglÃªs, prÃ¡tica e rotina de estudo
+### Inglês, prática e rotina de estudo
 
 - Apoio principal:
-  [[../02 - Fundamentos Digitais/Ãndice - Fundamentos Digitais|3 - Fundamentos Digitais]]
+  [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
 - Apoio principal:
-  [[../04 - Como Aprender/Ãndice - Como Aprender|5 - Como Aprender]]
-- Apoio em portuguÃªs:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+- Apoio em português:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Faculdade | SÃ­ntese editorial baseada em mercado e entrada prÃ¡tica | 86% | NÃ£o Ã© regra Ãºnica para todas as vagas. |
-| InglÃªs | SÃ­ntese editorial coerente com uso real da Ã¡rea | 90% | Boa orientaÃ§Ã£o prÃ¡tica. |
+| Faculdade | Síntese editorial baseada em mercado e entrada prática | 86% | Não é regra única para todas as vagas. |
+| Inglês | Síntese editorial coerente com uso real da área | 90% | Boa orientação prática. |
 | Idade | Diretriz editorial | 82% | Importante para destravar, mas contextual. |
-| MatemÃ¡tica | SÃ­ntese editorial por Ã¡rea | 84% | GeneralizaÃ§Ã£o prudente. |
-| Tempo atÃ© vaga | SÃ­ntese editorial coerente com variaÃ§Ã£o real de contexto | 88% | Forte como alerta contra promessas irreais. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | BLS e links internos do vault | 94% | Curadoria boa para reforÃ§ar respostas recorrentes. |
+| Matemática | Síntese editorial por área | 84% | Generalização prudente. |
+| Tempo até vaga | Síntese editorial coerente com variação real de contexto | 88% | Forte como alerta contra promessas irreais. |
+| Referências por tópico e vídeos sugeridos | BLS e links internos do vault | 94% | Curadoria boa para reforçar respostas recorrentes. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
-2. BLS. *Computer and Information Technology Occupations*. DisponÃ­vel em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+1. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
+2. BLS. *Computer and Information Technology Occupations*. Disponível em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 
 ### Mapeamento de fontes por assunto
 
 - expectativas e riscos da jornada:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
-- contexto amplo de ocupaÃ§Ãµes na Ã¡rea:
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
+- contexto amplo de ocupações na área:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

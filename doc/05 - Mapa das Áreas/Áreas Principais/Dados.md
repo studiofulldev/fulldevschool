@@ -1,12 +1,12 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Dados Ã© a Ã¡rea que transforma informaÃ§Ã£o em anÃ¡lise, decisÃ£o e insight.
+Dados é a área que transforma informação em análise, decisão e insight.
 
 ## O que essa pessoa faz
 
-VocÃª coleta, organiza, consulta, trata e interpreta dados para responder perguntas do negÃ³cio.
+Você coleta, organiza, consulta, trata e interpreta dados para responder perguntas do negócio.
 
 No dia a dia, isso pode significar:
 
@@ -14,11 +14,11 @@ No dia a dia, isso pode significar:
 - limpar dados
 - comparar indicadores
 - construir dashboard
-- explicar achado para outra Ã¡rea
+- explicar achado para outra área
 
 ## Exemplo real
 
-Descobrir por que vendas caÃ­ram ou quais usuÃ¡rios estÃ£o abandonando um fluxo.
+Descobrir por que vendas caíram ou quais usuários estão abandonando um fluxo.
 
 ## Ferramentas comuns
 
@@ -28,80 +28,80 @@ Descobrir por que vendas caÃ­ram ou quais usuÃ¡rios estÃ£o abandonando um 
 - Power BI
 - Tableau
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de padrÃ£o, anÃ¡lise, leitura de contexto e organizaÃ§Ã£o de informaÃ§Ã£o.
+Pode combinar com você se você gosta de padrão, análise, leitura de contexto e organização de informação.
 
-Talvez combine menos com vocÃª se:
+Talvez combine menos com você se:
 
-- vocÃª nÃ£o gosta de trabalhar com nÃºmero e padrÃ£o
-- vocÃª quer retorno mais visual de interface
-- vocÃª evita leitura analÃ­tica
+- você não gosta de trabalhar com número e padrão
+- você quer retorno mais visual de interface
+- você evita leitura analítica
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
-- boa conexÃ£o com tomada de decisÃ£o
-- entrada relativamente clara em anÃ¡lise
+- boa conexão com tomada de decisão
+- entrada relativamente clara em análise
 
 Contras:
 
-- exige cuidado com interpretaÃ§Ã£o
-- pode ficar abstrato sem contexto de negÃ³cio
+- exige cuidado com interpretação
+- pode ficar abstrato sem contexto de negócio
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 - aprender SQL
 - limpar dados
-- nÃ£o confundir grÃ¡fico bonito com anÃ¡lise boa
-- entender pergunta de negÃ³cio
+- não confundir gráfico bonito com análise boa
+- entender pergunta de negócio
 - comunicar achado com clareza
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-1. aprender SQL bÃ¡sico
+1. aprender SQL básico
 2. analisar conjuntos simples de dados
 3. montar dashboard inicial
 4. explicar achados com clareza
-5. relacionar anÃ¡lise com decisÃ£o
+5. relacionar análise com decisão
 
-## Como saber se essa Ã¡rea combina com vocÃª
+## Como saber se essa área combina com você
 
 Sinais positivos:
 
-- vocÃª gosta de procurar padrÃ£o
-- vocÃª sente curiosidade por mÃ©tricas
-- vocÃª gosta de responder pergunta com evidÃªncia
+- você gosta de procurar padrão
+- você sente curiosidade por métricas
+- você gosta de responder pergunta com evidência
 
-Sinais de atenÃ§Ã£o:
+Sinais de atenção:
 
-- vocÃª se irrita com limpeza e organizaÃ§Ã£o de informaÃ§Ã£o
-- vocÃª quer fugir totalmente de planilha, dado e anÃ¡lise
-- vocÃª nÃ£o gosta de explicar conclusÃ£o
+- você se irrita com limpeza e organização de informação
+- você quer fugir totalmente de planilha, dado e análise
+- você não gosta de explicar conclusão
 
 ## Primeiro projeto sugerido
 
-AnÃ¡lise exploratÃ³ria simples com dashboard e conclusÃ£o escrita.
+Análise exploratória simples com dashboard e conclusão escrita.
 
 ## Faixa de entrada
 
-Dados pode ser uma boa entrada, especialmente em anÃ¡lise, mas exige cuidado para nÃ£o virar sÃ³ ferramenta sem raciocÃ­nio.
+Dados pode ser uma boa entrada, especialmente em análise, mas exige cuidado para não virar só ferramenta sem raciocínio.
 
-O diferencial nÃ£o Ã© sÃ³ montar grÃ¡fico.
+O diferencial não é só montar gráfico.
 
-Ã‰ interpretar.
+�0 interpretar.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 94% | DefiniÃ§Ã£o estÃ¡vel. |
-| Ferramentas comuns | Ecossistema de anÃ¡lise atual | 92% | Ferramentas iniciais recorrentes. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 84% | Orientativo. |
-| Como saber se essa Ã¡rea combina com vocÃª | SÃ­ntese editorial | 82% | Leitura orientativa. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 87% | SequÃªncia plausÃ­vel. |
-| Faixa de entrada | SÃ­ntese editorial | 87% | Ãštil para iniciante, mas contextual. |
+| O que é | Uso comum da área | 94% | Definição estável. |
+| Ferramentas comuns | Ecossistema de análise atual | 92% | Ferramentas iniciais recorrentes. |
+| Perfil mais compatível | Síntese editorial | 84% | Orientativo. |
+| Como saber se essa área combina com você | Síntese editorial | 82% | Leitura orientativa. |
+| Como começar em 30 dias | Diretriz editorial | 87% | Sequência plausível. |
+| Faixa de entrada | Síntese editorial | 87% | �atil para iniciante, mas contextual. |
 
 ## Bibliografia
 
@@ -119,7 +119,7 @@ O diferencial nÃ£o Ã© sÃ³ montar grÃ¡fico.
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

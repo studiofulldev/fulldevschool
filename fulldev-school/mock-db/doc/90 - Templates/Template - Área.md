@@ -1,6 +1,6 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
 ## O que essa pessoa faz
 
@@ -8,31 +8,31 @@
 
 ## Ferramentas comuns
 
-## Como a inteligÃªncia artificial pode te auxiliar nesta Ã¡rea
+## Como a inteligência artificial pode te auxiliar nesta área
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-## PrÃ³s e contras
+## Prós e contras
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 ## Primeiro projeto sugerido
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© |  |  |  |
+| O que é |  |  |  |
 | O que essa pessoa faz |  |  |  |
 | Exemplo real |  |  |  |
 | Ferramentas comuns |  |  |  |
-| Como a inteligÃªncia artificial pode te auxiliar nesta Ã¡rea |  |  |  |
-| Perfil mais compatÃ­vel |  |  |  |
-| PrÃ³s e contras |  |  |  |
-| Dificuldades do inÃ­cio |  |  |  |
-| Como comeÃ§ar em 30 dias |  |  |  |
+| Como a inteligência artificial pode te auxiliar nesta área |  |  |  |
+| Perfil mais compatível |  |  |  |
+| Prós e contras |  |  |  |
+| Dificuldades do início |  |  |  |
+| Como começar em 30 dias |  |  |  |
 | Primeiro projeto sugerido |  |  |  |
 
 ## Bibliografia
@@ -49,7 +49,7 @@
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

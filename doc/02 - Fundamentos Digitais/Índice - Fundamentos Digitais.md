@@ -1,40 +1,40 @@
-## ConteÃºdo
+## Conteúdo
 
-Se vocÃª ainda se sente travado com tarefas bÃ¡sicas no computador, este bloco Ã© essencial.
+Se você ainda se sente travado com tarefas básicas no computador, este bloco é essencial.
 
 Muita gente tenta estudar tecnologia sem dominar coisas simples como:
 
 - criar e organizar pastas
 - encontrar arquivos depois
-- instalar programas com seguranÃ§a
+- instalar programas com segurança
 - baixar e localizar downloads
-- usar o navegador com eficiÃªncia
+- usar o navegador com eficiência
 - pesquisar de forma inteligente
 
-Quando isso nÃ£o estÃ¡ sÃ³lido, o estudo fica muito mais cansativo do que deveria.
+Quando isso não está sólido, o estudo fica muito mais cansativo do que deveria.
 
-O objetivo aqui nÃ£o Ã© te transformar em especialista em informÃ¡tica.
+O objetivo aqui não é te transformar em especialista em informática.
 
-Ã‰ fazer vocÃª ganhar a autonomia mÃ­nima para aprender sem depender o tempo inteiro de outra pessoa.
+�0 fazer você ganhar a autonomia mínima para aprender sem depender o tempo inteiro de outra pessoa.
 
 ## Computador, pastas e arquivos
 
-Um dos primeiros gargalos de quem estÃ¡ comeÃ§ando Ã© nÃ£o ter uma relaÃ§Ã£o clara com arquivos e pastas.
+Um dos primeiros gargalos de quem está começando é não ter uma relação clara com arquivos e pastas.
 
-Na prÃ¡tica:
+Na prática:
 
-- **arquivo** Ã© uma unidade de informaÃ§Ã£o
-- **pasta** Ã© um lugar para organizar arquivos e outras pastas
+- **arquivo** é uma unidade de informação
+- **pasta** é um lugar para organizar arquivos e outras pastas
 
 Exemplos de arquivos:
 
 - um PDF
 - uma imagem
 - um documento de texto
-- um vÃ­deo
-- um arquivo de cÃ³digo
+- um vídeo
+- um arquivo de código
 
-Exemplos de pastas Ãºteis:
+Exemplos de pastas úteis:
 
 - `Estudos`
 - `Projetos`
@@ -42,20 +42,20 @@ Exemplos de pastas Ãºteis:
 - `Documentos`
 - `Downloads`
 
-Se vocÃª nÃ£o organiza isso desde o comeÃ§o, vira comum:
+Se você não organiza isso desde o começo, vira comum:
 
-- nÃ£o saber onde salvou algo
-- baixar o mesmo arquivo vÃ¡rias vezes
-- perder currÃ­culo, exercÃ­cios e projetos
+- não saber onde salvou algo
+- baixar o mesmo arquivo várias vezes
+- perder currículo, exercícios e projetos
 - misturar material pessoal com material de estudo
 
-### OrganizaÃ§Ã£o mÃ­nima recomendada
+### Organização mínima recomendada
 
 Crie uma pasta principal no seu computador chamada:
 
 `Tecnologia`
 
-Dentro dela, vocÃª pode comeÃ§ar com:
+Dentro dela, você pode começar com:
 
 - `01 - Estudos`
 - `02 - Exercicios`
@@ -64,44 +64,44 @@ Dentro dela, vocÃª pode comeÃ§ar com:
 - `05 - Certificados`
 - `06 - Anotacoes`
 
-Isso jÃ¡ resolve boa parte da bagunÃ§a inicial.
+Isso já resolve boa parte da bagunça inicial.
 
-### O que vocÃª precisa saber fazer
+### O que você precisa saber fazer
 
-No mÃ­nimo, pratique atÃ© conseguir fazer isso sem hesitar:
+No mínimo, pratique até conseguir fazer isso sem hesitar:
 
 1. criar uma pasta
 2. renomear uma pasta
 3. mover um arquivo
 4. copiar um arquivo
-5. apagar um arquivo com consciÃªncia
+5. apagar um arquivo com consciência
 6. encontrar um arquivo salvo
 7. saber em qual pasta um download caiu
 
-### Regra prÃ¡tica
+### Regra prática
 
-Se vocÃª salva tudo em `Downloads`, ainda nÃ£o organizou nada.
+Se você salva tudo em `Downloads`, ainda não organizou nada.
 
-Piada honesta de iniciante: a pasta `Downloads` jÃ¡ destruiu mais produtividade do que muito bug de sistema.
+Piada honesta de iniciante: a pasta `Downloads` já destruiu mais produtividade do que muito bug de sistema.
 
 ## Como usar melhor o Explorador de Arquivos
 
-No Windows, o **File Explorer** Ã© a ferramenta principal para localizar, abrir, mover e organizar arquivos e pastas.
+No Windows, o **File Explorer** é a ferramenta principal para localizar, abrir, mover e organizar arquivos e pastas.
 
-Atalhos e aÃ§Ãµes Ãºteis:
+Atalhos e ações úteis:
 
 - `Windows + E`: abre o explorador de arquivos
 - usar a barra lateral para acessar pastas fixadas
 - usar o campo de busca para localizar arquivos
-- usar copiar, colar e mover com consciÃªncia
+- usar copiar, colar e mover com consciência
 
-Uma boa prÃ¡tica Ã© fixar pastas importantes no acesso rÃ¡pido para reduzir tempo perdido.
+Uma boa prática é fixar pastas importantes no acesso rápido para reduzir tempo perdido.
 
 ## Downloads: o erro simples que trava muita gente
 
 Toda pessoa que quer aprender tecnologia precisa entender bem a pasta `Downloads`.
 
-Ã‰ nela que geralmente ficam:
+�0 nela que geralmente ficam:
 
 - instaladores
 - PDFs
@@ -109,89 +109,89 @@ Toda pessoa que quer aprender tecnologia precisa entender bem a pasta `Downloads
 - arquivos zip
 - materiais de curso
 
-Rotina saudÃ¡vel:
+Rotina saudável:
 
 1. baixou um arquivo
-2. abriu ou verificou o que ele Ã©
+2. abriu ou verificou o que ele é
 3. moveu para a pasta correta se precisar guardar
-4. apagou o que era temporÃ¡rio
+4. apagou o que era temporário
 
-Se vocÃª sÃ³ acumula download, o computador vira depÃ³sito e sua rotina fica mais confusa.
+Se você só acumula download, o computador vira depósito e sua rotina fica mais confusa.
 
 ## Navegador, abas e favoritos
 
-Seu navegador Ã© uma das ferramentas mais importantes da sua jornada.
+Seu navegador é uma das ferramentas mais importantes da sua jornada.
 
-Ã‰ nele que vocÃª vai:
+�0 nele que você vai:
 
 - estudar
 - pesquisar
-- acessar documentaÃ§Ã£o
+- acessar documentação
 - assistir aulas
 - usar ferramentas online
 - entrar no GitHub
 
-### O que vocÃª precisa dominar
+### O que você precisa dominar
 
 - abrir uma nova aba
 - fechar abas sem perder contexto
-- voltar para uma pÃ¡gina anterior
+- voltar para uma página anterior
 - copiar e colar links
 - salvar favoritos
-- encontrar uma pÃ¡gina jÃ¡ aberta
-- distinguir link confiÃ¡vel de link estranho
+- encontrar uma página já aberta
+- distinguir link confiável de link estranho
 
 ### Erro comum
 
-Abrir 40 abas e achar que isso Ã© organizaÃ§Ã£o.
+Abrir 40 abas e achar que isso é organização.
 
-NÃ£o Ã©.
+Não é.
 
-Ã‰ sobrecarga.
+�0 sobrecarga.
 
-O ideal Ã©:
+O ideal é:
 
-- manter poucas abas realmente Ãºteis
+- manter poucas abas realmente úteis
 - salvar o que importa em favoritos
-- fechar o que nÃ£o estÃ¡ usando
+- fechar o que não está usando
 
-## Como pesquisar no Google sem desperdiÃ§ar tempo
+## Como pesquisar no Google sem desperdiçar tempo
 
-Pesquisar bem Ã© uma habilidade central para qualquer pessoa em tecnologia.
+Pesquisar bem é uma habilidade central para qualquer pessoa em tecnologia.
 
-VocÃª nÃ£o precisa decorar tudo.
+Você não precisa decorar tudo.
 
 Mas precisa aprender a procurar.
 
-### PrincÃ­pios de pesquisa melhor
+### Princípios de pesquisa melhor
 
 Em vez de pesquisar de forma vaga:
 
 - `erro no computador`
 
-prefira algo mais especÃ­fico:
+prefira algo mais específico:
 
 - `windows nao abre explorador de arquivos`
 - `como instalar python no windows`
 - `github criar conta`
 
-### Boas prÃ¡ticas
+### Boas práticas
 
 - inclua o nome da ferramenta
 - inclua o erro ou objetivo
 - inclua o sistema operacional se fizer sentido
-- prefira termos simples e especÃ­ficos
-- procure documentaÃ§Ã£o oficial quando possÃ­vel
+- prefira termos simples e específicos
+- procure documentação oficial quando possível
 
-### Exemplos Ãºteis
+### Exemplos úteis
 
 - `site:docs.github.com criar conta github`
 - `site:support.microsoft.com windows explorer arquivos`
 - `python install windows official`
 
-Pesquisar bem acelera mais sua evoluÃ§Ã£o do que consumir conteÃºdo aleatÃ³rio.
+Pesquisar bem acelera mais sua evolução do que consumir conteúdo aleatório.
 
-## InstalaÃ§Ã£o de programas com seguranÃ§a
+## Instalação de programas com segurança
 
 Quem entra em tecnologia cedo ou tarde vai precisar instalar programas.
 
@@ -203,35 +203,35 @@ Exemplos:
 - Python
 - Node.js
 
-### Regras mÃ­nimas
+### Regras mínimas
 
 - prefira site oficial
 - evite baixar de portais desconhecidos
 - leia o nome do arquivo antes de executar
-- preste atenÃ§Ã£o no que o instalador estÃ¡ pedindo
-- nÃ£o clique em qualquer botÃ£o automÃ¡tico sem ler
+- preste atenção no que o instalador está pedindo
+- não clique em qualquer botão automático sem ler
 
 ### Sinal de cuidado
 
-Se vocÃª nÃ£o sabe de onde veio o instalador, nÃ£o execute.
+Se você não sabe de onde veio o instalador, não execute.
 
-## Contas importantes no comeÃ§o
+## Contas importantes no começo
 
-VocÃª nÃ£o precisa criar dez contas no primeiro dia.
+Você não precisa criar dez contas no primeiro dia.
 
-Mas algumas serÃ£o importantes cedo:
+Mas algumas serão importantes cedo:
 
 - e-mail bem organizado
 - conta no GitHub
 - conta no LinkedIn
 
-O GitHub Ã© importante porque ele funciona como identidade tÃ©cnica, lugar de projetos e ponto de colaboraÃ§Ã£o.
+O GitHub é importante porque ele funciona como identidade técnica, lugar de projetos e ponto de colaboração.
 
-Uma boa prÃ¡tica Ã© criar sua conta cedo e manter acesso seguro.
+Uma boa prática é criar sua conta cedo e manter acesso seguro.
 
-## Atalhos Ãºteis que economizam energia mental
+## Atalhos úteis que economizam energia mental
 
-VocÃª nÃ£o precisa decorar dezenas de atalhos agora.
+Você não precisa decorar dezenas de atalhos agora.
 
 Mas alguns ajudam muito:
 
@@ -246,46 +246,46 @@ Mas alguns ajudam muito:
 - `Windows + E`: abrir explorador de arquivos
 - `Windows + L`: bloquear computador
 
-Aprender poucos atalhos Ãºteis jÃ¡ reduz atrito no dia a dia.
+Aprender poucos atalhos úteis já reduz atrito no dia a dia.
 
-## InglÃªs para tecnologia
+## Inglês para tecnologia
 
-VocÃª nÃ£o precisa ser fluente para comeÃ§ar.
+Você não precisa ser fluente para começar.
 
-Mas precisa parar de tratar inglÃªs como algo totalmente separado da sua jornada.
+Mas precisa parar de tratar inglês como algo totalmente separado da sua jornada.
 
-No mundo real, vocÃª vai ver inglÃªs em:
+No mundo real, você vai ver inglês em:
 
-- botÃµes
+- botões
 - menus
 - mensagens de erro
-- documentaÃ§Ã£o
+- documentação
 - nomes de ferramentas
-- vÃ­deos
+- vídeos
 
 ### O que fazer agora
 
-- acostume-se com termos bÃ¡sicos
-- use tradutor quando necessÃ¡rio, sem vergonha
-- monte um glossÃ¡rio pessoal
-- nÃ£o espere "ficar bom em inglÃªs" para comeÃ§ar
+- acostume-se com termos básicos
+- use tradutor quando necessário, sem vergonha
+- monte um glossário pessoal
+- não espere "ficar bom em inglês" para começar
 
-O melhor caminho costuma ser aprender tecnologia e inglÃªs juntos, aos poucos.
+O melhor caminho costuma ser aprender tecnologia e inglês juntos, aos poucos.
 
 ## Como usar IA com responsabilidade
 
-Ferramentas de IA podem acelerar muito o comeÃ§o.
+Ferramentas de IA podem acelerar muito o começo.
 
-Mas elas tambÃ©m podem atrapalhar se vocÃª usar do jeito errado.
+Mas elas também podem atrapalhar se você usar do jeito errado.
 
 ### Uso bom
 
-- pedir explicaÃ§Ãµes simples
+- pedir explicações simples
 - resumir um conceito
 - gerar exemplos
 - pedir plano de estudo inicial
 - revisar texto
-- tirar dÃºvida pontual
+- tirar dúvida pontual
 
 ### Uso ruim
 
@@ -294,115 +294,115 @@ Mas elas tambÃ©m podem atrapalhar se vocÃª usar do jeito errado.
 - aceitar qualquer resposta como verdade
 - usar IA no lugar de praticar
 
-### Regra prÃ¡tica
+### Regra prática
 
-IA deve reduzir atrito, nÃ£o substituir raciocÃ­nio.
+IA deve reduzir atrito, não substituir raciocínio.
 
 Sempre que usar IA:
 
 1. verifique se a resposta faz sentido
-2. compare com fonte confiÃ¡vel quando necessÃ¡rio
-3. tente reproduzir por conta prÃ³pria
+2. compare com fonte confiável quando necessário
+3. tente reproduzir por conta própria
 
-ReferÃªncia gamer rÃ¡pida: usar IA para tudo Ã© tipo pedir save state em toda fase. VocÃª atÃ© passa, mas nÃ£o aprende o padrÃ£o do inimigo.
+Referência gamer rápida: usar IA para tudo é tipo pedir save state em toda fase. Você até passa, mas não aprende o padrão do inimigo.
 
-## Sinais de que sua base digital jÃ¡ estÃ¡ melhorando
+## Sinais de que sua base digital já está melhorando
 
-VocÃª estÃ¡ evoluindo quando consegue:
+Você está evoluindo quando consegue:
 
 - encontrar o que salvou
-- instalar algo simples sem pÃ¢nico
+- instalar algo simples sem pânico
 - entender onde um arquivo foi parar
-- pesquisar com mais precisÃ£o
-- usar navegador e abas com menos bagunÃ§a
+- pesquisar com mais precisão
+- usar navegador e abas com menos bagunça
 - depender menos de ajuda para tarefas operacionais
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha clareza sobre estes pontos:
+Ao concluir esta página, o ideal é que você tenha clareza sobre estes pontos:
 
-1. autonomia digital bÃ¡sica faz diferenÃ§a real na velocidade de aprendizagem
-2. organizaÃ§Ã£o de arquivos e pastas evita muito retrabalho
+1. autonomia digital básica faz diferença real na velocidade de aprendizagem
+2. organização de arquivos e pastas evita muito retrabalho
 3. pesquisar bem vale mais do que acumular link
-4. instalar ferramentas com seguranÃ§a Ã© parte da base
-5. inglÃªs e IA devem ser usados como apoio, nÃ£o como desculpa para travar
+4. instalar ferramentas com segurança é parte da base
+5. inglês e IA devem ser usados como apoio, não como desculpa para travar
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../03 - Fundamentos de Tecnologia/Ãndice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+[[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
 
-Essa Ã© a etapa em que vocÃª comeÃ§a a entender os conceitos-base do ecossistema tech.
+Essa é a etapa em que você começa a entender os conceitos-base do ecossistema tech.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
-### Arquivos, pastas e uso bÃ¡sico do computador
+### Arquivos, pastas e uso básico do computador
 
 - Base:
   https://edu.gcfglobal.org/en/computerbasics/
 - Base:
   https://support.microsoft.com/en-us/windows/97fbc472-c603-9d90-91d0-1166d1d9f4b5
-- Apoio em portuguÃªs:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
+- Apoio em português:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 
-### Navegador, abas, pesquisa e internet bÃ¡sica
+### Navegador, abas, pesquisa e internet básica
 
 - Base:
   https://edu.gcfglobal.org/en/internetbasics/
 - Apoio complementar:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
 ### GitHub como conta importante
 
 - Base:
   https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
-- Apoio em portuguÃªs:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
+- Apoio em português:
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Computador, pastas e arquivos | Microsoft Support e GCFGlobal sobre sistema operacional, arquivos e navegaÃ§Ã£o bÃ¡sica | 97% | Ã‰ um bloco fortemente sustentado por fundamentos bÃ¡sicos e documentaÃ§Ã£o estÃ¡vel. |
-| Como usar melhor o Explorador de Arquivos | Microsoft Support sobre File Explorer | 98% | Base direta de documentaÃ§Ã£o oficial do Windows. |
-| Downloads, organizaÃ§Ã£o e rotina | SÃ­ntese editorial apoiada em prÃ¡ticas operacionais bÃ¡sicas | 90% | A recomendaÃ§Ã£o Ã© prÃ¡tica e segura, mas parte dela Ã© editorial. |
-| Navegador, abas e favoritos | GCFGlobal Internet Basics e prÃ¡ticas comuns de navegaÃ§Ã£o | 94% | HÃ¡ uma pequena camada de generalizaÃ§Ã£o editorial. |
-| Como pesquisar no Google | Boas prÃ¡ticas editoriais e suporte oficial de busca | 88% | Ã‰ um bloco Ãºtil, mas mais orientativo do que normativo. |
-| InstalaÃ§Ã£o de programas com seguranÃ§a | Boas prÃ¡ticas amplamente aceitas e orientaÃ§Ã£o de uso de sites oficiais | 93% | Forte como orientaÃ§Ã£o prÃ¡tica, embora nÃ£o dependa de uma Ãºnica fonte. |
-| Contas importantes no comeÃ§o | GitHub Docs e prÃ¡tica editorial do guia | 92% | Parte Ã© documentaÃ§Ã£o, parte Ã© recomendaÃ§Ã£o estratÃ©gica. |
-| Atalhos Ãºteis | Windows e navegaÃ§Ã£o web em contexto comum de produtividade | 90% | Os atalhos sÃ£o verificÃ¡veis; a seleÃ§Ã£o deles Ã© editorial. |
-| InglÃªs para tecnologia | SÃ­ntese editorial baseada no uso real de ferramentas e documentaÃ§Ã£o | 84% | Diretriz Ãºtil, mas menos quantificÃ¡vel. |
-| Como usar IA com responsabilidade | Diretriz editorial do projeto | 78% | Ã‰ o bloco mais interpretativo desta nota. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | Microsoft Support, GCFGlobal, GitHub Docs e nota central de recursos | 96% | Curadoria forte para reforÃ§ar a base digital. |
+| Computador, pastas e arquivos | Microsoft Support e GCFGlobal sobre sistema operacional, arquivos e navegação básica | 97% | �0 um bloco fortemente sustentado por fundamentos básicos e documentação estável. |
+| Como usar melhor o Explorador de Arquivos | Microsoft Support sobre File Explorer | 98% | Base direta de documentação oficial do Windows. |
+| Downloads, organização e rotina | Síntese editorial apoiada em práticas operacionais básicas | 90% | A recomendação é prática e segura, mas parte dela é editorial. |
+| Navegador, abas e favoritos | GCFGlobal Internet Basics e práticas comuns de navegação | 94% | Há uma pequena camada de generalização editorial. |
+| Como pesquisar no Google | Boas práticas editoriais e suporte oficial de busca | 88% | �0 um bloco útil, mas mais orientativo do que normativo. |
+| Instalação de programas com segurança | Boas práticas amplamente aceitas e orientação de uso de sites oficiais | 93% | Forte como orientação prática, embora não dependa de uma única fonte. |
+| Contas importantes no começo | GitHub Docs e prática editorial do guia | 92% | Parte é documentação, parte é recomendação estratégica. |
+| Atalhos úteis | Windows e navegação web em contexto comum de produtividade | 90% | Os atalhos são verificáveis; a seleção deles é editorial. |
+| Inglês para tecnologia | Síntese editorial baseada no uso real de ferramentas e documentação | 84% | Diretriz útil, mas menos quantificável. |
+| Como usar IA com responsabilidade | Diretriz editorial do projeto | 78% | �0 o bloco mais interpretativo desta nota. |
+| Referências por tópico e vídeos sugeridos | Microsoft Support, GCFGlobal, GitHub Docs e nota central de recursos | 96% | Curadoria forte para reforçar a base digital. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. Microsoft Support. *File Explorer in Windows*. DisponÃ­vel em: https://support.microsoft.com/en-us/windows/97fbc472-c603-9d90-91d0-1166d1d9f4b5
-2. GitHub Docs. *Getting started with your GitHub account*. DisponÃ­vel em: https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
-3. GCFGlobal. *Computer Basics*. DisponÃ­vel em: https://edu.gcfglobal.org/en/computerbasics/
-4. GCFGlobal. *Internet Basics*. DisponÃ­vel em: https://edu.gcfglobal.org/en/internetbasics/
+1. Microsoft Support. *File Explorer in Windows*. Disponível em: https://support.microsoft.com/en-us/windows/97fbc472-c603-9d90-91d0-1166d1d9f4b5
+2. GitHub Docs. *Getting started with your GitHub account*. Disponível em: https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
+3. GCFGlobal. *Computer Basics*. Disponível em: https://edu.gcfglobal.org/en/computerbasics/
+4. GCFGlobal. *Internet Basics*. Disponível em: https://edu.gcfglobal.org/en/internetbasics/
 
 ### Mapeamento de fontes por assunto
 
-- Explorador de arquivos e gestÃ£o de arquivos:
+- Explorador de arquivos e gestão de arquivos:
   https://support.microsoft.com/en-us/windows/97fbc472-c603-9d90-91d0-1166d1d9f4b5
-- Conta no GitHub e inÃ­cio de identidade tÃ©cnica:
+- Conta no GitHub e início de identidade técnica:
   https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
-- Sistema operacional, arquivos, pastas e internet bÃ¡sica:
+- Sistema operacional, arquivos, pastas e internet básica:
   https://edu.gcfglobal.org/en/computerbasics/
-- NavegaÃ§Ã£o em navegador, links, downloads e uso da internet:
+- Navegação em navegador, links, downloads e uso da internet:
   https://edu.gcfglobal.org/en/internetbasics/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 
-Nesta nota, a taxa de assertividade indica o quanto cada bloco estÃ¡ ancorado em fonte verificÃ¡vel versus orientaÃ§Ã£o editorial prÃ¡tica.
+Nesta nota, a taxa de assertividade indica o quanto cada bloco está ancorado em fonte verificável versus orientação editorial prática.
 

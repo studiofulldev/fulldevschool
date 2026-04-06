@@ -1,107 +1,107 @@
-## ConteÃºdo
+## Conteúdo
 
-Esta etapa nÃ£o existe para te colocar em uma caixa.
+Esta etapa não existe para te colocar em uma caixa.
 
-Ela existe para te ajudar a perceber padrÃµes do seu perfil que podem facilitar a sua primeira escolha.
+Ela existe para te ajudar a perceber padrões do seu perfil que podem facilitar a sua primeira escolha.
 
-O teste nÃ£o Ã© definitivo.
+O teste não é definitivo.
 
-Ele Ã© orientativo.
+Ele é orientativo.
 
 ## Como usar este teste
 
 Leia as perguntas com honestidade.
 
-NÃ£o responda com base no que "parece mais bonito".
+Não responda com base no que "parece mais bonito".
 
 Responda com base no que mais combina com:
 
 - o que te interessa
-- o que vocÃª tolera fazer por bastante tempo
-- o tipo de problema que te dÃ¡ curiosidade
-- o tipo de rotina que vocÃª suporta melhor
+- o que você tolera fazer por bastante tempo
+- o tipo de problema que te dá curiosidade
+- o tipo de rotina que você suporta melhor
 
-## Perguntas de orientaÃ§Ã£o
+## Perguntas de orientação
 
-### 1. VocÃª gosta mais de:
+### 1. Você gosta mais de:
 
-- organizar e estruturar informaÃ§Ãµes
-- resolver problemas lÃ³gicos
-- desenhar experiÃªncias visuais
+- organizar e estruturar informações
+- resolver problemas lógicos
+- desenhar experiências visuais
 - conversar com pessoas e alinhar contexto
 - manter processos funcionando sem caos
 
-### 2. Quando vocÃª aprende algo novo, vocÃª prefere:
+### 2. Quando você aprende algo novo, você prefere:
 
-- testar e mexer atÃ© funcionar
-- entender a lÃ³gica por trÃ¡s
+- testar e mexer até funcionar
+- entender a lógica por trás
 - ver exemplos visuais
-- conversar com alguÃ©m sobre o assunto
+- conversar com alguém sobre o assunto
 - seguir um processo bem definido
 
-### 3. O que parece mais interessante para vocÃª?
+### 3. O que parece mais interessante para você?
 
 - construir telas e interfaces
-- fazer a parte invisÃ­vel de um sistema funcionar
-- validar se algo estÃ¡ funcionando corretamente
-- entender nÃºmeros, padrÃµes e dados
-- melhorar infraestrutura, automaÃ§Ã£o e estabilidade
+- fazer a parte invisível de um sistema funcionar
+- validar se algo está funcionando corretamente
+- entender números, padrões e dados
+- melhorar infraestrutura, automação e estabilidade
 
 ### 4. Qual dessas rotinas parece menos cansativa?
 
-- lidar com cÃ³digo visual e interaÃ§Ã£o
-- lidar com regras, integraÃ§Ãµes e lÃ³gica
+- lidar com código visual e interação
+- lidar com regras, integrações e lógica
 - revisar detalhes e procurar erro
-- analisar comportamento e mÃ©tricas
-- apoiar times, usuÃ¡rios ou processos
+- analisar comportamento e métricas
+- apoiar times, usuários ou processos
 
 ### 5. O que mais te incomoda?
 
 - interface confusa
 - sistema quebrando
 - erro passando despercebido
-- bagunÃ§a em dados
-- comunicaÃ§Ã£o desorganizada
+- bagunça em dados
+- comunicação desorganizada
 
 ## Leitura inicial dos resultados
 
-### Se vocÃª marcou mais lÃ³gica, regras e processamento
+### Se você marcou mais lógica, regras e processamento
 
-Ãreas mais provÃ¡veis:
+Áreas mais prováveis:
 
 - Desenvolvimento Backend
 - Dados
 - DevOps e Cloud
-- CyberseguranÃ§a
+- Cybersegurança
 
-### Se vocÃª marcou mais interface, experiÃªncia e visual
+### Se você marcou mais interface, experiência e visual
 
-Ãreas mais provÃ¡veis:
+Áreas mais prováveis:
 
 - Desenvolvimento Frontend
 - UX/UI Design
 - Mobile
 
-### Se vocÃª marcou mais detalhe, validaÃ§Ã£o e prevenÃ§Ã£o de erro
+### Se você marcou mais detalhe, validação e prevenção de erro
 
-Ãreas mais provÃ¡veis:
+Áreas mais prováveis:
 
 - QA e Testes
-- QA AutomaÃ§Ã£o
+- QA Automação
 - Suporte e Infra
 
-### Se vocÃª marcou mais comunicaÃ§Ã£o, alinhamento e visÃ£o de contexto
+### Se você marcou mais comunicação, alinhamento e visão de contexto
 
-Ãreas mais provÃ¡veis:
+Áreas mais prováveis:
 
 - Produto
 - Tech Recruiter
 - Scrum Master e Agile
 - Sales Engineer
 
-### Se vocÃª marcou mais organizaÃ§Ã£o de informaÃ§Ã£o, leitura de padrÃ£o e anÃ¡lise
+### Se você marcou mais organização de informação, leitura de padrão e análise
 
-Ãreas mais provÃ¡veis:
+Áreas mais prováveis:
 
 - Dados
 - Business Intelligence
@@ -109,59 +109,59 @@ Responda com base no que mais combina com:
 
 ## Importante
 
-VocÃª pode se identificar com mais de um grupo.
+Você pode se identificar com mais de um grupo.
 
-Isso Ã© normal.
+Isso é normal.
 
-O resultado ideal desta etapa nÃ£o Ã© "descobrir sua profissÃ£o final".
+O resultado ideal desta etapa não é "descobrir sua profissão final".
 
-Ã‰ chegar a uma shortlist de:
+�0 chegar a uma shortlist de:
 
-- 1 Ã¡rea principal
-- 1 ou 2 Ã¡reas alternativas
+- 1 área principal
+- 1 ou 2 áreas alternativas
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha:
+Ao concluir esta página, o ideal é que você tenha:
 
 1. uma leitura inicial do seu perfil
-2. uma shortlist de Ã¡reas mais compatÃ­veis
+2. uma shortlist de áreas mais compatíveis
 3. menos ansiedade sobre precisar acertar tudo de primeira
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
 [[../07 - Comparando Caminhos/Comparando Caminhos|8 - Comparando Caminhos]]
 
-Essa Ã© a etapa em que vocÃª compara suas opÃ§Ãµes com critÃ©rios mais concretos.
+Essa é a etapa em que você compara suas opções com critérios mais concretos.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Como usar este teste | Diretriz editorial do projeto | 96% | Alinhado ao desenho do guia. |
-| Perguntas de orientaÃ§Ã£o | SÃ­ntese editorial baseada em perfis comuns das Ã¡reas | 84% | Ãštil, mas interpretativa. |
-| Leitura inicial dos resultados | SÃ­ntese editorial baseada no mapa das Ã¡reas | 82% | Ã‰ um atalho orientativo, nÃ£o uma regra rÃ­gida. |
+| Perguntas de orientação | Síntese editorial baseada em perfis comuns das áreas | 84% | �atil, mas interpretativa. |
+| Leitura inicial dos resultados | Síntese editorial baseada no mapa das áreas | 82% | �0 um atalho orientativo, não uma regra rígida. |
 | Importante | Diretriz editorial para reduzir rigidez da escolha | 90% | Muito coerente com o objetivo do guia. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
-2. roadmap.sh. DisponÃ­vel em: https://roadmap.sh/
+1. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
+2. roadmap.sh. Disponível em: https://roadmap.sh/
 
 ### Mapeamento de fontes por assunto
 
-- funÃ§Ã£o desta etapa e lÃ³gica de orientaÃ§Ã£o:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
-- variedade de caminhos e perfis de atuaÃ§Ã£o:
+- função desta etapa e lógica de orientação:
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
+- variedade de caminhos e perfis de atuação:
   https://roadmap.sh/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

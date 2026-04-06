@@ -1,19 +1,19 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-Frontend Ã© a Ã¡rea que cuida da parte visual e interativa que a pessoa vÃª e usa em um site ou aplicaÃ§Ã£o.
+Frontend é a área que cuida da parte visual e interativa que a pessoa vê e usa em um site ou aplicação.
 
 ## O que essa pessoa faz
 
-VocÃª trabalha com interface, componentes, responsividade, formulÃ¡rios, navegaÃ§Ã£o e integraÃ§Ã£o com dados vindos do backend.
+Você trabalha com interface, componentes, responsividade, formulários, navegação e integração com dados vindos do backend.
 
 No dia a dia, isso pode significar:
 
-- montar pÃ¡ginas
+- montar páginas
 - corrigir comportamento de interface
 - integrar dados vindos de API
-- melhorar experiÃªncia em celular
+- melhorar experiência em celular
 - ajustar acessibilidade e clareza visual
 
 ## Exemplo real
@@ -29,62 +29,62 @@ Criar a tela de login, a listagem de produtos de um e-commerce ou o painel visua
 - Git
 - GitHub
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar mais com vocÃª se vocÃª gosta de:
+Pode combinar mais com você se você gosta de:
 
-- feedback visual rÃ¡pido
+- feedback visual rápido
 - interface
 - detalhes visuais
-- interaÃ§Ã£o entre usuÃ¡rio e sistema
+- interação entre usuário e sistema
 
-Talvez combine menos com vocÃª se:
+Talvez combine menos com você se:
 
-- vocÃª sente pouca paciÃªncia com detalhe visual
-- vocÃª prefere lÃ³gica menos ligada Ã  interface
-- vocÃª se incomoda com ajuste fino de layout
+- você sente pouca paciência com detalhe visual
+- você prefere lógica menos ligada à interface
+- você se incomoda com ajuste fino de layout
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
-- retorno visual rÃ¡pido
-- bom para comeÃ§ar com projetos demonstrÃ¡veis
+- retorno visual rápido
+- bom para começar com projetos demonstráveis
 
 Contras:
 
-- muita mudanÃ§a de ferramentas
+- muita mudança de ferramentas
 - necessidade de cuidado com detalhe visual e compatibilidade
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 - entender HTML, CSS e JavaScript juntos
-- nÃ£o se perder em framework cedo demais
-- sair do visual sem lÃ³gica
+- não se perder em framework cedo demais
+- sair do visual sem lógica
 - lidar com responsividade
 - entender como dados chegam na interface
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 1. entender HTML e CSS
-2. aprender JavaScript bÃ¡sico
-3. montar pÃ¡ginas simples
+2. aprender JavaScript básico
+3. montar páginas simples
 4. publicar projeto inicial
-5. sÃ³ depois olhar framework
+5. só depois olhar framework
 
-## Como saber se essa Ã¡rea combina com vocÃª
+## Como saber se essa área combina com você
 
 Sinais positivos:
 
-- vocÃª gosta de ver resultado visual rÃ¡pido
-- vocÃª sente satisfaÃ§Ã£o em melhorar interface
-- vocÃª gosta de perceber detalhe de experiÃªncia
+- você gosta de ver resultado visual rápido
+- você sente satisfação em melhorar interface
+- você gosta de perceber detalhe de experiência
 
-Sinais de atenÃ§Ã£o:
+Sinais de atenção:
 
-- vocÃª sente rejeiÃ§Ã£o forte a layout e estilo
-- vocÃª quer fugir completamente de interface
-- vocÃª quer trabalhar sÃ³ com lÃ³gica invisÃ­vel
+- você sente rejeição forte a layout e estilo
+- você quer fugir completamente de interface
+- você quer trabalhar só com lógica invisível
 
 ## Primeiro projeto sugerido
 
@@ -92,26 +92,26 @@ Uma landing page responsiva ou uma lista de tarefas simples.
 
 ## Faixa de entrada
 
-Frontend costuma ser uma das entradas mais visÃ­veis para quem estÃ¡ comeÃ§ando, mas isso nÃ£o significa facilidade automÃ¡tica.
+Frontend costuma ser uma das entradas mais visíveis para quem está começando, mas isso não significa facilidade automática.
 
-VocÃª ainda vai precisar de:
+Você ainda vai precisar de:
 
-- prÃ¡tica
-- repetiÃ§Ã£o
-- projeto prÃ³prio
-- noÃ§Ã£o real de HTML, CSS e JavaScript
+- prática
+- repetição
+- projeto próprio
+- noção real de HTML, CSS e JavaScript
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | roadmap.sh e uso comum do mercado | 95% | DefiniÃ§Ã£o bem estÃ¡vel. |
-| O que essa pessoa faz | SÃ­ntese editorial | 90% | Pode variar por time. |
-| Ferramentas comuns | Ecossistema frontend atual | 92% | Ferramentas iniciais comuns, nÃ£o exclusivas. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 84% | Orientativo, nÃ£o determinÃ­stico. |
-| Como saber se essa Ã¡rea combina com vocÃª | SÃ­ntese editorial | 82% | Leitura orientativa, nÃ£o teste definitivo. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 88% | SequÃªncia prÃ¡tica inicial. |
-| Faixa de entrada | SÃ­ntese editorial baseada em mercado de iniciantes | 86% | Ãštil, mas contextual. |
+| O que é | roadmap.sh e uso comum do mercado | 95% | Definição bem estável. |
+| O que essa pessoa faz | Síntese editorial | 90% | Pode variar por time. |
+| Ferramentas comuns | Ecossistema frontend atual | 92% | Ferramentas iniciais comuns, não exclusivas. |
+| Perfil mais compatível | Síntese editorial | 84% | Orientativo, não determinístico. |
+| Como saber se essa área combina com você | Síntese editorial | 82% | Leitura orientativa, não teste definitivo. |
+| Como começar em 30 dias | Diretriz editorial | 88% | Sequência prática inicial. |
+| Faixa de entrada | Síntese editorial baseada em mercado de iniciantes | 86% | �atil, mas contextual. |
 
 ## Bibliografia
 
@@ -129,7 +129,7 @@ VocÃª ainda vai precisar de:
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

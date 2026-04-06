@@ -1,34 +1,34 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
 ## Ordem sugerida
 
 ## Ferramentas
 
-## Como usar inteligÃªncia artificial como apoio na trilha
+## Como usar inteligência artificial como apoio na trilha
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
 ## Erros comuns
 
 ## Recursos complementares
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Objetivo da trilha |  |  |  |
-| PrÃ©-requisitos |  |  |  |
+| Pré-requisitos |  |  |  |
 | Ordem sugerida |  |  |  |
 | Ferramentas |  |  |  |
-| Como usar inteligÃªncia artificial como apoio na trilha |  |  |  |
-| ExercÃ­cios e projetos |  |  |  |
-| CritÃ©rio para avanÃ§ar |  |  |  |
+| Como usar inteligência artificial como apoio na trilha |  |  |  |
+| Exercícios e projetos |  |  |  |
+| Critério para avançar |  |  |  |
 | Erros comuns |  |  |  |
 | Recursos complementares |  |  |  |
 
@@ -46,7 +46,7 @@
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

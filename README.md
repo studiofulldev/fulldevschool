@@ -1,197 +1,59 @@
-# PRD - Speechify-like Reader (Angular 19 + HeadTTS)
+# Guia de Tecnologia
 
-## Objetivo
+Repositório do guia editorial da FullDev com uma aplicação Angular para navegação, leitura e consulta do conteúdo em Markdown.
 
-Criar um leitor de texto frontend estilo Speechify, com:
+## Estado atual
 
-- leitura fluida com TTS neural local
-- highlight sincronizado palavra por palavra
-- scroll automático
-- controles de reprodução
-- experiência moderna e responsiva
+- o conteúdo principal fica em `doc/`
+- a aplicação Angular fica em `fulldev-school/app`
+- a app consome uma cópia publicada da documentação em `fulldev-school/mock-db/doc`
+- a navegação lateral usa a estrutura de `fulldev-school/mock-db/navigation/tree.json`
+- cada página é carregada por `slug`
+- cada seção interna do Markdown com `##` vira um bloco expansível na leitura
 
-Sem backend, sem API key e 100% browser.
+## Produto atual
 
-## Stack
+O projeto hoje não é mais um reader estilo Speechify. O fluxo principal é um guia navegável de entrada na área de tecnologia, com:
 
-- Angular 19+ com standalone components
-- Signals para estado reativo
-- HeadTTS com `webgpu` e `wasm`
-- Web Worker para processamento de TTS
-- HTML e CSS modernos com UX estilo Medium
+- menu lateral por tópicos
+- páginas renderizadas a partir de `.md`
+- skeleton de carregamento
+- navegação entre páginas anterior e próxima
+- visual alinhado ao projeto `D:\\Repo\\fulldev\\front`
 
-## Biblioteca principal
+## Estrutura
 
-- HeadTTS
-  Repo: https://github.com/met4citizen/HeadTTS
+- `doc/`: fonte principal da documentação
+- `fulldev-school/mock-db/doc/`: espelho usado pela aplicação no frontend
+- `fulldev-school/mock-db/navigation/tree.json`: árvore da navegação
+- `fulldev-school/app/`: aplicação Angular
 
-## Inicialização do TTS
+## Decisões atuais
 
-```ts
-import { HeadTTS } from 'headtts';
+- o áudio guiado foi adiado
+- a `player-bar` foi removida da interface
+- a home da app abre pela rota `/`
+- a sidebar abre seções por painel expansível
+- o conteúdo da página abre subtópicos por painéis expansíveis simples
+- a UI usa `Inter` como tipografia base
 
-const tts = new HeadTTS({
-  endpoints: ['webgpu', 'wasm'],
-  languages: ['en-us'],
-  voices: ['af_bella']
-});
+## Pontos em aberto
 
-await tts.load();
+- revisar encoding dos arquivos Markdown que ainda têm caracteres corrompidos
+- transformar links internos do estilo Obsidian em navegação real
+- revisar ortografia final dos textos próprios da UI
+
+## Execução
+
+```bash
+cd fulldev-school/app
+npm install
+npm start
 ```
 
-## Arquitetura
+Build:
 
-### 1. `TtsEngineAdapter`
-
-Responsável por:
-
-- inicializar o HeadTTS
-- gerar áudio
-- retornar timestamps de fonemas
-
-```ts
-generateAudio(text: string): Promise<{
-  audioBuffer: AudioBuffer;
-  phonemes: Phoneme[];
-}>
+```bash
+cd fulldev-school/app
+npm run build
 ```
-
-### 2. `ReadingSessionService`
-
-Responsável por:
-
-- texto atual
-- lista de palavras
-- palavra atual
-- estado de reprodução
-- sincronização entre áudio e texto
-
-```ts
-currentWordIndex = signal(0);
-isPlaying = signal(false);
-```
-
-### 3. `ReaderComponent`
-
-Responsável por:
-
-- renderizar palavras
-- aplicar highlight
-- scroll automático
-- expor a UI de controle
-
-## Tokenização
-
-```ts
-function tokenize(text: string): string[] {
-  return text.split(/\s+/);
-}
-```
-
-## Renderização
-
-```html
-<div class="reader">
-  <span
-    *ngFor="let word of words; let i = index"
-    [class.active]="i === currentWordIndex()"
-    #wordEl
-  >
-    {{ word }}
-  </span>
-</div>
-```
-
-## Highlight sincronizado
-
-Estratégia:
-
-- usar timestamps do HeadTTS
-- mapear fonemas para palavras
-
-```ts
-function mapPhonemesToWords(phonemes, words) {
-  // agrupar fonemas por palavra
-}
-```
-
-## Loop de sincronização
-
-```ts
-function sync(audio: HTMLAudioElement) {
-  function loop() {
-    const currentTime = audio.currentTime;
-
-    updateCurrentWord(currentTime);
-
-    requestAnimationFrame(loop);
-  }
-
-  loop();
-}
-```
-
-## Auto scroll
-
-```ts
-activeElement.scrollIntoView({
-  behavior: 'smooth',
-  block: 'center'
-});
-```
-
-## Controles
-
-- play
-- pause
-- resume
-- stop
-- velocidade entre `0.75x` e `1.5x`
-
-## Performance
-
-- `ChangeDetectionStrategy.OnPush`
-- Signals no lugar de RxJS para o estado central
-- evitar re-render completo
-- atualizar apenas a palavra ativa
-
-## Fallback
-
-Se o HeadTTS falhar:
-
-```ts
-speechSynthesis.speak(
-  new SpeechSynthesisUtterance(text)
-);
-```
-
-## UX
-
-Experiência inspirada em Speechify:
-
-- palavra atual com destaque
-- underline ou background na palavra ativa
-- leitura fluida
-- scroll automático
-- layout limpo tipo Medium
-
-## Desafios
-
-- carregamento do modelo com feedback de loading
-- sincronização precisa de fonema para palavra
-- textos grandes
-- performance em tempo real
-
-## Diferenciais opcionais
-
-- highlight progressivo em estilo karaokê
-- clicar para pular para um trecho
-- salvar progresso
-- dark mode
-
-## Entrega esperada
-
-- `TtsEngineAdapter` completo
-- `ReadingSessionService` funcional
-- `ReaderComponent` pronto
-- exemplo funcional rodando

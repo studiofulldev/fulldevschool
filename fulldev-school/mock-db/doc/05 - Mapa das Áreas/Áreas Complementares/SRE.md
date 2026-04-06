@@ -1,51 +1,51 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-SRE Ã© a Ã¡rea que foca em confiabilidade, disponibilidade e operaÃ§Ã£o escalÃ¡vel de sistemas.
+SRE é a área que foca em confiabilidade, disponibilidade e operação escalável de sistemas.
 
 ## O que essa pessoa faz
 
-VocÃª monitora serviÃ§o, reduz incidente, automatiza operaÃ§Ã£o e melhora estabilidade.
+Você monitora serviço, reduz incidente, automatiza operação e melhora estabilidade.
 
 ## Exemplo real
 
-Criar alertas, acompanhar erro e reduzir tempo de recuperaÃ§Ã£o.
+Criar alertas, acompanhar erro e reduzir tempo de recuperação.
 
 ## Ferramentas comuns
 
 - observabilidade
-- automaÃ§Ã£o
+- automação
 - cloud
 - incident management
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de sistemas, operaÃ§Ã£o, confiabilidade e automaÃ§Ã£o.
+Pode combinar com você se você gosta de sistemas, operação, confiabilidade e automação.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s: forte impacto tÃ©cnico.
-Contras: entrada geralmente nÃ£o Ã© das mais simples.
+Prós: forte impacto técnico.
+Contras: entrada geralmente não é das mais simples.
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-Exige boa base em infraestrutura e operaÃ§Ã£o.
+Exige boa base em infraestrutura e operação.
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
-Fortalecer Linux, redes, monitoramento e automaÃ§Ã£o.
+Fortalecer Linux, redes, monitoramento e automação.
 
 ## Primeiro projeto sugerido
 
-Monitoramento bÃ¡sico de aplicaÃ§Ã£o simples com alertas.
+Monitoramento básico de aplicação simples com alertas.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 92% | DefiniÃ§Ã£o estÃ¡vel. |
-| Como comeÃ§ar | Diretriz editorial | 83% | Entrada mais exigente. |
+| O que é | Uso comum da área | 92% | Definição estável. |
+| Como começar | Diretriz editorial | 83% | Entrada mais exigente. |
 
 ## Bibliografia
 
@@ -60,7 +60,7 @@ Monitoramento bÃ¡sico de aplicaÃ§Ã£o simples com alertas.
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

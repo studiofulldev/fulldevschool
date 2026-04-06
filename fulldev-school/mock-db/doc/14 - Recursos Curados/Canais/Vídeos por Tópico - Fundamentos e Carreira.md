@@ -1,11 +1,11 @@
-## ConteÃºdo
+## Conteúdo
 
-## ComeÃ§o na Ã¡rea
+## Começo na área
 
 - Base conceitual:
   https://roadmap.sh/
-- Apoio em portuguÃªs:
-  vÃ­deos e cursos em portuguÃªs selecionados pela curadoria editorial do guia
+- Apoio em português:
+  vídeos e cursos em português selecionados pela curadoria editorial do guia
 - Comunidade em destaque no guia:
   https://fulldev.com.br
 
@@ -15,8 +15,8 @@
   https://edu.gcfglobal.org/en/computerbasics/
 - Base documental:
   https://edu.gcfglobal.org/en/internetbasics/
-- Apoio em portuguÃªs:
-  vÃ­deos e cursos em portuguÃªs selecionados pela curadoria editorial do guia
+- Apoio em português:
+  vídeos e cursos em português selecionados pela curadoria editorial do guia
 
 ## Fundamentos de tecnologia
 
@@ -30,49 +30,49 @@
   https://www.mongodb.com/resources/basics/databases/databases
 - Cloud:
   https://aws.amazon.com/what-is-cloud-computing/
-- Apoio em portuguÃªs:
-  [[VÃ­deos por TÃ³pico - Base Web e Backend|VÃ­deos por TÃ³pico - Base Web e Backend]]
+- Apoio em português:
+  [[Vídeos por Tópico - Base Web e Backend|Vídeos por Tópico - Base Web e Backend]]
 
 ## Como aprender
 
 - Aprendizagem e pesquisa:
   https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Soft_skills/Learning_and_getting_help
-- Guia base de prÃ¡tica:
+- Guia base de prática:
   https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web
-- Apoio em portuguÃªs:
-  vÃ­deos e cursos em portuguÃªs selecionados pela curadoria editorial do guia
+- Apoio em português:
+  vídeos e cursos em português selecionados pela curadoria editorial do guia
 
-## Projetos e portfÃ³lio
+## Projetos e portfólio
 
 - GitHub Docs:
   https://docs.github.com/
 - Escrita de README:
   https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
 - Apoio complementar:
-  [[../Ãndice - Recursos Curados|15 - Recursos Curados]]
+  [[../Índice - Recursos Curados|15 - Recursos Curados]]
 
 ## Mercado de trabalho
 
-- Panorama de ocupaÃ§Ãµes:
+- Panorama de ocupações:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
-- PresenÃ§a profissional e GitHub:
+- Presença profissional e GitHub:
   https://docs.github.com/
 - Comunidade e networking:
   https://fulldev.com.br
 
 ## Como usar esta nota
 
-- use a documentaÃ§Ã£o para validar conceito
-- use os recursos curados do guia para descobrir vÃ­deos e canais em portuguÃªs por tema
+- use a documentação para validar conceito
+- use os recursos curados do guia para descobrir vídeos e canais em português por tema
 - use esta nota como ponte entre a etapa do guia e o material complementar
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| SeleÃ§Ã£o de tÃ³picos | Estrutura do guia e PRD | 97% | Totalmente coerente com o guia. |
-| SeleÃ§Ã£o de bases oficiais | MDN, GitHub Docs, AWS, MongoDB, BLS e GCFGlobal | 98% | Fontes fortes e estÃ¡veis. |
-| ReferÃªncia de vÃ­deos e canais em portuguÃªs | curadoria editorial do guia | 90% | Boa cobertura, sujeita a atualizaÃ§Ã£o. |
+| Seleção de tópicos | Estrutura do guia e PRD | 97% | Totalmente coerente com o guia. |
+| Seleção de bases oficiais | MDN, GitHub Docs, AWS, MongoDB, BLS e GCFGlobal | 98% | Fontes fortes e estáveis. |
+| Referência de vídeos e canais em português | curadoria editorial do guia | 90% | Boa cobertura, sujeita a atualização. |
 
 ## Bibliografia
 
@@ -88,9 +88,9 @@
 
 ### Mapeamento de fontes por assunto
 
-- vÃ­deos, cursos e canais em portuguÃªs:
-  curadoria editorial do prÃ³prio guia
-- web, internet e documentaÃ§Ã£o tÃ©cnica:
+- vídeos, cursos e canais em português:
+  curadoria editorial do próprio guia
+- web, internet e documentação técnica:
   https://developer.mozilla.org/
 - projetos, Git e GitHub:
   https://docs.github.com/
@@ -101,7 +101,7 @@
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

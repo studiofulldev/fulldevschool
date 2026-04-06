@@ -1,51 +1,51 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-Te levar da base de UX/UI atÃ© um pequeno portfÃ³lio inicial com telas e justificativa.
+Te levar da base de UX/UI até um pequeno portfólio inicial com telas e justificativa.
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
-- curiosidade por interface e experiÃªncia
+- curiosidade por interface e experiência
 
 ## Ordem sugerida
 
 1. fundamentos de UX e UI
 2. Figma
 3. fluxo e wireframe
-4. protÃ³tipo simples
+4. protótipo simples
 5. redesign com justificativa
 
 ## Ferramentas
 
 - Figma
-- referÃªncias visuais
+- referências visuais
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
 - redesign de tela
 - fluxo de cadastro
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
-Avance quando vocÃª conseguir explicar decisÃµes alÃ©m da estÃ©tica.
+Avance quando você conseguir explicar decisões além da estética.
 
 ## Erros comuns
 
-- focar sÃ³ no visual
-- ignorar problema do usuÃ¡rio
+- focar só no visual
+- ignorar problema do usuário
 
 ## Recursos complementares
 
 - Nielsen Norman Group
 - Figma Learn
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Ordem sugerida | Boas prÃ¡ticas comuns de UX/UI | 90% | SequÃªncia plausÃ­vel. |
-| Projetos iniciais | Diretriz editorial | 87% | Bons para portfÃ³lio inicial. |
+| Ordem sugerida | Boas práticas comuns de UX/UI | 90% | Sequência plausível. |
+| Projetos iniciais | Diretriz editorial | 87% | Bons para portfólio inicial. |
 
 ## Bibliografia
 
@@ -63,7 +63,7 @@ Avance quando vocÃª conseguir explicar decisÃµes alÃ©m da estÃ©tica.
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

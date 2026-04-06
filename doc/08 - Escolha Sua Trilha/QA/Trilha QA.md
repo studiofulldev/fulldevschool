@@ -1,51 +1,51 @@
-## ConteÃºdo
+## Conteúdo
 
 ## Objetivo da trilha
 
-Te levar da base de qualidade atÃ© testes estruturados e primeiros cenÃ¡rios automatizÃ¡veis.
+Te levar da base de qualidade até testes estruturados e primeiros cenários automatizáveis.
 
-## PrÃ©-requisitos
+## Pré-requisitos
 
-- noÃ§Ã£o de software e fluxos
+- noção de software e fluxos
 
 ## Ordem sugerida
 
 1. entender tipos de teste
-2. praticar cenÃ¡rios
+2. praticar cenários
 3. registrar bug
 4. testar API
-5. entrar em automaÃ§Ã£o depois
+5. entrar em automação depois
 
 ## Ferramentas
 
 - Postman
 - planilha ou ferramenta de chamados
 
-## ExercÃ­cios e projetos
+## Exercícios e projetos
 
 - plano de testes
 - registro de bugs
 
-## CritÃ©rio para avanÃ§ar
+## Critério para avançar
 
-Avance quando vocÃª conseguir testar com mÃ©todo e explicar risco e cobertura.
+Avance quando você conseguir testar com método e explicar risco e cobertura.
 
 ## Erros comuns
 
-- testar sem critÃ©rio
-- achar que QA Ã© sÃ³ clicar
+- testar sem critério
+- achar que QA é só clicar
 
 ## Recursos complementares
 
 - Ministry of Testing
 - Postman Learning Center
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Ordem sugerida | PrÃ¡tica comum de QA | 91% | SequÃªncia plausÃ­vel. |
-| Projetos iniciais | Diretriz editorial | 88% | Muito Ãºteis para comeÃ§ar. |
+| Ordem sugerida | Prática comum de QA | 91% | Sequência plausível. |
+| Projetos iniciais | Diretriz editorial | 88% | Muito úteis para começar. |
 
 ## Bibliografia
 
@@ -63,7 +63,7 @@ Avance quando vocÃª conseguir testar com mÃ©todo e explicar risco e cobertur
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

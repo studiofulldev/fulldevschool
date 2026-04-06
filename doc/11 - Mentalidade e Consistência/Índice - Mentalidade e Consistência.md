@@ -1,80 +1,80 @@
-## ConteÃºdo
+## Conteúdo
 
-Entrar em tecnologia nÃ£o testa sÃ³ a sua capacidade de aprender.
+Entrar em tecnologia não testa só a sua capacidade de aprender.
 
-TambÃ©m testa a sua capacidade de continuar.
+Também testa a sua capacidade de continuar.
 
-## FrustraÃ§Ã£o faz parte
+## Frustração faz parte
 
-VocÃª vai errar.
+Você vai errar.
 
-Vai demorar mais do que queria em vÃ¡rias coisas.
+Vai demorar mais do que queria em várias coisas.
 
 Vai ter dia em que parece que nada entrou.
 
-Isso nÃ£o significa que vocÃª nÃ£o serve para a Ã¡rea.
+Isso não significa que você não serve para a área.
 
-Significa que vocÃª estÃ¡ em processo.
+Significa que você está em processo.
 
-## ConstÃ¢ncia vale mais do que explosÃ£o
+## Constância vale mais do que explosão
 
-Uma rotina menor, mas repetida, costuma funcionar melhor do que ciclos de exagero e sumiÃ§o.
+Uma rotina menor, mas repetida, costuma funcionar melhor do que ciclos de exagero e sumiço.
 
-Se vocÃª mantÃ©m continuidade, o acÃºmulo aparece.
+Se você mantém continuidade, o acúmulo aparece.
 
-## SÃ­ndrome do impostor
+## Síndrome do impostor
 
-No comeÃ§o, Ã© comum sentir:
+No começo, é comum sentir:
 
 - que todo mundo sabe mais
-- que vocÃª estÃ¡ atrasado
-- que sÃ³ vocÃª estÃ¡ confuso
+- que você está atrasado
+- que só você está confuso
 
-Quase sempre isso Ã© uma leitura distorcida.
+Quase sempre isso é uma leitura distorcida.
 
-VocÃª estÃ¡ comparando seu bastidor com a vitrine dos outros.
+Você está comparando seu bastidor com a vitrine dos outros.
 
-## ComparaÃ§Ã£o
+## Comparação
 
-Comparar demais corrÃ³i energia que poderia virar prÃ¡tica.
+Comparar demais corrói energia que poderia virar prática.
 
-Uma comparaÃ§Ã£o Ãºtil Ã©:
+Uma comparação útil é:
 
-- eu estou mais claro do que hÃ¡ um mÃªs?
+- eu estou mais claro do que há um mês?
 - eu consigo fazer mais do que antes?
 
 ## Expectativas reais
 
-Expectativa saudÃ¡vel nÃ£o Ã© pessimismo.
+Expectativa saudável não é pessimismo.
 
-Ã‰ parar de exigir velocidade cinematogrÃ¡fica.
+�0 parar de exigir velocidade cinematográfica.
 
-VocÃª nÃ£o precisa provar seu valor em uma semana.
+Você não precisa provar seu valor em uma semana.
 
-VocÃª precisa sustentar um processo razoÃ¡vel.
+Você precisa sustentar um processo razoável.
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha clareza sobre:
+Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
-1. frustraÃ§Ã£o nÃ£o Ã© prova de incapacidade
-2. constÃ¢ncia costuma valer mais do que intensidade caÃ³tica
-3. comparaÃ§Ã£o em excesso atrapalha seu progresso
+1. frustração não é prova de incapacidade
+2. constância costuma valer mais do que intensidade caótica
+3. comparação em excesso atrapalha seu progresso
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../12 - Comunidade e Networking/Ãndice - Comunidade e Networking|13 - Comunidade e Networking]]
+[[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
 
-Essa Ã© a etapa em que vocÃª entende como comunidade pode te ajudar a nÃ£o caminhar sozinho.
+Essa é a etapa em que você entende como comunidade pode te ajudar a não caminhar sozinho.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
-### ConsistÃªncia e expectativa real
+### Consistência e expectativa real
 
 - Apoio principal:
-  [[../04 - Como Aprender/Ãndice - Como Aprender|5 - Como Aprender]]
+  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
 - Contexto de mercado:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 
@@ -83,35 +83,35 @@ Essa Ã© a etapa em que vocÃª entende como comunidade pode te ajudar a nÃ£o
 - Comunidade em destaque:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../12 - Comunidade e Networking/Ãndice - Comunidade e Networking|13 - Comunidade e Networking]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+  [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| FrustraÃ§Ã£o faz parte | SÃ­ntese editorial | 86% | Muito plausÃ­vel, mas interpretativa. |
-| ConstÃ¢ncia vale mais do que explosÃ£o | SÃ­ntese editorial | 84% | Diretriz prÃ¡tica forte, sem mÃ©trica fixa. |
-| SÃ­ndrome do impostor | SÃ­ntese editorial | 82% | Ãštil como leitura psicolÃ³gica inicial. |
-| ComparaÃ§Ã£o | SÃ­ntese editorial | 85% | Muito coerente com comportamento comum de iniciantes. |
+| Frustração faz parte | Síntese editorial | 86% | Muito plausível, mas interpretativa. |
+| Constância vale mais do que explosão | Síntese editorial | 84% | Diretriz prática forte, sem métrica fixa. |
+| Síndrome do impostor | Síntese editorial | 82% | �atil como leitura psicológica inicial. |
+| Comparação | Síntese editorial | 85% | Muito coerente com comportamento comum de iniciantes. |
 | Expectativas reais | Diretriz editorial do guia | 92% | Central para a proposta do projeto. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | BLS, FullDev e links internos do vault | 92% | Curadoria de apoio coerente com a etapa. |
+| Referências por tópico e vídeos sugeridos | BLS, FullDev e links internos do vault | 92% | Curadoria de apoio coerente com a etapa. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+1. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Mapeamento de fontes por assunto
 
 - papel desta etapa e tom do guia:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

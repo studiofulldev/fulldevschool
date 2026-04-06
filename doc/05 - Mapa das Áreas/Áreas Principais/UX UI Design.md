@@ -1,12 +1,12 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-UX/UI Design Ã© a Ã¡rea que cuida da experiÃªncia de uso e da interface dos produtos digitais.
+UX/UI Design é a área que cuida da experiência de uso e da interface dos produtos digitais.
 
 ## O que essa pessoa faz
 
-VocÃª pesquisa, organiza fluxo, desenha telas, pensa navegaÃ§Ã£o e melhora clareza para quem usa o produto.
+Você pesquisa, organiza fluxo, desenha telas, pensa navegação e melhora clareza para quem usa o produto.
 
 ## Exemplo real
 
@@ -15,51 +15,51 @@ Redesenhar um fluxo de checkout ou criar a interface de um aplicativo novo.
 ## Ferramentas comuns
 
 - Figma
-- pesquisa com usuÃ¡rio
-- prototipaÃ§Ã£o
+- pesquisa com usuário
+- prototipação
 - design systems
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de interface, comportamento humano, clareza e detalhe visual.
+Pode combinar com você se você gosta de interface, comportamento humano, clareza e detalhe visual.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
-- une visÃ£o de usuÃ¡rio com produto
-- muito impacto na experiÃªncia
+- une visão de usuário com produto
+- muito impacto na experiência
 
 Contras:
 
-- exige argumentaÃ§Ã£o e contexto
-- pode depender de portfÃ³lio visual forte
+- exige argumentação e contexto
+- pode depender de portfólio visual forte
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
-- diferenciar estÃ©tica de experiÃªncia
-- montar portfÃ³lio
-- explicar decisÃ£o de design
+- diferenciar estética de experiência
+- montar portfólio
+- explicar decisão de design
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 1. aprender fundamentos de UX/UI
 2. usar Figma
 3. redesenhar fluxo simples
-4. documentar decisÃµes
+4. documentar decisões
 
 ## Primeiro projeto sugerido
 
-Redesign de uma tela conhecida com justificativa das mudanÃ§as.
+Redesign de uma tela conhecida com justificativa das mudanças.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | Uso comum da Ã¡rea | 93% | DefiniÃ§Ã£o estÃ¡vel. |
+| O que é | Uso comum da área | 93% | Definição estável. |
 | Ferramentas comuns | Ecossistema UX/UI atual | 90% | Ferramentas iniciais comuns. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 84% | Orientativo. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 87% | SequÃªncia plausÃ­vel. |
+| Perfil mais compatível | Síntese editorial | 84% | Orientativo. |
+| Como começar em 30 dias | Diretriz editorial | 87% | Sequência plausível. |
 
 ## Bibliografia
 
@@ -72,12 +72,12 @@ Redesign de uma tela conhecida com justificativa das mudanÃ§as.
 
 - UX e usabilidade:
   https://www.nngroup.com/
-- ferramenta e prototipaÃ§Ã£o:
+- ferramenta e prototipação:
   https://help.figma.com/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

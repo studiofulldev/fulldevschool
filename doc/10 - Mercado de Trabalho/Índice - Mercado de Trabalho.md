@@ -1,195 +1,195 @@
-## ConteÃºdo
+## Conteúdo
 
 Esta etapa existe para te ajudar a fazer a ponte entre estudo e oportunidade.
 
 ## Como funcionam vagas
 
-Vaga nÃ£o Ã© descriÃ§Ã£o perfeita da realidade.
+Vaga não é descrição perfeita da realidade.
 
-Muitas descriÃ§Ãµes misturam:
+Muitas descrições misturam:
 
-- requisitos desejÃ¡veis
+- requisitos desejáveis
 - requisitos essenciais
 - exageros
-- linguagem genÃ©rica
+- linguagem genérica
 
-Por isso, nÃ£o leia vaga como sentenÃ§a final sobre o seu valor.
+Por isso, não leia vaga como sentença final sobre o seu valor.
 
 Leia como sinal de contexto.
 
 ## O que empresas costumam procurar
 
-Na entrada, as empresas costumam observar alguma combinaÃ§Ã£o de:
+Na entrada, as empresas costumam observar alguma combinação de:
 
-- base tÃ©cnica suficiente
+- base técnica suficiente
 - capacidade de aprender
-- clareza na comunicaÃ§Ã£o
-- consistÃªncia
-- projeto ou experiÃªncia prÃ¡tica
+- clareza na comunicação
+- consistência
+- projeto ou experiência prática
 
-## CurrÃ­culo
+## Currículo
 
-Seu currÃ­culo precisa ser claro, limpo e objetivo.
+Seu currículo precisa ser claro, limpo e objetivo.
 
 O essencial:
 
-- quem vocÃª Ã©
-- como entrar em contato com vocÃª
-- o que vocÃª estudou
-- o que vocÃª jÃ¡ construiu
-- links Ãºteis
+- quem você é
+- como entrar em contato com você
+- o que você estudou
+- o que você já construiu
+- links úteis
 
-### Estrutura simples que jÃ¡ resolve
+### Estrutura simples que já resolve
 
 - nome
 - contato
-- tÃ­tulo ou objetivo
+- título ou objetivo
 - resumo curto
 - projetos
-- formaÃ§Ã£o
+- formação
 - cursos relevantes
 - links
 
 ## LinkedIn
 
-LinkedIn nÃ£o Ã© sÃ³ rede social.
+LinkedIn não é só rede social.
 
 Ele funciona como vitrine profissional.
 
-No comeÃ§o, tenha pelo menos:
+No começo, tenha pelo menos:
 
 - foto adequada
-- tÃ­tulo claro
+- título claro
 - resumo simples
-- links para GitHub ou portfÃ³lio
+- links para GitHub ou portfólio
 
-### Exemplo de tÃ­tulo melhor
+### Exemplo de título melhor
 
 Em vez de algo vago, prefira algo como:
 
-- `Desenvolvedor Frontend em formaÃ§Ã£o | HTML, CSS, JavaScript | Projetos no GitHub`
-- `Analista de Dados em formaÃ§Ã£o | SQL, Excel, Power BI | Projetos prÃ¡ticos`
+- `Desenvolvedor Frontend em formação | HTML, CSS, JavaScript | Projetos no GitHub`
+- `Analista de Dados em formação | SQL, Excel, Power BI | Projetos práticos`
 
 ## Entrevistas
 
-Na entrevista, vocÃª nÃ£o precisa parecer saber tudo.
+Na entrevista, você não precisa parecer saber tudo.
 
-VocÃª precisa mostrar:
+Você precisa mostrar:
 
-- raciocÃ­nio
+- raciocínio
 - honestidade
 - vontade de aprender
-- capacidade de explicar o que jÃ¡ fez
+- capacidade de explicar o que já fez
 
-### Perguntas que vocÃª precisa treinar
+### Perguntas que você precisa treinar
 
-- quem Ã© vocÃª hoje?
-- por que escolheu essa Ã¡rea?
-- o que vocÃª jÃ¡ construiu?
-- o que foi difÃ­cil no seu projeto?
-- o que vocÃª estÃ¡ estudando agora?
+- quem é você hoje?
+- por que escolheu essa área?
+- o que você já construiu?
+- o que foi difícil no seu projeto?
+- o que você está estudando agora?
 
 ## Primeiras candidaturas
 
-No comeÃ§o, o ideal Ã© aplicar com volume e critÃ©rio.
+No começo, o ideal é aplicar com volume e critério.
 
 Isso significa:
 
-- nÃ£o esperar estar "100% pronto"
-- nÃ£o aplicar de forma totalmente aleatÃ³ria
-- ajustar currÃ­culo e perfil conforme aprende
+- não esperar estar "100% pronto"
+- não aplicar de forma totalmente aleatória
+- ajustar currículo e perfil conforme aprende
 
-### EstratÃ©gia prÃ¡tica
+### Estratégia prática
 
-- escolha vagas plausÃ­veis
+- escolha vagas plausíveis
 - registre onde aplicou
-- observe padrÃµes de retorno
+- observe padrões de retorno
 - ajuste seus materiais com base nisso
 
-## Sinais de que vocÃª jÃ¡ pode comeÃ§ar a aplicar
+## Sinais de que você já pode começar a aplicar
 
-VocÃª nÃ£o precisa esperar perfeiÃ§Ã£o.
+Você não precisa esperar perfeição.
 
-Mas ajuda quando vocÃª jÃ¡ tem:
+Mas ajuda quando você já tem:
 
-- uma Ã¡rea escolhida
-- um ou dois projetos explicÃ¡veis
+- uma área escolhida
+- um ou dois projetos explicáveis
 - GitHub organizado
-- currÃ­culo minimamente claro
+- currículo minimamente claro
 - LinkedIn coerente
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha clareza sobre:
+Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
-1. como interpretar vaga sem pÃ¢nico
+1. como interpretar vaga sem pânico
 2. como se apresentar melhor profissionalmente
-3. como comeÃ§ar a aplicar sem esperar perfeiÃ§Ã£o
+3. como começar a aplicar sem esperar perfeição
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../11 - Mentalidade e ConsistÃªncia/Ãndice - Mentalidade e ConsistÃªncia|12 - Mentalidade e ConsistÃªncia]]
+[[../11 - Mentalidade e Consistência/Índice - Mentalidade e Consistência|12 - Mentalidade e Consistência]]
 
-Essa Ã© a etapa em que vocÃª fortalece a parte mental do processo.
+Essa é a etapa em que você fortalece a parte mental do processo.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
-### Contexto de mercado e ocupaÃ§Ãµes
+### Contexto de mercado e ocupações
 
 - Base:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 - Apoio complementar:
-  [[../01 - Comece Aqui/Ãndice - Comece Aqui|2 - Comece Aqui]]
+  [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
 
-### GitHub, currÃ­culo e presenÃ§a profissional
+### GitHub, currículo e presença profissional
 
 - Base:
   https://docs.github.com/
 - Comunidade e networking:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Como funcionam vagas | SÃ­ntese editorial baseada em prÃ¡tica comum de recrutamento | 88% | Ãštil, mas contextual. |
-| O que empresas costumam procurar | SÃ­ntese editorial baseada em entrada no mercado | 90% | Muito plausÃ­vel e recorrente. |
-| CurrÃ­culo | Diretriz editorial prÃ¡tica | 91% | OrientaÃ§Ã£o confiÃ¡vel. |
-| Estrutura simples de currÃ­culo | Diretriz editorial prÃ¡tica | 92% | Muito Ãºtil para iniciante. |
-| LinkedIn | Diretriz editorial prÃ¡tica | 90% | Boa recomendaÃ§Ã£o inicial. |
-| Exemplo de tÃ­tulo melhor | Diretriz editorial | 88% | OrientaÃ§Ã£o muito Ãºtil, mas adaptÃ¡vel. |
-| Entrevistas | SÃ­ntese editorial baseada em dinÃ¢mica comum de entrevistas | 87% | NÃ£o cobre todos os formatos. |
-| Perguntas que vocÃª precisa treinar | SÃ­ntese editorial | 89% | Muito coerente com entrevistas iniciais. |
-| Primeiras candidaturas | Diretriz editorial do guia | 89% | Boa estratÃ©gia prÃ¡tica, mas nÃ£o universal. |
-| Sinais de que vocÃª jÃ¡ pode comeÃ§ar a aplicar | SÃ­ntese editorial | 88% | Muito Ãºtil para destravar paralisia. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | BLS, GitHub Docs, FullDev e nota de recursos | 95% | Curadoria Ãºtil para ligar estudo e posicionamento profissional. |
+| Como funcionam vagas | Síntese editorial baseada em prática comum de recrutamento | 88% | �atil, mas contextual. |
+| O que empresas costumam procurar | Síntese editorial baseada em entrada no mercado | 90% | Muito plausível e recorrente. |
+| Currículo | Diretriz editorial prática | 91% | Orientação confiável. |
+| Estrutura simples de currículo | Diretriz editorial prática | 92% | Muito útil para iniciante. |
+| LinkedIn | Diretriz editorial prática | 90% | Boa recomendação inicial. |
+| Exemplo de título melhor | Diretriz editorial | 88% | Orientação muito útil, mas adaptável. |
+| Entrevistas | Síntese editorial baseada em dinâmica comum de entrevistas | 87% | Não cobre todos os formatos. |
+| Perguntas que você precisa treinar | Síntese editorial | 89% | Muito coerente com entrevistas iniciais. |
+| Primeiras candidaturas | Diretriz editorial do guia | 89% | Boa estratégia prática, mas não universal. |
+| Sinais de que você já pode começar a aplicar | Síntese editorial | 88% | Muito útil para destravar paralisia. |
+| Referências por tópico e vídeos sugeridos | BLS, GitHub Docs, FullDev e nota de recursos | 95% | Curadoria útil para ligar estudo e posicionamento profissional. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. GitHub Docs. DisponÃ­vel em: https://docs.github.com/
-2. BLS. *Computer and Information Technology Occupations*. DisponÃ­vel em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
-3. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+1. GitHub Docs. Disponível em: https://docs.github.com/
+2. BLS. *Computer and Information Technology Occupations*. Disponível em: https://www.bls.gov/ooh/computer-and-information-technology/home.htm
+3. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Mapeamento de fontes por assunto
 
 - contexto de mercado:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
-- presenÃ§a tÃ©cnica e projetos:
+- presença técnica e projetos:
   https://docs.github.com/
-- funÃ§Ã£o desta etapa no guia:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+- função desta etapa no guia:
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

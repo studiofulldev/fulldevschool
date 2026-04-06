@@ -1,28 +1,28 @@
-## ConteÃºdo
+## Conteúdo
 
-Esta etapa existe para resolver um dos maiores gargalos de quem estÃ¡ entrando na Ã¡rea:
+Esta etapa existe para resolver um dos maiores gargalos de quem está entrando na área:
 
 estudar sem conseguir mostrar nada.
 
 ## Por que projetos importam
 
-Projeto nÃ£o serve sÃ³ para "encher portfÃ³lio".
+Projeto não serve só para "encher portfólio".
 
 Projeto serve para te obrigar a:
 
 - aplicar o que estudou
 - encontrar erro real
-- tomar decisÃ£o
+- tomar decisão
 - documentar o que fez
-- mostrar evidÃªncia de progresso
+- mostrar evidência de progresso
 
-## O que Ã© um bom primeiro projeto
+## O que é um bom primeiro projeto
 
-Um bom primeiro projeto nÃ£o Ã© o mais ambicioso.
+Um bom primeiro projeto não é o mais ambicioso.
 
-Ã‰ o que vocÃª consegue:
+�0 o que você consegue:
 
-- comeÃ§ar
+- começar
 - terminar
 - explicar
 
@@ -33,11 +33,11 @@ Um bom primeiro projeto nÃ£o Ã© o mais ambicioso.
 - funcional
 - com escopo controlado
 
-### Projeto ruim para comeÃ§ar
+### Projeto ruim para começar
 
 - grande demais
-- genÃ©rico demais
-- copiado sem adaptaÃ§Ã£o
+- genérico demais
+- copiado sem adaptação
 - abandonado na metade
 
 ## Exemplos de bom primeiro projeto por caminho
@@ -46,21 +46,21 @@ Um bom primeiro projeto nÃ£o Ã© o mais ambicioso.
 
 - landing page responsiva
 - lista de tarefas
-- pÃ¡gina consumindo API simples
+- página consumindo API simples
 
 ### Backend
 
 - API de tarefas
-- cadastro simples com autenticaÃ§Ã£o bÃ¡sica
+- cadastro simples com autenticação básica
 
 ### QA
 
-- plano de testes de aplicaÃ§Ã£o pequena
+- plano de testes de aplicação pequena
 - registro estruturado de bugs
 
 ### Dados
 
-- anÃ¡lise exploratÃ³ria com SQL e dashboard
+- análise exploratória com SQL e dashboard
 
 ### UX/UI
 
@@ -68,147 +68,147 @@ Um bom primeiro projeto nÃ£o Ã© o mais ambicioso.
 
 ## Como sair do tutorial
 
-O jeito mais simples de sair do tutorial Ã© este:
+O jeito mais simples de sair do tutorial é este:
 
-1. reproduza uma versÃ£o pequena
+1. reproduza uma versão pequena
 2. altere uma funcionalidade
 3. troque alguma regra
-4. tente explicar o que mudou e por quÃª
+4. tente explicar o que mudou e por quê
 
-Se vocÃª nÃ£o altera nada, ainda estÃ¡ mais perto de reproduÃ§Ã£o do que de projeto.
+Se você não altera nada, ainda está mais perto de reprodução do que de projeto.
 
 ## Como documentar projeto
 
-Mesmo projeto simples fica melhor quando vocÃª registra:
+Mesmo projeto simples fica melhor quando você registra:
 
 - objetivo
 - stack usada
 - o que ele faz
-- o que vocÃª aprendeu
-- prÃ³ximos passos
+- o que você aprendeu
+- próximos passos
 
 ## Como publicar no GitHub
 
-No comeÃ§o, o essencial Ã©:
+No começo, o essencial é:
 
 1. subir o projeto
 2. colocar um `README`
 3. explicar o que ele faz
-4. deixar o repositÃ³rio organizado
+4. deixar o repositório organizado
 
-Se possÃ­vel, inclua tambÃ©m:
+Se possível, inclua também:
 
 - screenshot
-- instruÃ§Ãµes de uso
+- instruções de uso
 - tecnologias usadas
-- limitaÃ§Ãµes atuais
+- limitações atuais
 
-## Como montar portfÃ³lio
+## Como montar portfólio
 
-VocÃª nÃ£o precisa de dez projetos.
+Você não precisa de dez projetos.
 
-Ã‰ melhor ter:
+�0 melhor ter:
 
 - poucos projetos
 - com contexto
 - com clareza
-- com progressÃ£o
+- com progressão
 
-Uma estrutura simples de portfÃ³lio funciona melhor quando cada projeto mostra:
+Uma estrutura simples de portfólio funciona melhor quando cada projeto mostra:
 
 - o problema
-- a soluÃ§Ã£o
-- o que vocÃª usou
-- o que vocÃª aprendeu
+- a solução
+- o que você usou
+- o que você aprendeu
 - o que faria depois
 
 ## O que evitar
 
 - projeto copiado sem entender
-- layout bonito com lÃ³gica inexistente
-- repositÃ³rio sem explicaÃ§Ã£o
+- layout bonito com lógica inexistente
+- repositório sem explicação
 - link quebrado
-- projeto que vocÃª nÃ£o consegue explicar
+- projeto que você não consegue explicar
 
-## CritÃ©rio prÃ¡tico para saber se um projeto estÃ¡ bom o suficiente
+## Critério prático para saber se um projeto está bom o suficiente
 
-Seu projeto inicial estÃ¡ bom o suficiente quando vocÃª consegue:
+Seu projeto inicial está bom o suficiente quando você consegue:
 
 1. explicar o objetivo em poucas frases
 2. mostrar o que funciona
-3. dizer o que foi mais difÃ­cil
-4. apontar o prÃ³ximo passo
+3. dizer o que foi mais difícil
+4. apontar o próximo passo
 
-Se vocÃª consegue fazer isso, ele jÃ¡ tem valor.
+Se você consegue fazer isso, ele já tem valor.
 
-## O que vocÃª deve sair sabendo ao terminar esta etapa
+## O que você deve sair sabendo ao terminar esta etapa
 
-Ao concluir esta pÃ¡gina, o ideal Ã© que vocÃª tenha clareza sobre:
+Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
 1. como escolher um bom projeto inicial
-2. como documentar melhor o que vocÃª faz
-3. como transformar estudo em evidÃªncia prÃ¡tica
+2. como documentar melhor o que você faz
+3. como transformar estudo em evidência prática
 
-## PrÃ³xima aÃ§Ã£o prÃ¡tica
+## Próxima ação prática
 
 Siga para:
 
-[[../10 - Mercado de Trabalho/Ãndice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+[[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
 
-Essa Ã© a etapa em que vocÃª aprende a transformar prÃ¡tica em posicionamento profissional.
+Essa é a etapa em que você aprende a transformar prática em posicionamento profissional.
 
-## ReferÃªncias por tÃ³pico e vÃ­deos sugeridos
+## Referências por tópico e vídeos sugeridos
 
-### PublicaÃ§Ã£o de projetos e README
+### Publicação de projetos e README
 
 - Base:
   https://docs.github.com/
 - Base:
   https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
 - Apoio complementar:
-  [[../14 - Recursos Curados/Canais/VÃ­deos por TÃ³pico - Fundamentos e Carreira|VÃ­deos por TÃ³pico - Fundamentos e Carreira]]
+  [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 
-### Ideias de projeto por Ã¡rea
+### Ideias de projeto por área
 
 - Roadmaps:
   https://roadmap.sh/
-- Apoio em portuguÃªs:
-  [[../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
-- ReferÃªncia visual:
-  [[../14 - Recursos Curados/Canais/ReferÃªncias Visuais - Memes e Cultura de Internet|ReferÃªncias Visuais - Memes e Cultura de Internet]]
+- Apoio em português:
+  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+- Referência visual:
+  [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| Por que projetos importam | SÃ­ntese editorial baseada em prÃ¡tica comum da Ã¡rea | 92% | Muito coerente com a realidade de entrada. |
-| O que Ã© um bom primeiro projeto | SÃ­ntese editorial | 87% | Ãštil, mas interpretativo. |
-| Exemplos por caminho | SÃ­ntese editorial alinhada Ã s trilhas do guia | 89% | Muito Ãºteis para inÃ­cio. |
-| Como sair do tutorial | SÃ­ntese editorial baseada em prÃ¡tica real | 90% | OrientaÃ§Ã£o forte e prÃ¡tica. |
-| Como documentar projeto | GitHub Docs e boas prÃ¡ticas editoriais | 94% | Forte como orientaÃ§Ã£o prÃ¡tica. |
-| Como publicar no GitHub | GitHub Docs | 97% | Bem sustentado por documentaÃ§Ã£o. |
-| Como montar portfÃ³lio | SÃ­ntese editorial | 86% | Boa diretriz, mas nÃ£o regra rÃ­gida. |
-| O que evitar | SÃ­ntese editorial | 88% | Muito Ãºtil como filtro prÃ¡tico. |
-| CritÃ©rio prÃ¡tico de projeto bom o suficiente | SÃ­ntese editorial | 89% | Muito Ãºtil para destravar perfeccionismo. |
-| ReferÃªncias por tÃ³pico e vÃ­deos sugeridos | GitHub Docs, roadmap.sh e nota central de recursos | 96% | Curadoria forte para transformar estudo em evidÃªncia. |
+| Por que projetos importam | Síntese editorial baseada em prática comum da área | 92% | Muito coerente com a realidade de entrada. |
+| O que é um bom primeiro projeto | Síntese editorial | 87% | �atil, mas interpretativo. |
+| Exemplos por caminho | Síntese editorial alinhada às trilhas do guia | 89% | Muito úteis para início. |
+| Como sair do tutorial | Síntese editorial baseada em prática real | 90% | Orientação forte e prática. |
+| Como documentar projeto | GitHub Docs e boas práticas editoriais | 94% | Forte como orientação prática. |
+| Como publicar no GitHub | GitHub Docs | 97% | Bem sustentado por documentação. |
+| Como montar portfólio | Síntese editorial | 86% | Boa diretriz, mas não regra rígida. |
+| O que evitar | Síntese editorial | 88% | Muito útil como filtro prático. |
+| Critério prático de projeto bom o suficiente | Síntese editorial | 89% | Muito útil para destravar perfeccionismo. |
+| Referências por tópico e vídeos sugeridos | GitHub Docs, roadmap.sh e nota central de recursos | 96% | Curadoria forte para transformar estudo em evidência. |
 
 ## Bibliografia
 
 ### Fontes principais desta nota
 
-1. GitHub Docs. DisponÃ­vel em: https://docs.github.com/
-2. PRD interno do projeto. `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+1. GitHub Docs. Disponível em: https://docs.github.com/
+2. PRD interno do projeto. `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Mapeamento de fontes por assunto
 
-- publicaÃ§Ã£o, escrita e organizaÃ§Ã£o de projetos:
+- publicação, escrita e organização de projetos:
   https://docs.github.com/
-- funÃ§Ã£o da etapa no guia:
-  `PRD â€” Guia de Entrada na Ãrea de Tecnologia (Obsidian).md`
+- função da etapa no guia:
+  `PRD � Guia de Entrada na Área de Tecnologia (Obsidian).md`
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 

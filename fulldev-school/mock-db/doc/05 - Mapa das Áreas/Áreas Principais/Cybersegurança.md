@@ -1,16 +1,16 @@
-## ConteÃºdo
+## Conteúdo
 
-## O que Ã©
+## O que é
 
-CyberseguranÃ§a Ã© a Ã¡rea que protege sistemas, dados, acessos e infraestrutura contra risco e ataque.
+Cybersegurança é a área que protege sistemas, dados, acessos e infraestrutura contra risco e ataque.
 
 ## O que essa pessoa faz
 
-VocÃª analisa vulnerabilidade, monitora risco, investiga incidente e ajuda a fortalecer seguranÃ§a.
+Você analisa vulnerabilidade, monitora risco, investiga incidente e ajuda a fortalecer segurança.
 
 ## Exemplo real
 
-Revisar permissÃµes, detectar comportamento suspeito ou validar exposiÃ§Ã£o de um sistema.
+Revisar permissões, detectar comportamento suspeito ou validar exposição de um sistema.
 
 ## Ferramentas comuns
 
@@ -18,49 +18,49 @@ Revisar permissÃµes, detectar comportamento suspeito ou validar exposiÃ§Ã£
 - Linux
 - logs
 - SIEM
-- seguranÃ§a ofensiva e defensiva
+- segurança ofensiva e defensiva
 
-## Perfil mais compatÃ­vel
+## Perfil mais compatível
 
-Pode combinar com vocÃª se vocÃª gosta de investigaÃ§Ã£o, detalhe tÃ©cnico, risco e proteÃ§Ã£o.
+Pode combinar com você se você gosta de investigação, detalhe técnico, risco e proteção.
 
-## PrÃ³s e contras
+## Prós e contras
 
-PrÃ³s:
+Prós:
 
-- Ã¡rea estratÃ©gica
-- forte relevÃ¢ncia de mercado
+- área estratégica
+- forte relevância de mercado
 
 Contras:
 
 - entrada costuma exigir base maior
 - alto volume de fundamentos
 
-## Dificuldades do inÃ­cio
+## Dificuldades do início
 
 - entender redes e sistemas
-- nÃ£o cair em fantasia de "hacker de filme"
-- montar base sÃ©ria antes de especializar
+- não cair em fantasia de "hacker de filme"
+- montar base séria antes de especializar
 
-## Como comeÃ§ar em 30 dias
+## Como começar em 30 dias
 
 1. fortalecer redes e Linux
-2. estudar fundamentos de seguranÃ§a
-3. entender superfÃ­cies de ataque
+2. estudar fundamentos de segurança
+3. entender superfícies de ataque
 4. praticar em ambiente seguro e educativo
 
 ## Primeiro projeto sugerido
 
-Checklist simples de seguranÃ§a para ambiente de estudo e documentaÃ§Ã£o de riscos encontrados.
+Checklist simples de segurança para ambiente de estudo e documentação de riscos encontrados.
 
-## VerificaÃ§Ã£o por tÃ³pico
+## Verificação por tópico
 
-| TÃ³pico | Base usada | Taxa de assertividade | ObservaÃ§Ã£o |
+| Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
-| O que Ã© | roadmap.sh Cyber Security | 95% | DefiniÃ§Ã£o forte. |
-| Ferramentas comuns | Ecossistema da Ã¡rea | 90% | Ferramentas recorrentes. |
-| Perfil mais compatÃ­vel | SÃ­ntese editorial | 83% | Orientativo. |
-| Como comeÃ§ar em 30 dias | Diretriz editorial | 84% | SequÃªncia inicial prudente. |
+| O que é | roadmap.sh Cyber Security | 95% | Definição forte. |
+| Ferramentas comuns | Ecossistema da área | 90% | Ferramentas recorrentes. |
+| Perfil mais compatível | Síntese editorial | 83% | Orientativo. |
+| Como começar em 30 dias | Diretriz editorial | 84% | Sequência inicial prudente. |
 
 ## Bibliografia
 
@@ -71,14 +71,14 @@ Checklist simples de seguranÃ§a para ambiente de estudo e documentaÃ§Ã£o d
 
 ### Mapeamento de fontes por assunto
 
-- trilha de seguranÃ§a:
+- trilha de segurança:
   https://roadmap.sh/cyber-security
-- boas prÃ¡ticas de seguranÃ§a:
+- boas práticas de segurança:
   https://owasp.org/
 
 ### Como interpretar a taxa de assertividade
 
-- `95% a 100%`: informaÃ§Ã£o diretamente sustentada por documentaÃ§Ã£o ou dado forte.
-- `85% a 94%`: sÃ­ntese confiÃ¡vel, mas com algum grau de generalizaÃ§Ã£o editorial.
-- `70% a 84%`: orientaÃ§Ã£o Ãºtil, porÃ©m mais interpretativa e dependente de contexto.
+- `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
+- `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
+- `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 
