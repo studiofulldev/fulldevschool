@@ -57,12 +57,15 @@ Avance quando você entender o fluxo de build, deploy e ambiente.
 
 - Roadmap:
   https://roadmap.sh/docker
-- Vídeo:
+- Opção 1:
   Curso de Docker para iniciantes, com Matheus Battisti
   https://www.youtube.com/watch?ab_channel=MatheusBattisti-HoradeCodar&t=1s&v=np_vyd7QlXk
-- Vídeo complementar:
+- Opção 2:
   Curso Completo de Docker, da Kipper Dev
   https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
+- Opção 3:
+  referências adicionais de Docker no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### Cloud
 
@@ -77,7 +80,7 @@ Avance quando você entender o fluxo de build, deploy e ambiente.
 | --- | --- | --- | --- |
 | Ordem sugerida | Roadmap DevOps | 94% | Sequência muito comum. |
 | Projetos iniciais | Diretriz editorial | 86% | Bons para começo. |
-| Tópicos do roadmap e vídeos sugeridos | roadmap.sh e curadoria de vídeos | 90% | Boa didática para início. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, AWS, YouTube e curadoria de vídeos | 91% | Boa didática para início com mais de uma opção por assunto. |
 
 ## Bibliografia
 

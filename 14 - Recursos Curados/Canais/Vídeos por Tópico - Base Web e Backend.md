@@ -12,18 +12,24 @@
 
 - Roadmap:
   https://roadmap.sh/react
-- Vídeo:
+- Opção 1:
   React em 1h, com Mayk Brito
   https://www.youtube.com/watch?ab_channel=MaykBrito&v=K65wUN-2no4
+- Opção 2:
+  Curso de React para Iniciantes, no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ## TypeScript
 
 - Roadmap:
   https://roadmap.sh/typescript
-- Vídeo:
+- Opção 1:
   TypeScript - Zero to Hero | O que é TypeScript? #01
   https://www.youtube.com/watch?ab_channel=GlauciaLemos&list=PLb2HQ45KP0Wsk-p_0c6ImqBAEFEY-LU9H&v=u7K1sdnCv5Y
-- Vídeo complementar:
+- Opção 2:
+  TypeScript #001 - Bem-vindos ao TypeScript, com João Ribeiro
+  https://www.youtube.com/watch?ab_channel=Jo%C3%A3oRibeiro&list=PLXik_5Br-zO9SEz-3tuy1UIcU6X0GZo4i&v=DF9jY0ITt3Q
+- Opção 3:
   Curso de Typescript para Iniciantes, da Kipper Dev
   https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
 
@@ -31,28 +37,37 @@
 
 - Roadmap:
   https://roadmap.sh/nodejs
-- Vídeo:
+- Opção 1:
   COMEÇANDO COM NODE.JS EM 2022, com Rocketseat
   https://www.youtube.com/watch?ab_channel=Rocketseat&t=1s&v=fm4_EuCsQwg
+- Opção 2:
+  Curso de Node.js, no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ## SQL
 
 - Roadmap:
   https://roadmap.sh/sql
-- Vídeo:
+- Opção 1:
   Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
   https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
+- Opção 2:
+  Cursos e trilhas de SQL, no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ## Docker
 
 - Roadmap:
   https://roadmap.sh/docker
-- Vídeo:
+- Opção 1:
   Curso de Docker para iniciantes, com Matheus Battisti
   https://www.youtube.com/watch?ab_channel=MatheusBattisti-HoradeCodar&t=1s&v=np_vyd7QlXk
-- Vídeo complementar:
+- Opção 2:
   Curso Completo de Docker, da Kipper Dev
   https://fernandakipper.com/cursos/curso-completo-de-docker-conteinerizando-sua-aplicacao
+- Opção 3:
+  Cursos e referências de Docker, no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ## Git e GitHub
 
@@ -68,13 +83,14 @@
 - use roadmap para saber a ordem
 - use documentação para confirmar conceito
 - use vídeo para ganhar contexto e didática
+- prefira comparar pelo menos duas explicações quando um tópico parecer confuso
 
 ## Verificação por tópico
 
 | Tópico | Base usada | Taxa de assertividade | Observação |
 | --- | --- | --- | --- |
 | Seleção de tópicos | roadmap.sh e trilhas do vault | 95% | Muito alinhado ao guia. |
-| Seleção de vídeos | guiaDevBrasil, Kipper Dev e curadoria editorial | 88% | Curadoria prática, sujeita a atualização. |
+| Seleção de vídeos | guiaDevBrasil, YouTube, Kipper Dev e curadoria editorial | 89% | Curadoria prática com mais de uma opção por tópico. |
 | Como usar esta nota | Diretriz editorial | 94% | Forte e consistente com o projeto. |
 
 ## Bibliografia
@@ -84,6 +100,7 @@
 1. roadmap.sh. https://roadmap.sh/
 2. guiaDevBrasil. https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 3. Kipper Dev. https://fernandakipper.com/
+4. YouTube. https://www.youtube.com/
 
 ### Mapeamento de fontes por assunto
 
@@ -91,6 +108,8 @@
   https://roadmap.sh/
 - vídeos e canais citados:
   https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+- vídeos em português pesquisados:
+  https://www.youtube.com/
 - cursos da Fernanda Kipper:
   https://fernandakipper.com/
 

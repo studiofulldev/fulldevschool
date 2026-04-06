@@ -65,17 +65,23 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
 
 - Roadmap:
   https://roadmap.sh/nodejs
-- Vídeo:
+- Opção 1:
   COMEÇANDO COM NODE.JS EM 2022, com Rocketseat
   https://www.youtube.com/watch?ab_channel=Rocketseat&t=1s&v=fm4_EuCsQwg
+- Opção 2:
+  referências adicionais de Node.js no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### TypeScript no backend
 
 - Roadmap:
   https://roadmap.sh/typescript
-- Vídeo:
+- Opção 1:
   Curso de Typescript para Iniciantes, da Kipper Dev
   https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
+- Opção 2:
+  TypeScript #001 - Bem-vindos ao TypeScript, com João Ribeiro
+  https://www.youtube.com/watch?ab_channel=Jo%C3%A3oRibeiro&list=PLXik_5Br-zO9SEz-3tuy1UIcU6X0GZo4i&v=DF9jY0ITt3Q
 
 ### Git e GitHub
 
@@ -86,9 +92,12 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
 
 ### SQL
 
-- Vídeo:
+- Opção 1:
   Curso SQL Completo 2022 [Iniciantes], com Dev Aprender
   https://www.youtube.com/watch?ab_channel=DevAprender&v=G7bMwefn8RQ
+- Opção 2:
+  referências adicionais de SQL no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ## Verificação por tópico
 
@@ -96,7 +105,7 @@ Avance quando você conseguir criar rota, validar dado e salvar informação sem
 | --- | --- | --- | --- |
 | Ordem sugerida | Roadmap backend | 94% | Sequência muito comum. |
 | Projetos iniciais | Diretriz editorial | 87% | Úteis para começo. |
-| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN e curadoria de vídeos | 90% | Curadoria introdutória forte. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN, YouTube e curadoria de vídeos | 91% | Curadoria introdutória forte com alternativas em português por assunto. |
 
 ## Bibliografia
 

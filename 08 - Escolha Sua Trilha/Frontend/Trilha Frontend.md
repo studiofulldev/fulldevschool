@@ -66,20 +66,26 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
 
 - Roadmap:
   https://roadmap.sh/react
-- Vídeo:
+- Opção 1:
   React em 1h, com Mayk Brito
   https://www.youtube.com/watch?ab_channel=MaykBrito&v=K65wUN-2no4
+- Opção 2:
+  referências adicionais de React no guiaDevBrasil
+  https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
 
 ### TypeScript
 
 - Roadmap:
   https://roadmap.sh/typescript
-- Vídeo:
+- Opção 1:
   TypeScript - Zero to Hero | O que é TypeScript? #01
   https://www.youtube.com/watch?ab_channel=GlauciaLemos&list=PLb2HQ45KP0Wsk-p_0c6ImqBAEFEY-LU9H&v=u7K1sdnCv5Y
-- Vídeo complementar:
+- Opção 2:
   TypeScript #001 - Bem-vindos ao TypeScript
   https://www.youtube.com/watch?ab_channel=Jo%C3%A3oRibeiro&list=PLXik_5Br-zO9SEz-3tuy1UIcU6X0GZo4i&v=DF9jY0ITt3Q
+- Opção 3:
+  Curso de Typescript para Iniciantes, da Kipper Dev
+  https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
 
 ### Projeto prático
 
@@ -92,7 +98,7 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
 | --- | --- | --- | --- |
 | Ordem sugerida | MDN e roadmap frontend | 95% | Sequência muito usada. |
 | Exercícios e projetos | Diretriz editorial | 88% | Projetos plausíveis e úteis. |
-| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN e curadoria de vídeos do guiaDevBrasil | 90% | Curadoria voltada para didática inicial. |
+| Tópicos do roadmap e vídeos sugeridos | roadmap.sh, MDN, YouTube e curadoria de vídeos do guiaDevBrasil | 91% | Curadoria voltada para didática inicial com mais de uma opção por assunto. |
 
 ## Bibliografia
 
@@ -102,6 +108,8 @@ Avance quando você conseguir montar algo simples sem copiar tudo passo a passo.
 2. https://developer.mozilla.org/en-US/docs/Learn
 3. Repositório guiaDevBrasil, seção React e TypeScript:
    https://github.com/arthurspk/guiadevbrasil?tab=readme-ov-file
+4. Kipper Dev TypeScript:
+   https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais
 
 ### Mapeamento de fontes por assunto
 
