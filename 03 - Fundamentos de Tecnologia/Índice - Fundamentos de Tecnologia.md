@@ -1,6 +1,6 @@
 # 4 - Fundamentos de Tecnologia
 
-**Objetivo:** explicar os conceitos-base da área para que o usuário entenda o vocabulário e o funcionamento do ecossistema tech.
+**Objetivo:** te explicar os conceitos-base da área para que você entenda o vocabulário e o funcionamento do ecossistema tech.
 
 **Passo anterior:** [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
 
@@ -12,7 +12,7 @@ Depois de ganhar mais autonomia no computador, o próximo passo é entender os c
 
 Sem isso, a pessoa até consegue seguir tutorial, mas continua perdida no vocabulário.
 
-O objetivo desta etapa é montar um mapa mental simples.
+O objetivo desta etapa é te ajudar a montar um mapa mental simples.
 
 Você não precisa sair daqui dominando tudo.
 

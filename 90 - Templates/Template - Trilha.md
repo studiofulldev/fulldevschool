@@ -1,6 +1,6 @@
 # {{numero-da-etapa}} - Trilha {{nome-da-trilha}}
 
-**Objetivo:** transformar interesse em execução com uma ordem prática de estudo e projetos.
+**Objetivo:** te ajudar a transformar interesse em execução com uma ordem prática de estudo e projetos.
 
 **Passo anterior:** [[caminho-da-nota-anterior|etapa anterior]]
 

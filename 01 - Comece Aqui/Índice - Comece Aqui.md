@@ -1,6 +1,6 @@
 # 2 - Comece Aqui
 
-**Objetivo:** alinhar expectativa, explicar o que é tecnologia e preparar a pessoa para usar o guia sem se perder.
+**Objetivo:** alinhar a sua expectativa, te explicar o que é tecnologia e te preparar para usar o guia sem se perder.
 
 **Passo anterior:** [[../00 - Home/Home|1 - Home]]
 
@@ -35,7 +35,7 @@ As primeiras são:
 - Você sabe estudar sem depender de aleatoriedade?
 - Você sabe diferenciar as áreas sem cair em hype?
 
-Este bloco existe para colocar você no chão certo antes de acelerar.
+Este bloco existe para te colocar no chão certo antes de acelerar.
 
 ## O que é tecnologia, de forma simples
 

@@ -1,6 +1,6 @@
 # {{numero-da-etapa}} - {{nome-da-area}}
 
-**Objetivo:** explicar a área com clareza, mostrar encaixe de perfil e indicar como começar.
+**Objetivo:** te explicar a área com clareza, te mostrar onde ela pode combinar com você e te indicar como começar.
 
 **Passo anterior:** [[caminho-da-nota-anterior|etapa anterior]]
 

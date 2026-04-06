@@ -1,6 +1,6 @@
 # 1 - Home
 
-**Objetivo:** apresentar a visão geral do guia, o objetivo do projeto, a estrutura do vault e a melhor ordem para começar.
+**Objetivo:** te apresentar a visão geral do guia, te mostrar o objetivo do projeto, a estrutura do vault e a melhor ordem para começar.
 
 **Passo anterior:** início do guia.
 
@@ -8,9 +8,9 @@
 
 ## Conteúdo
 
-Este vault é a base do **Guia Dev**, um guia em Obsidian criado para ajudar iniciantes absolutos a entrar na área de tecnologia com mais clareza, menos ruído e um próximo passo bem definido.
+Este vault é a base do **Guia Dev**, um guia em Obsidian criado para te ajudar a entrar na área de tecnologia com mais clareza, menos ruído e um próximo passo bem definido.
 
-O projeto foi estruturado para levar uma pessoa do zero até:
+O projeto foi estruturado para te levar do zero até:
 
 - entender como a área funciona
 - fortalecer base digital
@@ -29,7 +29,7 @@ Muita gente quer entrar em tecnologia, mas começa com:
 - pouca noção das diferenças entre áreas
 - dificuldade para transformar estudo em prática
 
-O objetivo deste guia é reduzir esse caos.
+O objetivo deste guia é te ajudar a atravessar esse caos com mais direção.
 
 ## Proposta de valor
 

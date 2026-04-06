@@ -1,6 +1,6 @@
 # 3 - Fundamentos Digitais
 
-**Objetivo:** dar base operacional para quem ainda usa o computador no básico e precisa ganhar autonomia.
+**Objetivo:** te dar base operacional para que você use melhor o computador e ganhe autonomia para aprender.
 
 **Passo anterior:** [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
 
@@ -21,7 +21,7 @@ Muita gente tenta estudar tecnologia sem dominar coisas simples como:
 
 Quando isso não está sólido, o estudo fica muito mais cansativo do que deveria.
 
-O objetivo aqui não é transformar você em especialista em informática.
+O objetivo aqui não é te transformar em especialista em informática.
 
 É fazer você ganhar a autonomia mínima para aprender sem depender o tempo inteiro de outra pessoa.
 

@@ -1,6 +1,6 @@
 # 5 - Como Aprender
 
-**Objetivo:** ensinar a estudar de forma prática e consistente, evitando estudo passivo e desorganizado.
+**Objetivo:** te ensinar a estudar de forma prática e consistente, evitando estudo passivo e desorganizado.
 
 **Passo anterior:** [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
 
