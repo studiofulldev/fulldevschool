@@ -21,6 +21,10 @@ import { SchoolContentService } from '../data/school-content.service';
           <div>
             <span class="lesson__eyebrow">Fulldev School</span>
             <h1>{{ currentLesson.meta.title }}</h1>
+            <div class="lesson__meta">
+              <span>{{ topicCount() }} tópicos</span>
+              <span>{{ readingTime() }} min de leitura</span>
+            </div>
           </div>
         </header>
 
@@ -110,6 +114,25 @@ import { SchoolContentService } from '../data/school-content.service';
         padding: 0 6px;
         color: var(--fd-soft);
         font-size: var(--fd-text-sm);
+      }
+
+      .lesson__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .lesson__meta span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 0 10px;
+        border: 1px solid var(--fd-border);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--fd-soft);
+        font-size: var(--fd-text-xs);
+        font-weight: 600;
       }
 
       .lesson__breadcrumbs a {
@@ -324,6 +347,18 @@ export class LessonPageComponent {
   );
 
   protected readonly lesson = computed(() => this.lessonResult());
+  protected readonly topicCount = computed(() => this.lesson()?.blocks.length ?? 0);
+  protected readonly readingTime = computed(() => {
+    const markdown = this.lesson()?.markdown ?? '';
+    const words = markdown
+      .replace(/[#>*`\-\[\]\(\)\|]/g, ' ')
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean).length;
+
+    return Math.max(1, Math.ceil(words / 200));
+  });
+
   private async resolveLesson(slug: string | null) {
     if (slug) {
       return this.content.loadLessonBySlug(slug);

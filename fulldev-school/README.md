@@ -14,6 +14,7 @@ Implementação do frontend e da publicação local do guia de tecnologia.
 - a app carrega a árvore em `mock-db/navigation/tree.json`
 - a rota `/` resolve o primeiro documento da árvore
 - a rota `/:slug` abre a página correspondente
+- a primeira etapa editorial aparece na UI como `E HAJA LUZ!`
 - o Markdown é carregado via `HttpClient`
 - cada seção `##` vira um bloco expansível no corpo da página
 

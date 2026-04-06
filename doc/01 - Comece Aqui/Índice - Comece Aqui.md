@@ -1,5 +1,3 @@
-## Conteúdo
-
 ## Inteligência artificial, medo de substituição e realidade do mercado
 
 Se você está pensando em entrar na área hoje, existe uma chance enorme de a sua primeira trava não ser lógica, inglês ou computador.

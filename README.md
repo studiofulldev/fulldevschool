@@ -34,6 +34,7 @@ O projeto hoje não é mais um reader estilo Speechify. O fluxo principal é um 
 - o áudio guiado foi adiado
 - a `player-bar` foi removida da interface
 - a home da app abre pela rota `/`
+- a etapa inicial `Comece Aqui` foi renomeada na UI para `E HAJA LUZ!`
 - a sidebar abre seções por painel expansível
 - o conteúdo da página abre subtópicos por painéis expansíveis simples
 - a UI usa `Inter` como tipografia base
