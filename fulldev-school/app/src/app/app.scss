@@ -7,6 +7,7 @@
   min-height: 100vh;
   background: var(--fd-page-bg);
   color: var(--fd-text);
+  border-left: 1px solid var(--fd-border);
 }
 
 .shell__sidenav {
@@ -17,6 +18,7 @@
 
 .shell__content {
   background: var(--fd-page-bg);
+  border-left: 1px solid var(--fd-border);
 }
 
 .shell__toolbar {
