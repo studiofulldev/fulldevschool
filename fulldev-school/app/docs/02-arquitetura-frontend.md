@@ -5,23 +5,19 @@
 - Angular com standalone APIs
 - Angular Router
 - Angular Material + CDK
-- `ngx-markdown` para renderização de Markdown
-- `howler.js` para playback de áudio
-- `speak-tts` como camada de TTS em navegador para protótipos e fallback
-- `wavesurfer.js` para evolução de waveform e sincronização visual
-- `zod` para validar os dados do banco mockado
+- `marked` para renderização de Markdown
 
 ## Estrutura arquitetural proposta
 
 ```text
 fulldev-school/
-  docs/
+  app/
+    docs/
   mock-db/
     navigation/
     lessons/
     audio/
     schemas/
-  app/                  <- futura app Angular
 ```
 
 ## Camadas do frontend
@@ -32,10 +28,11 @@ Responsável por:
 
 - layout principal
 - sidebar em árvore
-- header
+- header fixo
 - breadcrumbs
 - área de conteúdo
-- player fixo de áudio
+- progresso visual de leitura
+- persistência do estado de expansão da navegação
 
 ### 2. Camada de Navegação
 
@@ -51,26 +48,18 @@ Responsável por:
 Responsável por:
 
 - buscar lições no `mock-db`
-- validar o payload
 - renderizar o Markdown
 - mapear blocos renderizados com `blockId`
+- persistir expansão dos blocos por lição no navegador
+- renderizar componentes auxiliares por contexto, como o painel de boas-vindas e a árvore expansível da visão geral
 
-### 4. Camada de Áudio
-
-Responsável por:
-
-- carregar manifesto de áudio da página
-- tocar, pausar, retomar e controlar velocidade
-- sincronizar o tempo atual com os blocos renderizados
-
-### 5. Camada de Estado Local
+### 4. Camada de Estado Local
 
 Responsável por:
 
-- progresso local
+- expansões persistidas em `localStorage`
 - página atual
-- preferências de reprodução
-- último ponto de leitura
+- progresso de leitura por scroll
 
 ## Estratégia de dados
 
@@ -86,19 +75,17 @@ Isso permite:
 
 ## Estratégia de rotas
 
-Formato sugerido:
+Formato atual:
 
 ```text
-/trilha/comece-aqui
-/trilha/fundamentos-digitais
-/trilha/fundamentos-tecnologia
+/
+/:slug
 ```
 
 Cada rota resolve:
 
 - metadados da página
 - documento Markdown
-- manifesto de áudio
 - contexto de navegação
 
 ## Estratégia de composição
@@ -109,8 +96,6 @@ Componentes principais previstos:
 - `sidebar-tree`
 - `breadcrumb-trail`
 - `lesson-page`
-- `lesson-markdown`
-- `audio-player`
 - `reading-progress`
 - `lesson-navigation`
 

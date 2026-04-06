@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, computed, inject, signal } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
@@ -27,6 +27,7 @@ import { ThemeService } from './services/theme.service';
 })
 export class App {
   private readonly hiddenSections = new Set(['16-painel-de-progresso', '90-templates']);
+  private readonly navStorageKey = 'fulldev-school.nav.expanded-sections';
   private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly destroyRef = inject(DestroyRef);
   private readonly router = inject(Router);
@@ -34,7 +35,8 @@ export class App {
   protected readonly content = inject(SchoolContentService);
   protected readonly theme = inject(ThemeService);
 
-  protected readonly expandedSections = signal<Record<string, boolean>>({});
+  protected readonly expandedSections = signal<Record<string, boolean>>(this.readExpandedSections());
+  protected readonly readingProgress = signal(0);
   protected readonly navTree = this.content.navigationTree;
   protected readonly navSections = computed(() => {
     const sections = new Map<string, { key: string; title: string; nodes: NavigationNode[] }>();
@@ -77,10 +79,15 @@ export class App {
   }
 
   protected setSectionExpanded(sectionKey: string, expanded: boolean): void {
-    this.expandedSections.update((current) => ({
-      ...current,
-      [sectionKey]: expanded
-    }));
+    this.expandedSections.update((current) => {
+      const next = {
+        ...current,
+        [sectionKey]: expanded
+      };
+
+      this.writeExpandedSections(next);
+      return next;
+    });
   }
 
   protected isSectionExpanded(sectionKey: string): boolean {
@@ -89,7 +96,17 @@ export class App {
   }
 
   protected lessonLink(node: NavigationNode): string {
-    return `/${node.slug}`;
+    const firstSlug = this.navTree()[0]?.slug;
+    return node.slug === firstSlug ? '/' : `/${node.slug}`;
+  }
+
+  @HostListener('window:scroll')
+  protected onWindowScroll(): void {
+    const documentElement = document.documentElement;
+    const scrollTop = window.scrollY || documentElement.scrollTop || 0;
+    const maxScroll = documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll <= 0 ? 0 : (scrollTop / maxScroll) * 100;
+    this.readingProgress.set(Math.max(0, Math.min(progress, 100)));
   }
 
   protected navLabel(node: NavigationNode): string {
@@ -114,5 +131,30 @@ export class App {
       .filter(Boolean)
       .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
       .join(' ');
+  }
+
+  private readExpandedSections(): Record<string, boolean> {
+    if (typeof localStorage === 'undefined') {
+      return {};
+    }
+
+    try {
+      const raw = localStorage.getItem(this.navStorageKey);
+      return raw ? (JSON.parse(raw) as Record<string, boolean>) : {};
+    } catch {
+      return {};
+    }
+  }
+
+  private writeExpandedSections(state: Record<string, boolean>): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
+
+    try {
+      localStorage.setItem(this.navStorageKey, JSON.stringify(state));
+    } catch {
+      // Ignore storage failures and keep the current in-memory state.
+    }
   }
 }

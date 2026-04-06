@@ -44,8 +44,8 @@ Tambem e objetivo do produto reforcar a IA como ferramenta de apoio transversal 
 - renderizar o conteudo em Angular
 - navegar por arvore e breadcrumbs
 - carregar paginas a partir de um banco de dados mockado
-- reproduzir audio por pagina
-- preparar sincronizacao entre audio e blocos de texto
+- persistir estado de expansao da navegacao e dos topicos
+- destacar a visao geral com painel de boas-vindas e arvore expansivel da estrutura do projeto
 - abrir a jornada com uma etapa clara sobre IA, mercado, medo e oportunidade
 
 ## fora-da-v1

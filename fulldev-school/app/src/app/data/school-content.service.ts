@@ -210,7 +210,7 @@ export class SchoolContentService {
       if (!isTitledSection) {
         return {
           id: index === 0 ? 'intro' : `bloco-${index + 1}`,
-          title: index === 0 ? fallbackTitle : `Bloco ${index + 1}`,
+          title: this.normalizeBlockTitle(index === 0 ? fallbackTitle : `Bloco ${index + 1}`),
           markdown: trimmedSection,
           html: this.renderMarkdown(trimmedSection)
         };
@@ -219,7 +219,7 @@ export class SchoolContentService {
       const lines = trimmedSection.split('\n');
       const heading = lines[0].replace(/^##\s+/, '').trim();
       const id = this.slugify(heading || `bloco-${index + 1}`);
-      const title = heading || `Bloco ${index + 1}`;
+      const title = this.normalizeBlockTitle(heading || `Bloco ${index + 1}`);
       const bodyMarkdown = lines.slice(1).join('\n').trim();
 
       return {
@@ -241,6 +241,11 @@ export class SchoolContentService {
       breaks: false
     }) as string;
   }
+
+  private normalizeBlockTitle(title: string): string {
+    return /^conte[uú]do$/i.test(title.trim()) ? 'Resumo' : title;
+  }
+
   private slugify(value: string): string {
     return value
       .normalize('NFD')

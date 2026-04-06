@@ -16,23 +16,19 @@ estimatedReadingMinutes: 6
 - Angular com standalone APIs
 - Angular Router
 - Angular Material e CDK
-- `ngx-markdown` para renderizacao de Markdown
-- `howler.js` para playback de audio
-- `speak-tts` como camada de TTS em navegador para prototipos e fallback
-- `wavesurfer.js` para evolucao de waveform e sincronizacao visual
-- `zod` para validar os dados do banco mockado
+- `marked` para renderizacao de Markdown
 
 ## estrutura-arquitetural-proposta
 
 ```text
 fulldev-school/
-  docs/
+  app/
+    docs/
   mock-db/
     navigation/
     lessons/
     audio/
     schemas/
-  app/
 ```
 
 ## camadas-do-frontend
@@ -44,7 +40,8 @@ fulldev-school/
 - header
 - breadcrumbs
 - area de conteudo
-- player fixo de audio
+- barra fixa de progresso de leitura
+- persistencia da expansao da navegacao
 
 ### 2-camada-de-navegacao
 
@@ -56,15 +53,10 @@ fulldev-school/
 ### 3-camada-de-conteudo
 
 - buscar licoes no mock-db
-- validar o payload
 - renderizar o Markdown
 - mapear blocos renderizados com `blockId`
-
-### 4-camada-de-audio
-
-- carregar manifesto de audio da pagina
-- tocar, pausar, retomar e controlar velocidade
-- sincronizar o tempo atual com os blocos renderizados
+- persistir expansao dos blocos por licao
+- compor elementos especiais da visao geral, como boas-vindas e arvore customizada
 
 ## diretriz-importante
 

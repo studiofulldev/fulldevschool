@@ -3,6 +3,10 @@
   min-height: 100vh;
 }
 
+:host {
+  --fd-toolbar-height: 80px;
+}
+
 .shell {
   min-height: 100vh;
   background: var(--fd-page-bg);
@@ -21,19 +25,44 @@
 }
 
 .shell__toolbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 20;
+  left: 255px;
+  right: 0;
+  z-index: 50;
   display: flex;
+  align-items: center;
   gap: 16px;
-  height: 80px;
+  height: var(--fd-toolbar-height);
   padding: 0 20px;
   border-bottom: 1px solid var(--fd-border);
   background: var(--fd-surface-header);
+  overflow: hidden;
+}
+
+.shell__reading-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.shell__reading-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--fd-accent-dark), var(--fd-accent), #ff8a4c);
+  box-shadow:
+    0 0 18px rgba(207, 53, 0, 0.4),
+    0 0 28px rgba(255, 138, 76, 0.2);
+  transition: width 90ms linear;
 }
 
 .shell__page {
-  padding: 12px;
+  padding: calc(var(--fd-toolbar-height) + 18px) 12px 12px;
 }
 
 .shell__footer {
@@ -191,6 +220,8 @@
 }
 
 .toolbar-copy {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -210,21 +241,28 @@
 }
 
 .toolbar-spacer {
+  position: relative;
+  z-index: 1;
   flex: 1;
 }
 
 @media (max-width: 960px) {
+  :host {
+    --fd-toolbar-height: 88px;
+  }
+
   .shell__sidenav {
     width: min(320px, 92vw);
   }
 
   .shell__page {
-    padding: 8px;
+    padding: calc(var(--fd-toolbar-height) + 18px) 8px 8px;
   }
 
   .shell__toolbar {
+    left: 0;
     height: auto;
-    min-height: 80px;
+    min-height: var(--fd-toolbar-height);
     padding: 16px;
     flex-wrap: wrap;
   }

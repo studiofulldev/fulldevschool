@@ -43,6 +43,10 @@
 
   <mat-sidenav-content class="shell__content">
     <mat-toolbar class="shell__toolbar">
+      <div class="shell__reading-progress" aria-hidden="true">
+        <div class="shell__reading-progress-fill" [style.width.%]="readingProgress()"></div>
+      </div>
+
       @if (isHandset()) {
         <button mat-icon-button type="button" (click)="drawer.toggle()">
           <mat-icon>menu</mat-icon>
