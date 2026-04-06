@@ -1,13 +1,4 @@
 ![Capa do Guia Dev](./99%20-%20Anexos/thumb.png)
-# 1 - Home
-
-**Objetivo:** te apresentar a visão geral do guia, te mostrar o objetivo do repositório, a estrutura do projeto e a melhor ordem para começar.
-
-**Passo anterior:** início do guia.
-
-**Próximo passo:** [2 - Comece Aqui](./01%20-%20Comece%20Aqui/%C3%8Dndice%20-%20Comece%20Aqui.md)
-
-## Conteúdo
 
 Este repositório é a base editorial de um **guia completo para entrar na área de tecnologia**, criado por Lucas Pedro, fundador da **FullDev**, para te ajudar a avançar com mais clareza, menos ruído e um próximo passo bem definido.
 
