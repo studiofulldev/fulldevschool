@@ -81,13 +81,16 @@
 
 .nav {
   display: grid;
-  gap: 8px;
-  padding: 24px 0 48px;
+  gap: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .sidebar__panel {
-  display: grid;
-  gap: 8px;
+  display: block;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .sidebar__panel + .sidebar__panel {
@@ -110,10 +113,28 @@
   line-height: 1.2;
   text-align: left;
   cursor: pointer;
+  border-radius: 0;
 }
 
 .sidebar__panel-icon {
   color: var(--fd-soft);
+}
+
+:host ::ng-deep .sidebar__panel .mat-expansion-panel-body {
+  padding: 0;
+}
+
+:host ::ng-deep .sidebar__panel .mat-content,
+:host ::ng-deep .sidebar__panel .mat-expansion-panel-header-title {
+  margin-right: 0;
+}
+
+:host ::ng-deep .sidebar__panel .mat-expansion-panel-header {
+  padding: 0 24px;
+}
+
+:host ::ng-deep .sidebar__panel .mat-expansion-panel-header.mat-expanded {
+  height: 48px;
 }
 
 .sidebar__nav {
@@ -146,6 +167,7 @@
 .sidebar__nav-item--active {
   background: var(--fd-nav-active);
   border: 1px solid var(--fd-border);
+  border-left: 3px solid var(--fd-accent);
 }
 
 .toolbar-copy {

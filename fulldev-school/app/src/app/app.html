@@ -5,37 +5,40 @@
     [mode]="isHandset() ? 'over' : 'side'"
     [opened]="!isHandset()"
   >
-    <nav class="nav">
+    <mat-accordion class="nav" multi>
       @for (section of navSections(); track section.key) {
-        <div class="sidebar__panel">
-          <button
-            class="sidebar__panel-trigger"
-            type="button"
-            (click)="toggleSection(section.key)"
-            [attr.aria-expanded]="isSectionExpanded(section.key)"
-          >
-            <span>{{ section.title }}</span>
-            <mat-icon class="sidebar__panel-icon">{{ isSectionExpanded(section.key) ? 'expand_less' : 'expand_more' }}</mat-icon>
-          </button>
+        <mat-expansion-panel
+          class="sidebar__panel"
+          [expanded]="isSectionExpanded(section.key)"
+          (opened)="setSectionExpanded(section.key, true)"
+          (closed)="setSectionExpanded(section.key, false)"
+          hideToggle
+        >
+          <mat-expansion-panel-header class="sidebar__panel-trigger">
+            <mat-panel-title>
+              <span>{{ section.title }}</span>
+            </mat-panel-title>
+            <mat-icon class="sidebar__panel-icon">{{
+              isSectionExpanded(section.key) ? 'expand_less' : 'expand_more'
+            }}</mat-icon>
+          </mat-expansion-panel-header>
 
-          @if (isSectionExpanded(section.key)) {
-            <div class="sidebar__nav">
-              @for (node of section.nodes; track node.id) {
-                <a
-                  class="sidebar__nav-item"
-                  [routerLink]="lessonLink(node)"
-                  routerLinkActive="sidebar__nav-item--active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="isHandset() && drawer.close()"
-                >
-                  <span>{{ node.navTitle || node.title }}</span>
-                </a>
-              }
-            </div>
-          }
-        </div>
+          <div class="sidebar__nav">
+            @for (node of section.nodes; track node.id) {
+              <a
+                class="sidebar__nav-item"
+                [routerLink]="lessonLink(node)"
+                routerLinkActive="sidebar__nav-item--active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="isHandset() && drawer.close()"
+              >
+                <span>{{ node.navTitle || node.title }}</span>
+              </a>
+            }
+          </div>
+        </mat-expansion-panel>
       }
-    </nav>
+    </mat-accordion>
   </mat-sidenav>
 
   <mat-sidenav-content class="shell__content">
@@ -47,7 +50,7 @@
       }
 
       <div class="toolbar-copy">
-        <span class="toolbar-copy__eyebrow">Plataforma guiada</span>
+        <span class="toolbar-copy__eyebrow">GUIA DE TECNOLOGIA</span>
         <strong>{{ currentTitle() }}</strong>
       </div>
 
@@ -63,8 +66,8 @@
         <img class="brand__logo-image" src="logo-fulldev.svg" alt="FullDev" />
         <div>
           <p>Fulldev Sistemas de informatica S.A</p>
-          <p>CNPJ --</p>
-          <p>Leblon - Rio de Janeiro</p>
+          <p>CNPJ 62.242.861/0001-33</p>
+          <p>Campo Grande - Rio de Janeiro</p>
         </div>
       </div>
 

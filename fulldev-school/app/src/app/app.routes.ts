@@ -4,8 +4,7 @@ import { LessonPageComponent } from './pages/lesson-page.component';
 export const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'home'
+    component: LessonPageComponent
   },
   {
     path: ':slug',
@@ -13,6 +12,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home'
+    redirectTo: ''
   }
 ];

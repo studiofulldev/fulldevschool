@@ -4,7 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { switchMap } from 'rxjs/operators';
-import { from, of } from 'rxjs';
+import { from } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { SchoolContentService } from '../data/school-content.service';
@@ -20,14 +20,14 @@ import { SchoolContentService } from '../data/school-content.service';
           <div>
             <span class="lesson__eyebrow">Fulldev School</span>
             <h1>{{ currentLesson.meta.title }}</h1>
-            <p>
-              Leitura guiada e navegação simples para acompanhar a jornada sem perder contexto.
-            </p>
+            @if (lessonSummary()) {
+              <p>{{ lessonSummary() }}</p>
+            }
           </div>
         </header>
 
         <nav class="lesson__breadcrumbs">
-          <a routerLink="/home">Fulldev School</a>
+          <a routerLink="/">Fulldev School</a>
           <span>/</span>
           <span>{{ currentLesson.meta.title }}</span>
         </nav>
@@ -110,14 +110,11 @@ import { SchoolContentService } from '../data/school-content.service';
       }
 
       .lesson__breadcrumbs {
-        color: var(--fd-soft);
-      }
-
-      .lesson__breadcrumbs {
         display: flex;
         gap: 10px;
-        font-size: var(--fd-text-sm);
         padding: 0 6px;
+        color: var(--fd-soft);
+        font-size: var(--fd-text-sm);
       }
 
       .lesson__breadcrumbs a {
@@ -268,13 +265,53 @@ export class LessonPageComponent {
     this.route.paramMap.pipe(
       switchMap((params) => {
         const slug = params.get('slug');
-        return slug ? from(this.content.loadLessonBySlug(slug)) : of(null);
+        return from(this.resolveLesson(slug));
       })
     ),
     { initialValue: null }
   );
 
   protected readonly lesson = computed(() => this.lessonResult());
+  protected readonly lessonSummary = computed(() => {
+    const lesson = this.lesson();
+    if (!lesson) {
+      return '';
+    }
+
+    const fallbackParagraph = lesson.markdown
+      .replace(/^#\s+.+$/gm, '')
+      .replace(/^##\s+.+$/gm, '')
+      .split(/\n{2,}/)
+      .map((part) => part.trim())
+      .find(
+        (part) =>
+          part &&
+          !part.startsWith('- ') &&
+          !/^\d+\.\s/.test(part) &&
+          !/^\*\*(Passo anterior|Próximo passo|Proximo passo):\*\*/i.test(part)
+      );
+
+    return (fallbackParagraph ?? '')
+      .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '$2')
+      .replace(/\[\[([^\]]+)\]\]/g, '$1')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/^>\s*/gm, '')
+      .replace(/\n+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/[.;:\s]+$/, '');
+  });
+
+  private async resolveLesson(slug: string | null) {
+    if (slug) {
+      return this.content.loadLessonBySlug(slug);
+    }
+
+    await this.content.ensureNavigationLoaded();
+    const initialSlug = this.content.navigationTree()[0]?.slug;
+    return initialSlug ? this.content.loadLessonBySlug(initialSlug) : null;
+  }
 
   protected blockHtml(blockId: string): SafeHtml {
     const block = this.lesson()?.blocks.find((item) => item.id === blockId);

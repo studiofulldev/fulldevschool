@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { marked } from 'marked';
 
 export interface NavigationNode {
   id: string;
@@ -197,122 +198,48 @@ export class SchoolContentService {
           id: this.slugify(fallbackTitle || 'conteudo'),
           title: fallbackTitle,
           markdown,
-          html: this.renderSimpleMarkdown(fallbackTitle, withoutPageTitle || markdown)
+          html: this.renderMarkdown(withoutPageTitle || markdown)
         }
       ];
     }
 
     return sections.map((section, index) => {
-      const lines = section.split('\n');
+      const trimmedSection = section.trim();
+      const isTitledSection = trimmedSection.startsWith('## ');
+
+      if (!isTitledSection) {
+        return {
+          id: index === 0 ? 'intro' : `bloco-${index + 1}`,
+          title: index === 0 ? fallbackTitle : `Bloco ${index + 1}`,
+          markdown: trimmedSection,
+          html: this.renderMarkdown(trimmedSection)
+        };
+      }
+
+      const lines = trimmedSection.split('\n');
       const heading = lines[0].replace(/^##\s+/, '').trim();
       const id = this.slugify(heading || `bloco-${index + 1}`);
-      const title = this.humanizeHeading(heading || `Bloco ${index + 1}`);
-      const body = lines.slice(1).join('\n').trim();
+      const title = heading || `Bloco ${index + 1}`;
 
       return {
         id,
         title,
-        markdown: `## ${title}\n\n${body}`.trim(),
-        html: this.renderSimpleMarkdown(title, body)
+        markdown: trimmedSection,
+        html: this.renderMarkdown(trimmedSection)
       };
     });
   }
 
-  private renderSimpleMarkdown(title: string, body: string): string {
-    const htmlParts: string[] = [`<h2>${this.escapeHtml(title)}</h2>`];
-    const paragraphs = body.split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
+  private renderMarkdown(markdown: string): string {
+    const normalized = markdown
+      .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '[$2](#)')
+      .replace(/\[\[([^\]]+)\]\]/g, '[$1](#)');
 
-    for (const paragraph of paragraphs) {
-      if (this.isMarkdownTable(paragraph)) {
-        htmlParts.push(this.renderMarkdownTable(paragraph));
-        continue;
-      }
-
-      if (paragraph.startsWith('- ')) {
-        const items = paragraph
-          .split('\n')
-          .map((item) => item.replace(/^- /, '').trim())
-          .filter(Boolean)
-          .map((item) => `<li>${this.formatInlineMarkdown(item)}</li>`)
-          .join('');
-        htmlParts.push(`<ul>${items}</ul>`);
-        continue;
-      }
-
-      if (/^\d+\.\s/m.test(paragraph)) {
-        const items = paragraph
-          .split('\n')
-          .map((item) => item.replace(/^\d+\.\s*/, '').trim())
-          .filter(Boolean)
-          .map((item) => `<li>${this.formatInlineMarkdown(item)}</li>`)
-          .join('');
-        htmlParts.push(`<ol>${items}</ol>`);
-        continue;
-      }
-
-      if (paragraph.startsWith('### ')) {
-        htmlParts.push(`<h3>${this.formatInlineMarkdown(paragraph.replace(/^###\s+/, ''))}</h3>`);
-        continue;
-      }
-
-      htmlParts.push(`<p>${this.formatInlineMarkdown(paragraph)}</p>`);
-    }
-
-    return htmlParts.join('');
+    return marked.parse(normalized, {
+      gfm: true,
+      breaks: false
+    }) as string;
   }
-
-  private isMarkdownTable(value: string): boolean {
-    const lines = value.split('\n').map((line) => line.trim()).filter(Boolean);
-    return lines.length >= 2 && lines[0].includes('|') && /^\|?[\s:-|]+\|?$/.test(lines[1]);
-  }
-
-  private renderMarkdownTable(tableMarkdown: string): string {
-    const lines = tableMarkdown.split('\n').map((line) => line.trim()).filter(Boolean);
-    const headerCells = this.parseTableRow(lines[0]);
-    const bodyRows = lines.slice(2).map((line) => this.parseTableRow(line));
-
-    const header = `<thead><tr>${headerCells
-      .map((cell) => `<th>${this.formatInlineMarkdown(cell)}</th>`)
-      .join('')}</tr></thead>`;
-    const body = `<tbody>${bodyRows
-      .map(
-        (row) =>
-          `<tr>${row.map((cell) => `<td>${this.formatInlineMarkdown(cell)}</td>`).join('')}</tr>`
-      )
-      .join('')}</tbody>`;
-
-    return `<table>${header}${body}</table>`;
-  }
-
-  private parseTableRow(line: string): string[] {
-    return line
-      .replace(/^\|/, '')
-      .replace(/\|$/, '')
-      .split('|')
-      .map((cell) => cell.trim());
-  }
-
-  private formatInlineMarkdown(value: string): string {
-    let html = this.escapeHtml(value);
-
-    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '<a href="#" tabindex="-1">$2</a>');
-    html = html.replace(/\[\[([^\]]+)\]\]/g, '<a href="#" tabindex="-1">$1</a>');
-    html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
-
-    return html;
-  }
-
-  private escapeHtml(value: string): string {
-    return value
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
   private slugify(value: string): string {
     return value
       .normalize('NFD')
@@ -320,13 +247,5 @@ export class SchoolContentService {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '');
-  }
-
-  private humanizeHeading(value: string): string {
-    return value
-      .split('-')
-      .filter(Boolean)
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join(' ');
   }
 }

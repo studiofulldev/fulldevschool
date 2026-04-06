@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NavigationNode, SchoolContentService } from './data/school-content.service';
 import { ThemeService } from './services/theme.service';
 
@@ -17,13 +18,15 @@ import { ThemeService } from './services/theme.service';
     RouterLinkActive,
     MatToolbarModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
+  private readonly hiddenSections = new Set(['16-painel-de-progresso', '90-templates']);
   private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly destroyRef = inject(DestroyRef);
   private readonly router = inject(Router);
@@ -37,6 +40,10 @@ export class App {
     const sections = new Map<string, { key: string; title: string; nodes: NavigationNode[] }>();
 
     for (const node of this.navTree()) {
+      if (this.hiddenSections.has(node.section)) {
+        continue;
+      }
+
       if (!sections.has(node.section)) {
         sections.set(node.section, {
           key: node.section,
@@ -59,22 +66,26 @@ export class App {
     { initialValue: this.router.url }
   );
   protected readonly currentTitle = computed(() => this.content.currentLesson()?.meta.title ?? 'Fulldev School');
+  protected readonly activeSectionKey = computed(() => {
+    const currentSlug = this.currentUrl().replace(/^\/+/, '') || this.navTree()[0]?.slug || '';
+    return this.navTree().find((node) => node.slug === currentSlug)?.section ?? null;
+  });
 
   constructor() {
     void this.content.ensureNavigationLoaded();
     this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 
-  protected toggleSection(sectionKey: string): void {
+  protected setSectionExpanded(sectionKey: string, expanded: boolean): void {
     this.expandedSections.update((current) => ({
       ...current,
-      [sectionKey]: !current[sectionKey]
+      [sectionKey]: expanded
     }));
   }
 
   protected isSectionExpanded(sectionKey: string): boolean {
     const expanded = this.expandedSections();
-    return expanded[sectionKey] ?? true;
+    return expanded[sectionKey] ?? this.activeSectionKey() === sectionKey;
   }
 
   protected lessonLink(node: NavigationNode): string {
