@@ -1,9 +1,3 @@
-﻿# 6.11 - Tech Recruiter
-
-**Passo anterior:** [[../Ãndice - Mapa das Ãreas|6 - Mapa das Ãreas]]
-
-**PrÃ³ximo passo:** [[../../06 - Teste de Perfil/Teste de Perfil|7 - Teste de Perfil]]
-
 ## ConteÃºdo
 
 ## O que Ã©

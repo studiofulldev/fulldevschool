@@ -1,9 +1,3 @@
-﻿# Recursos - VÃ­deos por TÃ³pico - Fundamentos e Carreira
-
-**Passo anterior:** [[../Ãndice - Recursos Curados|15 - Recursos Curados]]
-
-**PrÃ³ximo passo:** [[../../15 - FAQ do Iniciante/Ãndice - FAQ do Iniciante|16 - FAQ do Iniciante]]
-
 ## ConteÃºdo
 
 ## ComeÃ§o na Ã¡rea

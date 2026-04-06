@@ -20,9 +20,6 @@ import { SchoolContentService } from '../data/school-content.service';
           <div>
             <span class="lesson__eyebrow">Fulldev School</span>
             <h1>{{ currentLesson.meta.title }}</h1>
-            @if (lessonSummary()) {
-              <p>{{ lessonSummary() }}</p>
-            }
           </div>
         </header>
 
@@ -42,14 +39,14 @@ import { SchoolContentService } from '../data/school-content.service';
 
         <footer class="lesson__footer-nav">
           @if (content.previousLesson(); as previous) {
-            <a mat-stroked-button [routerLink]="['/', previous.slug]">
+            <a mat-stroked-button class="lesson__nav-button lesson__nav-button--previous" [routerLink]="['/', previous.slug]">
               <mat-icon>arrow_back</mat-icon>
               {{ previous.title }}
             </a>
           }
 
           @if (content.nextLesson(); as next) {
-            <a mat-flat-button [routerLink]="['/', next.slug]">
+            <a mat-flat-button class="lesson__nav-button lesson__nav-button--next" [routerLink]="['/', next.slug]">
               {{ next.title }}
               <mat-icon>arrow_forward</mat-icon>
             </a>
@@ -101,14 +98,6 @@ import { SchoolContentService } from '../data/school-content.service';
         letter-spacing: -0.03em;
       }
 
-      .lesson__hero p {
-        max-width: 62ch;
-        margin: 0;
-        color: var(--fd-muted);
-        font-size: var(--fd-text-md);
-        line-height: var(--fd-leading-loose);
-      }
-
       .lesson__breadcrumbs {
         display: flex;
         gap: 10px;
@@ -145,6 +134,37 @@ import { SchoolContentService } from '../data/school-content.service';
         display: flex;
         justify-content: space-between;
         gap: 16px;
+      }
+
+      .lesson__nav-button {
+        min-height: 44px;
+        padding-inline: 18px;
+        border-radius: var(--fd-radius);
+        font-weight: 600;
+      }
+
+      .lesson__nav-button--previous {
+        border-color: var(--fd-border-strong) !important;
+        color: var(--fd-text) !important;
+        background: transparent !important;
+      }
+
+      .lesson__nav-button--previous:hover {
+        border-color: var(--fd-accent) !important;
+        color: var(--fd-white) !important;
+        background: var(--fd-accent-fade) !important;
+      }
+
+      .lesson__nav-button--next {
+        border: 1px solid var(--fd-accent) !important;
+        color: var(--fd-white) !important;
+        background: var(--fd-accent) !important;
+        box-shadow: none !important;
+      }
+
+      .lesson__nav-button--next:hover {
+        border-color: var(--fd-accent-strong) !important;
+        background: var(--fd-accent-strong) !important;
       }
 
       .lesson--loading {
@@ -272,37 +292,6 @@ export class LessonPageComponent {
   );
 
   protected readonly lesson = computed(() => this.lessonResult());
-  protected readonly lessonSummary = computed(() => {
-    const lesson = this.lesson();
-    if (!lesson) {
-      return '';
-    }
-
-    const fallbackParagraph = lesson.markdown
-      .replace(/^#\s+.+$/gm, '')
-      .replace(/^##\s+.+$/gm, '')
-      .split(/\n{2,}/)
-      .map((part) => part.trim())
-      .find(
-        (part) =>
-          part &&
-          !part.startsWith('- ') &&
-          !/^\d+\.\s/.test(part) &&
-          !/^\*\*(Passo anterior|Próximo passo|Proximo passo):\*\*/i.test(part)
-      );
-
-    return (fallbackParagraph ?? '')
-      .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '$2')
-      .replace(/\[\[([^\]]+)\]\]/g, '$1')
-      .replace(/\*\*([^*]+)\*\*/g, '$1')
-      .replace(/`([^`]+)`/g, '$1')
-      .replace(/^>\s*/gm, '')
-      .replace(/\n+/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .replace(/[.;:\s]+$/, '');
-  });
-
   private async resolveLesson(slug: string | null) {
     if (slug) {
       return this.content.loadLessonBySlug(slug);

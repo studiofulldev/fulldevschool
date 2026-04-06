@@ -1,9 +1,3 @@
-﻿# 9 - Escolha Sua Trilha
-
-**Passo anterior:** [[../07 - Comparando Caminhos/Comparando Caminhos|8 - Comparando Caminhos]]
-
-**PrÃ³ximo passo:** [[../09 - Projetos e PortfÃ³lio/Ãndice - Projetos e PortfÃ³lio|10 - Projetos e PortfÃ³lio]]
-
 ## ConteÃºdo
 
 Agora vocÃª vai sair do campo da comparaÃ§Ã£o e entrar no campo da execuÃ§Ã£o.

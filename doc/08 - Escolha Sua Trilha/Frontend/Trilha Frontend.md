@@ -1,9 +1,3 @@
-﻿# 9.1 - Trilha Frontend
-
-**Passo anterior:** [[../Ãndice - Trilhas|9 - Escolha Sua Trilha]]
-
-**PrÃ³ximo passo:** [[../../09 - Projetos e PortfÃ³lio/Ãndice - Projetos e PortfÃ³lio|10 - Projetos e PortfÃ³lio]]
-
 ## ConteÃºdo
 
 ## Objetivo da trilha

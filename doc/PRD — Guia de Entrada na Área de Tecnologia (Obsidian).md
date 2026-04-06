@@ -1,5 +1,3 @@
-# PRD — Guia de Entrada na Área de Tecnologia (Obsidian)
-
 ## 1. Visão Geral
 
 Criar um sistema dentro do **Obsidian** para guiar iniciantes absolutos na área de tecnologia, desde o primeiro contato com o computador até a escolha de uma carreira, construção de portfólio e plano realista para conseguir a primeira oportunidade.

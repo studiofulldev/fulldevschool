@@ -1,9 +1,3 @@
-﻿# 16 - FAQ do Iniciante
-
-**Passo anterior:** [[../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
-
-**PrÃ³ximo passo:** [[../16 - Painel de Progresso/Painel de Progresso|17 - Painel de Progresso]]
-
 ## ConteÃºdo
 
 ### Preciso de faculdade?

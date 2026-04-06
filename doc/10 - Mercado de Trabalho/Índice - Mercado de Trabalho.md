@@ -1,9 +1,3 @@
-﻿# 11 - Mercado de Trabalho
-
-**Passo anterior:** [[../09 - Projetos e PortfÃ³lio/Ãndice - Projetos e PortfÃ³lio|10 - Projetos e PortfÃ³lio]]
-
-**PrÃ³ximo passo:** [[../11 - Mentalidade e ConsistÃªncia/Ãndice - Mentalidade e ConsistÃªncia|12 - Mentalidade e ConsistÃªncia]]
-
 ## ConteÃºdo
 
 Esta etapa existe para te ajudar a fazer a ponte entre estudo e oportunidade.

@@ -1,9 +1,3 @@
-﻿# Recursos - DocumentaÃ§Ãµes Base
-
-**Passo anterior:** [[../Ãndice - Recursos Curados|15 - Recursos Curados]]
-
-**PrÃ³ximo passo:** [[../../15 - FAQ do Iniciante/Ãndice - FAQ do Iniciante|16 - FAQ do Iniciante]]
-
 ## ConteÃºdo
 
 - MDN: https://developer.mozilla.org/

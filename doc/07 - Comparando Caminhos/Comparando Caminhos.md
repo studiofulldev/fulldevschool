@@ -1,9 +1,3 @@
-﻿# 8 - Comparando Caminhos
-
-**Passo anterior:** [[../06 - Teste de Perfil/Teste de Perfil|7 - Teste de Perfil]]
-
-**PrÃ³ximo passo:** [[../08 - Escolha Sua Trilha/Ãndice - Trilhas|9 - Escolha Sua Trilha]]
-
 ## ConteÃºdo
 
 Agora que vocÃª jÃ¡ viu Ã¡reas diferentes e fez uma primeira leitura do seu perfil, vale comparar suas opÃ§Ãµes com mais objetividade.

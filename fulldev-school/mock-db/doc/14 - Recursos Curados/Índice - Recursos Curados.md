@@ -1,9 +1,3 @@
-﻿# 15 - Recursos Curados
-
-**Passo anterior:** [[../13 - GlossÃ¡rio/Ãndice - GlossÃ¡rio|14 - GlossÃ¡rio]]
-
-**PrÃ³ximo passo:** [[../15 - FAQ do Iniciante/Ãndice - FAQ do Iniciante|16 - FAQ do Iniciante]]
-
 ## ConteÃºdo
 
 ## Pontos de entrada recomendados

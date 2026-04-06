@@ -1,9 +1,3 @@
-﻿# 10 - Projetos e PortfÃ³lio
-
-**Passo anterior:** [[../08 - Escolha Sua Trilha/Ãndice - Trilhas|9 - Escolha Sua Trilha]]
-
-**PrÃ³ximo passo:** [[../10 - Mercado de Trabalho/Ãndice - Mercado de Trabalho|11 - Mercado de Trabalho]]
-
 ## ConteÃºdo
 
 Esta etapa existe para resolver um dos maiores gargalos de quem estÃ¡ entrando na Ã¡rea:

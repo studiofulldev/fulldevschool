@@ -1,9 +1,3 @@
-﻿# 5 - Como Aprender
-
-**Passo anterior:** [[../03 - Fundamentos de Tecnologia/Ãndice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
-
-**PrÃ³ximo passo:** [[../05 - Mapa das Ãreas/Ãndice - Mapa das Ãreas|6 - Mapa das Ãreas]]
-
 ## ConteÃºdo
 
 Aprender tecnologia nÃ£o Ã© sÃ³ consumir explicaÃ§Ã£o.

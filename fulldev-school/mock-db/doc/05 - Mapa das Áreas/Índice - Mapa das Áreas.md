@@ -1,9 +1,3 @@
-﻿# 6 - Mapa das Ãreas
-
-**Passo anterior:** [[../04 - Como Aprender/Ãndice - Como Aprender|5 - Como Aprender]]
-
-**PrÃ³ximo passo:** [[../06 - Teste de Perfil/Teste de Perfil|7 - Teste de Perfil]]
-
 ## ConteÃºdo
 
 Nesta etapa, vocÃª vai comeÃ§ar a transformar curiosidade em direÃ§Ã£o.

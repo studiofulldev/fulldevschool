@@ -1,9 +1,3 @@
-﻿# 13 - Comunidade e Networking
-
-**Passo anterior:** [[../11 - Mentalidade e ConsistÃªncia/Ãndice - Mentalidade e ConsistÃªncia|12 - Mentalidade e ConsistÃªncia]]
-
-**PrÃ³ximo passo:** [[../13 - GlossÃ¡rio/Ãndice - GlossÃ¡rio|14 - GlossÃ¡rio]]
-
 ## ConteÃºdo
 
 Aprender sozinho nÃ£o precisa significar aprender isolado.

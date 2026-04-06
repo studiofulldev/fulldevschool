@@ -1,9 +1,3 @@
-﻿# 2 - Comece Aqui
-
-**Passo anterior:** [[../00 - Home/Home|1 - Home]]
-
-**PrÃ³ximo passo:** [[../02 - Fundamentos Digitais/Ãndice - Fundamentos Digitais|3 - Fundamentos Digitais]]
-
 ## ConteÃºdo
 
 ## InteligÃªncia artificial, medo de substituiÃ§Ã£o e realidade do mercado

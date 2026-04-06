@@ -1,9 +1,3 @@
-﻿# 1 - Home
-
-**Passo anterior:** inÃ­cio do guia.
-
-**PrÃ³ximo passo:** [[../01 - Comece Aqui/Ãndice - Comece Aqui|2 - Comece Aqui]]
-
 ## ConteÃºdo
 
 Este Ã© um **guia completo para entrar na Ã¡rea de tecnologia**, criado por Lucas Pedro, fundador da **FullDev**, para te ajudar a avanÃ§ar com mais clareza, menos ruÃ­do e um prÃ³ximo passo bem definido.

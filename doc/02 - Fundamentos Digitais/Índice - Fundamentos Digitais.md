@@ -1,9 +1,3 @@
-﻿# 3 - Fundamentos Digitais
-
-**Passo anterior:** [[../01 - Comece Aqui/Ãndice - Comece Aqui|2 - Comece Aqui]]
-
-**PrÃ³ximo passo:** [[../03 - Fundamentos de Tecnologia/Ãndice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
-
 ## ConteÃºdo
 
 Se vocÃª ainda se sente travado com tarefas bÃ¡sicas no computador, este bloco Ã© essencial.

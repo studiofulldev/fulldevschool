@@ -1,7 +1,3 @@
-# ConhecimentoFree - Fonte de Curadoria
-
-O repositório [MrClaro/ConhecimentoFree](https://github.com/MrClaro/ConhecimentoFree) deve ser usado como **fonte de abastecimento** para descoberta de recursos, links e materiais úteis para o guia.
-
 ## Como usar esta fonte
 
 - Procurar links oficiais, gratuitos e abertos

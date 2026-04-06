@@ -1,9 +1,3 @@
-﻿# 12 - Mentalidade e ConsistÃªncia
-
-**Passo anterior:** [[../10 - Mercado de Trabalho/Ãndice - Mercado de Trabalho|11 - Mercado de Trabalho]]
-
-**PrÃ³ximo passo:** [[../12 - Comunidade e Networking/Ãndice - Comunidade e Networking|13 - Comunidade e Networking]]
-
 ## ConteÃºdo
 
 Entrar em tecnologia nÃ£o testa sÃ³ a sua capacidade de aprender.

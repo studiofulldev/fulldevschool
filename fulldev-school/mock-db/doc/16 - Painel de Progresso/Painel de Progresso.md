@@ -1,9 +1,3 @@
-﻿# 17 - Painel de Progresso
-
-**Passo anterior:** [[../15 - FAQ do Iniciante/Ãndice - FAQ do Iniciante|16 - FAQ do Iniciante]]
-
-**PrÃ³ximo passo:** revisar o plano e voltar para a etapa que ainda precisa de execuÃ§Ã£o.
-
 ## ConteÃºdo
 
 Use este painel para se localizar sem depender sÃ³ de sensaÃ§Ã£o.

@@ -1,9 +1,3 @@
-﻿# 14 - GlossÃ¡rio
-
-**Passo anterior:** [[../12 - Comunidade e Networking/Ãndice - Comunidade e Networking|13 - Comunidade e Networking]]
-
-**PrÃ³ximo passo:** [[../14 - Recursos Curados/Ãndice - Recursos Curados|15 - Recursos Curados]]
-
 ## ConteÃºdo
 
 Esta etapa existe para reduzir o atrito com o vocabulÃ¡rio da Ã¡rea.

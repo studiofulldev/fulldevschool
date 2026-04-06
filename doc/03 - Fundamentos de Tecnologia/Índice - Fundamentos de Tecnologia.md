@@ -1,9 +1,3 @@
-﻿# 4 - Fundamentos de Tecnologia
-
-**Passo anterior:** [[../02 - Fundamentos Digitais/Ãndice - Fundamentos Digitais|3 - Fundamentos Digitais]]
-
-**PrÃ³ximo passo:** [[../04 - Como Aprender/Ãndice - Como Aprender|5 - Como Aprender]]
-
 ## ConteÃºdo
 
 Depois de ganhar mais autonomia no computador, o prÃ³ximo passo Ã© entender os conceitos que aparecem o tempo todo quando alguÃ©m fala de tecnologia.

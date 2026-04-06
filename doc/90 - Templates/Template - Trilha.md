@@ -1,9 +1,3 @@
-﻿# {{numero-da-etapa}} - Trilha {{nome-da-trilha}}
-
-**Passo anterior:** [[caminho-da-nota-anterior|etapa anterior]]
-
-**PrÃ³ximo passo:** [[caminho-da-proxima-nota|prÃ³xima etapa]]
-
 ## ConteÃºdo
 
 ## Objetivo da trilha

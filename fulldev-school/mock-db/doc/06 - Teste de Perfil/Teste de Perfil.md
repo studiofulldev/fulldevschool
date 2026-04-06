@@ -1,9 +1,3 @@
-﻿# 7 - Teste de Perfil
-
-**Passo anterior:** [[../05 - Mapa das Ãreas/Ãndice - Mapa das Ãreas|6 - Mapa das Ãreas]]
-
-**PrÃ³ximo passo:** [[../07 - Comparando Caminhos/Comparando Caminhos|8 - Comparando Caminhos]]
-
 ## ConteÃºdo
 
 Esta etapa nÃ£o existe para te colocar em uma caixa.
