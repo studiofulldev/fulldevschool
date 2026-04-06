@@ -2,9 +2,8 @@
 id: home
 slug: home
 title: 1 - Home
-section: fundacao
+section: arvore
 order: 1
-nextLessonId: comece-aqui
 estimatedReadingMinutes: 4
 estimatedListeningMinutes: 3
 ---

@@ -2,65 +2,15 @@
   "product": "fulldev-school",
   "version": 1,
   "root": [
-    {
-      "id": "home",
-      "slug": "home",
-      "title": "1 - Home",
-      "type": "page",
-      "order": 1,
-      "section": "fundacao",
-      "markdownPath": "mock-db/lessons/fundacao/home.md",
-      "audioManifestPath": "mock-db/audio/fundacao/home.audio.json"
-    },
-    {
-      "id": "ia-mercado-e-oportunidade",
-      "slug": "ia-mercado-e-oportunidade",
-      "title": "2 - IA, Mercado e Oportunidade",
-      "type": "page",
-      "order": 2,
-      "section": "fundacao",
-      "markdownPath": "mock-db/lessons/fundacao/ia-mercado-e-oportunidade.md",
-      "audioManifestPath": "mock-db/audio/fundacao/ia-mercado-e-oportunidade.audio.json"
-    },
-    {
-      "id": "comece-aqui",
-      "slug": "comece-aqui",
-      "title": "3 - Comece Aqui",
-      "type": "page",
-      "order": 3,
-      "section": "fundacao",
-      "markdownPath": "mock-db/lessons/fundacao/comece-aqui.md",
-      "audioManifestPath": "mock-db/audio/fundacao/comece-aqui.audio.json"
-    },
-    {
-      "id": "fundamentos-digitais",
-      "slug": "fundamentos-digitais",
-      "title": "4 - Fundamentos Digitais",
-      "type": "page",
-      "order": 4,
-      "section": "fundacao",
-      "markdownPath": "mock-db/lessons/fundacao/fundamentos-digitais.md",
-      "audioManifestPath": "mock-db/audio/fundacao/fundamentos-digitais.audio.json"
-    },
-    {
-      "id": "fundamentos-tecnologia",
-      "slug": "fundamentos-tecnologia",
-      "title": "5 - Fundamentos de Tecnologia",
-      "type": "page",
-      "order": 5,
-      "section": "fundacao",
-      "markdownPath": "mock-db/lessons/fundacao/fundamentos-tecnologia.md",
-      "audioManifestPath": "mock-db/audio/fundacao/fundamentos-tecnologia.audio.json"
-    },
-    {
-      "id": "como-aprender",
-      "slug": "como-aprender",
-      "title": "6 - Como Aprender",
-      "type": "page",
-      "order": 6,
-      "section": "fundacao",
-      "markdownPath": "mock-db/lessons/fundacao/como-aprender.md",
-      "audioManifestPath": "mock-db/audio/fundacao/como-aprender.audio.json"
-    }
-  ]
+  {
+    "id": "home",
+    "slug": "home",
+    "title": "1 - Home",
+    "type": "page",
+    "order": 1,
+    "section": "arvore",
+    "markdownPath": "mock-db/lessons/arvore/home.md",
+    "audioManifestPath": "mock-db/audio/arvore/home.audio.json"
+  }
+]
 }
