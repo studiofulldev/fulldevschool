@@ -38,10 +38,18 @@ fulldev-school/
 - layout principal
 - sidebar em arvore
 - header
+- header visual no drawer com a logo completa centralizada
 - breadcrumbs
 - area de conteudo
 - barra fixa de progresso de leitura
 - persistencia da expansao da navegacao
+
+## regra-do-header-lateral
+
+- o `mat-drawer-inner-container` deve ter um header proprio acima da navegacao
+- esse header deve ter a mesma altura visual da `mat-toolbar`
+- a imagem da marca deve aparecer completa, centralizada e com `object-fit: contain`
+- a logo pode variar conforme o tema, mas o enquadramento deve permanecer estavel
 
 ### 2-camada-de-navegacao
 

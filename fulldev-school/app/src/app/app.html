@@ -5,6 +5,14 @@
     [mode]="isHandset() ? 'over' : 'side'"
     [opened]="!isHandset()"
   >
+    <header class="shell__sidenav-header">
+      <img
+        class="shell__sidenav-logo"
+        [src]="theme.isDark() ? 'logo-completa-branca.png' : 'logo-completa-preta.png'"
+        alt="Fulldev School"
+      />
+    </header>
+
     <mat-accordion class="nav" multi>
       @for (section of navSections(); track section.key) {
         <mat-expansion-panel

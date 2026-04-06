@@ -20,6 +20,24 @@
   background: var(--fd-surface-header);
 }
 
+.shell__sidenav-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--fd-toolbar-height);
+  padding: 0 18px;
+  border-bottom: 1px solid var(--fd-border);
+  background: var(--fd-surface-header);
+}
+
+.shell__sidenav-logo {
+  display: block;
+  width: 100%;
+  max-width: 176px;
+  max-height: calc(var(--fd-toolbar-height) - 24px);
+  object-fit: contain;
+}
+
 .shell__content {
   background: var(--fd-page-bg);
 }
