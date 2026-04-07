@@ -66,6 +66,13 @@ fulldev-school/
 - identificar etapa anterior e proxima
 - expor metadados para breadcrumbs
 
+## regra-da-navegacao-superior
+
+- cada conteudo deve ter uma navegacao minimalista no topo, alem da navegacao completa do rodape
+- essa navegacao deve ficar abaixo do breadcrumb, em container proprio
+- o bloco superior deve ser compacto, com tipografia pequena e baixa hierarquia visual
+- os links devem expor apenas `Anterior` e `Proximo`, com icones proporcionais
+
 ### 3-camada-de-conteudo
 
 - buscar licoes no mock-db
