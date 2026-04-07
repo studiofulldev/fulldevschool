@@ -102,6 +102,24 @@ Uso esperado:
 - login com Google
 - recuperacao de senha
 
+## requisitos-de-cadastro
+
+O cadastro proprio da plataforma deve coletar:
+
+- `full_name`
+- `email`
+- `password`
+- `whatsapp_number` opcional
+- `age`
+- `technical_level`
+- `education_institution` opcional
+- `accepted_terms`
+- `accepted_terms_at`
+- `accepted_email_consent`
+- `accepted_email_consent_at`
+
+Google Login continua permitido, mas a plataforma deve complementar o perfil quando esses dados nao vierem do provider.
+
 ### profiles
 
 Tabela de perfil publico/privado da conta.
@@ -111,8 +129,32 @@ Campos iniciais recomendados:
 - `id`
 - `email`
 - `full_name`
+- `whatsapp_number`
+- `age`
+- `technical_level`
+- `education_institution`
 - `avatar_url`
 - `provider`
+- `accepted_terms`
+- `accepted_terms_at`
+- `accepted_email_consent`
+- `accepted_email_consent_at`
+- `created_at`
+- `updated_at`
+
+### email_leads
+
+Tabela dedicada para disparo de emails e convites.
+
+Campos iniciais recomendados:
+
+- `id`
+- `user_id` opcional
+- `email`
+- `full_name`
+- `source`
+- `consent_version`
+- `accepted_email_consent_at`
 - `created_at`
 - `updated_at`
 
@@ -202,11 +244,14 @@ Campos iniciais recomendados:
 ### fluxo-de-login
 
 1. usuario acessa qualquer rota da plataforma
-2. se estiver deslogado, um modal obrigatorio abre com fundo embaçado
-3. usuario escolhe email ou Google
-4. Supabase Auth valida
-5. plataforma cria ou atualiza `profiles`
-6. o modal some e a pessoa continua na rota atual
+2. se estiver deslogado, um modal obrigatorio abre com fundo embacado
+3. usuario escolhe email/senha ou Google
+4. se for cadastro proprio, preenche nome, email, senha, idade, nivel tecnico e aceite de termos
+5. campos opcionais de WhatsApp e instituicao podem ser informados no mesmo fluxo
+6. Supabase Auth valida
+7. plataforma cria ou atualiza `profiles`
+8. nome e email sao sincronizados com `email_leads` para disparo de comunicacoes
+9. o modal some e a pessoa continua na rota atual
 
 ### fluxo-de-entrada-no-curso
 
@@ -283,6 +328,7 @@ Enquanto o backend real nao estiver pronto por completo:
 - a navegacao continua vindo do mock-db
 - o curso `Start` continua sendo a base editorial
 - as tabelas do Supabase entram primeiro para auth, profiles e progresso
+- o cadastro deve nascer com estrutura pronta para consentimento e disparo de emails
 
 ## decisao-recomendada-para-v1
 

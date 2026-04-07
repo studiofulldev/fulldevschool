@@ -81,8 +81,12 @@ A camada dentro do curso reaproveita a base atual:
 - a entrada principal da aplicacao nao deve cair direto em uma licao
 - a pessoa deve conseguir ver um hub de cursos antes de entrar no conteudo
 - a plataforma deve bloquear o uso quando o usuario estiver deslogado
-- o login deve acontecer em modal obrigatorio com fundo embaçado
+- o login deve acontecer em modal obrigatorio com fundo embacado
 - o modal de autenticacao nao pode ser fechado manualmente antes do login
+- o modal deve permitir alternar entre entrar e criar conta
+- o cadastro deve pedir nome, email, senha, idade, nivel tecnico e aceite de termos
+- WhatsApp e instituicao de ensino entram como campos opcionais
+- o aceite de termos deve cobrir consentimento para salvar nome e email para disparo de comunicacoes
 - deve existir acesso claro para a area da conta
 - o visual geral deve continuar simples e clean
 - a navegacao lateral e superior continuam sendo o padrao dentro do curso

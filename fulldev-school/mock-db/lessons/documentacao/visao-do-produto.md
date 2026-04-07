@@ -46,9 +46,35 @@ A ideia e ter:
 
 - um hub centralizado de cursos
 - autenticacao simples, incluindo login com Google
+- cadastro proprio com coleta de perfil do aluno
 - area da conta
 - acompanhamento de cursos e modulos concluidos
 - arquitetura preparada para outros sistemas da FullDev no futuro
+
+## requisitos-de-cadastro
+
+O cadastro da Fulldev School deve permitir:
+
+- login com Google
+- login com email e senha
+
+No fluxo de cadastro proprio, a plataforma deve pedir:
+
+- nome
+- email
+- senha
+- numero de WhatsApp opcional
+- idade
+- nivel tecnico
+- instituicao de ensino opcional
+- aceite de termos
+
+O aceite de termos tambem deve cobrir o consentimento para:
+
+- salvar nome e email em base de disparo
+- enviar comunicacoes da FullDev relacionadas a plataforma, cursos, convites e atualizacoes
+
+Nome e email devem ser salvos de forma estruturada para uso em campanhas, convites para beta e comunicacoes oficiais da FullDev.
 
 ## objetivo-principal
 
@@ -62,6 +88,7 @@ Tambem e objetivo do produto reforcar a IA como ferramenta de apoio transversal 
 - manter o curso `Start: Comecando na tecnologia` como curso inicial
 - renderizar a experiencia dentro do curso com navegacao lateral e superior
 - permitir login, incluindo Google
+- permitir cadastro com email e senha
 - criar area simples de conta
 - permitir marcar cursos e modulos como concluidos
 - iniciar backend e autenticacao em Supabase

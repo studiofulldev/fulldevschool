@@ -18,6 +18,25 @@ import { PlatformDataService } from '../services/platform-data.service';
           <h1>{{ user.name }}</h1>
           <p>{{ user.email }}</p>
           <span>Login via {{ user.provider === 'google' ? 'Google' : 'e-mail' }}</span>
+
+          <div class="account-details">
+            <div class="account-detail">
+              <strong>WhatsApp</strong>
+              <span>{{ user.whatsappNumber || 'Nao informado' }}</span>
+            </div>
+            <div class="account-detail">
+              <strong>Idade</strong>
+              <span>{{ user.age ?? 'Nao informada' }}</span>
+            </div>
+            <div class="account-detail">
+              <strong>Nivel tecnico</strong>
+              <span>{{ user.technicalLevel || 'Nao informado' }}</span>
+            </div>
+            <div class="account-detail">
+              <strong>Instituicao</strong>
+              <span>{{ user.educationInstitution || 'Nao informada' }}</span>
+            </div>
+          </div>
         } @else {
           <h1>Sua conta</h1>
           <p>Voce ainda nao esta autenticado.</p>
@@ -69,14 +88,31 @@ import { PlatformDataService } from '../services/platform-data.service';
       .account-card h1,
       .account-card p,
       .account-course strong,
-      .account-course span {
+      .account-course span,
+      .account-detail strong,
+      .account-detail span {
         margin: 0;
       }
 
       .account-card p,
       .account-card span,
-      .account-course span {
+      .account-course span,
+      .account-detail span {
         color: var(--fd-muted);
+      }
+
+      .account-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+
+      .account-detail {
+        display: grid;
+        gap: 4px;
+        padding: 14px;
+        border: 1px solid var(--fd-border);
+        background: rgba(255, 255, 255, 0.02);
       }
 
       .account-courses {
