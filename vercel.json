@@ -1,7 +1,7 @@
 {
-  "installCommand": "cd fulldev-school/app && npm install",
-  "buildCommand": "cd fulldev-school/app && npm run build",
-  "outputDirectory": "fulldev-school/app/dist/app/browser",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/app/browser",
   "rewrites": [
     {
       "source": "/((?!.*\\.).*)",
