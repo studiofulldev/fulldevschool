@@ -120,6 +120,11 @@ export class SchoolContentService {
     return lesson;
   }
 
+  clearCurrentLesson(): void {
+    this._currentLesson.set(null);
+    this._currentAudio.set(null);
+  }
+
   private parseLessonSource(source: string, node: NavigationNode): LessonContent {
     const frontmatterMatch = source.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
     if (!frontmatterMatch) {

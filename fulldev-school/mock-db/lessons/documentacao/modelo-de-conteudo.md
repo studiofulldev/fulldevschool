@@ -21,6 +21,8 @@ Ou seja:
 - tudo vem de arquivos estruturados
 - o Angular so le, valida e renderiza
 
+Na nova fase do produto, esse modelo deve representar a camada `dentro do curso`, enquanto o catalogo, a conta e o progresso do usuario passam a existir como entidades de plataforma.
+
 ## unidades-principais
 
 ### navigation-tree
@@ -50,12 +52,63 @@ Representa:
 
 Na V1 pode ficar local. Depois pode ir para API real.
 
+### course
+
+Representa um curso da plataforma.
+
+Deve conter:
+
+- id
+- slug
+- titulo
+- descricao curta
+- capa
+- status
+- ordem
+
+### module
+
+Representa um agrupador de licoes dentro de um curso.
+
+Deve conter:
+
+- id
+- courseId
+- titulo
+- descricao opcional
+- ordem
+
+### user-progress
+
+Representa o estado do usuario na plataforma.
+
+Deve conter:
+
+- userId
+- courseId
+- moduleId ou lessonId
+- status de conclusao
+- ultima interacao
+
+### account-profile
+
+Representa a conta da pessoa.
+
+Deve conter:
+
+- id
+- nome
+- email
+- avatar
+- provider de login
+
 ## decisao-recomendada
 
 Usar modelo hibrido:
 
 - Markdown para conteudo humano
 - JSON para navegacao, metadados e audio
+- Supabase para autenticacao, conta, catalogo e progresso quando a plataforma sair do modo mockado
 
 ## regra-de-ouro
 

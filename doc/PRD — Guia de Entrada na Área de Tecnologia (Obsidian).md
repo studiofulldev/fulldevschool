@@ -1,10 +1,15 @@
 ## 1. Visão Geral
 
-Criar um sistema dentro do **Obsidian** para guiar iniciantes absolutos na área de tecnologia, desde o primeiro contato com o computador até a escolha de uma carreira, construção de portfólio e plano realista para conseguir a primeira oportunidade.
+Transformar este material em uma **plataforma de cursos da FullDev**, começando pelo curso:
 
-O produto será um **guia completo, progressivo e honesto**, combinando:
+> **Start: Começando na tecnologia**
+
+Esse primeiro curso continua cobrindo a jornada de entrada na área, desde o primeiro contato com o computador até escolha de carreira, portfólio e preparação para a primeira oportunidade.
+
+A plataforma deve combinar:
 
 - Educação estruturada
+- Catálogo de cursos
 - Tomada de decisão
 - Trilhas por área
 - Ação prática
@@ -36,6 +41,14 @@ Para:
 
 > "Entendi como a área funciona, escolhi um caminho, sei o que estudar agora, como praticar e como me preparar para buscar minha primeira vaga"
 
+E, do ponto de vista de produto, levar a FullDev de:
+
+> "Um guia editorial estruturado"
+
+Para:
+
+> "Uma plataforma de cursos simples, clean e preparada para vários produtos conectados"
+
 ---
 
 ## 4. Público-Alvo
@@ -53,6 +66,13 @@ Para:
 > Um caminho claro, simples e honesto para entrar em tecnologia, sem atalhos falsos, sem jargão desnecessário e sempre com um próximo passo prático.
 
 Este guia também deve reforçar a importância de **comunidade**, com destaque para a **FullDev** como referência de ecossistema, troca, apoio e acompanhamento para quem está entrando na área.
+
+A nova camada de produto deve acrescentar:
+
+- centralização de cursos
+- login simples, incluindo Google
+- conta do usuário
+- acompanhamento de progresso por curso e módulo
 
 ---
 
@@ -93,7 +113,9 @@ Conclusão:
 
 ### Inclui
 
-- Guia introdutório para iniciantes absolutos
+- Plataforma web da FullDev School
+- Catálogo inicial de cursos
+- Curso introdutório `Start: Começando na tecnologia`
 - Explicação das principais áreas de tecnologia
 - Teste de perfil orientativo
 - Roadmaps iniciais por área
@@ -101,18 +123,48 @@ Conclusão:
 - Conteúdo de empregabilidade
 - Glossário de termos
 - Checklist de progresso
+- Login com conta e opção de autenticação com Google
+- Área da conta
+- Marcação de cursos e módulos concluídos
 
 ### Não Inclui na V1
 
 - Comunidade nativa própria
-- Plataforma web
 - Gamificação
 - Teste de perfil avançado com lógica adaptativa
 - Conteúdo premium ou mentoria
+- Marketplace avançado
+- Infraestrutura multi-produto completa além do necessário para iniciar a School
+
+## 8.1 Backend e Dados
+
+A visão de longo prazo é a FullDev ter vários sistemas compartilhando o mesmo backend e a mesma base de dados.
+
+Como ainda não existe essa fundação e o primeiro sistema a surgir será a School, o backend inicial pode ser construído em **Supabase**.
+
+Esse backend inicial deve cobrir:
+
+- autenticação
+- login com Google
+- perfil de usuário
+- progresso por curso e módulo
+- catálogo de cursos
 
 ---
 
 ## 9. Estrutura do Produto no Obsidian
+
+No contexto da plataforma, a estrutura atual representa principalmente a experiência **dentro do curso**.
+
+Ela será mantida e aperfeiçoada como o fluxo interno do curso `Start: Começando na tecnologia`.
+
+Acima dessa camada, a plataforma precisa ganhar:
+
+- home de cursos
+- seleção de curso
+- login
+- conta
+- progresso centralizado
 
 ### 00. Home
 

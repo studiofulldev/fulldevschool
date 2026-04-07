@@ -6,10 +6,16 @@ export interface AzureSpeechRuntimeConfig {
   voice?: string;
 }
 
+export interface SupabaseRuntimeConfig {
+  url: string;
+  anonKey: string;
+}
+
 declare global {
   interface Window {
     __FULLDEV_SCHOOL_CONFIG__?: {
       azureSpeech?: AzureSpeechRuntimeConfig;
+      supabase?: SupabaseRuntimeConfig;
     };
   }
 }
@@ -31,5 +37,21 @@ export class RuntimeConfigService {
     }
 
     return { key, region, voice };
+  }
+
+  get supabase(): SupabaseRuntimeConfig | null {
+    const globalConfig = window.__FULLDEV_SCHOOL_CONFIG__?.supabase;
+    if (globalConfig?.url && globalConfig.anonKey) {
+      return globalConfig;
+    }
+
+    const url = localStorage.getItem('fds.supabase.url');
+    const anonKey = localStorage.getItem('fds.supabase.anonKey');
+
+    if (!url || !anonKey) {
+      return null;
+    }
+
+    return { url, anonKey };
   }
 }

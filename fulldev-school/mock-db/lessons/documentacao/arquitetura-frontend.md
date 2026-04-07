@@ -31,11 +31,35 @@ fulldev-school/
     schemas/
 ```
 
+## estrutura-de-experiencia
+
+O frontend passa a ter duas camadas principais:
+
+- camada de plataforma
+- camada dentro do curso
+
+A camada de plataforma cobre:
+
+- catalogo centralizado de cursos
+- gate global de autenticacao
+- conta
+- progresso consolidado
+
+A camada dentro do curso reaproveita a base atual:
+
+- navegacao lateral
+- navegacao superior
+- licoes
+- modulos
+- progresso por bloco e modulo
+
 ## camadas-do-frontend
 
 ### 1-app-shell
 
 - layout principal
+- shell da plataforma
+- shell do curso
 - sidebar em arvore
 - header
 - header visual no drawer com a logo completa centralizada
@@ -52,6 +76,20 @@ fulldev-school/
 - a imagem da marca deve aparecer completa, centralizada e com `object-fit: contain`
 - a logo pode variar conforme o tema, mas o enquadramento deve permanecer estavel
 
+## regra-da-plataforma
+
+- a entrada principal da aplicacao nao deve cair direto em uma licao
+- a pessoa deve conseguir ver um hub de cursos antes de entrar no conteudo
+- a plataforma deve bloquear o uso quando o usuario estiver deslogado
+- o login deve acontecer em modal obrigatorio com fundo embaçado
+- o modal de autenticacao nao pode ser fechado manualmente antes do login
+- deve existir acesso claro para a area da conta
+- o visual geral deve continuar simples e clean
+- a navegacao lateral e superior continuam sendo o padrao dentro do curso
+- o header da plataforma deve ficar fixo no topo, como no shell do curso
+- a sidebar da plataforma deve iniciar retraida e expandir apenas com hover no desktop
+- a logo completa da FullDev deve aparecer no topo da sidebar da plataforma
+
 ## regra-do-toggle-lateral
 
 - no desktop, deve existir um botao vertical ao lado da sidebar para expandir e retrair o menu
@@ -67,6 +105,17 @@ fulldev-school/
 - identificar etapa anterior e proxima
 - expor metadados para breadcrumbs
 - expor contexto para canonical, breadcrumbs estruturados e schema por pagina
+
+## regra-de-rotas
+
+- devem existir rotas de plataforma separadas das rotas de conteudo
+- exemplos esperados:
+  - home de cursos
+  - conta
+  - pagina de curso
+  - pagina de licao
+- o shell de curso deve ser ativado apenas quando a pessoa entra em um curso
+- a autenticacao nao deve depender de rota dedicada de login
 
 ## regra-de-seo
 

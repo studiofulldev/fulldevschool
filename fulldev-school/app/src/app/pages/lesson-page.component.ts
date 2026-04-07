@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { from } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationNode, SchoolContentService } from '../data/school-content.service';
+import { PlatformDataService } from '../services/platform-data.service';
 
 interface ProjectTreeNode {
   id: string;
@@ -51,13 +52,15 @@ interface ContentSupporter {
         <nav class="lesson__breadcrumbs">
           <a routerLink="/">Fulldev School</a>
           <span>/</span>
+          <a [routerLink]="['/courses', courseSlug()]">{{ courseTitle() }}</a>
+          <span>/</span>
           <span>{{ currentLesson.meta.title }}</span>
         </nav>
 
         <section class="lesson__top-nav-shell">
           <nav class="lesson__top-nav" aria-label="Navegação entre conteúdos">
             @if (content.previousLesson(); as previous) {
-              <a class="lesson__top-nav-link" [routerLink]="['/', previous.slug]">
+              <a class="lesson__top-nav-link" [routerLink]="lessonRoute(previous.slug)">
                 <mat-icon>arrow_back</mat-icon>
                 <span>Anterior</span>
               </a>
@@ -66,7 +69,7 @@ interface ContentSupporter {
             }
 
             @if (content.nextLesson(); as next) {
-              <a class="lesson__top-nav-link lesson__top-nav-link--next" [routerLink]="['/', next.slug]">
+              <a class="lesson__top-nav-link lesson__top-nav-link--next" [routerLink]="lessonRoute(next.slug)">
                 <span>Próximo</span>
                 <mat-icon>arrow_forward</mat-icon>
               </a>
@@ -224,14 +227,14 @@ interface ContentSupporter {
 
         <footer class="lesson__footer-nav">
           @if (content.previousLesson(); as previous) {
-            <a mat-stroked-button class="lesson__nav-button lesson__nav-button--previous" [routerLink]="['/', previous.slug]">
+            <a mat-stroked-button class="lesson__nav-button lesson__nav-button--previous" [routerLink]="lessonRoute(previous.slug)">
               <mat-icon>arrow_back</mat-icon>
               {{ previous.title }}
             </a>
           }
 
           @if (content.nextLesson(); as next) {
-            <a mat-flat-button class="lesson__nav-button lesson__nav-button--next" [routerLink]="['/', next.slug]">
+            <a mat-flat-button class="lesson__nav-button lesson__nav-button--next" [routerLink]="lessonRoute(next.slug)">
               {{ next.title }}
               <mat-icon>arrow_forward</mat-icon>
             </a>
@@ -958,6 +961,7 @@ export class LessonPageComponent {
   private readonly treeStorageKey = 'fulldev-school.project-tree.expanded-nodes';
   private readonly hiddenProjectSections = new Set(['16-painel-de-progresso', '90-templates']);
   protected readonly content = inject(SchoolContentService);
+  private readonly platform = inject(PlatformDataService);
   protected readonly contentSupporters: ContentSupporter[] = [
     {
       id: 'fulldev',
@@ -1018,11 +1022,17 @@ export class LessonPageComponent {
   protected readonly expandedBlocks = signal<Record<string, boolean>>(this.readExpandedBlocks());
   protected readonly expandedTreeNodes = signal<Record<string, boolean>>(this.readExpandedTreeNodes());
   protected readonly projectTree = computed(() => this.buildProjectTree());
+  protected readonly courseSlug = toSignal(this.route.paramMap.pipe(map((params) => params.get('courseSlug') ?? 'start')), {
+    initialValue: 'start'
+  });
+  protected readonly courseTitle = computed(
+    () => this.platform.getCourseBySlug(this.courseSlug())?.title ?? 'Start: Começando na tecnologia'
+  );
 
   private readonly lessonResult = toSignal(
     this.route.paramMap.pipe(
       switchMap((params) => {
-        const slug = params.get('slug');
+        const slug = params.get('lessonSlug') ?? params.get('slug');
         return from(this.resolveLesson(slug));
       })
     ),
@@ -1125,6 +1135,10 @@ export class LessonPageComponent {
 
   protected shouldRenderProjectChildrenHorizontally(node: ProjectTreeNode): boolean {
     return node.id === 'section-05-mapa-das-areas';
+  }
+
+  protected lessonRoute(lessonSlug: string): string[] {
+    return ['/courses', this.courseSlug(), 'lessons', lessonSlug];
   }
 
   protected isBlockExpanded(slug: string, blockId: string, blockTitle: string): boolean {

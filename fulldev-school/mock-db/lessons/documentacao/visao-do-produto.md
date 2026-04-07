@@ -17,9 +17,11 @@ Fulldev School.
 
 ## resumo
 
-Fulldev School sera a versao frontend guiada do conteudo deste repositorio.
+Fulldev School sera uma plataforma de cursos da FullDev.
 
-Em vez de consumir o guia apenas como notas e documentos, a pessoa podera navegar por uma experiencia mais orientada, com cara de plataforma educacional.
+O curso que existe hoje passa a se chamar `Start: Comecando na tecnologia`.
+
+Em vez de consumir o conteudo apenas como notas e documentos, a pessoa podera navegar por uma experiencia mais orientada, com cara de plataforma educacional, catalogo de cursos, progresso e conta de usuario.
 
 ## problema-que-o-produto-resolve
 
@@ -27,32 +29,50 @@ Hoje o conteudo e forte editorialmente, mas ainda depende de leitura manual e na
 
 Isso cria limitacoes para:
 
+- descoberta de cursos
 - consumo em mobile
 - experiencia mais visual
 - acompanhamento com audio
 - retencao por leitura guiada
-- futuras features de progresso, favoritos e trilhas personalizadas
+- futuras features de progresso, favoritos, trilhas personalizadas e conta
+
+## visao-de-plataforma
+
+A FullDev deve evoluir para um ecossistema com varios sistemas compartilhando o mesmo backend e a mesma base de dados.
+
+No inicio, como o primeiro produto sera a School, a stack de backend pode nascer em `Supabase`.
+
+A ideia e ter:
+
+- um hub centralizado de cursos
+- autenticacao simples, incluindo login com Google
+- area da conta
+- acompanhamento de cursos e modulos concluidos
+- arquitetura preparada para outros sistemas da FullDev no futuro
 
 ## objetivo-principal
 
-Transformar o guia em uma aplicacao web educacional com navegacao clara, boa legibilidade e suporte a audio.
+Transformar o guia em uma plataforma web educacional simples, clean e preparada para crescer para varios cursos.
 
 Tambem e objetivo do produto reforcar a IA como ferramenta de apoio transversal para estudo, pratica, revisao e produtividade.
 
 ## objetivos-da-v1
 
-- renderizar o conteudo em Angular
-- navegar por arvore e breadcrumbs
-- carregar paginas a partir de um banco de dados mockado
-- persistir estado de expansao da navegacao e dos topicos
-- destacar a visao geral com painel de boas-vindas e arvore expansivel da estrutura do projeto
-- abrir a jornada com uma etapa clara sobre IA, mercado, medo e oportunidade
+- centralizar a entrada da plataforma em uma tela de cursos
+- manter o curso `Start: Comecando na tecnologia` como curso inicial
+- renderizar a experiencia dentro do curso com navegacao lateral e superior
+- permitir login, incluindo Google
+- criar area simples de conta
+- permitir marcar cursos e modulos como concluidos
+- iniciar backend e autenticacao em Supabase
+- manter a experiencia atual como base para a camada `dentro do curso`
 
 ## fora-da-v1
 
-- autenticacao
-- backend real
-- CMS real
+- marketplace completo de cursos
+- recomendacao personalizada avancada
+- CMS editorial completo
 - analytics avancado
 - comentarios
 - geracao automatica de audio no servidor
+- unificacao completa dos outros sistemas FullDev no mesmo backend
