@@ -101,6 +101,7 @@ fulldev-school/
 - as demais etapas devem seguir em cadeia vertical, uma abaixo da outra, com conectores visuais
 - em `Mapa das Areas`, os grupos principais devem aparecer lado a lado
 - os subtopicos dentro desses grupos devem ficar em coluna
+- os itens que possuem subtopicos devem ser expansivos
 - os cards dos subtopicos devem manter alinhamento no topo, texto alinhado a esquerda e largura minima de `220px`
 - quando o container for maior que `220px`, os subtopicos devem ocupar `100%` da largura disponivel
 

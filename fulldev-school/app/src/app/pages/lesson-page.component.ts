@@ -194,9 +194,21 @@ interface ProjectTreeNode {
       <div class="project-tree__branch" [style.--branch-depth]="depth">
         @for (node of nodes; track node.id) {
           <div class="project-tree__item" [class.project-tree__item--group]="hasChildren(node)">
-            <div class="project-tree__item-label">{{ node.label }}</div>
-
             @if (hasChildren(node)) {
+              <button
+                type="button"
+                class="project-tree__item-label project-tree__item-toggle"
+                (click)="toggleTreeNode(node.id)"
+                [attr.aria-expanded]="isTreeNodeExpanded(node.id)"
+              >
+                <span>{{ node.label }}</span>
+                <mat-icon>{{ isTreeNodeExpanded(node.id) ? 'expand_less' : 'expand_more' }}</mat-icon>
+              </button>
+            } @else {
+              <div class="project-tree__item-label">{{ node.label }}</div>
+            }
+
+            @if (hasChildren(node) && isTreeNodeExpanded(node.id)) {
               <ng-container
                 [ngTemplateOutlet]="treeBranch"
                 [ngTemplateOutletContext]="{ $implicit: node.children, depth: depth + 1 }"
@@ -211,9 +223,21 @@ interface ProjectTreeNode {
       <div class="project-tree__branch-horizontal" [style.--branch-depth]="depth">
         @for (node of nodes; track node.id) {
           <div class="project-tree__item project-tree__item--horizontal" [class.project-tree__item--group]="hasChildren(node)">
-            <div class="project-tree__item-label">{{ node.label }}</div>
-
             @if (hasChildren(node)) {
+              <button
+                type="button"
+                class="project-tree__item-label project-tree__item-toggle"
+                (click)="toggleTreeNode(node.id)"
+                [attr.aria-expanded]="isTreeNodeExpanded(node.id)"
+              >
+                <span>{{ node.label }}</span>
+                <mat-icon>{{ isTreeNodeExpanded(node.id) ? 'expand_less' : 'expand_more' }}</mat-icon>
+              </button>
+            } @else {
+              <div class="project-tree__item-label">{{ node.label }}</div>
+            }
+
+            @if (hasChildren(node) && isTreeNodeExpanded(node.id)) {
               <ng-container
                 [ngTemplateOutlet]="treeBranch"
                 [ngTemplateOutletContext]="{ $implicit: node.children, depth: depth + 1 }"
@@ -290,48 +314,6 @@ interface ProjectTreeNode {
       .lesson__breadcrumbs a {
         color: inherit;
         text-decoration: none;
-      }
-
-      .lesson__top-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 0;
-      }
-
-      .lesson__top-nav-shell {
-        padding: 8px 12px;
-        border: 1px solid var(--fd-border);
-        background: var(--fd-surface-overlay);
-      }
-
-      .lesson__top-nav-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--fd-soft);
-        font-size: 0.62rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        line-height: 1.2;
-        text-decoration: none;
-        opacity: 0.78;
-      }
-
-      .lesson__top-nav-link mat-icon {
-        width: 16px;
-        height: 16px;
-        font-size: 16px;
-      }
-
-      .lesson__top-nav-link:hover {
-        color: var(--fd-text);
-        opacity: 1;
-      }
-
-      .lesson__top-nav-link--next {
-        margin-left: auto;
       }
 
       .lesson__body {
@@ -496,14 +478,11 @@ interface ProjectTreeNode {
 
       .project-tree__root-connector {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 8px;
         color: var(--fd-accent);
-      }
-
-      .project-tree__root-connector {
-        flex-direction: column;
       }
 
       .project-tree__connector-line {
@@ -547,23 +526,23 @@ interface ProjectTreeNode {
         scrollbar-width: thin;
       }
 
-      .project-tree__item {
+      .project-tree__item,
+      .project-tree__item--horizontal {
         display: grid;
         gap: 10px;
-        justify-items: start;
         width: 100%;
         min-width: 220px;
         padding-left: 0;
       }
 
+      .project-tree__item {
+        justify-items: start;
+      }
+
       .project-tree__item--horizontal {
-        display: grid;
         align-content: start;
         justify-items: stretch;
         align-self: flex-start;
-        width: 100%;
-        min-width: 220px;
-        padding-left: 0;
       }
 
       .project-tree__item--horizontal > .project-tree__branch {
@@ -585,6 +564,7 @@ interface ProjectTreeNode {
       .project-tree__item-label {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         width: 100%;
         min-width: 220px;
         height: 52px;
@@ -595,6 +575,21 @@ interface ProjectTreeNode {
         color: var(--fd-muted);
         font-size: var(--fd-text-sm);
         line-height: 1.45;
+      }
+
+      .project-tree__item-toggle {
+        cursor: pointer;
+      }
+
+      .lesson__top-nav-link mat-icon,
+      .project-tree__item-toggle mat-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+      }
+
+      .project-tree__item-toggle mat-icon {
+        color: var(--fd-soft);
       }
 
       :host ::ng-deep .lesson__block .mat-expansion-panel-header:hover,
@@ -760,9 +755,11 @@ export class LessonPageComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly sanitizer = inject(DomSanitizer);
   private readonly blockStorageKey = 'fulldev-school.lesson.expanded-blocks';
+  private readonly treeStorageKey = 'fulldev-school.project-tree.expanded-nodes';
   private readonly hiddenProjectSections = new Set(['16-painel-de-progresso', '90-templates']);
   protected readonly content = inject(SchoolContentService);
   protected readonly expandedBlocks = signal<Record<string, boolean>>(this.readExpandedBlocks());
+  protected readonly expandedTreeNodes = signal<Record<string, boolean>>(this.readExpandedTreeNodes());
   protected readonly projectTree = computed(() => this.buildProjectTree());
 
   private readonly lessonResult = toSignal(
@@ -851,6 +848,22 @@ export class LessonPageComponent {
 
   protected hasChildren(node: ProjectTreeNode): boolean {
     return Boolean(node.children?.length);
+  }
+
+  protected isTreeNodeExpanded(nodeId: string): boolean {
+    return this.expandedTreeNodes()[nodeId] ?? true;
+  }
+
+  protected toggleTreeNode(nodeId: string): void {
+    this.expandedTreeNodes.update((current) => {
+      const next = {
+        ...current,
+        [nodeId]: !(current[nodeId] ?? true)
+      };
+
+      this.writeExpandedTreeNodes(next);
+      return next;
+    });
   }
 
   protected shouldRenderProjectChildrenHorizontally(node: ProjectTreeNode): boolean {
@@ -978,6 +991,31 @@ export class LessonPageComponent {
 
     try {
       localStorage.setItem(this.blockStorageKey, JSON.stringify(state));
+    } catch {
+      // Ignore storage failures and keep the current in-memory state.
+    }
+  }
+
+  private readExpandedTreeNodes(): Record<string, boolean> {
+    if (typeof localStorage === 'undefined') {
+      return {};
+    }
+
+    try {
+      const raw = localStorage.getItem(this.treeStorageKey);
+      return raw ? (JSON.parse(raw) as Record<string, boolean>) : {};
+    } catch {
+      return {};
+    }
+  }
+
+  private writeExpandedTreeNodes(state: Record<string, boolean>): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
+
+    try {
+      localStorage.setItem(this.treeStorageKey, JSON.stringify(state));
     } catch {
       // Ignore storage failures and keep the current in-memory state.
     }
