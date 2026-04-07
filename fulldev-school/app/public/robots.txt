@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Canonical and structured data are generated in-app.
+# Add a production sitemap URL when the final public domain is defined.

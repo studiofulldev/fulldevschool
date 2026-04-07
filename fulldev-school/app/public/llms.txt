@@ -1,0 +1,45 @@
+# Fulldev School
+
+> Guia completo para entrar na area de tecnologia, com foco em clareza editorial, base digital, trilhas, IA aplicada, portfolio, carreira e curadoria de fontes.
+
+## Resumo
+
+Fulldev School e uma experiencia guiada para iniciantes em tecnologia. O projeto transforma a documentacao editorial do repositorio em uma aplicacao web educacional com navegacao estruturada por etapas.
+
+## O que o projeto cobre
+
+- impacto da IA na jornada de quem esta comecando
+- fundamentos digitais
+- fundamentos de tecnologia
+- como aprender melhor
+- mapa das areas e comparacao de caminhos
+- escolha de trilha inicial
+- projetos e portfolio
+- mercado de trabalho
+- comunidade, networking, glossario e recursos curados
+
+## Criterios editoriais
+
+- prioriza documentacao oficial, dados estaveis e fontes abertas
+- evita atalhos falsos, hype e listas sem curadoria
+- organiza o conteudo em sequencia de aprendizagem, com proximos passos claros
+- trata IA como ferramenta de apoio para estudo, revisao, pesquisa e execucao
+
+## Publico principal
+
+- pessoas iniciantes em tecnologia
+- pessoas que ainda nao definiram uma area
+- pessoas que precisam de uma trilha confiavel para sair da confusao inicial
+
+## Sinais importantes para leitura automatizada
+
+- o conteudo e estruturado por licoes e blocos
+- cada secao relevante possui identificadores estaveis
+- a navegacao principal e derivada de `mock-db/navigation/tree.json`
+- o frontend renderiza o conteudo a partir de arquivos estruturados em `mock-db/doc`
+
+## Fonte editorial
+
+- direcao editorial: FullDev
+- implementacao frontend: projeto Angular standalone
+- base documental: arquivos markdown versionados no repositorio

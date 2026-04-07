@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, computed, effect, inject, signal } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
@@ -8,6 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NavigationNode, SchoolContentService } from './data/school-content.service';
+import { SeoService } from './services/seo.service';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -34,6 +35,7 @@ export class App {
   private readonly router = inject(Router);
 
   protected readonly content = inject(SchoolContentService);
+  protected readonly seo = inject(SeoService);
   protected readonly theme = inject(ThemeService);
 
   protected readonly expandedSections = signal<Record<string, boolean>>(this.readExpandedSections());
@@ -78,6 +80,15 @@ export class App {
   constructor() {
     void this.content.ensureNavigationLoaded();
     this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
+
+    effect(() => {
+      this.seo.updatePageSeo(
+        this.content.currentLesson(),
+        this.navTree(),
+        this.currentUrl(),
+        this.content.currentLesson()?.meta.estimatedReadingMinutes ?? 1
+      );
+    });
   }
 
   protected setSectionExpanded(sectionKey: string, expanded: boolean): void {

@@ -43,6 +43,7 @@ fulldev-school/
 - area de conteudo
 - barra fixa de progresso de leitura
 - persistencia da expansao da navegacao
+- atualizacao centralizada de SEO tecnico por rota
 
 ## regra-do-header-lateral
 
@@ -65,6 +66,17 @@ fulldev-school/
 - montar rotas amigaveis
 - identificar etapa anterior e proxima
 - expor metadados para breadcrumbs
+- expor contexto para canonical, breadcrumbs estruturados e schema por pagina
+
+## regra-de-seo
+
+- cada pagina deve atualizar `title`, `description`, `canonical` e metas sociais dinamicamente
+- a home e as licoes devem publicar `JSON-LD` com `WebSite`, `BreadcrumbList` e `LearningResource` ou `CollectionPage`
+- o `lang` principal da aplicacao deve ser `pt-BR`
+- a descricao de cada licao deve ser derivada do proprio conteudo, sem texto generico repetido
+- o projeto deve expor arquivos publicos para crawler e IA, incluindo `robots.txt` e `llms.txt`
+- a estrategia editorial de SEO deve refletir o posicionamento do projeto como guia completo para entrar na area de tecnologia
+- favicon, apple touch icon e imagens de compartilhamento devem usar as logos oficiais do projeto
 
 ## regra-da-navegacao-superior
 
