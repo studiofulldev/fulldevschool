@@ -324,6 +324,52 @@ interface ProjectTreeNode {
         background: var(--fd-surface-overlay);
       }
 
+      .lesson__top-nav-shell {
+        display: grid;
+        gap: 12px;
+        padding: 16px 20px;
+        border: 1px solid var(--fd-border);
+        background: var(--fd-surface-overlay);
+      }
+
+      .lesson__top-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        width: 100%;
+        padding: 0;
+      }
+
+      .lesson__top-nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 28px;
+        padding: 0;
+        background: transparent;
+        color: var(--fd-soft);
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1.2;
+        text-decoration: none;
+        white-space: nowrap;
+        opacity: 1;
+        transition:
+          color var(--fd-motion-fast);
+      }
+
+      .lesson__top-nav-link:hover {
+        color: var(--fd-text);
+      }
+
+      .lesson__top-nav-link--next {
+        margin-left: auto;
+      }
+
       .lesson__block {
         background: transparent;
         box-shadow: none;
@@ -730,6 +776,10 @@ interface ProjectTreeNode {
       }
 
       @media (max-width: 960px) {
+        .lesson__top-nav-shell {
+          padding: 12px 16px;
+        }
+
         .lesson__block-header mat-panel-title {
           gap: 10px;
         }

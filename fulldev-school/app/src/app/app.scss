@@ -312,34 +312,18 @@
 }
 
 .lesson__top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
   padding: 0;
 }
 
 .lesson__top-nav-shell {
-  padding: 8px 12px;
-  border: 1px solid var(--fd-border);
-  background: var(--fd-surface-overlay);
+  padding: 0;
 }
 
 .lesson__top-nav-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--fd-soft);
-  font-size: 0.62rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1.2;
-  text-decoration: none;
-  opacity: 0.78;
+  opacity: inherit;
 }
 
 .lesson__top-nav-link:hover {
-  color: var(--fd-text);
   opacity: 1;
 }
 
