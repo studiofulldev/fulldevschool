@@ -176,7 +176,18 @@ import { ThemeService } from '../services/theme.service';
 
       .platform-sidebar:not(:hover):not(:focus-within) .platform-nav-item {
         justify-content: center;
+        gap: 0;
+        width: 44px;
+        height: 44px;
+        min-height: 44px;
         padding: 0;
+        margin: 0 auto;
+      }
+
+      .platform-sidebar:not(:hover):not(:focus-within) .platform-nav-item span {
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
       }
 
       .platform-nav-item span {
