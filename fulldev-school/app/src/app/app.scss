@@ -5,6 +5,8 @@
 
 :host {
   --fd-toolbar-height: 80px;
+  --fd-sidebar-width: 255px;
+  --fd-sidebar-toggle-width: 20px;
 }
 
 .shell {
@@ -15,7 +17,7 @@
 }
 
 .shell__sidenav {
-  width: 255px;
+  width: var(--fd-sidebar-width);
   border-right: 1px solid var(--fd-border);
   background: var(--fd-surface-header);
 }
@@ -45,7 +47,7 @@
 .shell__toolbar {
   position: fixed;
   top: 0;
-  left: 255px;
+  left: calc(var(--fd-sidebar-width) + var(--fd-sidebar-toggle-width));
   right: 0;
   z-index: 50;
   display: flex;
@@ -56,6 +58,51 @@
   border-bottom: 1px solid var(--fd-border);
   background: var(--fd-surface-header);
   overflow: hidden;
+}
+
+.shell__sidebar-toggle {
+  position: fixed;
+  top: 0;
+  left: var(--fd-sidebar-width);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--fd-sidebar-toggle-width);
+  height: 100vh;
+  padding: 0;
+  border: 0;
+  border-right: 1px solid var(--fd-border);
+  background: color-mix(in srgb, var(--fd-surface-header) 92%, black 8%);
+  color: var(--fd-soft);
+  cursor: pointer;
+  transition:
+    left var(--fd-motion-fast),
+    color var(--fd-motion-fast),
+    background var(--fd-motion-fast),
+    transform var(--fd-motion-fast);
+}
+
+.shell__sidebar-toggle:hover {
+  color: var(--fd-white);
+  background: var(--fd-surface-overlay);
+}
+
+.shell__sidebar-toggle svg {
+  width: 10px;
+  height: 10px;
+}
+
+.shell--sidebar-collapsed .shell__sidebar-toggle {
+  left: 0;
+}
+
+.shell--sidebar-collapsed .shell__sidebar-toggle svg {
+  transform: rotate(180deg);
+}
+
+.shell--sidebar-collapsed .shell__toolbar {
+  left: var(--fd-sidebar-toggle-width);
 }
 
 .shell__reading-progress {
@@ -283,6 +330,10 @@
     min-height: var(--fd-toolbar-height);
     padding: 16px;
     flex-wrap: wrap;
+  }
+
+  .shell__sidebar-toggle {
+    display: none;
   }
 
   .shell__footer {

@@ -28,6 +28,7 @@ import { ThemeService } from './services/theme.service';
 export class App {
   private readonly hiddenSections = new Set(['16-painel-de-progresso', '90-templates']);
   private readonly navStorageKey = 'fulldev-school.nav.expanded-sections';
+  private readonly sidebarStorageKey = 'fulldev-school.nav.sidebar-expanded';
   private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly destroyRef = inject(DestroyRef);
   private readonly router = inject(Router);
@@ -36,6 +37,7 @@ export class App {
   protected readonly theme = inject(ThemeService);
 
   protected readonly expandedSections = signal<Record<string, boolean>>(this.readExpandedSections());
+  protected readonly sidebarExpanded = signal(this.readSidebarExpanded());
   protected readonly readingProgress = signal(0);
   protected readonly navTree = this.content.navigationTree;
   protected readonly navSections = computed(() => {
@@ -100,6 +102,22 @@ export class App {
     return node.slug === firstSlug ? '/' : `/${node.slug}`;
   }
 
+  protected isSidebarExpanded(): boolean {
+    return this.isHandset() ? false : this.sidebarExpanded();
+  }
+
+  protected toggleSidebar(): void {
+    if (this.isHandset()) {
+      return;
+    }
+
+    this.sidebarExpanded.update((current) => {
+      const next = !current;
+      this.writeSidebarExpanded(next);
+      return next;
+    });
+  }
+
   @HostListener('window:scroll')
   protected onWindowScroll(): void {
     const documentElement = document.documentElement;
@@ -153,6 +171,31 @@ export class App {
 
     try {
       localStorage.setItem(this.navStorageKey, JSON.stringify(state));
+    } catch {
+      // Ignore storage failures and keep the current in-memory state.
+    }
+  }
+
+  private readSidebarExpanded(): boolean {
+    if (typeof localStorage === 'undefined') {
+      return true;
+    }
+
+    try {
+      const raw = localStorage.getItem(this.sidebarStorageKey);
+      return raw ? raw === 'true' : true;
+    } catch {
+      return true;
+    }
+  }
+
+  private writeSidebarExpanded(expanded: boolean): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
+
+    try {
+      localStorage.setItem(this.sidebarStorageKey, String(expanded));
     } catch {
       // Ignore storage failures and keep the current in-memory state.
     }

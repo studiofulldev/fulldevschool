@@ -96,18 +96,48 @@ interface ProjectTreeNode {
                       <strong class="project-tree__root-label">{{ tree.label }}</strong>
                     </header>
 
-                    <div class="project-tree__columns">
-                      @for (column of tree.children ?? []; track column.id) {
-                        <section class="project-tree__column">
-                          <h3 class="project-tree__column-title">{{ column.label }}</h3>
+                    @if (projectFlowRoot(); as rootSection) {
+                      <div class="project-tree__flow">
+                        <section class="project-tree__root-card">
+                          <h3 class="project-tree__column-title">{{ rootSection.label }}</h3>
 
-                          @if (column.children?.length) {
+                          @if (rootSection.children?.length) {
                             <ng-container
                               [ngTemplateOutlet]="treeBranch"
-                              [ngTemplateOutletContext]="{ $implicit: column.children, depth: 0 }"
+                              [ngTemplateOutletContext]="{ $implicit: rootSection.children, depth: 0 }"
                             />
                           }
                         </section>
+
+                        <div class="project-tree__root-connector" aria-hidden="true">
+                          <span class="project-tree__connector-line"></span>
+                          <mat-icon>south</mat-icon>
+                        </div>
+                      </div>
+                    }
+
+                    <div class="project-tree__columns">
+                      @for (column of projectFlowStages(); track column.id; let last = $last) {
+                        <div class="project-tree__stage">
+                          <section class="project-tree__column">
+                            <h3 class="project-tree__column-title">{{ column.label }}</h3>
+
+                            @if (column.children?.length) {
+                              <ng-container
+                                [ngTemplateOutlet]="treeBranch"
+                                [ngTemplateOutletContext]="{ $implicit: column.children, depth: 0 }"
+                              />
+                            }
+                          </section>
+
+                          @if (!last) {
+                            <div class="project-tree__stage-arrow" aria-hidden="true">
+                              <span class="project-tree__connector-line"></span>
+                              <mat-icon>east</mat-icon>
+                              <span class="project-tree__connector-line"></span>
+                            </div>
+                          }
+                        </div>
                       }
                     </div>
                   </section>
@@ -384,14 +414,54 @@ interface ProjectTreeNode {
         line-height: 1.2;
       }
 
-      .project-tree__columns {
+      .project-tree__flow {
         display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(240px, 1fr);
+        justify-items: center;
+        gap: 10px;
+      }
+
+      .project-tree__root-card {
+        display: grid;
+        gap: 12px;
+        width: min(100%, 360px);
+        padding: 16px;
+        border: 1px solid rgba(178, 45, 0, 0.35);
+        background: linear-gradient(180deg, rgba(178, 45, 0, 0.12), rgba(255, 255, 255, 0.03));
+      }
+
+      .project-tree__root-connector,
+      .project-tree__stage-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: var(--fd-accent);
+      }
+
+      .project-tree__root-connector {
+        flex-direction: column;
+      }
+
+      .project-tree__connector-line {
+        display: block;
+        width: 1px;
+        height: 18px;
+        background: rgba(178, 45, 0, 0.45);
+      }
+
+      .project-tree__columns {
+        display: flex;
+        align-items: stretch;
         gap: 14px;
         overflow-x: auto;
         padding-bottom: 4px;
         scrollbar-width: thin;
+      }
+
+      .project-tree__stage {
+        display: flex;
+        align-items: center;
+        gap: 14px;
       }
 
       .project-tree__column {
@@ -409,6 +479,11 @@ interface ProjectTreeNode {
         color: var(--fd-text);
         font-size: var(--fd-text-md);
         line-height: 1.25;
+      }
+
+      .project-tree__stage-arrow .project-tree__connector-line {
+        width: 16px;
+        height: 1px;
       }
 
       .project-tree__branch {
@@ -580,7 +655,16 @@ interface ProjectTreeNode {
         }
 
         .project-tree__columns {
-          grid-auto-columns: minmax(220px, 82vw);
+          gap: 10px;
+        }
+
+        .project-tree__stage {
+          gap: 10px;
+        }
+
+        .project-tree__column,
+        .project-tree__root-card {
+          min-width: min(220px, 82vw);
         }
 
         .lesson__footer-nav {
@@ -599,6 +683,8 @@ export class LessonPageComponent {
   protected readonly content = inject(SchoolContentService);
   protected readonly expandedBlocks = signal<Record<string, boolean>>(this.readExpandedBlocks());
   protected readonly projectTree = computed(() => this.buildProjectTree());
+  protected readonly projectFlowRoot = computed(() => this.projectTree().children?.[0] ?? null);
+  protected readonly projectFlowStages = computed(() => this.projectTree().children?.slice(1) ?? []);
 
   private readonly lessonResult = toSignal(
     this.route.paramMap.pipe(

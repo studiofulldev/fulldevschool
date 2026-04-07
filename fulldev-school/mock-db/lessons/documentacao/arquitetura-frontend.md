@@ -51,6 +51,14 @@ fulldev-school/
 - a imagem da marca deve aparecer completa, centralizada e com `object-fit: contain`
 - a logo pode variar conforme o tema, mas o enquadramento deve permanecer estavel
 
+## regra-do-toggle-lateral
+
+- no desktop, deve existir um botao vertical ao lado da sidebar para expandir e retrair o menu
+- esse botao deve ocupar a altura total da viewport
+- o controle deve ficar visualmente discreto, com largura reduzida e sem destaque de cor quente
+- o hover deve usar o mesmo tom de superficie de `lesson__body`
+- o estado expandido da sidebar deve persistir localmente
+
 ### 2-camada-de-navegacao
 
 - ler a arvore do mock-db
@@ -77,6 +85,13 @@ fulldev-school/
 - o slot de video nao deve aparecer em `Topicos do roadmap e videos sugeridos`
 - o slot de video nao deve aparecer em `Verificacao por topico`
 - o slot de video nao deve aparecer em `Bibliografia`
+
+## regra-da-estrutura-do-projeto
+
+- no bloco `Estrutura do projeto`, a visualizacao deve seguir o fluxo real do conteudo do projeto
+- `Visao Geral` deve aparecer no topo, centralizada, como ponto inicial
+- abaixo dela, a sequencia deve continuar a partir de `E HAJA LUZ!`
+- as demais etapas devem seguir em fluxo horizontal com conectores visuais entre elas
 
 ## diretriz-importante
 

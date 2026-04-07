@@ -1,9 +1,14 @@
-<mat-sidenav-container class="shell" [class.is-dark]="theme.isDark()">
+<mat-sidenav-container
+  class="shell"
+  [class.is-dark]="theme.isDark()"
+  [class.shell--sidebar-collapsed]="!isHandset() && !isSidebarExpanded()"
+>
   <mat-sidenav
     #drawer
+    id="ds-sidebar"
     class="shell__sidenav"
     [mode]="isHandset() ? 'over' : 'side'"
-    [opened]="!isHandset()"
+    [opened]="isHandset() ? false : isSidebarExpanded()"
   >
     <header class="shell__sidenav-header">
       <img
@@ -50,6 +55,22 @@
   </mat-sidenav>
 
   <mat-sidenav-content class="shell__content">
+    @if (!isHandset()) {
+      <button
+        type="button"
+        class="shell__sidebar-toggle"
+        [attr.aria-expanded]="isSidebarExpanded()"
+        aria-controls="ds-sidebar"
+        (click)="toggleSidebar()"
+      >
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 512" aria-hidden="true">
+          <path
+            d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+          ></path>
+        </svg>
+      </button>
+    }
+
     <mat-toolbar class="shell__toolbar">
       <div class="shell__reading-progress" aria-hidden="true">
         <div class="shell__reading-progress-fill" [style.width.%]="readingProgress()"></div>
