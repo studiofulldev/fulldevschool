@@ -1,70 +1,70 @@
 ﻿{
     "product":  "fulldev-school",
-    "version":  3,
+    "version":  4,
     "root":  [
                  {
                      "id":  "00-home-home",
-                     "slug":  "00-home-home",
+                     "slug":  "visao-geral-do-guia",
                      "title":  "Visão Geral do Guia",
                      "navTitle":  "Visão Geral do Guia",
                      "type":  "page",
                      "order":  1,
                      "section":  "00-home",
                      "sectionTitle":  "Visão Geral",
-                     "markdownPath":  "mock-db/doc/00 - Home/Home.md",
+                     "markdownPath":  "mock-db/doc/00 - Home/Visão Geral do Guia.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "01-comece-aqui-indice-comece-aqui",
-                     "slug":  "01-comece-aqui-indice-comece-aqui",
-                     "title":  "E HAJA LUZ!",
-                     "navTitle":  "E HAJA LUZ!",
+                     "slug":  "start",
+                     "title":  "Start",
+                     "navTitle":  "Start",
                      "type":  "page",
                      "order":  2,
                      "section":  "01-comece-aqui",
-                     "sectionTitle":  "E HAJA LUZ!",
-                     "markdownPath":  "mock-db/doc/01 - Comece Aqui/Índice - Comece Aqui.md",
+                     "sectionTitle":  "Start",
+                     "markdownPath":  "mock-db/doc/01 - Comece Aqui/Start.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "02-fundamentos-digitais-indice-fundamentos-digitais",
-                     "slug":  "02-fundamentos-digitais-indice-fundamentos-digitais",
+                     "slug":  "fundamentos-digitais",
                      "title":  "Fundamentos Digitais",
                      "navTitle":  "Fundamentos Digitais",
                      "type":  "page",
                      "order":  3,
                      "section":  "02-fundamentos-digitais",
                      "sectionTitle":  "Fundamentos Digitais",
-                     "markdownPath":  "mock-db/doc/02 - Fundamentos Digitais/Índice - Fundamentos Digitais.md",
+                     "markdownPath":  "mock-db/doc/02 - Fundamentos Digitais/Fundamentos Digitais.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "03-fundamentos-de-tecnologia-indice-fundamentos-de-tecnologia",
-                     "slug":  "03-fundamentos-de-tecnologia-indice-fundamentos-de-tecnologia",
-                     "title":  "Fundamentos de Tecnologia",
-                     "navTitle":  "Fundamentos de Tecnologia",
+                     "slug":  "fund-de-tecnologia",
+                     "title":  "Fund. de Tecnologia",
+                     "navTitle":  "Fund. de Tecnologia",
                      "type":  "page",
                      "order":  4,
                      "section":  "03-fundamentos-de-tecnologia",
-                     "sectionTitle":  "Fundamentos de Tecnologia",
-                     "markdownPath":  "mock-db/doc/03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia.md",
+                     "sectionTitle":  "Fund. de Tecnologia",
+                     "markdownPath":  "mock-db/doc/03 - Fundamentos de Tecnologia/Fund. de Tecnologia.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "04-como-aprender-indice-como-aprender",
-                     "slug":  "04-como-aprender-indice-como-aprender",
+                     "slug":  "como-aprender",
                      "title":  "Como Aprender",
                      "navTitle":  "Como Aprender",
                      "type":  "page",
                      "order":  5,
                      "section":  "04-como-aprender",
                      "sectionTitle":  "Como Aprender",
-                     "markdownPath":  "mock-db/doc/04 - Como Aprender/Índice - Como Aprender.md",
+                     "markdownPath":  "mock-db/doc/04 - Como Aprender/Como Aprender.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-complementares-business-intelligence",
-                     "slug":  "05-mapa-das-areas-areas-complementares-business-intelligence",
+                     "slug":  "business-intelligence",
                      "title":  "Business Intelligence",
                      "navTitle":  "Áreas Complementares / Business Intelligence",
                      "type":  "page",
@@ -76,7 +76,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-complementares-engenharia-de-dados",
-                     "slug":  "05-mapa-das-areas-areas-complementares-engenharia-de-dados",
+                     "slug":  "engenharia-de-dados",
                      "title":  "Engenharia de Dados",
                      "navTitle":  "Áreas Complementares / Engenharia de Dados",
                      "type":  "page",
@@ -88,7 +88,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-complementares-qa-automacao",
-                     "slug":  "05-mapa-das-areas-areas-complementares-qa-automacao",
+                     "slug":  "qa-automacao",
                      "title":  "QA Automação",
                      "navTitle":  "Áreas Complementares / QA Automação",
                      "type":  "page",
@@ -100,7 +100,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-complementares-sales-engineer",
-                     "slug":  "05-mapa-das-areas-areas-complementares-sales-engineer",
+                     "slug":  "sales-engineer",
                      "title":  "Sales Engineer",
                      "navTitle":  "Áreas Complementares / Sales Engineer",
                      "type":  "page",
@@ -112,7 +112,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-complementares-scrum-master-e-agile",
-                     "slug":  "05-mapa-das-areas-areas-complementares-scrum-master-e-agile",
+                     "slug":  "scrum-master-e-agile",
                      "title":  "Scrum Master e Agile",
                      "navTitle":  "Áreas Complementares / Scrum Master e Agile",
                      "type":  "page",
@@ -124,7 +124,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-complementares-sre",
-                     "slug":  "05-mapa-das-areas-areas-complementares-sre",
+                     "slug":  "sre",
                      "title":  "SRE",
                      "navTitle":  "Áreas Complementares / SRE",
                      "type":  "page",
@@ -136,7 +136,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-complementares-technical-writer",
-                     "slug":  "05-mapa-das-areas-areas-complementares-technical-writer",
+                     "slug":  "technical-writer",
                      "title":  "Technical Writer",
                      "navTitle":  "Áreas Complementares / Technical Writer",
                      "type":  "page",
@@ -148,7 +148,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-cyberseguranca",
-                     "slug":  "05-mapa-das-areas-areas-principais-cyberseguranca",
+                     "slug":  "cyberseguranca",
                      "title":  "Cybersegurança",
                      "navTitle":  "Áreas Principais / Cybersegurança",
                      "type":  "page",
@@ -160,7 +160,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-dados",
-                     "slug":  "05-mapa-das-areas-areas-principais-dados",
+                     "slug":  "dados",
                      "title":  "Dados",
                      "navTitle":  "Áreas Principais / Dados",
                      "type":  "page",
@@ -172,7 +172,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-desenvolvimento-backend",
-                     "slug":  "05-mapa-das-areas-areas-principais-desenvolvimento-backend",
+                     "slug":  "desenvolvimento-backend",
                      "title":  "Desenvolvimento Backend",
                      "navTitle":  "Áreas Principais / Desenvolvimento Backend",
                      "type":  "page",
@@ -184,7 +184,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-desenvolvimento-frontend",
-                     "slug":  "05-mapa-das-areas-areas-principais-desenvolvimento-frontend",
+                     "slug":  "desenvolvimento-frontend",
                      "title":  "Desenvolvimento Frontend",
                      "navTitle":  "Áreas Principais / Desenvolvimento Frontend",
                      "type":  "page",
@@ -196,7 +196,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-desenvolvimento-mobile",
-                     "slug":  "05-mapa-das-areas-areas-principais-desenvolvimento-mobile",
+                     "slug":  "desenvolvimento-mobile",
                      "title":  "Desenvolvimento Mobile",
                      "navTitle":  "Áreas Principais / Desenvolvimento Mobile",
                      "type":  "page",
@@ -208,7 +208,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-devops-e-cloud",
-                     "slug":  "05-mapa-das-areas-areas-principais-devops-e-cloud",
+                     "slug":  "devops-e-cloud",
                      "title":  "DevOps e Cloud",
                      "navTitle":  "Áreas Principais / DevOps e Cloud",
                      "type":  "page",
@@ -220,7 +220,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-produto",
-                     "slug":  "05-mapa-das-areas-areas-principais-produto",
+                     "slug":  "produto",
                      "title":  "Produto",
                      "navTitle":  "Áreas Principais / Produto",
                      "type":  "page",
@@ -232,7 +232,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-qa-e-testes",
-                     "slug":  "05-mapa-das-areas-areas-principais-qa-e-testes",
+                     "slug":  "qa-e-testes",
                      "title":  "QA e Testes",
                      "navTitle":  "Áreas Principais / QA e Testes",
                      "type":  "page",
@@ -244,7 +244,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-suporte-e-infra",
-                     "slug":  "05-mapa-das-areas-areas-principais-suporte-e-infra",
+                     "slug":  "suporte-e-infra",
                      "title":  "Suporte e Infra",
                      "navTitle":  "Áreas Principais / Suporte e Infra",
                      "type":  "page",
@@ -256,7 +256,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-tech-recruiter",
-                     "slug":  "05-mapa-das-areas-areas-principais-tech-recruiter",
+                     "slug":  "tech-recruiter",
                      "title":  "Tech Recruiter",
                      "navTitle":  "Áreas Principais / Tech Recruiter",
                      "type":  "page",
@@ -268,7 +268,7 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-areas-principais-ux-ui-design",
-                     "slug":  "05-mapa-das-areas-areas-principais-ux-ui-design",
+                     "slug":  "ux-ui-design",
                      "title":  "UX UI Design",
                      "navTitle":  "Áreas Principais / UX UI Design",
                      "type":  "page",
@@ -280,19 +280,19 @@
                  },
                  {
                      "id":  "05-mapa-das-areas-indice-mapa-das-areas",
-                     "slug":  "05-mapa-das-areas-indice-mapa-das-areas",
+                     "slug":  "mapa-das-areas",
                      "title":  "Mapa das Áreas",
                      "navTitle":  "Mapa das Áreas",
                      "type":  "page",
                      "order":  24,
                      "section":  "05-mapa-das-areas",
                      "sectionTitle":  "Mapa das Áreas",
-                     "markdownPath":  "mock-db/doc/05 - Mapa das Áreas/Índice - Mapa das Áreas.md",
+                     "markdownPath":  "mock-db/doc/05 - Mapa das Áreas/Mapa das Áreas.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "06-teste-de-perfil-teste-de-perfil",
-                     "slug":  "06-teste-de-perfil-teste-de-perfil",
+                     "slug":  "teste-de-perfil",
                      "title":  "Teste de Perfil",
                      "navTitle":  "Teste de Perfil",
                      "type":  "page",
@@ -304,7 +304,7 @@
                  },
                  {
                      "id":  "07-comparando-caminhos-comparando-caminhos",
-                     "slug":  "07-comparando-caminhos-comparando-caminhos",
+                     "slug":  "comparando-caminhos",
                      "title":  "Comparando Caminhos",
                      "navTitle":  "Comparando Caminhos",
                      "type":  "page",
@@ -316,7 +316,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-backend-trilha-backend",
-                     "slug":  "08-escolha-sua-trilha-backend-trilha-backend",
+                     "slug":  "trilha-backend",
                      "title":  "Trilha Backend",
                      "navTitle":  "Backend / Trilha Backend",
                      "type":  "page",
@@ -328,7 +328,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-cyberseguranca-trilha-cyberseguranca",
-                     "slug":  "08-escolha-sua-trilha-cyberseguranca-trilha-cyberseguranca",
+                     "slug":  "trilha-cyberseguranca",
                      "title":  "Trilha Cybersegurança",
                      "navTitle":  "Cybersegurança / Trilha Cybersegurança",
                      "type":  "page",
@@ -340,7 +340,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-dados-trilha-dados",
-                     "slug":  "08-escolha-sua-trilha-dados-trilha-dados",
+                     "slug":  "trilha-dados",
                      "title":  "Trilha Dados",
                      "navTitle":  "Dados / Trilha Dados",
                      "type":  "page",
@@ -352,7 +352,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-devops-cloud-trilha-devops-cloud",
-                     "slug":  "08-escolha-sua-trilha-devops-cloud-trilha-devops-cloud",
+                     "slug":  "trilha-devops-cloud",
                      "title":  "Trilha DevOps Cloud",
                      "navTitle":  "DevOps Cloud / Trilha DevOps Cloud",
                      "type":  "page",
@@ -364,7 +364,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-frontend-trilha-frontend",
-                     "slug":  "08-escolha-sua-trilha-frontend-trilha-frontend",
+                     "slug":  "trilha-frontend",
                      "title":  "Trilha Frontend",
                      "navTitle":  "Frontend / Trilha Frontend",
                      "type":  "page",
@@ -376,19 +376,19 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-indice-trilhas",
-                     "slug":  "08-escolha-sua-trilha-indice-trilhas",
+                     "slug":  "trilhas",
                      "title":  "Trilhas",
                      "navTitle":  "Trilhas",
                      "type":  "page",
                      "order":  32,
                      "section":  "08-escolha-sua-trilha",
                      "sectionTitle":  "Escolha Sua Trilha",
-                     "markdownPath":  "mock-db/doc/08 - Escolha Sua Trilha/Índice - Trilhas.md",
+                     "markdownPath":  "mock-db/doc/08 - Escolha Sua Trilha/Trilhas.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "08-escolha-sua-trilha-mobile-trilha-mobile",
-                     "slug":  "08-escolha-sua-trilha-mobile-trilha-mobile",
+                     "slug":  "trilha-mobile",
                      "title":  "Trilha Mobile",
                      "navTitle":  "Mobile / Trilha Mobile",
                      "type":  "page",
@@ -400,7 +400,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-produto-trilha-produto",
-                     "slug":  "08-escolha-sua-trilha-produto-trilha-produto",
+                     "slug":  "trilha-produto",
                      "title":  "Trilha Produto",
                      "navTitle":  "Produto / Trilha Produto",
                      "type":  "page",
@@ -412,7 +412,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-qa-trilha-qa",
-                     "slug":  "08-escolha-sua-trilha-qa-trilha-qa",
+                     "slug":  "trilha-qa",
                      "title":  "Trilha QA",
                      "navTitle":  "QA / Trilha QA",
                      "type":  "page",
@@ -424,7 +424,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-suporte-infra-trilha-suporte-infra",
-                     "slug":  "08-escolha-sua-trilha-suporte-infra-trilha-suporte-infra",
+                     "slug":  "trilha-suporte-infra",
                      "title":  "Trilha Suporte Infra",
                      "navTitle":  "Suporte Infra / Trilha Suporte Infra",
                      "type":  "page",
@@ -436,7 +436,7 @@
                  },
                  {
                      "id":  "08-escolha-sua-trilha-ux-ui-design-trilha-ux-ui-design",
-                     "slug":  "08-escolha-sua-trilha-ux-ui-design-trilha-ux-ui-design",
+                     "slug":  "trilha-ux-ui-design",
                      "title":  "Trilha UX UI Design",
                      "navTitle":  "UX UI Design / Trilha UX UI Design",
                      "type":  "page",
@@ -448,67 +448,67 @@
                  },
                  {
                      "id":  "09-projetos-e-portfolio-indice-projetos-e-portfolio",
-                     "slug":  "09-projetos-e-portfolio-indice-projetos-e-portfolio",
+                     "slug":  "projetos-e-portfolio",
                      "title":  "Projetos e Portfólio",
                      "navTitle":  "Projetos e Portfólio",
                      "type":  "page",
                      "order":  38,
                      "section":  "09-projetos-e-portfolio",
                      "sectionTitle":  "Projetos e Portfólio",
-                     "markdownPath":  "mock-db/doc/09 - Projetos e Portfólio/Índice - Projetos e Portfólio.md",
+                     "markdownPath":  "mock-db/doc/09 - Projetos e Portfólio/Projetos e Portfólio.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "10-mercado-de-trabalho-indice-mercado-de-trabalho",
-                     "slug":  "10-mercado-de-trabalho-indice-mercado-de-trabalho",
+                     "slug":  "mercado-de-trabalho",
                      "title":  "Mercado de Trabalho",
                      "navTitle":  "Mercado de Trabalho",
                      "type":  "page",
                      "order":  39,
                      "section":  "10-mercado-de-trabalho",
                      "sectionTitle":  "Mercado de Trabalho",
-                     "markdownPath":  "mock-db/doc/10 - Mercado de Trabalho/Índice - Mercado de Trabalho.md",
+                     "markdownPath":  "mock-db/doc/10 - Mercado de Trabalho/Mercado de Trabalho.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "11-mentalidade-e-consistencia-indice-mentalidade-e-consistencia",
-                     "slug":  "11-mentalidade-e-consistencia-indice-mentalidade-e-consistencia",
+                     "slug":  "mentalidade-e-consistencia",
                      "title":  "Mentalidade e Consistência",
                      "navTitle":  "Mentalidade e Consistência",
                      "type":  "page",
                      "order":  40,
                      "section":  "11-mentalidade-e-consistencia",
                      "sectionTitle":  "Mentalidade e Consistência",
-                     "markdownPath":  "mock-db/doc/11 - Mentalidade e Consistência/Índice - Mentalidade e Consistência.md",
+                     "markdownPath":  "mock-db/doc/11 - Mentalidade e Consistência/Mentalidade e Consistência.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "12-comunidade-e-networking-indice-comunidade-e-networking",
-                     "slug":  "12-comunidade-e-networking-indice-comunidade-e-networking",
+                     "slug":  "comunidade-e-networking",
                      "title":  "Comunidade e Networking",
                      "navTitle":  "Comunidade e Networking",
                      "type":  "page",
                      "order":  41,
                      "section":  "12-comunidade-e-networking",
                      "sectionTitle":  "Comunidade e Networking",
-                     "markdownPath":  "mock-db/doc/12 - Comunidade e Networking/Índice - Comunidade e Networking.md",
+                     "markdownPath":  "mock-db/doc/12 - Comunidade e Networking/Comunidade e Networking.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "13-glossario-indice-glossario",
-                     "slug":  "13-glossario-indice-glossario",
+                     "slug":  "glossario",
                      "title":  "Glossário",
                      "navTitle":  "Glossário",
                      "type":  "page",
                      "order":  42,
                      "section":  "13-glossario",
                      "sectionTitle":  "Glossário",
-                     "markdownPath":  "mock-db/doc/13 - Glossário/Índice - Glossário.md",
+                     "markdownPath":  "mock-db/doc/13 - Glossário/Glossário.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "14-recursos-curados-canais-canais-base-inicial",
-                     "slug":  "14-recursos-curados-canais-canais-base-inicial",
+                     "slug":  "canais-base-inicial",
                      "title":  "Canais - Base Inicial",
                      "navTitle":  "Canais / Canais - Base Inicial",
                      "type":  "page",
@@ -520,7 +520,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-canais-referencias-visuais-memes-e-cultura-de-internet",
-                     "slug":  "14-recursos-curados-canais-referencias-visuais-memes-e-cultura-de-internet",
+                     "slug":  "referencias-visuais-memes-e-cultura-de-internet",
                      "title":  "Referências Visuais - Memes e Cultura de Internet",
                      "navTitle":  "Canais / Referências Visuais - Memes e Cultura de Internet",
                      "type":  "page",
@@ -532,7 +532,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-canais-videos-por-topico-base-web-e-backend",
-                     "slug":  "14-recursos-curados-canais-videos-por-topico-base-web-e-backend",
+                     "slug":  "videos-por-topico-base-web-e-backend",
                      "title":  "Vídeos por Tópico - Base Web e Backend",
                      "navTitle":  "Canais / Vídeos por Tópico - Base Web e Backend",
                      "type":  "page",
@@ -544,7 +544,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-canais-videos-por-topico-fundamentos-e-carreira",
-                     "slug":  "14-recursos-curados-canais-videos-por-topico-fundamentos-e-carreira",
+                     "slug":  "videos-por-topico-fundamentos-e-carreira",
                      "title":  "Vídeos por Tópico - Fundamentos e Carreira",
                      "navTitle":  "Canais / Vídeos por Tópico - Fundamentos e Carreira",
                      "type":  "page",
@@ -556,7 +556,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-comunidades-comunidades-base-inicial",
-                     "slug":  "14-recursos-curados-comunidades-comunidades-base-inicial",
+                     "slug":  "comunidades-base-inicial",
                      "title":  "Comunidades - Base Inicial",
                      "navTitle":  "Comunidades / Comunidades - Base Inicial",
                      "type":  "page",
@@ -568,7 +568,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-conhecimentofree-fonte-de-curadoria",
-                     "slug":  "14-recursos-curados-conhecimentofree-fonte-de-curadoria",
+                     "slug":  "conhecimentofree-fonte-de-curadoria",
                      "title":  "ConhecimentoFree - Fonte de Curadoria",
                      "navTitle":  "ConhecimentoFree - Fonte de Curadoria",
                      "type":  "page",
@@ -580,7 +580,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-cursos-cursos-base-inicial",
-                     "slug":  "14-recursos-curados-cursos-cursos-base-inicial",
+                     "slug":  "cursos-base-inicial",
                      "title":  "Cursos - Base Inicial",
                      "navTitle":  "Cursos / Cursos - Base Inicial",
                      "type":  "page",
@@ -592,7 +592,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-documentacoes-documentacoes-base-inicial",
-                     "slug":  "14-recursos-curados-documentacoes-documentacoes-base-inicial",
+                     "slug":  "documentacoes-base-inicial",
                      "title":  "Documentações - Base Inicial",
                      "navTitle":  "Documentações / Documentações - Base Inicial",
                      "type":  "page",
@@ -604,7 +604,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-ferramentas-ferramentas-base-inicial",
-                     "slug":  "14-recursos-curados-ferramentas-ferramentas-base-inicial",
+                     "slug":  "ferramentas-base-inicial",
                      "title":  "Ferramentas - Base Inicial",
                      "navTitle":  "Ferramentas / Ferramentas - Base Inicial",
                      "type":  "page",
@@ -616,19 +616,19 @@
                  },
                  {
                      "id":  "14-recursos-curados-indice-recursos-curados",
-                     "slug":  "14-recursos-curados-indice-recursos-curados",
+                     "slug":  "recursos-curados",
                      "title":  "Recursos Curados",
                      "navTitle":  "Recursos Curados",
                      "type":  "page",
                      "order":  52,
                      "section":  "14-recursos-curados",
                      "sectionTitle":  "Recursos Curados",
-                     "markdownPath":  "mock-db/doc/14 - Recursos Curados/Índice - Recursos Curados.md",
+                     "markdownPath":  "mock-db/doc/14 - Recursos Curados/Recursos Curados.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "14-recursos-curados-livros-livros-base-inicial",
-                     "slug":  "14-recursos-curados-livros-livros-base-inicial",
+                     "slug":  "livros-base-inicial",
                      "title":  "Livros - Base Inicial",
                      "navTitle":  "Livros / Livros - Base Inicial",
                      "type":  "page",
@@ -640,7 +640,7 @@
                  },
                  {
                      "id":  "14-recursos-curados-roadmaps-roadmaps-base-inicial",
-                     "slug":  "14-recursos-curados-roadmaps-roadmaps-base-inicial",
+                     "slug":  "roadmaps-base-inicial",
                      "title":  "Roadmaps - Base Inicial",
                      "navTitle":  "Roadmaps / Roadmaps - Base Inicial",
                      "type":  "page",
@@ -652,19 +652,19 @@
                  },
                  {
                      "id":  "15-faq-do-iniciante-indice-faq-do-iniciante",
-                     "slug":  "15-faq-do-iniciante-indice-faq-do-iniciante",
+                     "slug":  "faq-do-iniciante",
                      "title":  "FAQ do Iniciante",
                      "navTitle":  "FAQ do Iniciante",
                      "type":  "page",
                      "order":  55,
                      "section":  "15-faq-do-iniciante",
                      "sectionTitle":  "FAQ do Iniciante",
-                     "markdownPath":  "mock-db/doc/15 - FAQ do Iniciante/Índice - FAQ do Iniciante.md",
+                     "markdownPath":  "mock-db/doc/15 - FAQ do Iniciante/FAQ do Iniciante.md",
                      "audioManifestPath":  null
                  },
                  {
                      "id":  "16-painel-de-progresso-painel-de-progresso",
-                     "slug":  "16-painel-de-progresso-painel-de-progresso",
+                     "slug":  "painel-de-progresso",
                      "title":  "Painel de Progresso",
                      "navTitle":  "Painel de Progresso",
                      "type":  "page",
@@ -676,7 +676,7 @@
                  },
                  {
                      "id":  "90-templates-template-area",
-                     "slug":  "90-templates-template-area",
+                     "slug":  "template-area",
                      "title":  "Template - Área",
                      "navTitle":  "Template - Área",
                      "type":  "page",
@@ -688,7 +688,7 @@
                  },
                  {
                      "id":  "90-templates-template-trilha",
-                     "slug":  "90-templates-template-trilha",
+                     "slug":  "template-trilha",
                      "title":  "Template - Trilha",
                      "navTitle":  "Template - Trilha",
                      "type":  "page",
@@ -700,4 +700,3 @@
                  }
              ]
 }
-

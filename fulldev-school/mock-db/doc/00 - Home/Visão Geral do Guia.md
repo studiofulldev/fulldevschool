@@ -18,6 +18,42 @@ O projeto foi organizado como uma arvore de aprendizagem.
 
 Dentro da Fulldev School, essa arvore aparece distribuida em etapas para facilitar leitura, comparacao entre caminhos e tomada de decisao.
 
+## Como usar este guia
+
+Este guia foi organizado para evitar que você pule etapas importantes.
+
+A ordem recomendada é:
+
+1. entender a área
+2. fortalecer fundamentos digitais
+3. aprender fundamentos de tecnologia
+4. entender como estudar
+5. comparar áreas
+6. escolher um caminho
+7. começar prática e portfólio
+
+E daqui para frente, existe uma regra transversal neste material:
+
+**sempre que fizer sentido, você deve enxergar inteligência artificial como ferramenta de apoio para aprender, testar, revisar e produzir melhor.**
+
+Se você tentar pular direto para trilhas avançadas sem base, a chance de travar aumenta.
+
+## Como extrair valor real deste material
+
+Enquanto lê, faça o seguinte:
+
+1. anote dúvidas
+2. marque o que já domina
+3. destaque o que parece novo
+4. não tente resolver a carreira inteira em um dia
+5. foque sempre no próximo passo
+
+## Plataforma de recomendação de cursos
+
+A **FullDev** está criando uma plataforma de recomendação de cursos baseada nas respostas, dúvidas e necessidades reais da comunidade.
+
+Quem tem acesso à **FullDev School** receberá um convite no e-mail para participar do grupo de **beta testers** assim que essa fase começar.
+
 ## Problema que este projeto resolve
 
 Muita gente quer entrar em tecnologia, mas começa com:

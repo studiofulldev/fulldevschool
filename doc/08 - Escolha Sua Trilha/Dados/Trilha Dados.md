@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 ## Objetivo da trilha
 
@@ -58,7 +58,7 @@ Avance quando você conseguir responder uma pergunta com dados e explicar seu ra
 - Recurso:
   https://learn.microsoft.com/power-bi/
 - Opção complementar:
-  [[../../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+  [[../../14 - Recursos Curados/Recursos Curados|15 - Recursos Curados]]
 
 ## Verificação por tópico
 
@@ -90,4 +90,5 @@ Avance quando você conseguir responder uma pergunta com dados e explicar seu ra
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Agora que você já viu áreas diferentes e fez uma primeira leitura do seu perfil, vale comparar suas opções com mais objetividade.
 
@@ -89,7 +89,7 @@ Ao concluir esta página, o ideal é que você tenha:
 
 Siga para:
 
-[[../08 - Escolha Sua Trilha/Índice - Trilhas|9 - Escolha Sua Trilha]]
+[[../08 - Escolha Sua Trilha/Trilhas|9 - Escolha Sua Trilha]]
 
 Essa é a etapa em que você transforma escolha em plano de execução.
 
@@ -124,4 +124,5 @@ Essa é a etapa em que você transforma escolha em plano de execução.
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Use este painel para se localizar sem depender só de sensação.
 
@@ -34,15 +34,15 @@ Se alguma etapa estiver faltando, volte para ela e resolva uma coisa por vez.
 
 ### Base e direção
 
-- [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
-- [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
-- [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+- [[../01 - Comece Aqui/Start|2 - Comece Aqui]]
+- [[../02 - Fundamentos Digitais/Fundamentos Digitais|3 - Fundamentos Digitais]]
+- [[../03 - Fundamentos de Tecnologia/Fund. de Tecnologia|4 - Fundamentos de Tecnologia]]
 
 ### Prática e empregabilidade
 
-- [[../09 - Projetos e Portfólio/Índice - Projetos e Portfólio|10 - Projetos e Portfólio]]
-- [[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
-- [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+- [[../09 - Projetos e Portfólio/Projetos e Portfólio|10 - Projetos e Portfólio]]
+- [[../10 - Mercado de Trabalho/Mercado de Trabalho|11 - Mercado de Trabalho]]
+- [[../12 - Comunidade e Networking/Comunidade e Networking|13 - Comunidade e Networking]]
 
 ## Verificação por tópico
 
@@ -71,4 +71,5 @@ Se alguma etapa estiver faltando, volte para ela e resolva uma coisa por vez.
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Entrar em tecnologia não testa só a sua capacidade de aprender.
 
@@ -65,7 +65,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
 Siga para:
 
-[[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+[[../12 - Comunidade e Networking/Comunidade e Networking|13 - Comunidade e Networking]]
 
 Essa é a etapa em que você entende como comunidade pode te ajudar a não caminhar sozinho.
 
@@ -74,7 +74,7 @@ Essa é a etapa em que você entende como comunidade pode te ajudar a não camin
 ### Consistência e expectativa real
 
 - Apoio principal:
-  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+  [[../04 - Como Aprender/Como Aprender|5 - Como Aprender]]
 - Contexto de mercado:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 
@@ -83,7 +83,7 @@ Essa é a etapa em que você entende como comunidade pode te ajudar a não camin
 - Comunidade em destaque:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+  [[../12 - Comunidade e Networking/Comunidade e Networking|13 - Comunidade e Networking]]
 - Referência visual:
   [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
@@ -114,4 +114,5 @@ Essa é a etapa em que você entende como comunidade pode te ajudar a não camin
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 ## Pontos de entrada recomendados
 
@@ -33,6 +33,14 @@ Não use esta seção para:
 - comunidades
 - ferramentas
 
+## Onde encontrar os melhores cursos
+
+A **FullDev** está lançando uma plataforma de recomendação de cursos baseada na resposta da comunidade e no que realmente ajuda quem está começando.
+
+Enquanto isso ainda não está pronto, participe e tire suas dúvidas nos grupos da comunidade:
+
+- https://fulldev.com.br
+
 ## Critério de curadoria
 
 O guia prioriza:
@@ -58,7 +66,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre como usar rec
 
 Siga para:
 
-[[../15 - FAQ do Iniciante/Índice - FAQ do Iniciante|16 - FAQ do Iniciante]]
+[[../15 - FAQ do Iniciante/FAQ do Iniciante|16 - FAQ do Iniciante]]
 
 Essa é a etapa em que você destrava dúvidas muito comuns de quem está começando.
 
@@ -90,4 +98,5 @@ Essa é a etapa em que você destrava dúvidas muito comuns de quem está começ
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

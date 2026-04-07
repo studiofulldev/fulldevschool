@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Depois de ganhar mais autonomia no computador, o próximo passo é entender os conceitos que aparecem o tempo todo quando alguém fala de tecnologia.
 
@@ -353,7 +353,7 @@ Mas tente sair daqui lembrando isto:
 
 Siga para:
 
-[[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+[[../04 - Como Aprender/Como Aprender|5 - Como Aprender]]
 
 Essa é a etapa em que você aprende a estudar de forma menos aleatória e mais eficiente.
 
@@ -440,4 +440,5 @@ Essa é a etapa em que você aprende a estudar de forma menos aleatória e mais 
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

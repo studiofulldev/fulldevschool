@@ -16,6 +16,19 @@ interface ProjectTreeNode {
   children?: ProjectTreeNode[];
 }
 
+interface ContentSupporter {
+  id: string;
+  name: string;
+  role: string;
+  imageUrl?: string;
+  initials: string;
+  socials: Array<{
+    label: string;
+    url: string;
+    icon: string;
+  }>;
+}
+
 @Component({
   selector: 'app-lesson-page',
   standalone: true,
@@ -63,7 +76,7 @@ interface ProjectTreeNode {
 
         <article class="lesson__body">
           @if (shouldShowWelcomePanel()) {
-            <mat-expansion-panel class="lesson__block" hideToggle [expanded]="true">
+            <mat-expansion-panel class="lesson__block" hideToggle [expanded]="currentLesson.meta.slug === 'visao-geral-do-guia'">
               <mat-expansion-panel-header class="lesson__block-header">
                 <mat-panel-title>
                   <span class="lesson__block-accent" aria-hidden="true"></span>
@@ -94,7 +107,7 @@ interface ProjectTreeNode {
             <mat-expansion-panel
               class="lesson__block"
               hideToggle
-              [expanded]="isBlockExpanded(currentLesson.meta.slug, block.id)"
+              [expanded]="isBlockExpanded(currentLesson.meta.slug, block.id, block.title)"
               (opened)="setBlockExpanded(currentLesson.meta.slug, block.id, true)"
               (closed)="setBlockExpanded(currentLesson.meta.slug, block.id, false)"
               >
@@ -163,6 +176,50 @@ interface ProjectTreeNode {
               }
             </mat-expansion-panel>
           }
+
+          <mat-expansion-panel class="lesson__block" hideToggle [expanded]="false">
+            <mat-expansion-panel-header class="lesson__block-header">
+              <mat-panel-title>
+                <span class="lesson__block-accent" aria-hidden="true"></span>
+                <span>Apoio de conteúdo</span>
+              </mat-panel-title>
+              <mat-icon class="lesson__block-icon">expand_more</mat-icon>
+            </mat-expansion-panel-header>
+
+            <section class="lesson__supporters" aria-label="Contribuidores de apoio de conteúdo">
+              @for (supporter of contentSupporters; track supporter.id) {
+                <article class="supporter-card">
+                  <div class="supporter-card__media">
+                    @if (supporter.imageUrl) {
+                      <img [src]="supporter.imageUrl" [alt]="supporter.name" />
+                    } @else {
+                      <div class="supporter-card__avatar" aria-hidden="true">{{ supporter.initials }}</div>
+                    }
+                  </div>
+
+                  <div class="supporter-card__body">
+                    <strong>{{ supporter.name }}</strong>
+                    <span>{{ supporter.role }}</span>
+                  </div>
+
+                  <div class="supporter-card__socials" aria-label="Redes sociais">
+                    @for (social of supporter.socials; track social.url) {
+                      <a
+                        class="supporter-card__social"
+                        [href]="social.url"
+                        target="_blank"
+                        rel="noreferrer"
+                        [attr.aria-label]="social.label"
+                        [title]="social.label"
+                      >
+                        <mat-icon>{{ social.icon }}</mat-icon>
+                      </a>
+                    }
+                  </div>
+                </article>
+              }
+            </section>
+          </mat-expansion-panel>
         </article>
 
         <footer class="lesson__footer-nav">
@@ -469,6 +526,98 @@ interface ProjectTreeNode {
         color: var(--fd-muted);
         font-size: var(--fd-text-sm);
         line-height: 1.7;
+      }
+
+      .lesson__supporters {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin: 10px 10px 0;
+      }
+
+      .supporter-card {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 14px;
+        padding: 14px;
+        border: 1px solid var(--fd-border);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .supporter-card__media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .supporter-card__media img,
+      .supporter-card__avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 999px;
+      }
+
+      .supporter-card__media img {
+        display: block;
+        object-fit: cover;
+      }
+
+      .supporter-card__avatar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(178, 45, 0, 0.16);
+        color: var(--fd-text);
+        font-size: var(--fd-text-sm);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .supporter-card__body {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+      }
+
+      .supporter-card__body strong {
+        color: var(--fd-text);
+        font-size: var(--fd-text-sm);
+        line-height: 1.3;
+      }
+
+      .supporter-card__body span {
+        color: var(--fd-muted);
+        font-size: var(--fd-text-xs);
+        line-height: 1.4;
+      }
+
+      .supporter-card__socials {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .supporter-card__social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--fd-border);
+        color: var(--fd-soft);
+        text-decoration: none;
+        transition:
+          border-color var(--fd-motion-fast),
+          color var(--fd-motion-fast),
+          background var(--fd-motion-fast);
+      }
+
+      .supporter-card__social:hover {
+        border-color: var(--fd-accent);
+        background: rgba(178, 45, 0, 0.12);
+        color: var(--fd-text);
       }
 
       .lesson__project-tree {
@@ -780,6 +929,14 @@ interface ProjectTreeNode {
           padding: 12px 16px;
         }
 
+        .supporter-card {
+          grid-template-columns: auto 1fr;
+        }
+
+        .supporter-card__socials {
+          grid-column: 1 / -1;
+        }
+
         .lesson__block-header mat-panel-title {
           gap: 10px;
         }
@@ -808,6 +965,63 @@ export class LessonPageComponent {
   private readonly treeStorageKey = 'fulldev-school.project-tree.expanded-nodes';
   private readonly hiddenProjectSections = new Set(['16-painel-de-progresso', '90-templates']);
   protected readonly content = inject(SchoolContentService);
+  protected readonly contentSupporters: ContentSupporter[] = [
+    {
+      id: 'fulldev',
+      name: 'FullDev',
+      role: 'Comunidade e curadoria editorial',
+      initials: 'FD',
+      socials: [
+        { label: 'Comunidade FullDev', url: 'https://fulldev.com.br', icon: 'groups' },
+        { label: 'Site FullDev', url: 'https://fulldev.com.br', icon: 'language' }
+      ]
+    },
+    {
+      id: 'mayk-brito',
+      name: 'Mayk Brito',
+      role: 'Educador e criador de conteúdo',
+      initials: 'MB',
+      socials: [
+        { label: 'YouTube', url: 'https://www.youtube.com/watch?ab_channel=MaykBrito&v=K65wUN-2no4', icon: 'smart_display' }
+      ]
+    },
+    {
+      id: 'glaucia-lemos',
+      name: 'Glaucia Lemos',
+      role: 'Educadora e especialista em desenvolvimento',
+      initials: 'GL',
+      socials: [
+        { label: 'YouTube', url: 'https://www.youtube.com/watch?ab_channel=GlauciaLemos&list=PLb2HQ45KP0Wsk-p_0c6ImqBAEFEY-LU9H&v=u7K1sdnCv5Y', icon: 'smart_display' }
+      ]
+    },
+    {
+      id: 'joao-ribeiro',
+      name: 'João Ribeiro',
+      role: 'Professor e criador de conteúdo',
+      initials: 'JR',
+      socials: [
+        { label: 'YouTube', url: 'https://www.youtube.com/watch?ab_channel=Jo%C3%A3oRibeiro&list=PLXik_5Br-zO9SEz-3tuy1UIcU6X0GZo4i&v=DF9jY0ITt3Q', icon: 'smart_display' }
+      ]
+    },
+    {
+      id: 'fernanda-kipper',
+      name: 'Fernanda Kipper',
+      role: 'Educadora e criadora de cursos',
+      initials: 'FK',
+      socials: [
+        { label: 'Site', url: 'https://fernandakipper.com/cursos/typescript-para-iniciantes-sintaxe-basica-conceitos-fundamentais', icon: 'language' }
+      ]
+    },
+    {
+      id: 'matheus-battisti',
+      name: 'Matheus Battisti',
+      role: 'Educador e criador de conteúdo',
+      initials: 'MB',
+      socials: [
+        { label: 'YouTube', url: 'https://www.youtube.com/watch?ab_channel=MatheusBattisti-HoradeCodar&t=1s&v=np_vyd7QlXk', icon: 'smart_display' }
+      ]
+    }
+  ];
   protected readonly expandedBlocks = signal<Record<string, boolean>>(this.readExpandedBlocks());
   protected readonly expandedTreeNodes = signal<Record<string, boolean>>(this.readExpandedTreeNodes());
   protected readonly projectTree = computed(() => this.buildProjectTree());
@@ -920,9 +1134,9 @@ export class LessonPageComponent {
     return node.id === 'section-05-mapa-das-areas';
   }
 
-  protected isBlockExpanded(slug: string, blockId: string): boolean {
+  protected isBlockExpanded(slug: string, blockId: string, blockTitle: string): boolean {
     const key = this.blockStateKey(slug, blockId);
-    return this.expandedBlocks()[key] ?? true;
+    return this.expandedBlocks()[key] ?? this.shouldStartExpanded(slug, blockTitle);
   }
 
   protected setBlockExpanded(slug: string, blockId: string, expanded: boolean): void {
@@ -939,6 +1153,18 @@ export class LessonPageComponent {
 
   private blockStateKey(slug: string, blockId: string): string {
     return `${slug}::${blockId}`;
+  }
+
+  private isSummaryBlock(title: string): boolean {
+    return this.normalizeTitle(title) === 'resumo';
+  }
+
+  private shouldStartExpanded(slug: string, blockTitle: string): boolean {
+    if (slug === 'visao-geral-do-guia') {
+      return false;
+    }
+
+    return this.isSummaryBlock(blockTitle);
   }
 
   private normalizeTitle(value: string): string {

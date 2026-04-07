@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Esta etapa existe para reduzir o atrito com o vocabulário da área.
 
@@ -31,7 +31,7 @@ Ao concluir esta página, o ideal é que você tenha um ponto de consulta simple
 
 Siga para:
 
-[[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+[[../14 - Recursos Curados/Recursos Curados|15 - Recursos Curados]]
 
 Essa é a etapa em que você encontra materiais de apoio selecionados.
 
@@ -42,7 +42,7 @@ Essa é a etapa em que você encontra materiais de apoio selecionados.
 - Base:
   https://developer.mozilla.org/en-US/docs/Glossary
 - Apoio complementar:
-  [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+  [[../03 - Fundamentos de Tecnologia/Fund. de Tecnologia|4 - Fundamentos de Tecnologia]]
 
 ### Git, GitHub e repositórios
 
@@ -78,4 +78,5 @@ Essa é a etapa em que você encontra materiais de apoio selecionados.
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

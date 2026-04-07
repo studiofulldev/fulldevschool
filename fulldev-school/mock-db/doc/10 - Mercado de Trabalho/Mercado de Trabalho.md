@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Esta etapa existe para te ajudar a fazer a ponte entre estudo e oportunidade.
 
@@ -130,7 +130,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
 Siga para:
 
-[[../11 - Mentalidade e Consistência/Índice - Mentalidade e Consistência|12 - Mentalidade e Consistência]]
+[[../11 - Mentalidade e Consistência/Mentalidade e Consistência|12 - Mentalidade e Consistência]]
 
 Essa é a etapa em que você fortalece a parte mental do processo.
 
@@ -141,7 +141,7 @@ Essa é a etapa em que você fortalece a parte mental do processo.
 - Base:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 - Apoio complementar:
-  [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+  [[../01 - Comece Aqui/Start|2 - Comece Aqui]]
 
 ### GitHub, currículo e presença profissional
 
@@ -150,7 +150,7 @@ Essa é a etapa em que você fortalece a parte mental do processo.
 - Comunidade e networking:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+  [[../14 - Recursos Curados/Recursos Curados|15 - Recursos Curados]]
 - Referência visual:
   [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
@@ -192,4 +192,5 @@ Essa é a etapa em que você fortalece a parte mental do processo.
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

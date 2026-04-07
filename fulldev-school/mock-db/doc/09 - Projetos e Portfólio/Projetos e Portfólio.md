@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Esta etapa existe para resolver um dos maiores gargalos de quem está entrando na área:
 
@@ -153,7 +153,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
 Siga para:
 
-[[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+[[../10 - Mercado de Trabalho/Mercado de Trabalho|11 - Mercado de Trabalho]]
 
 Essa é a etapa em que você aprende a transformar prática em posicionamento profissional.
 
@@ -173,7 +173,7 @@ Essa é a etapa em que você aprende a transformar prática em posicionamento pr
 - Roadmaps:
   https://roadmap.sh/
 - Apoio em português:
-  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+  [[../14 - Recursos Curados/Recursos Curados|15 - Recursos Curados]]
 - Referência visual:
   [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
@@ -211,4 +211,5 @@ Essa é a etapa em que você aprende a transformar prática em posicionamento pr
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

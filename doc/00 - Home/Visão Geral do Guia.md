@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Este é um **guia completo para entrar na área de tecnologia**, pensado para te ajudar a avançar com mais clareza, menos ruído e um próximo passo bem definido.
 
@@ -70,27 +70,63 @@ Este projeto está sendo desenvolvido como um guia estruturado com:
 - `16 - Painel de Progresso`: acompanhamento da jornada
 - `90 - Templates`: padrões editoriais
 
+## Como usar este guia
+
+Este guia foi organizado para evitar que você pule etapas importantes.
+
+A ordem recomendada é:
+
+1. entender a área
+2. fortalecer fundamentos digitais
+3. aprender fundamentos de tecnologia
+4. entender como estudar
+5. comparar áreas
+6. escolher um caminho
+7. começar prática e portfólio
+
+E daqui para frente, existe uma regra transversal neste material:
+
+**sempre que fizer sentido, você deve enxergar inteligência artificial como ferramenta de apoio para aprender, testar, revisar e produzir melhor.**
+
+Se você tentar pular direto para trilhas avançadas sem base, a chance de travar aumenta.
+
+## Como extrair valor real deste material
+
+Enquanto lê, faça o seguinte:
+
+1. anote dúvidas
+2. marque o que já domina
+3. destaque o que parece novo
+4. não tente resolver a carreira inteira em um dia
+5. foque sempre no próximo passo
+
+## Plataforma de recomendação de cursos
+
+A **FullDev** está criando uma plataforma de recomendação de cursos baseada nas respostas, dúvidas e necessidades reais da comunidade.
+
+Quem tem acesso à **FullDev School** receberá um convite no e-mail para participar do grupo de **beta testers** assim que essa fase começar.
+
 ## Ordem principal de navegação
 
-1. [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+1. [[../01 - Comece Aqui/Start|2 - Comece Aqui]]
    O primeiro assunto que você deve absorver nessa etapa é o medo de substituição por IA, a realidade do mercado e como usar IA como ferramenta de apoio.
-2. [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
-3. [[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
-4. [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
-5. [[../05 - Mapa das Áreas/Índice - Mapa das Áreas|6 - Mapa das Áreas]]
+2. [[../02 - Fundamentos Digitais/Fundamentos Digitais|3 - Fundamentos Digitais]]
+3. [[../03 - Fundamentos de Tecnologia/Fund. de Tecnologia|4 - Fundamentos de Tecnologia]]
+4. [[../04 - Como Aprender/Como Aprender|5 - Como Aprender]]
+5. [[../05 - Mapa das Áreas/Mapa das Áreas|6 - Mapa das Áreas]]
 6. [[../06 - Teste de Perfil/Teste de Perfil|7 - Teste de Perfil]]
 7. [[../07 - Comparando Caminhos/Comparando Caminhos|8 - Comparando Caminhos]]
-8. [[../08 - Escolha Sua Trilha/Índice - Trilhas|9 - Escolha Sua Trilha]]
-9. [[../09 - Projetos e Portfólio/Índice - Projetos e Portfólio|10 - Projetos e Portfólio]]
-10. [[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+8. [[../08 - Escolha Sua Trilha/Trilhas|9 - Escolha Sua Trilha]]
+9. [[../09 - Projetos e Portfólio/Projetos e Portfólio|10 - Projetos e Portfólio]]
+10. [[../10 - Mercado de Trabalho/Mercado de Trabalho|11 - Mercado de Trabalho]]
 
 ## Etapas de apoio
 
-- [[../11 - Mentalidade e Consistência/Índice - Mentalidade e Consistência|12 - Mentalidade e Consistência]]
-- [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
-- [[../13 - Glossário/Índice - Glossário|14 - Glossário]]
-- [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
-- [[../15 - FAQ do Iniciante/Índice - FAQ do Iniciante|16 - FAQ do Iniciante]]
+- [[../11 - Mentalidade e Consistência/Mentalidade e Consistência|12 - Mentalidade e Consistência]]
+- [[../12 - Comunidade e Networking/Comunidade e Networking|13 - Comunidade e Networking]]
+- [[../13 - Glossário/Glossário|14 - Glossário]]
+- [[../14 - Recursos Curados/Recursos Curados|15 - Recursos Curados]]
+- [[../15 - FAQ do Iniciante/FAQ do Iniciante|16 - FAQ do Iniciante]]
 - [[../16 - Painel de Progresso/Painel de Progresso|17 - Painel de Progresso]]
 
 ## Princípios editoriais
@@ -186,4 +222,5 @@ Se encontrar algum erro, link quebrado, informação fraca ou quiser sugerir mel
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

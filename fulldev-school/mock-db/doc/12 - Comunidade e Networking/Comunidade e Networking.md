@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Aprender sozinho não precisa significar aprender isolado.
 
@@ -72,7 +72,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre:
 
 Siga para:
 
-[[../13 - Glossário/Índice - Glossário|14 - Glossário]]
+[[../13 - Glossário/Glossário|14 - Glossário]]
 
 Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 
@@ -83,7 +83,7 @@ Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 - Comunidade em destaque:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../14 - Recursos Curados/Índice - Recursos Curados|15 - Recursos Curados]]
+  [[../14 - Recursos Curados/Recursos Curados|15 - Recursos Curados]]
 - Referência visual:
   [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
@@ -92,7 +92,7 @@ Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 - Base:
   https://docs.github.com/
 - Apoio complementar:
-  [[../10 - Mercado de Trabalho/Índice - Mercado de Trabalho|11 - Mercado de Trabalho]]
+  [[../10 - Mercado de Trabalho/Mercado de Trabalho|11 - Mercado de Trabalho]]
 
 ## Verificação por tópico
 
@@ -125,4 +125,5 @@ Essa é a etapa em que você reduz atrito com termos técnicos comuns.
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

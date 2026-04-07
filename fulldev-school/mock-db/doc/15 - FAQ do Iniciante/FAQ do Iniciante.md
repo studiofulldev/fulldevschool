@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 ### Preciso de faculdade?
 
@@ -59,14 +59,14 @@ Essa é a etapa em que você enxerga sua evolução de forma objetiva.
 - Base:
   https://www.bls.gov/ooh/computer-and-information-technology/home.htm
 - Apoio complementar:
-  [[../01 - Comece Aqui/Índice - Comece Aqui|2 - Comece Aqui]]
+  [[../01 - Comece Aqui/Start|2 - Comece Aqui]]
 
 ### Inglês, prática e rotina de estudo
 
 - Apoio principal:
-  [[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
+  [[../02 - Fundamentos Digitais/Fundamentos Digitais|3 - Fundamentos Digitais]]
 - Apoio principal:
-  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+  [[../04 - Como Aprender/Como Aprender|5 - Como Aprender]]
 - Apoio em português:
   [[../14 - Recursos Curados/Canais/Vídeos por Tópico - Fundamentos e Carreira|Vídeos por Tópico - Fundamentos e Carreira]]
 - Referência visual:
@@ -102,4 +102,5 @@ Essa é a etapa em que você enxerga sua evolução de forma objetiva.
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

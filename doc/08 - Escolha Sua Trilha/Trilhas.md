@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Agora você vai sair do campo da comparação e entrar no campo da execução.
 
@@ -51,7 +51,7 @@ Ao concluir esta página, o ideal é que você tenha:
 
 Siga para:
 
-[[../09 - Projetos e Portfólio/Índice - Projetos e Portfólio|10 - Projetos e Portfólio]]
+[[../09 - Projetos e Portfólio/Projetos e Portfólio|10 - Projetos e Portfólio]]
 
 Essa é a etapa em que você transforma estudo em evidência prática.
 
@@ -82,4 +82,5 @@ Essa é a etapa em que você transforma estudo em evidência prática.
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

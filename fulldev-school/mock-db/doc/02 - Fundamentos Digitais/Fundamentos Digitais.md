@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Se você ainda se sente travado com tarefas básicas no computador, este bloco é essencial.
 
@@ -331,7 +331,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre estes pontos:
 
 Siga para:
 
-[[../03 - Fundamentos de Tecnologia/Índice - Fundamentos de Tecnologia|4 - Fundamentos de Tecnologia]]
+[[../03 - Fundamentos de Tecnologia/Fund. de Tecnologia|4 - Fundamentos de Tecnologia]]
 
 Essa é a etapa em que você começa a entender os conceitos-base do ecossistema tech.
 
@@ -405,4 +405,5 @@ Essa é a etapa em que você começa a entender os conceitos-base do ecossistema
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 
 Nesta nota, a taxa de assertividade indica o quanto cada bloco está ancorado em fonte verificável versus orientação editorial prática.
+
 

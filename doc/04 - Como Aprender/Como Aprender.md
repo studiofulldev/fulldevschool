@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 Aprender tecnologia não é só consumir explicação.
 
@@ -17,6 +17,14 @@ Isso gera familiaridade, mas não gera domínio.
 O objetivo desta etapa é te mostrar como estudar de um jeito que realmente acumule capacidade.
 
 Meme editorial: playlist infinita não é build. �0 side quest sem fim.
+
+## Onde encontrar os melhores cursos
+
+A **FullDev** está lançando uma plataforma de recomendação de cursos para ajudar a filtrar melhor o que vale seu tempo em cada etapa da jornada.
+
+Enquanto isso ainda não está pronto, participe da comunidade e tire suas dúvidas nos grupos:
+
+- https://fulldev.com.br
 
 ## Como estudar sozinho sem se perder
 
@@ -274,7 +282,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre estes pontos:
 
 Siga para:
 
-[[../05 - Mapa das Áreas/Índice - Mapa das Áreas|6 - Mapa das Áreas]]
+[[../05 - Mapa das Áreas/Mapa das Áreas|6 - Mapa das Áreas]]
 
 Essa é a etapa em que você começa a comparar caminhos reais dentro da área de tecnologia.
 
@@ -341,4 +349,5 @@ Essa é a etapa em que você começa a comparar caminhos reais dentro da área d
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

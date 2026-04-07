@@ -1,4 +1,4 @@
-## Conteúdo
+﻿## Conteúdo
 
 ## Começo na área
 
@@ -49,7 +49,7 @@
 - Escrita de README:
   https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
 - Apoio complementar:
-  [[../Índice - Recursos Curados|15 - Recursos Curados]]
+  [[../Recursos Curados|15 - Recursos Curados]]
 
 ## Mercado de trabalho
 
@@ -104,4 +104,5 @@
 - `95% a 100%`: informação diretamente sustentada por documentação ou dado forte.
 - `85% a 94%`: síntese confiável, mas com algum grau de generalização editorial.
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
+
 

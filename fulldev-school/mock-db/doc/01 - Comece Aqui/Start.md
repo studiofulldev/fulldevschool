@@ -1,3 +1,5 @@
+﻿## Resumo
+
 ## Inteligência artificial, medo de substituição e realidade do mercado
 
 Se você está pensando em entrar na área hoje, existe uma chance enorme de a sua primeira trava não ser lógica, inglês ou computador.
@@ -327,36 +329,6 @@ Confusão, no começo, quase sempre significa só uma coisa:
 
 **você ainda está montando o mapa mental da área.**
 
-## Como usar este guia
-
-Este guia foi organizado para evitar que você pule etapas importantes.
-
-A ordem recomendada é:
-
-1. entender a área
-2. fortalecer fundamentos digitais
-3. aprender fundamentos de tecnologia
-4. entender como estudar
-5. comparar áreas
-6. escolher um caminho
-7. começar prática e portfólio
-
-E daqui para frente, existe uma regra transversal neste material:
-
-**sempre que fizer sentido, você deve enxergar inteligência artificial como ferramenta de apoio para aprender, testar, revisar e produzir melhor.**
-
-Se você tentar pular direto para trilhas avançadas sem base, a chance de travar aumenta.
-
-## Como extrair valor real deste material
-
-Enquanto lê, faça o seguinte:
-
-1. anote dúvidas
-2. marque o que já domina
-3. destaque o que parece novo
-4. não tente resolver a carreira inteira em um dia
-5. foque sempre no próximo passo
-
 ## Comunidade acelera o processo
 
 Aprender sozinho não precisa significar aprender isolado.
@@ -372,6 +344,10 @@ Dentro da narrativa deste guia, a **FullDev** é uma referência importante de c
 
 - https://fulldev.com.br
 
+A FullDev também está criando uma plataforma de recomendação de cursos baseada nas respostas da comunidade.
+
+Quem já tem acesso à **FullDev School** receberá um convite no e-mail para participar dos **beta testers** quando essa etapa for aberta.
+
 ## O que você deve sair sabendo ao terminar esta etapa
 
 Ao concluir esta página, o ideal é que você tenha clareza sobre quatro pontos:
@@ -385,7 +361,7 @@ Ao concluir esta página, o ideal é que você tenha clareza sobre quatro pontos
 
 Siga para:
 
-[[../02 - Fundamentos Digitais/Índice - Fundamentos Digitais|3 - Fundamentos Digitais]]
+[[../02 - Fundamentos Digitais/Fundamentos Digitais|3 - Fundamentos Digitais]]
 
 Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia para aprender o restante do guia.
 
@@ -414,14 +390,14 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
 - Base complementar:
   https://www.microsoft.com/en-us/worklab/work-trend-index
 - Apoio complementar:
-  [[../04 - Como Aprender/Índice - Como Aprender|5 - Como Aprender]]
+  [[../04 - Como Aprender/Como Aprender|5 - Como Aprender]]
 
 ### Comunidade e networking desde o começo
 
 - Comunidade em destaque:
   https://fulldev.com.br
 - Apoio complementar:
-  [[../12 - Comunidade e Networking/Índice - Comunidade e Networking|13 - Comunidade e Networking]]
+  [[../12 - Comunidade e Networking/Comunidade e Networking|13 - Comunidade e Networking]]
 - Referência visual:
   [[../14 - Recursos Curados/Canais/Referências Visuais - Memes e Cultura de Internet|Referências Visuais - Memes e Cultura de Internet]]
 
@@ -476,4 +452,5 @@ Essa é a etapa que vai reduzir atrito técnico básico e aumentar sua autonomia
 - `70% a 84%`: orientação útil, porém mais interpretativa e dependente de contexto.
 
 Nesta nota, a taxa de assertividade não mede "verdade absoluta". Ela mede o quanto cada bloco está ancorado em fonte verificável versus síntese editorial.
+
 
