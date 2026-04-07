@@ -14,8 +14,9 @@ import { ThemeService } from '../services/theme.service';
     <div class="platform-shell">
       <aside class="platform-sidebar">
         <header class="platform-sidebar__header">
+          <img class="platform-sidebar__logo platform-sidebar__logo--compact" src="logo-fulldev.svg" alt="Fulldev" />
           <img
-            class="platform-sidebar__logo"
+            class="platform-sidebar__logo platform-sidebar__logo--full"
             [src]="theme.isDark() ? 'logo-completa-branca.png' : 'logo-completa-preta.png'"
             alt="Fulldev"
           />
@@ -120,6 +121,7 @@ import { ThemeService } from '../services/theme.service';
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
         height: var(--platform-header-height);
         padding: 0 18px;
         border-bottom: 1px solid var(--fd-border);
@@ -129,9 +131,23 @@ import { ThemeService } from '../services/theme.service';
       .platform-sidebar__logo {
         display: block;
         width: 100%;
-        max-width: 176px;
         max-height: calc(var(--platform-header-height) - 24px);
         object-fit: contain;
+        transition: opacity var(--fd-motion-fast);
+      }
+
+      .platform-sidebar__logo--compact {
+        max-width: 40px;
+      }
+
+      .platform-sidebar__logo--full {
+        position: absolute;
+        inset: 0;
+        width: calc(100% - 36px);
+        max-width: 176px;
+        height: 100%;
+        margin: auto;
+        opacity: 0;
       }
 
       .platform-sidebar__nav,
@@ -158,6 +174,11 @@ import { ThemeService } from '../services/theme.service';
         border: 1px solid transparent;
       }
 
+      .platform-sidebar:not(:hover):not(:focus-within) .platform-nav-item {
+        justify-content: center;
+        padding: 0;
+      }
+
       .platform-nav-item span {
         opacity: 0;
         transition: opacity var(--fd-motion-fast);
@@ -165,6 +186,16 @@ import { ThemeService } from '../services/theme.service';
 
       .platform-sidebar:hover .platform-nav-item span,
       .platform-sidebar:focus-within .platform-nav-item span {
+        opacity: 1;
+      }
+
+      .platform-sidebar:hover .platform-sidebar__logo--compact,
+      .platform-sidebar:focus-within .platform-sidebar__logo--compact {
+        opacity: 0;
+      }
+
+      .platform-sidebar:hover .platform-sidebar__logo--full,
+      .platform-sidebar:focus-within .platform-sidebar__logo--full {
         opacity: 1;
       }
 
@@ -275,6 +306,14 @@ import { ThemeService } from '../services/theme.service';
         }
 
         .platform-nav-item span {
+          opacity: 1;
+        }
+
+        .platform-sidebar__logo--compact {
+          opacity: 0;
+        }
+
+        .platform-sidebar__logo--full {
           opacity: 1;
         }
 
