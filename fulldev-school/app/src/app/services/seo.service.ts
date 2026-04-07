@@ -73,7 +73,14 @@ export class SeoService {
       return `${this.siteName} | Guia completo para entrar na area de tecnologia`;
     }
 
-    return `${lesson.meta.title} | ${lesson.meta.section} | ${this.siteName}`;
+    const title = lesson.meta.title.trim();
+    const section = lesson.meta.section.trim();
+
+    if (this.normalizeText(title) === this.normalizeText(section)) {
+      return `${title} | ${this.siteName}`;
+    }
+
+    return `${title} | ${section} | ${this.siteName}`;
   }
 
   private buildDescription(lesson: LessonContent | null): string {
@@ -261,5 +268,14 @@ export class SeoService {
     }
 
     return `${value.slice(0, maxLength - 1).trimEnd()}…`;
+  }
+
+  private normalizeText(value: string): string {
+    return value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 }

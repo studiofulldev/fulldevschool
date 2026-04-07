@@ -73,6 +73,7 @@ fulldev-school/
 - cada pagina deve atualizar `title`, `description`, `canonical` e metas sociais dinamicamente
 - a home e as licoes devem publicar `JSON-LD` com `WebSite`, `BreadcrumbList` e `LearningResource` ou `CollectionPage`
 - o `lang` principal da aplicacao deve ser `pt-BR`
+- o `title` nao deve repetir o nome da secao quando titulo e secao forem equivalentes
 - a descricao de cada licao deve ser derivada do proprio conteudo, sem texto generico repetido
 - o projeto deve expor arquivos publicos para crawler e IA, incluindo `robots.txt` e `llms.txt`
 - a estrategia editorial de SEO deve refletir o posicionamento do projeto como guia completo para entrar na area de tecnologia
