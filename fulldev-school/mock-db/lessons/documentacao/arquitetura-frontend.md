@@ -98,7 +98,11 @@ fulldev-school/
 - no bloco `Estrutura do projeto`, a visualizacao deve seguir o fluxo real do conteudo do projeto
 - `Visao Geral` deve aparecer no topo, centralizada, como ponto inicial
 - abaixo dela, a sequencia deve continuar a partir de `E HAJA LUZ!`
-- as demais etapas devem seguir em fluxo horizontal com conectores visuais entre elas
+- as demais etapas devem seguir em cadeia vertical, uma abaixo da outra, com conectores visuais
+- em `Mapa das Areas`, os grupos principais devem aparecer lado a lado
+- os subtopicos dentro desses grupos devem ficar em coluna
+- os cards dos subtopicos devem manter alinhamento no topo, texto alinhado a esquerda e largura minima de `220px`
+- quando o container for maior que `220px`, os subtopicos devem ocupar `100%` da largura disponivel
 
 ## diretriz-importante
 

@@ -118,7 +118,10 @@ interface ProjectTreeNode {
 
                     <div class="project-tree__flow">
                       @for (section of tree.children ?? []; track section.id; let last = $last) {
-                        <section class="project-tree__stage-card">
+                        <section
+                          class="project-tree__stage-card"
+                          [class.project-tree__stage-card--fit]="shouldRenderProjectChildrenHorizontally(section)"
+                        >
                           <h3 class="project-tree__column-title">{{ section.label }}</h3>
 
                           @if (section.children?.length) {
@@ -212,7 +215,7 @@ interface ProjectTreeNode {
 
             @if (hasChildren(node)) {
               <ng-container
-                [ngTemplateOutlet]="treeBranchHorizontal"
+                [ngTemplateOutlet]="treeBranch"
                 [ngTemplateOutletContext]="{ $implicit: node.children, depth: depth + 1 }"
               />
             }
@@ -473,6 +476,7 @@ interface ProjectTreeNode {
       .project-tree__flow {
         display: grid;
         justify-items: center;
+        align-items: start;
         gap: 12px;
       }
 
@@ -483,6 +487,11 @@ interface ProjectTreeNode {
         padding: 16px;
         border: 1px solid rgba(178, 45, 0, 0.35);
         background: linear-gradient(180deg, rgba(178, 45, 0, 0.12), rgba(255, 255, 255, 0.03));
+      }
+
+      .project-tree__stage-card--fit {
+        width: fit-content;
+        max-width: 100%;
       }
 
       .project-tree__root-connector {
@@ -521,12 +530,17 @@ interface ProjectTreeNode {
       }
 
       .project-tree__branch {
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
         gap: 10px;
+        width: 100%;
       }
 
       .project-tree__branch-horizontal {
         display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
         gap: 10px;
         overflow-x: auto;
         padding-bottom: 4px;
@@ -536,12 +550,30 @@ interface ProjectTreeNode {
       .project-tree__item {
         display: grid;
         gap: 10px;
-        padding-left: calc(var(--branch-depth, 0) * 12px);
+        justify-items: start;
+        width: 100%;
+        min-width: 220px;
+        padding-left: 0;
       }
 
       .project-tree__item--horizontal {
+        display: grid;
+        align-content: start;
+        justify-items: stretch;
+        align-self: flex-start;
+        width: 100%;
         min-width: 220px;
         padding-left: 0;
+      }
+
+      .project-tree__item--horizontal > .project-tree__branch {
+        width: 100%;
+        min-width: 220px;
+      }
+
+      .project-tree__item--horizontal > .project-tree__item-label {
+        justify-content: flex-start;
+        text-align: left;
       }
 
       .project-tree__item--group > .project-tree__item-label {
@@ -551,6 +583,12 @@ interface ProjectTreeNode {
       }
 
       .project-tree__item-label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-width: 220px;
+        height: 52px;
+        box-sizing: border-box;
         padding: 10px 12px;
         border: 1px solid var(--fd-border);
         background: rgba(255, 255, 255, 0.03);
@@ -867,6 +905,14 @@ export class LessonPageComponent {
         node.sectionTitle ?? this.humanizeLabel(node.section)
       );
       const pathSegments = this.projectPathSegments(node);
+
+      if (
+        pathSegments.length === 1 &&
+        this.normalizeTitle(pathSegments[0]) === this.normalizeTitle(sectionNode.label)
+      ) {
+        continue;
+      }
+
       let currentNode = sectionNode;
 
       for (const segment of pathSegments.slice(0, -1)) {
