@@ -537,8 +537,8 @@ interface ContentSupporter {
 
       .supporter-card {
         display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
+        align-content: start;
+        justify-items: start;
         gap: 14px;
         padding: 14px;
         border: 1px solid var(--fd-border);
@@ -549,13 +549,13 @@ interface ContentSupporter {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
       }
 
       .supporter-card__media img,
       .supporter-card__avatar {
-        width: 52px;
-        height: 52px;
-        border-radius: 999px;
+        width: 100%;
+        aspect-ratio: 1 / 1;
       }
 
       .supporter-card__media img {
@@ -579,6 +579,7 @@ interface ContentSupporter {
         display: grid;
         gap: 4px;
         min-width: 0;
+        justify-items: start;
       }
 
       .supporter-card__body strong {
@@ -927,14 +928,6 @@ interface ContentSupporter {
       @media (max-width: 960px) {
         .lesson__top-nav-shell {
           padding: 12px 16px;
-        }
-
-        .supporter-card {
-          grid-template-columns: auto 1fr;
-        }
-
-        .supporter-card__socials {
-          grid-column: 1 / -1;
         }
 
         .lesson__block-header mat-panel-title {

@@ -85,6 +85,7 @@ fulldev-school/
 - essa navegacao deve ficar abaixo do breadcrumb, em container proprio
 - o bloco superior deve ser compacto, com tipografia pequena e baixa hierarquia visual
 - os links devem expor apenas `Anterior` e `Proximo`, com icones proporcionais
+- o estilo do container deve seguir a mesma linguagem visual de `lesson__body`, mas com espacamento mais enxuto
 
 ### 3-camada-de-conteudo
 
@@ -94,6 +95,7 @@ fulldev-school/
 - persistir expansao dos blocos por licao
 - compor elementos especiais da visao geral, como boas-vindas e arvore customizada
 - renderizar `lesson__video-slot` apenas em blocos de conteudo elegiveis
+- renderizar ao final da licao um painel fixo de `Apoio de conteudo` com cards de contribuidores
 
 ## regra-de-video-por-bloco
 
@@ -105,6 +107,24 @@ fulldev-school/
 - o slot de video nao deve aparecer em `Topicos do roadmap e videos sugeridos`
 - o slot de video nao deve aparecer em `Verificacao por topico`
 - o slot de video nao deve aparecer em `Bibliografia`
+
+## regra-de-expansao-inicial
+
+- por padrao, os paineis expansivos de conteudo devem iniciar fechados
+- a unica excecao global e o painel `Resumo`, que deve iniciar aberto
+- na licao `Visao Geral do Guia`, o painel `Resumo` nao abre automaticamente
+- na licao `Visao Geral do Guia`, o painel `Boas-vindas` e o unico que deve iniciar aberto
+
+## regra-de-apoio-de-conteudo
+
+- toda licao deve terminar com um painel chamado `Apoio de conteudo`
+- esse painel lista cards de contribuidores que ajudaram a alimentar os videos e referencias da pagina
+- cada card deve seguir fluxo vertical
+- primeiro vem a imagem ou avatar ocupando toda a largura util do card
+- a midia deve respeitar proporcao `1:1`
+- abaixo da imagem ficam nome e cargo
+- por ultimo ficam os icones de redes sociais ou links associados
+- a lista de contribuidores deve ser centralizada no frontend, para evitar duplicacao no markdown
 
 ## regra-da-estrutura-do-projeto
 
