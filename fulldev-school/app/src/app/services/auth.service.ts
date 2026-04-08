@@ -112,7 +112,7 @@ export class AuthService {
 
   async signInWithEmail(email: string, password: string): Promise<AuthActionResult> {
     try {
-      const { data, error } = await this.supabase.signInWithPassword(email.trim().toLowerCase(), password.trim());
+      const { data, error } = await this.supabase.signInWithPassword(email.trim().toLowerCase(), password);
       if (error) {
         return { ok: false, message: this.normalizeSupabaseAuthError(error.message) };
       }
@@ -134,7 +134,7 @@ export class AuthService {
   async registerWithEmail(payload: EmailRegistrationPayload): Promise<AuthActionResult> {
     const email = payload.email.trim().toLowerCase();
     const name = payload.name.trim();
-    const password = payload.password.trim();
+    const password = payload.password;
 
     if (!payload.acceptedTerms) {
       return { ok: false, message: 'Voce precisa aceitar os termos para continuar.' };
