@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 
 export interface NavigationNode {
@@ -241,10 +242,14 @@ export class SchoolContentService {
       .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, '[$2](#)')
       .replace(/\[\[([^\]]+)\]\]/g, '[$1](#)');
 
-    return marked.parse(normalized, {
+    const rawHtml = marked.parse(normalized, {
       gfm: true,
       breaks: false
     }) as string;
+
+    return DOMPurify.sanitize(rawHtml, {
+      USE_PROFILES: { html: true }
+    });
   }
 
   private normalizeBlockTitle(title: string): string {
