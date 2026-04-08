@@ -260,18 +260,19 @@ export class App {
     this.errorMessage.set('');
   }
 
-  protected signInWithGoogle(): void {
+  protected async signInWithGoogle(): Promise<void> {
     this.errorMessage.set('');
-    this.auth.signInWithGoogle();
+    const result = await this.auth.signInWithGoogle();
+    this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar com Google.'));
   }
 
-  protected signInWithEmail(): void {
-    const result = this.auth.signInWithEmail(this.loginEmail, this.loginPassword);
+  protected async signInWithEmail(): Promise<void> {
+    const result = await this.auth.signInWithEmail(this.loginEmail, this.loginPassword);
     this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar.'));
   }
 
-  protected registerWithEmail(): void {
-    const result = this.auth.registerWithEmail({
+  protected async registerWithEmail(): Promise<void> {
+    const result = await this.auth.registerWithEmail({
       name: this.signupName,
       email: this.signupEmail,
       password: this.signupPassword,
@@ -282,6 +283,6 @@ export class App {
       acceptedTerms: this.signupAcceptedTerms
     });
 
-    this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel criar a conta.'));
+    this.errorMessage.set(result.ok ? (result.message ?? '') : (result.message ?? 'Nao foi possivel criar a conta.'));
   }
 }

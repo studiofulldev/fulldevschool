@@ -52,6 +52,19 @@ npm start
 npm run build
 ```
 
+## Supabase
+
+- o frontend nunca deve carregar `service_role`
+- para browser, use `Project URL` com `publishableKey`
+- em desenvolvimento local, `src/environments/environment.ts` pode conter a configuracao
+- em producao, prefira `public/runtime-config.js`, carregado antes da app
+- existe um template versionado em `public/runtime-config.example.js`
+- `public/runtime-config.js` fica no `.gitignore` e nao deve ser commitado
+- ordem de leitura da configuracao:
+  1. `window.__FULLDEV_SCHOOL_CONFIG__.supabase`
+  2. `localStorage`
+  3. `environment.ts` ou `environment.prod.ts`
+
 ## Observações
 
 - a interface de áudio está adiada

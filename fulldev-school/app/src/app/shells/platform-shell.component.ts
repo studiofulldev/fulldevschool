@@ -377,7 +377,7 @@ export class PlatformShellComponent {
     void this.router.navigateByUrl('/courses/account');
   }
 
-  protected signOut(): void {
-    this.auth.signOut();
+  protected async signOut(): Promise<void> {
+    await this.auth.signOut();
   }
 }

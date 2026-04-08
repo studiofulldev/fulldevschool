@@ -9,6 +9,7 @@ export interface AzureSpeechRuntimeConfig {
 export interface SupabaseRuntimeConfig {
   url: string;
   anonKey: string;
+  publishableKey?: string;
 }
 
 declare global {
@@ -41,12 +42,13 @@ export class RuntimeConfigService {
 
   get supabase(): SupabaseRuntimeConfig | null {
     const globalConfig = window.__FULLDEV_SCHOOL_CONFIG__?.supabase;
-    if (globalConfig?.url && globalConfig.anonKey) {
-      return globalConfig;
+    const globalKey = globalConfig?.publishableKey || globalConfig?.anonKey;
+    if (globalConfig?.url && globalKey) {
+      return { url: globalConfig.url, anonKey: globalKey, publishableKey: globalConfig.publishableKey };
     }
 
     const url = localStorage.getItem('fds.supabase.url');
-    const anonKey = localStorage.getItem('fds.supabase.anonKey');
+    const anonKey = localStorage.getItem('fds.supabase.publishableKey') || localStorage.getItem('fds.supabase.anonKey');
 
     if (!url || !anonKey) {
       return null;
