@@ -23,6 +23,17 @@ declare global {
 
 @Injectable({ providedIn: 'root' })
 export class RuntimeConfigService {
+  constructor() {
+    // Freeze the global config object to prevent third-party scripts from
+    // overwriting credentials after they have been read.
+    const config = window.__FULLDEV_SCHOOL_CONFIG__;
+    if (config && !Object.isFrozen(config)) {
+      Object.freeze(config);
+      if (config.azureSpeech) Object.freeze(config.azureSpeech);
+      if (config.supabase) Object.freeze(config.supabase);
+    }
+  }
+
   get azureSpeech(): AzureSpeechRuntimeConfig | null {
     const globalConfig = window.__FULLDEV_SCHOOL_CONFIG__?.azureSpeech;
     if (globalConfig?.key && globalConfig.region) {
