@@ -1,7 +1,9 @@
+// Local dev: set credentials via public/runtime-config.js (gitignored)
+// or via localStorage keys fds.supabase.url + fds.supabase.publishableKey
 export const environment = {
   production: false,
   supabase: {
-    url: 'https://gzuymsmkjzkfvstwipal.supabase.co',
-    publishableKey: 'sb_publishable_1E6b5DgnoFEJcB6fBUQRWA_Hb_eIa50'
+    url: '',
+    publishableKey: ''
   }
 };
