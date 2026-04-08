@@ -1,0 +1,18 @@
+// Configuração para ambiente LOCAL com Supabase via Docker.
+//
+// Como usar:
+//   1. Inicie o Supabase local: make supabase-start
+//   2. Copie este arquivo: cp runtime-config.local.js.example runtime-config.js
+//      (runtime-config.js está no .gitignore — nunca commitar)
+//   3. Inicie o Angular: npm start
+//
+// Credenciais locais padrão do Supabase CLI:
+// URL e anon key são sempre iguais em qualquer máquina com `supabase start`.
+// São credenciais públicas de desenvolvimento — seguras para commitar neste arquivo de exemplo.
+
+window.__FULLDEV_SCHOOL_CONFIG__ = {
+  supabase: {
+    url: 'http://localhost:54321',
+    publishableKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU'
+  }
+};

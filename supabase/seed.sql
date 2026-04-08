@@ -1,0 +1,8 @@
+-- Dados iniciais para o ambiente local de desenvolvimento e testes.
+-- Execute automaticamente via: supabase db reset
+--
+-- Exemplo de seed para testes:
+--
+-- INSERT INTO profiles (id, full_name, technical_level, accepted_terms)
+-- VALUES
+--   ('00000000-0000-0000-0000-000000000001', 'Usuário Teste', 'iniciante', true);

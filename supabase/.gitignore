@@ -1,0 +1,4 @@
+# Arquivos gerados pelo CLI e pelo Docker — não versionar
+.branches
+.temp
+volumes/
