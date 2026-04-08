@@ -7,18 +7,23 @@
 #     Instalar: brew install supabase/tap/supabase
 #
 # Comandos principais:
-#   make setup          Configura o ambiente local pela primeira vez
-#   make start          Inicia o Supabase local + serve Angular
-#   make test           Executa os testes unitários
-#   make test-watch     Executa os testes em modo watch
-#   make test-coverage  Executa os testes com relatório de cobertura
-#   make supabase-start Inicia apenas o Supabase local
-#   make supabase-stop  Para o Supabase local
-#   make supabase-reset Reseta o banco e aplica seed.sql
+#   make setup           Configura o ambiente local pela primeira vez
+#   make supabase-start  Inicia o Supabase local (Docker)
+#   make supabase-stop   Para o Supabase local
+#   make supabase-reset  Reseta o banco e aplica seed.sql
 #   make supabase-status Mostra URLs e credenciais locais
+#   make docker-build    Builda a imagem Docker do app
+#   make docker-up       Sobe o app em Docker (nginx na porta 4200)
+#   make docker-down     Para e remove os containers do app
+#   make docker-logs     Exibe os logs do container do app
+#   make serve           Inicia o dev server Angular (sem Docker)
+#   make test            Executa os testes unitários
+#   make test-watch      Executa os testes em modo watch
+#   make test-coverage   Executa os testes com relatório de cobertura
 
-.PHONY: setup start test test-watch test-coverage \
+.PHONY: setup serve test test-watch test-coverage \
         supabase-start supabase-stop supabase-reset supabase-status \
+        docker-build docker-up docker-down docker-logs \
         help
 
 APP_DIR = fulldev-school/app
@@ -62,7 +67,23 @@ supabase-status: ## Mostra URLs e credenciais do Supabase local
 	supabase status
 
 # =============================================================================
-# Angular dev server
+# Docker — app Angular
+# =============================================================================
+
+docker-build: ## Builda a imagem Docker do app (nginx + build de produção)
+	docker compose build app
+
+docker-up: ## Sobe o app em Docker na porta 4200 (requer runtime-config.js)
+	docker compose up -d app
+
+docker-down: ## Para e remove os containers do app
+	docker compose down
+
+docker-logs: ## Exibe os logs do container do app
+	docker compose logs -f app
+
+# =============================================================================
+# Angular dev server (sem Docker)
 # =============================================================================
 
 serve: ## Inicia o servidor de desenvolvimento Angular

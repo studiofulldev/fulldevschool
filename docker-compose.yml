@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: fulldev-school/app
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    volumes:
+      # Monta o runtime-config.js local para apontar para o Supabase desejado.
+      # Copie o exemplo antes de subir: cp fulldev-school/app/public/runtime-config.local.js.example
+      #                                    fulldev-school/app/public/runtime-config.js
+      - ./fulldev-school/app/public/runtime-config.js:/usr/share/nginx/html/runtime-config.js:ro
+    restart: unless-stopped
