@@ -36,6 +36,7 @@ export const routes: Routes = [
   },
   {
     path: 'courses',
+    canActivate: [authGuard],
     component: PlatformShellComponent,
     children: [
       {
@@ -53,7 +54,6 @@ export const routes: Routes = [
       },
       {
         path: 'account',
-        canActivate: [authGuard],
         component: AccountPageComponent
       }
     ]
