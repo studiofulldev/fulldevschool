@@ -222,10 +222,31 @@
 
 :host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header {
   padding: 0 16px;
+  background: #202020 !important;
+  background-color: #202020 !important;
 }
 
 :host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header.mat-expanded {
   height: 48px;
+  background: #202020 !important;
+  background-color: #202020 !important;
+}
+
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header:hover,
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header:focus,
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header:focus-visible,
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header.cdk-keyboard-focused,
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header.cdk-program-focused,
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header.mat-expanded:hover,
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header.mat-expanded:focus,
+:host ::ng-deep .course-curriculum__panel .mat-expansion-panel-header.mat-expanded:focus-visible {
+  background: #202020 !important;
+  background-color: #202020 !important;
+}
+
+:host ::ng-deep .course-curriculum__panel.mat-expanded,
+:host ::ng-deep .course-curriculum__panel.mat-expansion-panel.mat-expanded {
+  background: transparent !important;
 }
 
 .course-curriculum__trigger {
