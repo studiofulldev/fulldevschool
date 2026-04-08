@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
 import { AccountPageComponent } from './pages/account-page.component';
 import { LegalPageComponent } from './pages/legal-page.component';
 import { LessonPageComponent } from './pages/lesson-page.component';
+import { LoginPageComponent } from './pages/login-page.component';
 import { ModulePageComponent } from './pages/module-page.component';
 import { PlatformDashboardComponent } from './pages/platform-dashboard.component';
 import { PlatformHomeComponent } from './pages/platform-home.component';
@@ -13,6 +15,10 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'courses',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent
   },
   {
     path: 'legal/privacy',
@@ -47,12 +53,14 @@ export const routes: Routes = [
       },
       {
         path: 'account',
+        canActivate: [authGuard],
         component: AccountPageComponent
       }
     ]
   },
   {
     path: 'courses/:courseSlug',
+    canActivate: [authGuard],
     component: CourseShellComponent,
     children: [
       {
