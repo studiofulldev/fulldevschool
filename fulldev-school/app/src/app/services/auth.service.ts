@@ -1,4 +1,7 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { filter, map, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { SupabaseService } from './supabase.service';
 
 export type AuthProvider = 'google' | 'email';
@@ -38,22 +41,55 @@ export interface AuthActionResult {
 export class AuthService {
   private readonly supabase = inject(SupabaseService);
   private readonly storageKey = 'fulldev-school.auth.user';
-  private readonly userState = signal<AuthUser | null>(this.readUser());
 
-  readonly user = this.userState.asReadonly();
-  readonly isAuthenticated = computed(() => this.userState() !== null);
+  // Verified user — only set after Supabase confirms the session.
+  // This is the source of truth for authentication decisions.
+  private readonly verifiedUserState = signal<AuthUser | null>(null);
+
+  // Cached display data from localStorage — used only to pre-populate name/avatar
+  // while the Supabase session check is in progress. Never used for auth decisions.
+  private readonly cachedDisplayUser: AuthUser | null = this.readUser();
+
+  // True once the initial Supabase session check has completed (success or failure).
+  private readonly sessionCheckCompleteState = signal(false);
+  readonly sessionCheckComplete = this.sessionCheckCompleteState.asReadonly();
+
+  // Emit once when sessionCheckComplete flips to true.
+  readonly sessionCheckComplete$: Observable<true> = toObservable(this.sessionCheckCompleteState).pipe(
+    filter(Boolean),
+    take(1),
+    map(() => true as const)
+  );
+
+  // Display user: shows cached data while loading, then the verified user (or null).
+  readonly user = computed<AuthUser | null>(() => {
+    if (!this.sessionCheckCompleteState()) {
+      return this.cachedDisplayUser;
+    }
+    return this.verifiedUserState();
+  });
+
+  // Auth decisions are based solely on the verified user.
+  readonly isAuthenticated = computed(() => this.verifiedUserState() !== null && this.sessionCheckCompleteState());
 
   constructor() {
     void this.restoreSupabaseSession();
 
-    this.supabase.onAuthStateChange(({ session }) => {
+    this.supabase.onAuthStateChange(({ session, event }) => {
       const supabaseUser = session?.user;
       if (!supabaseUser) {
-        this.clearUser();
-        return;
+        this.verifiedUserState.set(null);
+        this.clearUserCache();
+      } else {
+        const authUser = this.mapSupabaseUser(supabaseUser);
+        this.verifiedUserState.set(authUser);
+        this.cacheUser(authUser);
       }
 
-      this.setUser(this.mapSupabaseUser(supabaseUser));
+      // Mark session check complete on any auth event after INITIAL_SESSION.
+      if (event === 'INITIAL_SESSION' || !this.sessionCheckCompleteState()) {
+        this.sessionCheckCompleteState.set(true);
+      }
     });
   }
 
@@ -85,7 +121,10 @@ export class AuthService {
         return { ok: false, message: 'Nao foi possivel iniciar a sessao.' };
       }
 
-      this.setUser(this.mapSupabaseUser(data.user));
+      const authUser = this.mapSupabaseUser(data.user);
+      this.verifiedUserState.set(authUser);
+      this.cacheUser(authUser);
+      this.sessionCheckCompleteState.set(true);
       return { ok: true };
     } catch {
       return { ok: false, message: 'Nao foi possivel validar sua conta no momento.' };
@@ -138,7 +177,10 @@ export class AuthService {
           updated_at: acceptedAt
         });
 
-        this.setUser(this.mapSupabaseUser(data.user));
+        const authUser = this.mapSupabaseUser(data.user);
+        this.verifiedUserState.set(authUser);
+        this.cacheUser(authUser);
+        this.sessionCheckCompleteState.set(true);
       }
 
       return {
@@ -157,17 +199,22 @@ export class AuthService {
       // Keep local cleanup even when Supabase sign-out fails.
     }
 
-    this.clearUser();
+    this.verifiedUserState.set(null);
+    this.clearUserCache();
   }
 
   private async restoreSupabaseSession(): Promise<void> {
     try {
       const { data } = await this.supabase.getSession();
       if (data.session?.user) {
-        this.setUser(this.mapSupabaseUser(data.session.user));
+        const authUser = this.mapSupabaseUser(data.session.user);
+        this.verifiedUserState.set(authUser);
+        this.cacheUser(authUser);
       }
     } catch {
-      // Ignore session restoration failures and keep local fallback state.
+      // Session restoration failed — keep verifiedUserState as null.
+    } finally {
+      this.sessionCheckCompleteState.set(true);
     }
   }
 
@@ -224,15 +271,13 @@ export class AuthService {
     return message;
   }
 
-  private setUser(user: AuthUser): void {
-    this.userState.set(user);
+  private cacheUser(user: AuthUser): void {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(this.storageKey, JSON.stringify(user));
     }
   }
 
-  private clearUser(): void {
-    this.userState.set(null);
+  private clearUserCache(): void {
     if (typeof localStorage !== 'undefined') {
       localStorage.removeItem(this.storageKey);
     }
