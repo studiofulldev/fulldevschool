@@ -483,6 +483,14 @@ interface ContentSupporter {
         transform: rotate(180deg);
       }
 
+      :host ::ng-deep .lesson__block.mat-expansion-panel,
+      :host ::ng-deep .lesson__block.mat-expansion-panel.mat-expanded,
+      :host ::ng-deep .lesson__block .mat-expansion-panel-content,
+      :host ::ng-deep .lesson__block .mat-expansion-panel-content-wrapper,
+      :host ::ng-deep .lesson__block .mat-expansion-panel-header {
+        box-shadow: none !important;
+      }
+
       :host ::ng-deep .lesson__block .mat-expansion-panel-body {
         padding: 0 10px 18px;
       }

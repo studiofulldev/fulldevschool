@@ -30,10 +30,11 @@ Responsável por:
 - sidebar principal da plataforma
 - sidebar de curso com a mesma linguagem visual da plataforma
 - header fixo
-- breadcrumbs
 - área de conteúdo
 - progresso visual de leitura
 - persistência do estado de expansão da navegação
+- remoção de footer no shell de curso para manter leitura direta
+- `mat-expansion-panel` sem shadow por padrão em shell e conteúdo
 
 ### 2. Camada de Navegação
 

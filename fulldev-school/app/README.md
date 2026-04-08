@@ -24,6 +24,8 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - hero com contagem de tópicos, vídeos e tempo de leitura
 - `/courses/:courseSlug` redireciona direto para a primeira lição
 - visão geral com painel de boas-vindas com embed de vídeo e árvore expansível customizada
+- `mat-expansion-panel` deve permanecer sem sombra em toda a interface
+- o shell dos cursos não usa footer próprio
 
 ## Arquivos centrais
 

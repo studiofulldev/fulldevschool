@@ -202,10 +202,12 @@
 :host ::ng-deep .course-curriculum__panel .mat-expansion-panel-content,
 :host ::ng-deep .course-curriculum__panel .mat-expansion-panel-content-wrapper {
   border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 :host ::ng-deep .course-curriculum__panel.mat-expansion-panel-spacing {
   margin: 0 !important;
+  box-shadow: none !important;
 }
 
 :host ::ng-deep .course-curriculum__panel .mat-expansion-panel-body {
@@ -371,45 +373,6 @@
   padding: calc(var(--course-header-height) + 24px) 12px 12px;
 }
 
-.course-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 40px 100px;
-  background: var(--fd-surface-header);
-  border-top: 1px solid var(--fd-border);
-}
-
-.course-footer__brand {
-  display: grid;
-  gap: 8px;
-  justify-items: start;
-}
-
-.course-footer__brand p {
-  margin: 0;
-  color: var(--fd-muted);
-  font-size: var(--fd-text-sm);
-  line-height: 1.3;
-}
-
-.course-footer__signature {
-  display: grid;
-  color: var(--fd-white);
-  font-size: clamp(var(--fd-text-xl), 5vw, var(--fd-text-2xl));
-  font-weight: 200;
-  line-height: 1.05;
-}
-
-.course-footer__logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  display: block;
-  flex: 0 0 40px;
-}
-
 .lesson__top-nav {
   padding: 0;
 }
@@ -499,11 +462,5 @@
 
   .course-content {
     padding: calc(var(--course-header-height) + 18px) 8px 8px;
-  }
-
-  .course-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 32px 24px;
   }
 }
