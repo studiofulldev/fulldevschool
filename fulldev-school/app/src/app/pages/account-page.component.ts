@@ -17,7 +17,7 @@ import { PlatformDataService } from '../services/platform-data.service';
         @if (auth.user(); as user) {
           <h1>{{ user.name }}</h1>
           <p>{{ user.email }}</p>
-          <span>Login via {{ user.provider === 'google' ? 'Google' : 'e-mail' }}</span>
+          <span>Login via {{ providerLabel(user.provider) }}</span>
 
           <div class="account-details">
             <div class="account-detail">
@@ -168,5 +168,17 @@ export class AccountPageComponent {
     const completed = course.modules.filter((module) => this.progress.isModuleCompleted(courseSlug, module.slug)).length;
     const percent = totalModules === 0 ? 0 : Math.round((completed / totalModules) * 100);
     return `${percent}% concluido`;
+  }
+
+  protected providerLabel(provider: string): string {
+    if (provider === 'google') {
+      return 'Google';
+    }
+
+    if (provider === 'linkedin_oidc') {
+      return 'LinkedIn';
+    }
+
+    return 'e-mail';
   }
 }

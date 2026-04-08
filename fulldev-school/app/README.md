@@ -26,7 +26,7 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - visão geral com painel de boas-vindas com embed de vídeo e árvore expansível customizada
 - `mat-expansion-panel` deve permanecer sem sombra em toda a interface
 - o shell dos cursos não usa footer próprio
-- o gate de autenticacao exibe apenas `Entrar com Google` por enquanto
+- o gate de autenticacao oferece `Entrar com Google` e `Entrar com LinkedIn`
 - os botoes das paginas de `/courses` seguem o mesmo padrao vermelho do fluxo do curso
 
 ## Arquivos centrais
@@ -66,6 +66,7 @@ npm run build
   1. `window.__FULLDEV_SCHOOL_CONFIG__.supabase`
   2. `localStorage`
   3. `environment.ts` ou `environment.prod.ts`
+- para LinkedIn no Supabase, habilite o provider `linkedin_oidc` e inclua o callback do projeto na allow list de redirects
 
 ## Observações
 

@@ -2,9 +2,9 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { filter, map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { SupabaseService } from './supabase.service';
+import { OAuthProvider, SupabaseService } from './supabase.service';
 
-export type AuthProvider = 'google' | 'email';
+export type AuthProvider = OAuthProvider | 'email';
 export type TechnicalLevel = 'iniciante' | 'intermediario' | 'avancado';
 
 export interface AuthUser {
@@ -94,14 +94,24 @@ export class AuthService {
   }
 
   async signInWithGoogle(): Promise<AuthActionResult> {
+    return this.signInWithOAuth('google');
+  }
+
+  async signInWithLinkedIn(): Promise<AuthActionResult> {
+    return this.signInWithOAuth('linkedin_oidc');
+  }
+
+  private async signInWithOAuth(provider: OAuthProvider): Promise<AuthActionResult> {
+    const providerLabel = provider === 'google' ? 'Google' : 'LinkedIn';
+
     try {
-      const { data, error } = await this.supabase.signInWithGoogle();
+      const { data, error } = await this.supabase.signInWithOAuth(provider);
       if (error) {
         return { ok: false, message: error.message };
       }
 
       if (!data.url) {
-        return { ok: false, message: 'Nao foi possivel iniciar o login com Google.' };
+        return { ok: false, message: `Nao foi possivel iniciar o login com ${providerLabel}.` };
       }
 
       return { ok: true };
@@ -226,7 +236,10 @@ export class AuthService {
   }): AuthUser {
     const metadata = this.supabase.toUserMetadata(user as never);
     const rawProvider = String(user.app_metadata?.['provider'] ?? 'email');
-    const provider: AuthProvider = rawProvider === 'google' ? 'google' : 'email';
+    const provider: AuthProvider =
+      rawProvider === 'google' || rawProvider === 'linkedin_oidc'
+        ? rawProvider
+        : 'email';
 
     return {
       id: user.id,
@@ -265,7 +278,8 @@ export class AuthService {
         'lh4.googleusercontent.com',
         'lh5.googleusercontent.com',
         'lh6.googleusercontent.com',
-        'avatars.githubusercontent.com'
+        'avatars.githubusercontent.com',
+        'media.licdn.com'
       ];
 
       const isAllowed =

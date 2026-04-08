@@ -13,6 +13,8 @@ interface SupabaseClientConfig {
   anonKey: string;
 }
 
+export type OAuthProvider = 'google' | 'linkedin_oidc';
+
 @Injectable({ providedIn: 'root' })
 export class SupabaseService {
   private readonly runtimeConfig = inject(RuntimeConfigService);
@@ -61,10 +63,10 @@ export class SupabaseService {
     });
   }
 
-  async signInWithGoogle() {
+  async signInWithOAuth(provider: OAuthProvider) {
     this.ensureConfigured();
     return this.client.auth.signInWithOAuth({
-      provider: 'google',
+      provider,
       options: {
         redirectTo: typeof window !== 'undefined' ? window.location.origin + '/courses/home' : undefined
       }
