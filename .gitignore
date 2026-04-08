@@ -3,3 +3,8 @@
 Thumbs.db
 Desktop.ini
 fulldev-school/app/public/runtime-config.js
+
+# Supabase CLI — arquivos gerados localmente
+supabase/.branches
+supabase/.temp
+supabase/volumes/

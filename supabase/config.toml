@@ -1,0 +1,95 @@
+# Configuração do Supabase local para desenvolvimento e testes.
+# Documentação: https://supabase.com/docs/reference/cli/config
+
+[project]
+project_id = "fulldev-school-local"
+
+# =============================================================================
+# API (PostgREST)
+# =============================================================================
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+# =============================================================================
+# Banco de dados (PostgreSQL)
+# =============================================================================
+[db]
+port = 5432
+shadow_port = 5433
+major_version = 15
+
+[db.pooler]
+enabled = false
+
+# =============================================================================
+# Auth (GoTrue)
+# =============================================================================
+[auth]
+enabled = true
+site_url = "http://localhost:4200"
+additional_redirect_urls = ["http://localhost:4200", "http://localhost:4200/login"]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+enable_signup = true
+enable_anonymous_sign_ins = false
+
+# Para testes locais, desabilita a confirmação de e-mail — mais simples.
+# Em produção, o Supabase gerenciado usa confirmação.
+[auth.email]
+enable_signup = true
+double_confirm_changes = false
+enable_confirmations = false
+secure_password_change = false
+
+[auth.sms]
+enable_signup = false
+enable_confirmations = false
+
+# Google OAuth local: configure aqui se quiser testar OAuth localmente.
+# Requer um projeto Google com callback: http://localhost:54321/auth/v1/callback
+# [auth.external.google]
+# enabled = true
+# client_id = "env(GOOGLE_CLIENT_ID)"
+# secret = "env(GOOGLE_CLIENT_SECRET)"
+# redirect_uri = ""
+
+# =============================================================================
+# Studio (interface visual — desabilitado por padrão para economizar recursos)
+# =============================================================================
+[studio]
+enabled = true
+port = 54323
+api_url = "http://localhost:54321"
+openai_api_key = "env(OPENAI_API_KEY)"
+
+# =============================================================================
+# Inbucket (servidor de e-mail local para testes)
+# Acesse em: http://localhost:54324
+# =============================================================================
+[inbucket]
+enabled = true
+port = 54324
+
+# =============================================================================
+# Storage
+# =============================================================================
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+# =============================================================================
+# Edge Functions
+# =============================================================================
+[edge_runtime]
+enabled = false
+
+# =============================================================================
+# Analytics
+# =============================================================================
+[analytics]
+enabled = false
