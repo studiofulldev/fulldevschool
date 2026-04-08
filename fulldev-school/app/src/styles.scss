@@ -163,3 +163,139 @@ input {
 .mat-drawer-inner-container {
   scrollbar-width: thin;
 }
+
+.fd-user-menu-panel {
+  .mat-mdc-menu-content {
+    padding: 0 !important;
+  }
+
+  .mat-mdc-menu-panel {
+    min-width: 352px !important;
+    overflow: hidden !important;
+    border: 1px solid #4c4c4c !important;
+    border-radius: 4px !important;
+    background: #1f1f1f !important;
+    box-shadow: 0 0 15.5px 4px rgba(0, 0, 0, 0.25) !important;
+  }
+}
+
+.fd-user-menu-panel--compact {
+  .mat-mdc-menu-panel {
+    min-width: 240px !important;
+  }
+}
+
+.fd-user-menu {
+  display: grid;
+  width: 352px;
+  overflow: hidden;
+  background: #1f1f1f;
+  color: #bababa;
+}
+
+.fd-user-menu--compact {
+  width: 240px;
+}
+
+.fd-user-menu__header {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+.fd-user-menu__avatar,
+.fd-user-menu__avatar-image {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+}
+
+.fd-user-menu__avatar {
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border: 1px solid #2c2c2c;
+  background: #0d0d0d;
+}
+
+.fd-user-menu__avatar-image {
+  object-fit: cover;
+}
+
+.fd-user-menu__identity {
+  display: grid;
+  gap: 6px;
+  color: #bababa;
+}
+
+.fd-user-menu__identity strong {
+  font-size: 14px;
+}
+
+.fd-user-menu__identity span {
+  color: #989898;
+  font-size: 12px;
+}
+
+.fd-user-menu__links {
+  width: 100%;
+}
+
+.fd-user-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 40px;
+  padding: 14px 20px;
+  border: 0;
+  background: transparent;
+  color: #bababa;
+  font-size: 14px;
+  line-height: 1;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--fd-motion-fast), color var(--fd-motion-fast);
+}
+
+.fd-user-menu__item:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+}
+
+.fd-user-menu__item span {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.fd-user-menu__item mat-icon {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+.fd-user-menu__item--border-bottom {
+  border-bottom: 1px solid #2c2c2c;
+}
+
+.fd-user-menu__item--border-top {
+  border-top: 1px solid #2c2c2c;
+}
+
+.fd-user-menu__item--logout {
+  min-height: 60px;
+  padding: 20px;
+}
+
+.fd-user-menu__item--logout:hover {
+  background: #b22d00;
+  color: #ffffff;
+}

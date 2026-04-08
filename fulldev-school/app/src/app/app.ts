@@ -1,19 +1,20 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { filter } from 'rxjs';
 import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MatButtonModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, MatButtonModule],
   template: `
-    <div class="app-root" [class.app-root--locked]="!auth.isAuthenticated()">
+    <div class="app-root" [class.app-root--locked]="isGateEnabled()">
       <router-outlet />
     </div>
 
-    @if (!auth.isAuthenticated()) {
+    @if (isGateEnabled()) {
       <div class="auth-gate">
         <div class="auth-gate__backdrop"></div>
 
@@ -27,6 +28,11 @@ import { AuthService } from './services/auth.service';
 
           <div class="auth-gate__actions">
             <button mat-flat-button type="button" (click)="signInWithGoogle()">Entrar com Google</button>
+          </div>
+
+          <div class="auth-gate__legal">
+            <a routerLink="/legal/privacy">Politica de Privacidade</a>
+            <a routerLink="/legal/terms">Termos de Uso</a>
           </div>
 
           <!--
@@ -119,13 +125,39 @@ import { AuthService } from './services/auth.service';
       .auth-gate__error {
         color: #ff9e7a !important;
       }
+
+      .auth-gate__legal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .auth-gate__legal a {
+        color: var(--fd-soft);
+        text-decoration: none;
+      }
+
+      .auth-gate__legal a:hover {
+        color: var(--fd-text);
+      }
     `
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
   protected readonly auth = inject(AuthService);
+  private readonly router = inject(Router);
   protected readonly errorMessage = signal('');
+  private readonly currentUrl = signal(this.router.url);
+  protected readonly isGateEnabled = computed(
+    () => !this.auth.isAuthenticated() && !this.currentUrl().startsWith('/legal/')
+  );
+
+  constructor() {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event) => {
+      this.currentUrl.set((event as NavigationEnd).urlAfterRedirects);
+    });
+  }
 
   protected async signInWithGoogle(): Promise<void> {
     this.errorMessage.set('');

@@ -18,17 +18,6 @@ export interface AuthUser {
   acceptedTermsAt?: string | null;
 }
 
-interface StoredAccount extends AuthUser {
-  password: string;
-}
-
-interface EmailLead {
-  email: string;
-  fullName: string;
-  source: 'signup' | 'google';
-  acceptedAt: string;
-}
-
 export interface EmailRegistrationPayload {
   name: string;
   email: string;
@@ -49,8 +38,6 @@ export interface AuthActionResult {
 export class AuthService {
   private readonly supabase = inject(SupabaseService);
   private readonly storageKey = 'fulldev-school.auth.user';
-  private readonly accountsKey = 'fulldev-school.auth.accounts';
-  private readonly emailLeadsKey = 'fulldev-school.email-leads';
   private readonly userState = signal<AuthUser | null>(this.readUser());
 
   readonly user = this.userState.asReadonly();
@@ -83,31 +70,7 @@ export class AuthService {
 
       return { ok: true };
     } catch {
-      const timestamp = new Date().toISOString();
-      const existing = this.findAccountByEmail('aluno@fulldev.com.br');
-      const user: AuthUser = existing ?? {
-        id: 'google-demo-user',
-        name: 'Aluno FullDev',
-        email: 'aluno@fulldev.com.br',
-        avatarUrl: null,
-        provider: 'google',
-        technicalLevel: 'iniciante',
-        acceptedTerms: true,
-        acceptedTermsAt: timestamp
-      };
-
-      this.upsertAccount({
-        ...user,
-        password: existing?.password ?? ''
-      });
-      this.upsertEmailLead({
-        email: user.email,
-        fullName: user.name,
-        source: 'google',
-        acceptedAt: user.acceptedTermsAt ?? timestamp
-      });
-      this.setUser(user);
-      return { ok: true };
+      return { ok: false, message: 'Nao foi possivel conectar ao provedor de autenticacao.' };
     }
   }
 
@@ -125,17 +88,7 @@ export class AuthService {
       this.setUser(this.mapSupabaseUser(data.user));
       return { ok: true };
     } catch {
-      const account = this.findAccountByEmail(email);
-      if (!account) {
-        return { ok: false, message: 'Nenhum cadastro encontrado para este e-mail.' };
-      }
-
-      if (account.password !== password) {
-        return { ok: false, message: 'Senha incorreta.' };
-      }
-
-      this.setUser(this.toPublicUser(account));
-      return { ok: true };
+      return { ok: false, message: 'Nao foi possivel validar sua conta no momento.' };
     }
   }
 
@@ -185,12 +138,6 @@ export class AuthService {
           updated_at: acceptedAt
         });
 
-        this.upsertEmailLead({
-          email,
-          fullName: name,
-          source: 'signup',
-          acceptedAt
-        });
         this.setUser(this.mapSupabaseUser(data.user));
       }
 
@@ -199,34 +146,7 @@ export class AuthService {
         message: data.session ? undefined : 'Conta criada. Verifique seu e-mail para confirmar o cadastro.'
       };
     } catch {
-      if (this.findAccountByEmail(email)) {
-        return { ok: false, message: 'Ja existe uma conta com este e-mail.' };
-      }
-
-      const account: StoredAccount = {
-        id: this.slugify(email),
-        name,
-        email,
-        password,
-        avatarUrl: null,
-        provider: 'email',
-        whatsappNumber: payload.whatsappNumber?.trim() || '',
-        age: payload.age,
-        technicalLevel: payload.technicalLevel,
-        educationInstitution: payload.educationInstitution?.trim() || '',
-        acceptedTerms: true,
-        acceptedTermsAt: acceptedAt
-      };
-
-      this.upsertAccount(account);
-      this.upsertEmailLead({
-        email: account.email,
-        fullName: account.name,
-        source: 'signup',
-        acceptedAt
-      });
-      this.setUser(this.toPublicUser(account));
-      return { ok: true };
+      return { ok: false, message: 'Nao foi possivel concluir o cadastro no momento.' };
     }
   }
 
@@ -318,29 +238,6 @@ export class AuthService {
     }
   }
 
-  private findAccountByEmail(email: string): StoredAccount | null {
-    const normalized = email.trim().toLowerCase();
-    return this.readAccounts().find((account) => account.email.toLowerCase() === normalized) ?? null;
-  }
-
-  private upsertAccount(account: StoredAccount): void {
-    const accounts = this.readAccounts();
-    const next = accounts.filter((item) => item.email.toLowerCase() !== account.email.toLowerCase());
-    next.push(account);
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem(this.accountsKey, JSON.stringify(next));
-    }
-  }
-
-  private upsertEmailLead(lead: EmailLead): void {
-    const leads = this.readEmailLeads();
-    const next = leads.filter((item) => item.email.toLowerCase() !== lead.email.toLowerCase());
-    next.push(lead);
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem(this.emailLeadsKey, JSON.stringify(next));
-    }
-  }
-
   private readUser(): AuthUser | null {
     if (typeof localStorage === 'undefined') {
       return null;
@@ -354,43 +251,4 @@ export class AuthService {
     }
   }
 
-  private readAccounts(): StoredAccount[] {
-    if (typeof localStorage === 'undefined') {
-      return [];
-    }
-
-    try {
-      const raw = localStorage.getItem(this.accountsKey);
-      return raw ? (JSON.parse(raw) as StoredAccount[]) : [];
-    } catch {
-      return [];
-    }
-  }
-
-  private readEmailLeads(): EmailLead[] {
-    if (typeof localStorage === 'undefined') {
-      return [];
-    }
-
-    try {
-      const raw = localStorage.getItem(this.emailLeadsKey);
-      return raw ? (JSON.parse(raw) as EmailLead[]) : [];
-    } catch {
-      return [];
-    }
-  }
-
-  private toPublicUser(account: StoredAccount): AuthUser {
-    const { password: _password, ...user } = account;
-    return user;
-  }
-
-  private slugify(value: string): string {
-    return value
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-  }
 }

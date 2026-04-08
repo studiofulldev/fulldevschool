@@ -35,10 +35,10 @@ import { ThemeService } from '../services/theme.service';
         </nav>
 
         <div class="platform-sidebar__account">
-          <a class="platform-nav-item" routerLink="/courses/account" routerLinkActive="is-active">
+          <button class="platform-nav-item platform-nav-item--button" type="button" [matMenuTriggerFor]="accountMenu">
             <mat-icon>person</mat-icon>
             <span>Minha conta</span>
-          </a>
+          </button>
         </div>
       </aside>
 
@@ -62,15 +62,33 @@ import { ThemeService } from '../services/theme.service';
               }
             </button>
 
-            <mat-menu #userMenu="matMenu" xPosition="before">
-              <button mat-menu-item type="button" (click)="goToAccount()">
-                <mat-icon>person</mat-icon>
-                <span>Minha conta</span>
-              </button>
-              <button mat-menu-item type="button" (click)="signOut()">
-                <mat-icon>logout</mat-icon>
-                <span>Deslogar</span>
-              </button>
+            <mat-menu #userMenu="matMenu" xPosition="before" panelClass="fd-user-menu-panel">
+              <div class="fd-user-menu" (click)="$event.stopPropagation()">
+                <div class="fd-user-menu__header">
+                  @if (user.avatarUrl) {
+                    <img class="fd-user-menu__avatar-image" [src]="user.avatarUrl" [alt]="user.name" />
+                  } @else {
+                    <div class="fd-user-menu__avatar">{{ userInitials() }}</div>
+                  }
+
+                  <div class="fd-user-menu__identity">
+                    <strong>{{ user.name }}</strong>
+                    <span>{{ user.email }}</span>
+                  </div>
+                </div>
+
+                <div class="fd-user-menu__links">
+                  <button class="fd-user-menu__item fd-user-menu__item--border-bottom" type="button" (click)="goToAccount()">
+                    <mat-icon>person</mat-icon>
+                    <span>Minha conta</span>
+                  </button>
+                </div>
+
+                <button class="fd-user-menu__item fd-user-menu__item--logout fd-user-menu__item--border-top" type="button" (click)="signOut()">
+                  <mat-icon>logout</mat-icon>
+                  <span>Sair da conta</span>
+                </button>
+              </div>
             </mat-menu>
           }
         </header>
@@ -80,6 +98,27 @@ import { ThemeService } from '../services/theme.service';
         </main>
       </div>
     </div>
+
+    <mat-menu #accountMenu="matMenu" xPosition="after" panelClass="fd-user-menu-panel fd-user-menu-panel--compact">
+      <div class="fd-user-menu fd-user-menu--compact" (click)="$event.stopPropagation()">
+        <div class="fd-user-menu__links">
+          <button class="fd-user-menu__item fd-user-menu__item--border-bottom" type="button" (click)="goToAccount()">
+            <mat-icon>person</mat-icon>
+            <span>Minha conta</span>
+          </button>
+
+          <button class="fd-user-menu__item" type="button" (click)="goToPrivacy()">
+            <mat-icon>shield</mat-icon>
+            <span>Privacidade</span>
+          </button>
+
+          <button class="fd-user-menu__item fd-user-menu__item--border-top" type="button" (click)="goToTerms()">
+            <mat-icon>description</mat-icon>
+            <span>Termos</span>
+          </button>
+        </div>
+      </div>
+    </mat-menu>
   `,
   styles: [
     `
@@ -172,6 +211,18 @@ import { ThemeService } from '../services/theme.service';
         text-decoration: none;
         white-space: nowrap;
         border: 1px solid transparent;
+      }
+
+      .platform-nav-item--button {
+        width: 100%;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .platform-nav-item mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
       }
 
       .platform-sidebar:not(:hover):not(:focus-within) .platform-nav-item {
@@ -375,6 +426,14 @@ export class PlatformShellComponent {
 
   protected goToAccount(): void {
     void this.router.navigateByUrl('/courses/account');
+  }
+
+  protected goToPrivacy(): void {
+    void this.router.navigateByUrl('/legal/privacy');
+  }
+
+  protected goToTerms(): void {
+    void this.router.navigateByUrl('/legal/terms');
   }
 
   protected async signOut(): Promise<void> {

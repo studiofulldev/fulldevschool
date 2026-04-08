@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AccountPageComponent } from './pages/account-page.component';
+import { LegalPageComponent } from './pages/legal-page.component';
 import { LessonPageComponent } from './pages/lesson-page.component';
 import { ModulePageComponent } from './pages/module-page.component';
 import { PlatformDashboardComponent } from './pages/platform-dashboard.component';
@@ -12,6 +13,20 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'courses',
     pathMatch: 'full'
+  },
+  {
+    path: 'legal/privacy',
+    component: LegalPageComponent,
+    data: {
+      document: 'privacy'
+    }
+  },
+  {
+    path: 'legal/terms',
+    component: LegalPageComponent,
+    data: {
+      document: 'terms'
+    }
   },
   {
     path: 'courses',
@@ -57,6 +72,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'courses/home'
   }
 ];
