@@ -31,8 +31,8 @@ import { CourseProgressService } from '../services/course-progress.service';
               <p>{{ module.description }}</p>
               <span>{{ module.lessons.length }} lições</span>
               <div class="module-card__actions">
-                <a mat-flat-button [routerLink]="['/courses', currentCourse.slug, 'modules', module.slug]">Abrir módulo</a>
-                <button mat-stroked-button type="button" (click)="toggleModule(currentCourse.slug, module.slug)">
+                <a mat-flat-button class="course-button course-button--primary" [routerLink]="['/courses', currentCourse.slug, 'modules', module.slug]">Abrir módulo</a>
+                <button mat-flat-button class="course-button course-button--primary" type="button" (click)="toggleModule(currentCourse.slug, module.slug)">
                   {{ progress.isModuleCompleted(currentCourse.slug, module.slug) ? 'Concluído' : 'Marcar como concluído' }}
                 </button>
               </div>
@@ -109,6 +109,25 @@ import { CourseProgressService } from '../services/course-progress.service';
         display: grid;
         gap: 10px;
         margin-top: 8px;
+      }
+
+      .course-button {
+        min-height: 44px;
+        padding-inline: 18px;
+        border-radius: var(--fd-radius);
+        font-weight: 600;
+      }
+
+      .course-button--primary {
+        border: 1px solid var(--fd-accent) !important;
+        color: var(--fd-white) !important;
+        background: var(--fd-accent) !important;
+        box-shadow: none !important;
+      }
+
+      .course-button--primary:hover {
+        border-color: var(--fd-accent-strong) !important;
+        background: var(--fd-accent-strong) !important;
       }
     `
   ],

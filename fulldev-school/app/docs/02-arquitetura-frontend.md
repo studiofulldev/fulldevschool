@@ -35,6 +35,8 @@ Responsável por:
 - persistência do estado de expansão da navegação
 - remoção de footer no shell de curso para manter leitura direta
 - `mat-expansion-panel` sem shadow por padrão em shell e conteúdo
+- gate de autenticacao simplificado para Google enquanto email/senha estiver fora da UI
+- padrao visual de botoes vermelhos reaproveitado entre plataforma e conteudo do curso
 
 ### 2. Camada de Navegação
 

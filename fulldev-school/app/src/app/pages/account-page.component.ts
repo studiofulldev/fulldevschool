@@ -51,7 +51,7 @@ import { PlatformDataService } from '../services/platform-data.service';
               <strong>{{ course.title }}</strong>
               <span>{{ course.modules.length }} modulos</span>
               <span>{{ progressLabel(course.slug, course.modules.length) }}</span>
-              <a mat-stroked-button [routerLink]="['/courses', course.slug]">Abrir</a>
+              <a mat-flat-button class="account-button account-button--primary" [routerLink]="['/courses', course.slug]">Abrir</a>
             </div>
           }
         </div>
@@ -124,6 +124,26 @@ import { PlatformDataService } from '../services/platform-data.service';
         display: grid;
         gap: 6px;
         padding: 16px;
+      }
+
+      .account-button {
+        min-height: 44px;
+        padding-inline: 18px;
+        border-radius: var(--fd-radius);
+        font-weight: 600;
+        width: fit-content;
+      }
+
+      .account-button--primary {
+        border: 1px solid var(--fd-accent) !important;
+        color: var(--fd-white) !important;
+        background: var(--fd-accent) !important;
+        box-shadow: none !important;
+      }
+
+      .account-button--primary:hover {
+        border-color: var(--fd-accent-strong) !important;
+        background: var(--fd-accent-strong) !important;
       }
     `
   ],

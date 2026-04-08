@@ -23,9 +23,9 @@ import { PlatformDataService } from '../services/platform-data.service';
         </div>
 
         <div class="platform-hero__actions">
-          <a mat-flat-button routerLink="/courses/home">Home</a>
+          <a mat-flat-button class="platform-button platform-button--primary" routerLink="/courses/home">Home</a>
           @if (auth.isAuthenticated()) {
-            <a mat-stroked-button routerLink="/courses/account">Minha conta</a>
+            <a mat-flat-button class="platform-button platform-button--primary" routerLink="/courses/account">Minha conta</a>
           }
         </div>
       </header>
@@ -40,7 +40,7 @@ import { PlatformDataService } from '../services/platform-data.service';
               <span>{{ course.modules.length }} modulos</span>
             </div>
             <div class="course-card__actions">
-              <a mat-flat-button [routerLink]="['/courses', course.slug]">Entrar no curso</a>
+              <a mat-flat-button class="platform-button platform-button--primary" [routerLink]="['/courses', course.slug]">Entrar no curso</a>
               @if (courseProgress.isCourseCompleted(course.slug)) {
                 <span class="course-card__status">Concluido</span>
               }
@@ -134,6 +134,25 @@ import { PlatformDataService } from '../services/platform-data.service';
       .course-card__actions {
         padding-top: 0;
         align-items: center;
+      }
+
+      .platform-button {
+        min-height: 44px;
+        padding-inline: 18px;
+        border-radius: var(--fd-radius);
+        font-weight: 600;
+      }
+
+      .platform-button--primary {
+        border: 1px solid var(--fd-accent) !important;
+        color: var(--fd-white) !important;
+        background: var(--fd-accent) !important;
+        box-shadow: none !important;
+      }
+
+      .platform-button--primary:hover {
+        border-color: var(--fd-accent-strong) !important;
+        background: var(--fd-accent-strong) !important;
       }
     `
   ],

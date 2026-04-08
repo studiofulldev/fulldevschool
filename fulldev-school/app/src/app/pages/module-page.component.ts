@@ -19,7 +19,7 @@ import { CourseProgressService } from '../services/course-progress.service';
           <span class="module-page__eyebrow">Módulo</span>
           <h1>{{ currentModule.title }}</h1>
           <p>{{ currentModule.description }}</p>
-          <button mat-stroked-button type="button" (click)="toggleModule()">
+          <button mat-flat-button class="module-button module-button--primary" type="button" (click)="toggleModule()">
             {{ progress.isModuleCompleted(courseSlug(), currentModule.slug) ? 'Concluído' : 'Marcar módulo como concluído' }}
           </button>
         </header>
@@ -32,10 +32,10 @@ import { CourseProgressService } from '../services/course-progress.service';
                 <span>{{ lesson.sectionTitle }}</span>
               </div>
               <div class="lesson-row__actions">
-                <button mat-stroked-button type="button" (click)="toggleLesson(lesson.slug)">
+                <button mat-flat-button class="module-button module-button--primary" type="button" (click)="toggleLesson(lesson.slug)">
                   {{ progress.isLessonCompleted(courseSlug(), lesson.slug) ? 'Concluída' : 'Concluir' }}
                 </button>
-                <a mat-flat-button [routerLink]="['/courses', courseSlug(), 'lessons', lesson.slug]">Abrir</a>
+                <a mat-flat-button class="module-button module-button--primary" [routerLink]="['/courses', courseSlug(), 'lessons', lesson.slug]">Abrir</a>
               </div>
             </article>
           }
@@ -94,6 +94,25 @@ import { CourseProgressService } from '../services/course-progress.service';
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+      }
+
+      .module-button {
+        min-height: 44px;
+        padding-inline: 18px;
+        border-radius: var(--fd-radius);
+        font-weight: 600;
+      }
+
+      .module-button--primary {
+        border: 1px solid var(--fd-accent) !important;
+        color: var(--fd-white) !important;
+        background: var(--fd-accent) !important;
+        box-shadow: none !important;
+      }
+
+      .module-button--primary:hover {
+        border-color: var(--fd-accent-strong) !important;
+        background: var(--fd-accent-strong) !important;
       }
     `
   ],

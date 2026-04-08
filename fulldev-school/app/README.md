@@ -26,6 +26,8 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - visão geral com painel de boas-vindas com embed de vídeo e árvore expansível customizada
 - `mat-expansion-panel` deve permanecer sem sombra em toda a interface
 - o shell dos cursos não usa footer próprio
+- o gate de autenticacao exibe apenas `Entrar com Google` por enquanto
+- os botoes das paginas de `/courses` seguem o mesmo padrao vermelho do fluxo do curso
 
 ## Arquivos centrais
 
