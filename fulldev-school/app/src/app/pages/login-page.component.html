@@ -1,0 +1,64 @@
+<div class="login-page">
+  <div class="login-card">
+    <img class="login-logo" src="logo-completa-preta.png" alt="Fulldev School" />
+
+    <h1>Entrar na plataforma</h1>
+    <p class="login-subtitle">Acesse sua conta para continuar os estudos.</p>
+
+    <div class="login-actions">
+      <button
+        mat-flat-button
+        class="login-btn login-btn--google"
+        type="button"
+        [disabled]="loading()"
+        (click)="signInWithGoogle()"
+      >
+        <mat-icon>login</mat-icon>
+        Entrar com Google
+      </button>
+    </div>
+
+    <div class="login-divider"><span>ou</span></div>
+
+    <form class="login-form" (ngSubmit)="signInWithEmail()">
+      <div class="login-field">
+        <label for="login-email">E-mail</label>
+        <input
+          id="login-email"
+          type="email"
+          autocomplete="email"
+          placeholder="seu@email.com"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+
+      <div class="login-field">
+        <label for="login-password">Senha</label>
+        <input
+          id="login-password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Sua senha"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      @if (errorMessage()) {
+        <p class="login-error" role="alert">{{ errorMessage() }}</p>
+      }
+
+      <button
+        mat-flat-button
+        class="login-btn login-btn--primary"
+        type="submit"
+        [disabled]="loading()"
+      >
+        {{ loading() ? 'Entrando...' : 'Entrar' }}
+      </button>
+    </form>
+  </div>
+</div>

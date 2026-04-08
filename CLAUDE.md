@@ -74,21 +74,31 @@ Não injetam serviços de negócio. Completamente agnósticos ao contexto da apl
 
 ---
 
-## Regras de tamanho de arquivo
+## Separação de arquivos por tipo de componente
 
-| Elemento       | Inline OK          | Arquivo separado obrigatório |
-|----------------|--------------------|------------------------------|
-| Template HTML  | até ~80 linhas     | acima de ~80 linhas          |
-| Estilos CSS    | até ~100 linhas    | acima de ~100 linhas         |
-| Lógica `.ts`   | até ~150 linhas    | extrair para serviço         |
+### Regra geral: sempre separar template e estilos
 
-Referência de componente com template separado (ver `course-shell.component.ts`):
+Separar template e estilos em arquivos próprios é boa prática em qualquer framework —
+melhora legibilidade, facilita code review (diff limpo por arquivo) e é o padrão do Angular CLI.
+
+| Elemento       | Inline OK?                                      | Arquivo separado?        |
+|----------------|-------------------------------------------------|--------------------------|
+| Template HTML  | Nunca em pages/shells. Só em componentes de 1-3 linhas triviais | `templateUrl` sempre em pages/shells |
+| Estilos CSS    | Nunca em pages/shells                           | `styleUrl` sempre        |
+| Lógica `.ts`   | Até ~150 linhas de lógica de componente         | extrair para serviço     |
+
+**Pages e shells sempre usam arquivos separados:**
 ```ts
 @Component({
-  templateUrl: '../app.html',
-  styleUrl: '../app.scss',
+  selector: 'app-login-page',
+  templateUrl: './login-page.component.html',
+  styleUrl: './login-page.component.scss',
 })
 ```
+
+**Exceção:** componentes puramente presentacionais de uma única responsabilidade simples
+(ex: um `<app-badge>` que exibe um texto com cor) podem ter template de 1-3 linhas inline.
+Se tiver `@if`, `@for` ou mais de uma tag, já merece arquivo separado.
 
 ---
 
