@@ -8,28 +8,41 @@ export interface SupabaseAuthState {
   session: AuthSession | null;
 }
 
+interface SupabaseClientConfig {
+  url: string;
+  anonKey: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class SupabaseService {
   private readonly runtimeConfig = inject(RuntimeConfigService);
-  private readonly config = this.runtimeConfig.supabase ?? this.resolveEnvironmentConfig();
-
-  readonly client: SupabaseClient = createClient(this.config.url, this.config.anonKey, {
-    auth: {
-      persistSession: true,
-      autoRefreshToken: true,
-      detectSessionInUrl: true
-    }
-  });
+  private readonly config = this.resolveConfig();
+  readonly isConfigured = this.config !== null;
+  readonly configError = this.isConfigured
+    ? null
+    : 'Supabase config ausente. Publique public/runtime-config.js com window.__FULLDEV_SCHOOL_CONFIG__.supabase ou preencha src/environments/environment.prod.ts.';
+  readonly client: SupabaseClient | null = this.config
+    ? createClient(this.config.url, this.config.anonKey, {
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true
+        }
+      })
+    : null;
 
   async getSession() {
+    this.ensureConfigured();
     return this.client.auth.getSession();
   }
 
   onAuthStateChange(callback: (state: SupabaseAuthState) => void) {
+    this.ensureConfigured();
     return this.client.auth.onAuthStateChange((event, session) => callback({ event, session }));
   }
 
   async signInWithPassword(email: string, password: string) {
+    this.ensureConfigured();
     return this.client.auth.signInWithPassword({ email, password });
   }
 
@@ -38,6 +51,7 @@ export class SupabaseService {
     password: string,
     metadata: Record<string, unknown>
   ) {
+    this.ensureConfigured();
     return this.client.auth.signUp({
       email,
       password,
@@ -48,6 +62,7 @@ export class SupabaseService {
   }
 
   async signInWithGoogle() {
+    this.ensureConfigured();
     return this.client.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -57,10 +72,12 @@ export class SupabaseService {
   }
 
   async signOut() {
+    this.ensureConfigured();
     return this.client.auth.signOut();
   }
 
   async upsertProfile(profile: Record<string, unknown>) {
+    this.ensureConfigured();
     return this.client.from('profiles').upsert(profile).select('id').single();
   }
 
@@ -77,16 +94,25 @@ export class SupabaseService {
     };
   }
 
-  private resolveEnvironmentConfig() {
+  private resolveConfig(): SupabaseClientConfig | null {
+    const runtimeConfig = this.runtimeConfig.supabase;
+    if (runtimeConfig?.url && runtimeConfig.anonKey) {
+      return runtimeConfig;
+    }
+
     const url = environment.supabase.url.trim();
     const anonKey = environment.supabase.publishableKey.trim();
 
     if (!url || !anonKey) {
-      throw new Error(
-        'Supabase config ausente. Preencha src/environments/environment.ts ou forneca window.__FULLDEV_SCHOOL_CONFIG__.supabase.'
-      );
+      return null;
     }
 
     return { url, anonKey };
+  }
+
+  private ensureConfigured(): asserts this is this & { client: SupabaseClient } {
+    if (!this.client) {
+      throw new Error(this.configError ?? 'Supabase indisponivel.');
+    }
   }
 }

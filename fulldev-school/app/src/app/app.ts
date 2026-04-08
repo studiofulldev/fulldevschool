@@ -4,6 +4,7 @@ import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router
 import { MatButtonModule } from '@angular/material/button';
 import { filter } from 'rxjs';
 import { AuthService } from './services/auth.service';
+import { SupabaseService } from './services/supabase.service';
 
 @Component({
   selector: 'app-root',
@@ -27,13 +28,19 @@ import { AuthService } from './services/auth.service';
           <p>Use Google para liberar toda a experiencia da plataforma.</p>
 
           <div class="auth-gate__actions">
-            <button mat-flat-button type="button" (click)="signInWithGoogle()">Entrar com Google</button>
+            <button mat-flat-button type="button" (click)="signInWithGoogle()" [disabled]="!supabase.isConfigured">
+              Entrar com Google
+            </button>
           </div>
 
           <div class="auth-gate__legal">
             <a routerLink="/legal/privacy">Politica de Privacidade</a>
             <a routerLink="/legal/terms">Termos de Uso</a>
           </div>
+
+          @if (!supabase.isConfigured && supabase.configError) {
+            <p class="auth-gate__warning">{{ supabase.configError }}</p>
+          }
 
           <!--
           Fluxos de e-mail e criacao de conta foram desativados temporariamente.
@@ -126,6 +133,12 @@ import { AuthService } from './services/auth.service';
         color: #ff9e7a !important;
       }
 
+      .auth-gate__warning {
+        color: #ffd2c3 !important;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
       .auth-gate__legal {
         display: flex;
         flex-wrap: wrap;
@@ -146,6 +159,7 @@ import { AuthService } from './services/auth.service';
 })
 export class App {
   protected readonly auth = inject(AuthService);
+  protected readonly supabase = inject(SupabaseService);
   private readonly router = inject(Router);
   protected readonly errorMessage = signal('');
   private readonly currentUrl = signal(this.router.url);
