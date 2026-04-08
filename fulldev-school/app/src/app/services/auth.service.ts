@@ -185,7 +185,7 @@ export class AuthService {
       id: user.id,
       name: metadata.fullName || String(user.user_metadata?.['name'] ?? user.email ?? 'Aluno FullDev'),
       email: user.email ?? '',
-      avatarUrl: (user.user_metadata?.['avatar_url'] as string | null | undefined) ?? null,
+      avatarUrl: this.sanitizeAvatarUrl(user.user_metadata?.['avatar_url']),
       provider,
       whatsappNumber: metadata.whatsappNumber,
       age: typeof metadata.age === 'number' ? metadata.age : null,
@@ -198,6 +198,37 @@ export class AuthService {
 
   private toTechnicalLevel(value: unknown): TechnicalLevel | null {
     return value === 'iniciante' || value === 'intermediario' || value === 'avancado' ? value : null;
+  }
+
+  // Allow only HTTPS avatar URLs from known trusted providers.
+  // Rejects data URIs, javascript: URLs, and unknown origins.
+  private sanitizeAvatarUrl(value: unknown): string | null {
+    if (!value || typeof value !== 'string') {
+      return null;
+    }
+
+    try {
+      const url = new URL(value);
+      if (url.protocol !== 'https:') {
+        return null;
+      }
+
+      const allowedHosts = [
+        'lh3.googleusercontent.com',
+        'lh4.googleusercontent.com',
+        'lh5.googleusercontent.com',
+        'lh6.googleusercontent.com',
+        'avatars.githubusercontent.com'
+      ];
+
+      const isAllowed =
+        allowedHosts.includes(url.hostname) ||
+        url.hostname.endsWith('.supabase.co');
+
+      return isAllowed ? value : null;
+    } catch {
+      return null;
+    }
   }
 
   private async tryUpsertProfile(profile: Record<string, unknown>): Promise<void> {
