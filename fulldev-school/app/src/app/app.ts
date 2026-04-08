@@ -1,17 +1,19 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { filter } from 'rxjs';
 import { AuthService } from './services/auth.service';
+import { TechnicalLevel } from './services/auth.service';
 import { SupabaseService } from './services/supabase.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, MatButtonModule],
+  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, MatButtonModule],
   template: `
-    <div class="app-root" [class.app-root--locked]="isGateEnabled()">
+    <div class="app-root" [class.app-root--locked]="isGateEnabled() || isProfileCompletionOpen()">
       <router-outlet />
     </div>
 
@@ -98,6 +100,118 @@ import { SupabaseService } from './services/supabase.service';
         </section>
       </div>
     }
+
+    @if (isProfileCompletionOpen()) {
+      <div class="auth-gate">
+        <div class="auth-gate__backdrop"></div>
+
+        <section class="auth-gate__dialog auth-gate__dialog--profile" aria-modal="true" role="dialog" aria-labelledby="profile-gate-title">
+          <div class="auth-gate__header">
+            <span class="auth-gate__eyebrow">Complete seu perfil</span>
+            <img class="auth-gate__brand" src="logo-fulldev.svg" alt="Fulldev School" />
+          </div>
+
+          <h2 id="profile-gate-title">Faltam alguns dados para liberar sua conta.</h2>
+          <p>Seu acesso com Google ou LinkedIn ja foi validado. Agora complete o cadastro para persistir seus dados na plataforma.</p>
+
+          <form class="auth-profile-form" (ngSubmit)="submitProfileCompletion()">
+            <div class="auth-profile-grid">
+              <label class="auth-field" for="oauth-name">
+                <span>Nome completo</span>
+                <input
+                  id="oauth-name"
+                  name="oauth-name"
+                  type="text"
+                  [ngModel]="profileName()"
+                  (ngModelChange)="profileName.set($event)"
+                  autocomplete="name"
+                  required
+                />
+              </label>
+
+              <label class="auth-field" for="oauth-whatsapp">
+                <span>WhatsApp</span>
+                <input
+                  id="oauth-whatsapp"
+                  name="oauth-whatsapp"
+                  type="tel"
+                  [ngModel]="profileWhatsapp()"
+                  (ngModelChange)="profileWhatsapp.set($event)"
+                  autocomplete="tel"
+                />
+              </label>
+
+              <label class="auth-field" for="oauth-age">
+                <span>Idade</span>
+                <input
+                  id="oauth-age"
+                  name="oauth-age"
+                  type="number"
+                  min="1"
+                  [ngModel]="profileAge()"
+                  (ngModelChange)="onAgeChange($event)"
+                  required
+                />
+              </label>
+
+              <label class="auth-field" for="oauth-level">
+                <span>Nivel tecnico</span>
+                <select
+                  id="oauth-level"
+                  name="oauth-level"
+                  [ngModel]="profileTechnicalLevel()"
+                  (ngModelChange)="profileTechnicalLevel.set($event)"
+                  required
+                >
+                  <option value="">Selecione</option>
+                  <option value="iniciante">Iniciante</option>
+                  <option value="intermediario">Intermediario</option>
+                  <option value="avancado">Avancado</option>
+                </select>
+              </label>
+
+              <label class="auth-field auth-field--full" for="oauth-education">
+                <span>Instituicao de ensino</span>
+                <input
+                  id="oauth-education"
+                  name="oauth-education"
+                  type="text"
+                  [ngModel]="profileEducationInstitution()"
+                  (ngModelChange)="profileEducationInstitution.set($event)"
+                  autocomplete="organization"
+                />
+              </label>
+            </div>
+
+            <label class="auth-check" for="oauth-terms">
+              <input
+                id="oauth-terms"
+                name="oauth-terms"
+                type="checkbox"
+                [ngModel]="profileAcceptedTerms()"
+                (ngModelChange)="profileAcceptedTerms.set(!!$event)"
+              />
+              <span>Li e aceito a Politica de Privacidade e os Termos de Uso.</span>
+            </label>
+
+            @if (profileErrorMessage()) {
+              <p class="auth-gate__error" role="alert">{{ profileErrorMessage() }}</p>
+            }
+
+            <div class="auth-gate__actions">
+              <button
+                mat-flat-button
+                class="auth-provider-button auth-provider-button--primary"
+                type="submit"
+                [disabled]="profileSaving()"
+              >
+                {{ profileSaving() ? 'Salvando...' : 'Salvar e continuar' }}
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    }
   `,
   styles: [
     `
@@ -146,6 +260,10 @@ import { SupabaseService } from './services/supabase.service';
         color: var(--fd-text);
       }
 
+      .auth-gate__dialog--profile {
+        width: min(100%, 640px);
+      }
+
       .auth-gate__header {
         display: grid;
         gap: 14px;
@@ -168,6 +286,7 @@ import { SupabaseService } from './services/supabase.service';
       }
 
       .auth-gate__dialog h1,
+      .auth-gate__dialog h2,
       .auth-gate__dialog p {
         margin: 0;
       }
@@ -238,6 +357,59 @@ import { SupabaseService } from './services/supabase.service';
         background: var(--fd-nav-active) !important;
       }
 
+      .auth-profile-form {
+        display: grid;
+        gap: 16px;
+      }
+
+      .auth-profile-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .auth-field {
+        display: grid;
+        gap: 8px;
+      }
+
+      .auth-field--full {
+        grid-column: 1 / -1;
+      }
+
+      .auth-field span,
+      .auth-check span {
+        color: var(--fd-text);
+        font-size: var(--fd-text-sm);
+      }
+
+      .auth-field input,
+      .auth-field select {
+        width: 100%;
+        min-height: 48px;
+        padding: 0 14px;
+        border: 1px solid var(--fd-border);
+        border-radius: var(--fd-radius);
+        background: #111111;
+        color: var(--fd-text);
+        outline: none;
+      }
+
+      .auth-field input:focus,
+      .auth-field select:focus {
+        border-color: var(--fd-accent);
+      }
+
+      .auth-check {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .auth-check input {
+        margin-top: 3px;
+      }
+
       .auth-gate__error {
         color: #ff9e7a !important;
       }
@@ -262,6 +434,16 @@ import { SupabaseService } from './services/supabase.service';
       .auth-gate__legal a:hover {
         color: var(--fd-text);
       }
+
+      @media (max-width: 720px) {
+        .auth-profile-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .auth-field--full {
+          grid-column: auto;
+        }
+      }
     `
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -271,15 +453,32 @@ export class App {
   protected readonly supabase = inject(SupabaseService);
   private readonly router = inject(Router);
   protected readonly errorMessage = signal('');
+  protected readonly profileErrorMessage = signal('');
+  protected readonly profileSaving = signal(false);
+  protected readonly profileName = signal('');
+  protected readonly profileWhatsapp = signal('');
+  protected readonly profileAge = signal<number | null>(null);
+  protected readonly profileTechnicalLevel = signal<TechnicalLevel | ''>('');
+  protected readonly profileEducationInstitution = signal('');
+  protected readonly profileAcceptedTerms = signal(false);
   private readonly currentUrl = signal(this.router.url);
   protected readonly isGateEnabled = computed(
     () => !this.auth.isAuthenticated() && !this.currentUrl().startsWith('/legal/')
   );
+  protected readonly isProfileCompletionOpen = computed(() => {
+    if (this.currentUrl().startsWith('/legal/')) {
+      return false;
+    }
+
+    return this.auth.isAuthenticated() && this.auth.requiresProfileCompletion(this.auth.user());
+  });
 
   constructor() {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event) => {
       this.currentUrl.set((event as NavigationEnd).urlAfterRedirects);
     });
+
+    this.syncProfileForm();
   }
 
   protected async signInWithGoogle(): Promise<void> {
@@ -292,5 +491,39 @@ export class App {
     this.errorMessage.set('');
     const result = await this.auth.signInWithLinkedIn();
     this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar com LinkedIn.'));
+  }
+
+  protected onAgeChange(value: string | number | null): void {
+    const next = Number(value);
+    this.profileAge.set(Number.isFinite(next) && next > 0 ? next : null);
+  }
+
+  protected async submitProfileCompletion(): Promise<void> {
+    this.profileErrorMessage.set('');
+    this.profileSaving.set(true);
+
+    const result = await this.auth.completeOAuthProfile({
+      name: this.profileName(),
+      whatsappNumber: this.profileWhatsapp(),
+      age: this.profileAge(),
+      technicalLevel: this.profileTechnicalLevel() || null,
+      educationInstitution: this.profileEducationInstitution(),
+      acceptedTerms: this.profileAcceptedTerms()
+    });
+
+    this.profileSaving.set(false);
+    this.profileErrorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel salvar seus dados.'));
+  }
+
+  private syncProfileForm(): void {
+    effect(() => {
+      const user = this.auth.user();
+      this.profileName.set(user?.name ?? '');
+      this.profileWhatsapp.set(user?.whatsappNumber ?? '');
+      this.profileAge.set(user?.age ?? null);
+      this.profileTechnicalLevel.set(user?.technicalLevel ?? '');
+      this.profileEducationInstitution.set(user?.educationInstitution ?? '');
+      this.profileAcceptedTerms.set(Boolean(user?.acceptedTerms));
+    });
   }
 }

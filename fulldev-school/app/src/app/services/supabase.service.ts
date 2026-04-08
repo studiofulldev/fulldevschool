@@ -78,6 +78,13 @@ export class SupabaseService {
     return this.client.auth.signOut();
   }
 
+  async updateUserMetadata(metadata: Record<string, unknown>) {
+    this.ensureConfigured();
+    return this.client.auth.updateUser({
+      data: metadata
+    });
+  }
+
   async upsertProfile(profile: Record<string, unknown>) {
     this.ensureConfigured();
     return this.client.from('profiles').upsert(profile).select('id').single();

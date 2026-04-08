@@ -32,6 +32,15 @@ export interface EmailRegistrationPayload {
   acceptedTerms: boolean;
 }
 
+export interface OAuthProfileCompletionPayload {
+  name: string;
+  whatsappNumber?: string;
+  age: number | null;
+  technicalLevel: TechnicalLevel | null;
+  educationInstitution?: string;
+  acceptedTerms: boolean;
+}
+
 export interface AuthActionResult {
   ok: boolean;
   message?: string;
@@ -211,6 +220,83 @@ export class AuthService {
 
     this.verifiedUserState.set(null);
     this.clearUserCache();
+  }
+
+  requiresProfileCompletion(user: AuthUser | null = this.verifiedUserState()): boolean {
+    if (!user || user.provider === 'email') {
+      return false;
+    }
+
+    return !user.age || !user.technicalLevel || !user.acceptedTerms;
+  }
+
+  async completeOAuthProfile(payload: OAuthProfileCompletionPayload): Promise<AuthActionResult> {
+    const user = this.verifiedUserState();
+    if (!user) {
+      return { ok: false, message: 'Sessao nao encontrada.' };
+    }
+
+    const name = payload.name.trim();
+    const whatsappNumber = payload.whatsappNumber?.trim() || '';
+    const educationInstitution = payload.educationInstitution?.trim() || '';
+
+    if (!name || !payload.age || !payload.technicalLevel) {
+      return { ok: false, message: 'Preencha todos os campos obrigatorios.' };
+    }
+
+    if (!payload.acceptedTerms) {
+      return { ok: false, message: 'Voce precisa aceitar os termos para continuar.' };
+    }
+
+    const acceptedAt = user.acceptedTermsAt || new Date().toISOString();
+    const metadata = {
+      full_name: name,
+      whatsapp_number: whatsappNumber,
+      age: payload.age,
+      technical_level: payload.technicalLevel,
+      education_institution: educationInstitution,
+      accepted_terms: true,
+      accepted_terms_at: acceptedAt
+    };
+
+    try {
+      const { data, error } = await this.supabase.updateUserMetadata(metadata);
+      if (error) {
+        return { ok: false, message: error.message };
+      }
+
+      await this.tryUpsertProfile({
+        id: user.id,
+        email: user.email,
+        full_name: name,
+        whatsapp_number: whatsappNumber,
+        age: payload.age,
+        technical_level: payload.technicalLevel,
+        education_institution: educationInstitution,
+        avatar_url: user.avatarUrl ?? null,
+        provider: user.provider,
+        accepted_terms: true,
+        accepted_terms_at: acceptedAt,
+        updated_at: new Date().toISOString()
+      });
+
+      const nextUser = data.user ? this.mapSupabaseUser(data.user) : {
+        ...user,
+        name,
+        whatsappNumber,
+        age: payload.age,
+        technicalLevel: payload.technicalLevel,
+        educationInstitution,
+        acceptedTerms: true,
+        acceptedTermsAt: acceptedAt
+      };
+
+      this.verifiedUserState.set(nextUser);
+      this.cacheUser(nextUser);
+      return { ok: true };
+    } catch {
+      return { ok: false, message: 'Nao foi possivel salvar seus dados agora.' };
+    }
   }
 
   private async restoreSupabaseSession(): Promise<void> {
