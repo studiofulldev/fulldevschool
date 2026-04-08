@@ -1,13 +1,9 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, HostListener, computed, effect, inject, signal } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatButtonModule } from '@angular/material/button';
 import { NavigationNode, SchoolContentService } from '../data/school-content.service';
 import { SeoService } from '../services/seo.service';
 import { ThemeService } from '../services/theme.service';
@@ -16,7 +12,7 @@ import { PlatformDataService } from '../services/platform-data.service';
 @Component({
   selector: 'app-course-shell',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatToolbarModule, MatSidenavModule, MatIconModule, MatExpansionModule, MatButtonModule],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatIconModule, MatExpansionModule],
   templateUrl: '../app.html',
   styleUrl: '../app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -24,8 +20,6 @@ import { PlatformDataService } from '../services/platform-data.service';
 export class CourseShellComponent {
   private readonly hiddenSections = new Set(['16-painel-de-progresso', '90-templates']);
   private readonly navStorageKey = 'fulldev-school.nav.expanded-sections';
-  private readonly sidebarStorageKey = 'fulldev-school.nav.sidebar-expanded';
-  private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly destroyRef = inject(DestroyRef);
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
@@ -36,12 +30,14 @@ export class CourseShellComponent {
   private readonly platform = inject(PlatformDataService);
 
   protected readonly expandedSections = signal<Record<string, boolean>>(this.readExpandedSections());
-  protected readonly sidebarExpanded = signal(this.readSidebarExpanded());
   protected readonly readingProgress = signal(0);
   protected readonly navTree = this.content.navigationTree;
   protected readonly courseSlug = toSignal(this.route.paramMap.pipe(map((params) => params.get('courseSlug') ?? 'start')), {
     initialValue: 'start'
   });
+  protected readonly currentCourseTitle = computed(
+    () => this.platform.getCourseBySlug(this.courseSlug())?.title ?? 'Fulldev School'
+  );
   protected readonly navSections = computed(() => {
     const sections = new Map<string, { key: string; title: string; nodes: NavigationNode[] }>();
 
@@ -63,10 +59,6 @@ export class CourseShellComponent {
 
     return [...sections.values()];
   });
-  protected readonly isHandset = toSignal(
-    this.breakpointObserver.observe('(max-width: 960px)').pipe(map((state) => state.matches)),
-    { initialValue: false }
-  );
   protected readonly currentUrl = toSignal(this.router.events.pipe(map(() => this.router.url)), { initialValue: this.router.url });
   protected readonly currentTitle = computed(() => {
     this.currentUrl();
@@ -129,22 +121,6 @@ export class CourseShellComponent {
     return `/courses/${this.courseSlug()}/lessons/${node.slug}`;
   }
 
-  protected isSidebarExpanded(): boolean {
-    return this.isHandset() ? false : this.sidebarExpanded();
-  }
-
-  protected toggleSidebar(): void {
-    if (this.isHandset()) {
-      return;
-    }
-
-    this.sidebarExpanded.update((current) => {
-      const next = !current;
-      this.writeSidebarExpanded(next);
-      return next;
-    });
-  }
-
   @HostListener('window:scroll')
   protected onWindowScroll(): void {
     const documentElement = document.documentElement;
@@ -191,22 +167,4 @@ export class CourseShellComponent {
     }
   }
 
-  private readSidebarExpanded(): boolean {
-    if (typeof localStorage === 'undefined') {
-      return true;
-    }
-
-    try {
-      const raw = localStorage.getItem(this.sidebarStorageKey);
-      return raw ? raw === 'true' : true;
-    } catch {
-      return true;
-    }
-  }
-
-  private writeSidebarExpanded(expanded: boolean): void {
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem(this.sidebarStorageKey, String(expanded));
-    }
-  }
 }

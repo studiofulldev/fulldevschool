@@ -13,6 +13,8 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 ## Fluxo atual
 
 - sidebar baseada na árvore de navegação
+- cursos usam a mesma linguagem visual da sidebar principal da plataforma
+- dentro de um curso, a sidebar mostra `Home` e o atalho do curso atual
 - carregamento de páginas por `slug`
 - renderização de conteúdo a partir de `mock-db/doc`
 - skeleton durante carregamento
@@ -20,7 +22,8 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - sidebar com seções expansíveis, persistidas e labels abreviados quando necessário
 - toolbar fixa com barra de progresso de leitura
 - hero com contagem de tópicos, vídeos e tempo de leitura
-- visão geral com painel de boas-vindas para vídeo e árvore expansível customizada
+- `/courses/:courseSlug` redireciona direto para a primeira lição
+- visão geral com painel de boas-vindas com embed de vídeo e árvore expansível customizada
 
 ## Arquivos centrais
 

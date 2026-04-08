@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AccountPageComponent } from './pages/account-page.component';
-import { CourseOverviewComponent } from './pages/course-overview.component';
 import { LessonPageComponent } from './pages/lesson-page.component';
 import { ModulePageComponent } from './pages/module-page.component';
 import { PlatformDashboardComponent } from './pages/platform-dashboard.component';
@@ -43,7 +42,8 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: CourseOverviewComponent
+        redirectTo: 'lessons/visao-geral-do-guia',
+        pathMatch: 'full'
       },
       {
         path: 'modules/:moduleSlug',

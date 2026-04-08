@@ -27,7 +27,8 @@ fulldev-school/
 Responsável por:
 
 - layout principal
-- sidebar em árvore
+- sidebar principal da plataforma
+- sidebar de curso com a mesma linguagem visual da plataforma
 - header fixo
 - breadcrumbs
 - área de conteúdo
@@ -51,7 +52,7 @@ Responsável por:
 - renderizar o Markdown
 - mapear blocos renderizados com `blockId`
 - persistir expansão dos blocos por lição no navegador
-- renderizar componentes auxiliares por contexto, como o painel de boas-vindas e a árvore expansível da visão geral
+- renderizar componentes auxiliares por contexto, como o painel de boas-vindas com vídeo incorporado e a árvore expansível da visão geral
 
 ### 4. Camada de Estado Local
 
@@ -78,8 +79,10 @@ Isso permite:
 Formato atual:
 
 ```text
-/
-/:slug
+/courses
+/courses/:courseSlug
+/courses/:courseSlug/lessons/:lessonSlug
+/courses/:courseSlug/modules/:moduleSlug
 ```
 
 Cada rota resolve:
@@ -87,6 +90,7 @@ Cada rota resolve:
 - metadados da página
 - documento Markdown
 - contexto de navegação
+- redirecionamento automático do curso para a primeira lição disponível
 
 ## Estratégia de composição
 

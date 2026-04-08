@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeResourceUrl } from '@angular/platform-browser';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, switchMap } from 'rxjs/operators';
 import { from } from 'rxjs';
@@ -90,16 +90,28 @@ interface ContentSupporter {
 
               <section class="lesson__video-slot" aria-label="Espaço para vídeo de apresentação do projeto">
                 <div class="lesson__video-frame">
-                  <div class="lesson__video-placeholder">
-                    <mat-icon>play_circle</mat-icon>
-                  </div>
+                  @if (welcomeVideoUrl(); as videoUrl) {
+                    <iframe
+                      class="lesson__video-embed"
+                      [src]="videoUrl"
+                      title="Vídeo de boas-vindas"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  } @else {
+                    <div class="lesson__video-placeholder">
+                      <mat-icon>play_circle</mat-icon>
+                    </div>
+                  }
                 </div>
 
                 <div class="lesson__video-copy">
-                  <strong>Vídeo de apresentação do projeto</strong>
+                  <strong>Vídeo de boas-vindas</strong>
                   <p>
-                    Aqui entra o vídeo principal de introdução, com a visão geral da proposta,
-                    da estrutura e do objetivo da Fulldev School.
+                    Assista a esta visão geral para entender a proposta do guia, como a jornada foi
+                    estruturada e o que você vai construir ao longo da Fulldev School.
                   </p>
                 </div>
               </section>
@@ -505,6 +517,14 @@ interface ContentSupporter {
         align-items: center;
         justify-content: center;
         padding: 20px;
+      }
+
+      .lesson__video-embed {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
       }
 
       .lesson__video-placeholder mat-icon {
@@ -1041,6 +1061,15 @@ export class LessonPageComponent {
 
   protected readonly lesson = computed(() => this.lessonResult());
   protected readonly topicCount = computed(() => this.lesson()?.blocks.length ?? 0);
+  protected readonly welcomeVideoUrl = computed<SafeResourceUrl | null>(() => {
+    if (!this.shouldShowWelcomePanel()) {
+      return null;
+    }
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(
+      'https://www.youtube.com/embed/lTK0hOPcO9I?si=tn7s4AKr6iCQTPiu'
+    );
+  });
   protected readonly videoCount = computed(() => {
     const lesson = this.lesson();
     if (!lesson) {
