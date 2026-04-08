@@ -1,7 +1,9 @@
+// Production: inject credentials via public/runtime-config.js at deploy time
+// See public/runtime-config.example.js for the expected shape
 export const environment = {
   production: true,
   supabase: {
-    url: 'https://gzuymsmkjzkfvstwipal.supabase.co',
-    publishableKey: 'sb_publishable_1E6b5DgnoFEJcB6fBUQRWA_Hb_eIa50'
+    url: '',
+    publishableKey: ''
   }
 };
