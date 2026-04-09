@@ -310,6 +310,94 @@ Criterio de aceite:
 
 ---
 
+## Futuramente
+
+### 1. Painel de administrador e instrutor
+
+Objetivo:
+
+- criar a camada de backoffice para administracao da plataforma e cadastro moderado de cursos por instrutores
+
+Escopo operacional:
+
+- definir papeis de `admin` e `instrutor`
+- permitir ao administrador visualizar e administrar usuarios
+- permitir ao administrador administrar cursos, inclusive exibir para todos, ocultar, remover e moderar cursos enviados por instrutores
+- permitir ao administrador revisar um curso enviado por instrutor e aprovar ou reprovar com descricao opcional da decisao
+- exibir ao instrutor o status da revisao e a justificativa enviada pelo administrador quando existir
+- permitir ao administrador adicionar novos cursos diretamente
+- permitir ao instrutor cadastrar curso com nome, descricao, imagem e video de apresentacao
+- permitir ao instrutor organizar modulos do curso
+- permitir conteudos topicos dentro dos modulos em estrutura expansivel
+- permitir ao instrutor decidir se cada topico tera video
+- permitir material extra por modulo e por topico
+
+Entregaveis:
+
+- painel administrativo com gestao de usuarios e cursos
+- fluxo de moderacao de cursos enviados por instrutores
+- painel do instrutor para criacao e edicao de cursos
+- modelo de dados para curso, modulo, topico, anexos e status de aprovacao
+
+Criterio de aceite:
+
+- administrador consegue controlar visibilidade e publicacao dos cursos
+- instrutor consegue montar e submeter um curso completo para revisao
+- fluxo de aprovacao e reprovacao registra status e feedback visivel ao instrutor
+- estrutura de curso suporta imagem, video de apresentacao, modulos, topicos e material extra
+
+### 2. Cadastro de imagem do usuario
+
+Objetivo:
+
+- permitir que o usuario tenha foto de perfil propria na plataforma
+
+Escopo operacional:
+
+- permitir upload e atualizacao da imagem do usuario
+- definir validacoes de formato, tamanho e proporcao
+- exibir imagem de perfil nas areas principais da conta e da navegacao
+- definir fallback quando o usuario ainda nao tiver imagem cadastrada
+
+Entregaveis:
+
+- campo de imagem no perfil
+- fluxo de upload e substituicao
+- renderizacao consistente da foto do usuario na UI
+
+Criterio de aceite:
+
+- usuario consegue cadastrar, trocar e remover a propria imagem
+- imagem aparece corretamente nos pontos previstos da interface
+- fallback permanece consistente quando nao houver foto
+
+### 3. Avatar personalizado para usuario sem imagem
+
+Objetivo:
+
+- oferecer uma alternativa visual para usuarios que nao queiram usar foto real
+
+Escopo operacional:
+
+- permitir criacao de avatar personalizado em vez de imagem enviada
+- definir regras visuais e combinacoes disponiveis para o avatar
+- integrar avatar ao perfil como opcao equivalente a foto
+- garantir fallback entre foto, avatar e placeholder padrao
+
+Entregaveis:
+
+- construtor ou seletor de avatar
+- persistencia da configuracao visual do avatar
+- exibicao do avatar nas mesmas areas onde a foto seria usada
+
+Criterio de aceite:
+
+- usuario pode optar por avatar sem ser obrigado a enviar imagem
+- avatar fica salvo no perfil e aparece corretamente na plataforma
+- troca entre foto, avatar e fallback nao quebra a experiencia
+
+---
+
 ## Ordem pratica de execucao
 
 ### Bloco 1
@@ -329,3 +417,9 @@ Criterio de aceite:
 - desenho da area administrativa
 - desenho da area de instrutor
 - plano de migracao do `mock-db` para backend real
+
+### Bloco futuro
+
+- painel de administrador e instrutor com moderacao de cursos
+- cadastro de imagem do usuario
+- avatar personalizado para usuario sem foto
