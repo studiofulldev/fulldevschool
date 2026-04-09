@@ -1,35 +1,36 @@
-# 5. Áudio e Narração
+# 5. Audio e Narracao
 
 ## Objetivo
 
-Dar ao usuário a opção de acompanhar a leitura com áudio, sem depender de uma implementação improvisada dentro do componente.
+Dar ao usuario a opcao de acompanhar a leitura com audio, sem depender de uma implementacao improvisada dentro do componente.
 
 ## Modos suportados pela arquitetura
 
 ### 1. TTS em tempo real
 
-Biblioteca prevista:
+Opcoes previstas:
 
-- `speak-tts`
+- `speechSynthesis` do navegador
+- motores TTS externos avaliados futuramente
 
 Uso:
 
-- protótipo
-- testes rápidos
-- páginas sem áudio gravado
+- prototipo
+- testes rapidos
+- paginas sem audio gravado
 
 Vantagens:
 
 - acelera MVP
-- dispensa pipeline inicial de geração
+- dispensa pipeline inicial de geracao
 
-Limitações:
+Limitacoes:
 
-- depende das vozes do navegador
+- depende das vozes do navegador ou de integracao externa
 - qualidade pode variar
-- sincronização de blocos fica menos previsível
+- sincronizacao de blocos fica menos previsivel
 
-### 2. Áudio pré-gerado
+### 2. Audio pre-gerado
 
 Biblioteca prevista para playback:
 
@@ -37,24 +38,49 @@ Biblioteca prevista para playback:
 
 Uso:
 
-- produto mais sólido
-- páginas importantes
-- experiência mais controlada
+- produto mais solido
+- paginas importantes
+- experiencia mais controlada
 
 Vantagens:
 
-- experiência consistente
-- mais previsibilidade para sincronização
+- experiencia consistente
+- mais previsibilidade para sincronizacao
 - melhor base para acessibilidade
 
-Limitações:
+Limitacoes:
 
-- exige processo de geração de áudio
+- exige processo de geracao de audio
 - aumenta volume de assets
 
-## Sincronização de texto
+## Referencias futuras de TTS
 
-A sincronização vai depender de `segments` no manifesto.
+Estas referencias foram registradas para avaliacao tecnica quando a frente de audio voltar a ser priorizada:
+
+- Coqui TTS: https://github.com/coqui-ai/TTS
+- Video de referencia enviado pelo time: https://www.youtube.com/watch?v=C6QNcdVu3b8
+
+Uso recomendado dessas referencias:
+
+- avaliar pipeline local de geracao de voz
+- comparar qualidade, custo operacional e tempo de resposta
+- decidir se o projeto vai para TTS sob demanda, pre-geracao, ou modelo hibrido
+
+## Criterios de avaliacao para TTS futuro
+
+Quando esta frente for retomada, validar pelo menos:
+
+- qualidade natural da voz em portugues
+- tempo de geracao por bloco ou por licao
+- facilidade de automacao no ambiente do projeto
+- custo de infraestrutura
+- tamanho final dos audios gerados
+- possibilidade de versionar ou cachear saidas
+- compatibilidade com sincronizacao por `blockId`
+
+## Sincronizacao de texto
+
+A sincronizacao vai depender de `segments` no manifesto.
 
 Cada segmento aponta:
 
@@ -79,8 +105,8 @@ Exemplo:
 - pause
 - seek
 - controle de velocidade
-- avanço para próxima página
-- retomada do último ponto
+- avanco para proxima pagina
+- retomada do ultimo ponto
 
 ## Componentes previstos
 
@@ -89,28 +115,30 @@ Exemplo:
 - `audio-speed-control`
 - `lesson-audio-sync`
 
-## Regras técnicas
+## Regras tecnicas
 
-- a UI não deve saber de onde o áudio veio
-- a UI só consome um `AudioManifest`
+- a UI nao deve saber de onde o audio veio
+- a UI so consome um `AudioManifest`
 - o player precisa ter modo `tts` e modo `prerecorded`
 
-## Estratégia recomendada de implementação
+## Estrategia recomendada de implementacao
 
 ### Fase 1
 
 - player funcional
-- suporte a `speak-tts`
-- suporte a manifesto sem sincronização fina
+- suporte a TTS simples para prototipo
+- suporte a manifesto sem sincronizacao fina
 
 ### Fase 2
 
-- `howler.js`
-- áudio por página
-- sincronização por bloco
+- avaliacao pratica de Coqui TTS ou stack equivalente
+- definicao de pipeline de geracao
+- audio por pagina
+- sincronizacao por bloco
 
 ### Fase 3
 
 - waveform opcional com `wavesurfer.js`
-- resume automático
+- resume automatico
 - progresso persistido
+- decisao final entre TTS sob demanda e audio pre-gerado

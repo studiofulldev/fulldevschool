@@ -296,6 +296,7 @@ Objetivo:
 Escopo operacional:
 
 - decidir entre TTS, audio pronto ou modo hibrido
+- avaliar Coqui TTS e referencias futuras registradas em `docs/05-audio-e-narracao.md`
 - reintroduzir player sem poluir o fluxo de leitura
 - persistir progresso de audio quando a feature voltar
 
