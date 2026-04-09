@@ -1,294 +1,88 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { filter } from 'rxjs';
 import { AuthService, TechnicalLevel } from './services/auth.service';
 import { SupabaseService } from './services/supabase.service';
 
-type AuthMode = 'login' | 'register';
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, MatButtonModule],
+  imports: [CommonModule, FormsModule, RouterOutlet, MatButtonModule, MatSnackBarModule],
   template: `
     <div class="app-root" [class.app-root--locked]="isGateEnabled() || isProfileCompletionOpen()">
       <router-outlet />
     </div>
+
+    @if (isRouteLoading()) {
+      <div class="global-loading" aria-hidden="true">
+        <div class="global-loading__backdrop"></div>
+        <section class="global-loading__dialog">
+          <div class="global-loading__body">
+            <div class="global-loading__line global-loading__line--eyebrow"></div>
+            <div class="global-loading__line global-loading__line--title"></div>
+            <div class="global-loading__line global-loading__line--text"></div>
+            <div class="global-loading__line global-loading__line--panel"></div>
+            <div class="global-loading__grid">
+              <div class="global-loading__card"></div>
+              <div class="global-loading__card"></div>
+              <div class="global-loading__card"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    }
 
     @if (isGateEnabled()) {
       <div class="auth-gate">
         <div class="auth-gate__backdrop"></div>
 
         <section class="auth-gate__dialog" aria-modal="true" role="dialog" aria-labelledby="auth-gate-title">
-          <div class="auth-gate__header">
-            <span class="auth-gate__eyebrow">Fulldev School</span>
-            <img class="auth-gate__brand" src="logo-fulldev.svg" alt="Fulldev School" />
-          </div>
+          <div class="auth-login-card__body">
+            @if (!isAuthRedirecting()) {
+              <div class="auth-login-card__intro">
+                <img class="auth-login-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
+                <div class="auth-gate__trust-badge">Ambiente 100% seguro</div>
+                <div class="auth-login-card__copy">
+                  <h1 id="auth-gate-title">Fala Dev, Bem-vindo de Volta!</h1>
+                  <p>Entre com Google ou LinkedIn para continuar.</p>
+                </div>
+              </div>
 
-          <h1 id="auth-gate-title">{{ authMode() === 'login' ? 'Entre para continuar' : 'Crie sua conta' }}</h1>
-          <p>
-            @if (authMode() === 'login') {
-              Escolha um provedor ou entre com e-mail e senha para acessar a plataforma.
+              <div class="auth-login-card__socials">
+                <button
+                  mat-stroked-button
+                  class="auth-social-button"
+                  type="button"
+                  (click)="signInWithGoogle()"
+                  [disabled]="!supabase.isConfigured || isAuthRedirecting()"
+                >
+                  <span>Google</span>
+                </button>
+
+                <button
+                  mat-stroked-button
+                  class="auth-social-button"
+                  type="button"
+                  (click)="signInWithLinkedIn()"
+                  [disabled]="!supabase.isConfigured || isAuthRedirecting()"
+                >
+                  <span>LinkedIn</span>
+                </button>
+              </div>
             } @else {
-              Preencha seu cadastro completo ou use Google e LinkedIn para iniciar o acesso.
+              <div class="auth-loading-card">
+                <img class="auth-loading-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
+                <div class="auth-loading-card__copy">
+                  <h1 id="auth-gate-title">Quase la!</h1>
+                  <p>Estamos confirmando seus dados</p>
+                </div>
+              </div>
             }
-          </p>
-
-          <div class="auth-mode-switch" role="tablist" aria-label="Modo de autenticacao">
-            <button
-              type="button"
-              class="auth-mode-switch__button"
-              [class.auth-mode-switch__button--active]="authMode() === 'login'"
-              (click)="setAuthMode('login')"
-            >
-              Entrar
-            </button>
-            <button
-              type="button"
-              class="auth-mode-switch__button"
-              [class.auth-mode-switch__button--active]="authMode() === 'register'"
-              (click)="setAuthMode('register')"
-            >
-              Cadastrar
-            </button>
           </div>
-
-          <div class="auth-gate__actions">
-            <button
-              mat-stroked-button
-              class="auth-provider-button auth-provider-button--secondary"
-              type="button"
-              (click)="signInWithGoogle()"
-              [disabled]="!supabase.isConfigured"
-            >
-              <span class="auth-provider-button__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path
-                    fill="currentColor"
-                    d="M21.81 10.04h-9.77v3.92h5.6c-.24 1.26-.96 2.33-2.04 3.04v2.52h3.3c1.93-1.78 3.05-4.4 3.05-7.52 0-.67-.06-1.31-.14-1.96Z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M12.04 22c2.76 0 5.08-.91 6.77-2.48l-3.3-2.52c-.91.61-2.08.98-3.47.98-2.67 0-4.93-1.8-5.74-4.23H2.89v2.6A10.22 10.22 0 0 0 12.04 22Z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M6.3 13.75a6.13 6.13 0 0 1 0-3.5v-2.6H2.89a10.08 10.08 0 0 0 0 8.7l3.41-2.6Z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M12.04 6.02c1.5 0 2.84.52 3.9 1.54l2.91-2.91C17.12 2.96 14.8 2 12.04 2a10.22 10.22 0 0 0-9.15 5.65l3.41 2.6c.81-2.43 3.07-4.23 5.74-4.23Z"
-                  />
-                </svg>
-              </span>
-              <span class="auth-provider-button__label">
-                {{ authMode() === 'login' ? 'Entrar com Google' : 'Continuar com Google' }}
-              </span>
-            </button>
-
-            <button
-              mat-flat-button
-              class="auth-provider-button auth-provider-button--primary"
-              type="button"
-              (click)="signInWithLinkedIn()"
-              [disabled]="!supabase.isConfigured"
-            >
-              <span class="auth-provider-button__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path
-                    fill="currentColor"
-                    d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.03-1.84-3.03-1.84 0-2.12 1.44-2.12 2.94v5.67H9.37V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.35 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.13 20.45H3.57V9h3.56v11.45Z"
-                  />
-                </svg>
-              </span>
-              <span class="auth-provider-button__label">
-                {{ authMode() === 'login' ? 'Entrar com LinkedIn' : 'Continuar com LinkedIn' }}
-              </span>
-            </button>
-          </div>
-
-          <div class="auth-gate__divider">
-            <span></span>
-            <strong>ou</strong>
-            <span></span>
-          </div>
-
-          @if (authMode() === 'login') {
-            <form class="auth-profile-form" (ngSubmit)="submitEmailLogin()">
-              <div class="auth-profile-grid auth-profile-grid--single">
-                <label class="auth-field" for="login-email">
-                  <span>E-mail</span>
-                  <input
-                    id="login-email"
-                    name="login-email"
-                    type="email"
-                    [ngModel]="loginEmail()"
-                    (ngModelChange)="loginEmail.set($event)"
-                    autocomplete="email"
-                    required
-                  />
-                </label>
-
-                <label class="auth-field" for="login-password">
-                  <span>Senha</span>
-                  <input
-                    id="login-password"
-                    name="login-password"
-                    type="password"
-                    [ngModel]="loginPassword()"
-                    (ngModelChange)="loginPassword.set($event)"
-                    autocomplete="current-password"
-                    required
-                  />
-                </label>
-              </div>
-
-              <div class="auth-gate__actions">
-                <button
-                  mat-flat-button
-                  class="auth-provider-button auth-provider-button--primary"
-                  type="submit"
-                  [disabled]="authSubmitting()"
-                >
-                  {{ authSubmitting() ? 'Entrando...' : 'Entrar com e-mail e senha' }}
-                </button>
-              </div>
-            </form>
-          } @else {
-            <form class="auth-profile-form" (ngSubmit)="submitEmailRegistration()">
-              <div class="auth-profile-grid">
-                <label class="auth-field" for="register-name">
-                  <span>Nome completo</span>
-                  <input
-                    id="register-name"
-                    name="register-name"
-                    type="text"
-                    [ngModel]="registerName()"
-                    (ngModelChange)="registerName.set($event)"
-                    autocomplete="name"
-                    required
-                  />
-                </label>
-
-                <label class="auth-field" for="register-email">
-                  <span>E-mail</span>
-                  <input
-                    id="register-email"
-                    name="register-email"
-                    type="email"
-                    [ngModel]="registerEmail()"
-                    (ngModelChange)="registerEmail.set($event)"
-                    autocomplete="email"
-                    required
-                  />
-                </label>
-
-                <label class="auth-field" for="register-password">
-                  <span>Senha</span>
-                  <input
-                    id="register-password"
-                    name="register-password"
-                    type="password"
-                    [ngModel]="registerPassword()"
-                    (ngModelChange)="registerPassword.set($event)"
-                    autocomplete="new-password"
-                    required
-                  />
-                </label>
-
-                <label class="auth-field" for="register-whatsapp">
-                  <span>WhatsApp</span>
-                  <input
-                    id="register-whatsapp"
-                    name="register-whatsapp"
-                    type="tel"
-                    [ngModel]="registerWhatsapp()"
-                    (ngModelChange)="registerWhatsapp.set($event)"
-                    autocomplete="tel"
-                  />
-                </label>
-
-                <label class="auth-field" for="register-age">
-                  <span>Idade</span>
-                  <input
-                    id="register-age"
-                    name="register-age"
-                    type="number"
-                    min="1"
-                    [ngModel]="registerAge()"
-                    (ngModelChange)="onRegisterAgeChange($event)"
-                    required
-                  />
-                </label>
-
-                <label class="auth-field" for="register-level">
-                  <span>Nivel tecnico</span>
-                  <select
-                    id="register-level"
-                    name="register-level"
-                    [ngModel]="registerTechnicalLevel()"
-                    (ngModelChange)="registerTechnicalLevel.set($event)"
-                    required
-                  >
-                    <option value="">Selecione</option>
-                    <option value="iniciante">Iniciante</option>
-                    <option value="intermediario">Intermediario</option>
-                    <option value="avancado">Avancado</option>
-                  </select>
-                </label>
-
-                <label class="auth-field auth-field--full" for="register-education">
-                  <span>Instituicao de ensino</span>
-                  <input
-                    id="register-education"
-                    name="register-education"
-                    type="text"
-                    [ngModel]="registerEducationInstitution()"
-                    (ngModelChange)="registerEducationInstitution.set($event)"
-                    autocomplete="organization"
-                  />
-                </label>
-              </div>
-
-              <label class="auth-check" for="register-terms">
-                <input
-                  id="register-terms"
-                  name="register-terms"
-                  type="checkbox"
-                  [ngModel]="registerAcceptedTerms()"
-                  (ngModelChange)="registerAcceptedTerms.set(!!$event)"
-                />
-                <span>Li e aceito a Politica de Privacidade e os Termos de Uso.</span>
-              </label>
-
-              <div class="auth-gate__actions">
-                <button
-                  mat-flat-button
-                  class="auth-provider-button auth-provider-button--primary"
-                  type="submit"
-                  [disabled]="authSubmitting()"
-                >
-                  {{ authSubmitting() ? 'Cadastrando...' : 'Cadastrar com e-mail e senha' }}
-                </button>
-              </div>
-            </form>
-          }
-
-          <div class="auth-gate__legal">
-            <a routerLink="/legal/privacy">Politica de Privacidade</a>
-            <a routerLink="/legal/terms">Termos de Uso</a>
-          </div>
-
-          @if (!supabase.isConfigured && supabase.configError) {
-            <p class="auth-gate__warning">{{ supabase.configError }}</p>
-          }
-
-          @if (errorMessage()) {
-            <p class="auth-gate__error">{{ errorMessage() }}</p>
-          }
         </section>
       </div>
     }
@@ -298,129 +92,183 @@ type AuthMode = 'login' | 'register';
         <div class="auth-gate__backdrop"></div>
 
         <section class="auth-gate__dialog auth-gate__dialog--profile" aria-modal="true" role="dialog" aria-labelledby="profile-gate-title">
-          <div class="auth-gate__header">
-            <span class="auth-gate__eyebrow">Complete seu cadastro</span>
-            <img class="auth-gate__brand" src="logo-fulldev.svg" alt="Fulldev School" />
-          </div>
+          <div class="auth-login-card__body auth-login-card__body--wizard">
+            <form class="auth-profile-form auth-step-card" (ngSubmit)="submitProfileCompletion()">
+              <div class="auth-step-card__intro">
+                <img class="auth-step-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
+                <div class="auth-gate__trust-badge">Ambiente 100% seguro</div>
+                <h2 id="profile-gate-title">{{ profileStepTitle() }}</h2>
+              </div>
 
-          <h2 id="profile-gate-title">Faltam alguns dados para liberar sua conta.</h2>
-          <p>
-            Seu acesso com Google ou LinkedIn ja foi validado. Agora complete as informacoes restantes
-            para atualizar o cadastro no banco e finalizar a liberacao da plataforma.
-          </p>
+              @if (profileStep() === 1) {
+                <div class="auth-profile-grid auth-profile-grid--single auth-profile-grid--floating auth-step-card__fields">
+                  <div class="auth-avatar-field">
+                    <img class="auth-avatar-field__preview" [src]="profileAvatarPreview()" alt="Avatar do usuario" />
+                    <div class="auth-avatar-field__copy">
+                      <strong>Foto do perfil</strong>
+                      <span>Se o provedor nao enviar uma foto, usaremos o avatar padrao por enquanto.</span>
+                    </div>
+                  </div>
 
-          <form class="auth-profile-form" (ngSubmit)="submitProfileCompletion()">
-            <div class="auth-profile-grid">
-              <label class="auth-field" for="oauth-name">
-                <span>Nome completo</span>
-                <input
-                  id="oauth-name"
-                  name="oauth-name"
-                  type="text"
-                  [ngModel]="profileName()"
-                  (ngModelChange)="profileName.set($event)"
-                  autocomplete="name"
-                  required
-                />
-              </label>
+                  <label class="auth-field auth-field--floating" for="oauth-first-name">
+                    <span>Primeiro nome*</span>
+                    <input
+                      id="oauth-first-name"
+                      name="oauth-first-name"
+                      type="text"
+                      [ngModel]="profileFirstName()"
+                      (ngModelChange)="profileFirstName.set($event)"
+                      autocomplete="given-name"
+                      required
+                    />
+                  </label>
 
-              <label class="auth-field" for="oauth-email">
-                <span>E-mail</span>
-                <input
-                  id="oauth-email"
-                  name="oauth-email"
-                  type="email"
-                  [ngModel]="auth.user()?.email ?? ''"
-                  autocomplete="email"
-                  disabled
-                />
-              </label>
+                  <label class="auth-field auth-field--floating" for="oauth-last-name">
+                    <span>Segundo nome</span>
+                    <input
+                      id="oauth-last-name"
+                      name="oauth-last-name"
+                      type="text"
+                      [ngModel]="profileLastName()"
+                      (ngModelChange)="profileLastName.set($event)"
+                      autocomplete="family-name"
+                    />
+                  </label>
+                </div>
+              }
 
-              <label class="auth-field" for="oauth-whatsapp">
-                <span>WhatsApp</span>
-                <input
-                  id="oauth-whatsapp"
-                  name="oauth-whatsapp"
-                  type="tel"
-                  [ngModel]="profileWhatsapp()"
-                  (ngModelChange)="profileWhatsapp.set($event)"
-                  autocomplete="tel"
-                />
-              </label>
+              @if (profileStep() === 2) {
+                <div class="auth-profile-grid auth-profile-grid--single auth-profile-grid--floating auth-step-card__fields">
+                  <label class="auth-field auth-field--floating" for="oauth-whatsapp">
+                    <span>WhatsApp</span>
+                    <input
+                      id="oauth-whatsapp"
+                      name="oauth-whatsapp"
+                      type="tel"
+                      [ngModel]="profileWhatsapp()"
+                      (ngModelChange)="profileWhatsapp.set($event)"
+                      autocomplete="tel"
+                    />
+                  </label>
 
-              <label class="auth-field" for="oauth-age">
-                <span>Idade</span>
-                <input
-                  id="oauth-age"
-                  name="oauth-age"
-                  type="number"
-                  min="1"
-                  [ngModel]="profileAge()"
-                  (ngModelChange)="onAgeChange($event)"
-                  required
-                />
-              </label>
+                  <label class="auth-field auth-field--floating" for="oauth-age">
+                    <span>Idade*</span>
+                    <input
+                      id="oauth-age"
+                      name="oauth-age"
+                      type="number"
+                      min="1"
+                      [ngModel]="profileAge()"
+                      (ngModelChange)="onAgeChange($event)"
+                      required
+                    />
+                  </label>
 
-              <label class="auth-field" for="oauth-level">
-                <span>Nivel tecnico</span>
-                <select
-                  id="oauth-level"
-                  name="oauth-level"
-                  [ngModel]="profileTechnicalLevel()"
-                  (ngModelChange)="profileTechnicalLevel.set($event)"
-                  required
+                  <label class="auth-field auth-field--floating" for="oauth-level">
+                    <span>Nivel tecnico*</span>
+                    <select
+                      id="oauth-level"
+                      name="oauth-level"
+                      [ngModel]="profileTechnicalLevel()"
+                      (ngModelChange)="profileTechnicalLevel.set($event)"
+                      required
+                    >
+                      <option value="">Selecione</option>
+                      <option value="iniciante">Iniciante</option>
+                      <option value="intermediario">Intermediario</option>
+                      <option value="avancado">Avancado</option>
+                    </select>
+                  </label>
+
+                  <label class="auth-field auth-field--floating" for="oauth-education">
+                    <span>Instituicao de ensino</span>
+                    <input
+                      id="oauth-education"
+                      name="oauth-education"
+                      type="text"
+                      [ngModel]="profileEducationInstitution()"
+                      (ngModelChange)="profileEducationInstitution.set($event)"
+                      autocomplete="organization"
+                    />
+                  </label>
+                </div>
+              }
+
+              @if (profileStep() === 3) {
+                <div class="auth-profile-grid auth-profile-grid--single auth-profile-grid--floating auth-step-card__fields">
+                  <label class="auth-field auth-field--floating" for="oauth-email">
+                    <span>E-mail</span>
+                    <input
+                      id="oauth-email"
+                      name="oauth-email"
+                      type="email"
+                      [ngModel]="profileEmail()"
+                      autocomplete="email"
+                      readonly
+                    />
+                  </label>
+                </div>
+
+                <label class="auth-check auth-check--register" for="oauth-terms">
+                  <input
+                    id="oauth-terms"
+                    name="oauth-terms"
+                    type="checkbox"
+                    [ngModel]="profileAcceptedTerms()"
+                    (ngModelChange)="profileAcceptedTerms.set(!!$event)"
+                  />
+                  <span>Li e aceito os termos do cadastro.</span>
+                </label>
+              }
+
+              <div class="auth-step-card__progress" aria-hidden="true">
+                @for (step of registerSteps; track step) {
+                  <span [class.auth-step-card__progress-dot--active]="profileStep() === step"></span>
+                }
+              </div>
+
+              <div class="auth-step-card__actions">
+                @if (profileStep() < 3) {
+                  <button
+                    mat-flat-button
+                    class="auth-provider-button auth-provider-button--primary auth-provider-button--solid"
+                    type="button"
+                    (click)="goToNextProfileStep()"
+                    [disabled]="profileSaving()"
+                  >
+                    <span class="auth-button__content" [class.auth-button__content--loading]="profileSaving()">
+                      @if (profileSaving()) {
+                        <span class="auth-button__spinner" aria-hidden="true"></span>
+                      }
+                      <span>{{ profileSaving() ? 'Carregando...' : 'Proximo' }}</span>
+                    </span>
+                  </button>
+                } @else {
+                  <button
+                    mat-flat-button
+                    class="auth-provider-button auth-provider-button--primary auth-provider-button--solid"
+                    type="submit"
+                    [disabled]="profileSaving()"
+                  >
+                    <span class="auth-button__content" [class.auth-button__content--loading]="profileSaving()">
+                      @if (profileSaving()) {
+                        <span class="auth-button__spinner" aria-hidden="true"></span>
+                      }
+                      <span>{{ profileSaving() ? 'Salvando...' : 'Concluir cadastro' }}</span>
+                    </span>
+                  </button>
+                }
+                <button
+                  type="button"
+                  class="auth-step-card__secondary-action"
+                  (click)="profileStep() === 1 ? cancelOAuthCompletion() : goToPreviousProfileStep()"
+                  [disabled]="profileSaving()"
                 >
-                  <option value="">Selecione</option>
-                  <option value="iniciante">Iniciante</option>
-                  <option value="intermediario">Intermediario</option>
-                  <option value="avancado">Avancado</option>
-                </select>
-              </label>
-
-              <label class="auth-field auth-field--full" for="oauth-education">
-                <span>Instituicao de ensino</span>
-                <input
-                  id="oauth-education"
-                  name="oauth-education"
-                  type="text"
-                  [ngModel]="profileEducationInstitution()"
-                  (ngModelChange)="profileEducationInstitution.set($event)"
-                  autocomplete="organization"
-                />
-              </label>
-            </div>
-
-            <div class="auth-role-preview">
-              <span class="auth-role-preview__label">Tipo de acesso atual</span>
-              <strong>{{ roleLabel() }}</strong>
-            </div>
-
-            <label class="auth-check" for="oauth-terms">
-              <input
-                id="oauth-terms"
-                name="oauth-terms"
-                type="checkbox"
-                [ngModel]="profileAcceptedTerms()"
-                (ngModelChange)="profileAcceptedTerms.set(!!$event)"
-              />
-              <span>Li e aceito a Politica de Privacidade e os Termos de Uso.</span>
-            </label>
-
-            @if (profileErrorMessage()) {
-              <p class="auth-gate__error" role="alert">{{ profileErrorMessage() }}</p>
-            }
-
-            <div class="auth-gate__actions">
-              <button
-                mat-flat-button
-                class="auth-provider-button auth-provider-button--primary"
-                type="submit"
-                [disabled]="profileSaving()"
-              >
-                {{ profileSaving() ? 'Salvando...' : 'Salvar e continuar' }}
-              </button>
-            </div>
-          </form>
+                  {{ profileStep() === 1 ? 'Cancelar' : 'Voltar' }}
+                </button>
+              </div>
+            </form>
+          </div>
         </section>
       </div>
     }
@@ -440,6 +288,86 @@ type AuthMode = 'login' | 'register';
         pointer-events: none;
         user-select: none;
         filter: blur(10px);
+      }
+
+      .global-loading {
+        position: fixed;
+        inset: 0;
+        z-index: 1900;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .global-loading__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.34);
+        backdrop-filter: blur(8px);
+      }
+
+      .global-loading__dialog {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 920px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        background: rgba(20, 20, 20, 0.9);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+      }
+
+      .global-loading__body {
+        display: grid;
+        gap: 18px;
+        padding: 32px;
+      }
+
+      .global-loading__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .global-loading__line,
+      .global-loading__card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 14px;
+        background: #262626;
+      }
+
+      .global-loading__line::after,
+      .global-loading__card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.14) 50%, transparent 100%);
+        animation: app-skeleton 1.25s ease-in-out infinite;
+      }
+
+      .global-loading__line--eyebrow {
+        width: 148px;
+        height: 18px;
+      }
+
+      .global-loading__line--title {
+        width: min(100%, 320px);
+        height: 40px;
+      }
+
+      .global-loading__line--text {
+        width: min(100%, 420px);
+        height: 20px;
+      }
+
+      .global-loading__line--panel {
+        width: 100%;
+        height: 180px;
+      }
+
+      .global-loading__card {
+        min-height: 120px;
       }
 
       .auth-gate {
@@ -462,39 +390,49 @@ type AuthMode = 'login' | 'register';
         position: relative;
         z-index: 1;
         display: grid;
-        gap: 16px;
-        width: min(100%, 560px);
+        gap: 0;
+        width: min(100%, 472px);
         max-height: min(92vh, 920px);
-        padding: 28px;
         overflow: auto;
-        border: 1px solid var(--fd-border);
-        background: var(--fd-surface-overlay);
+        border: 1px solid #4c4c4c;
+        background: #1f1f1f;
         color: var(--fd-text);
+        border-radius: 4px;
       }
 
       .auth-gate__dialog--profile {
         width: min(100%, 680px);
       }
 
-      .auth-gate__header {
+      .auth-login-card__body {
         display: grid;
-        gap: 14px;
+        gap: 32px;
+        padding: 58px 44px 42px;
+      }
+
+      .auth-login-card__body--wizard {
+        gap: 28px;
+      }
+
+      .auth-login-card__intro {
+        display: grid;
+        gap: 18px;
         justify-items: center;
+      }
+
+      .auth-login-card__logo {
+        width: 88px;
+        height: auto;
+      }
+
+      .auth-login-card__copy {
+        display: grid;
+        gap: 10px;
         text-align: center;
       }
 
-      .auth-gate__brand {
-        width: min(100%, 84px);
-        height: auto;
-        object-fit: contain;
-      }
-
-      .auth-gate__eyebrow {
-        color: var(--fd-soft);
-        font-size: var(--fd-text-xs);
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      .auth-login-card__copy--register {
+        justify-items: center;
       }
 
       .auth-gate__dialog h1,
@@ -503,68 +441,109 @@ type AuthMode = 'login' | 'register';
         margin: 0;
       }
 
+      .auth-gate__dialog h1 {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
       .auth-gate__dialog p {
         color: var(--fd-muted);
+        font-size: 16px;
+      }
+
+      .auth-gate__trust-badge {
+        width: fit-content;
+        min-height: 32px;
+        padding: 0 16px;
+        border: 1px solid #4c4c4c;
+        background: #2c2c2c;
+        color: #bababa;
+        display: inline-flex;
+        align-items: center;
+        font-size: var(--fd-text-xs);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        border-radius: 999px;
       }
 
       .auth-gate__actions,
       .auth-gate__form {
         display: grid;
-        gap: 14px;
+        gap: 18px;
       }
 
-      .auth-mode-switch {
+      .auth-login-card__form-area {
+        display: grid;
+        gap: 18px;
+      }
+
+      .auth-login-card__forgot {
+        justify-self: end;
+        color: #bababa;
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+      .auth-login-card__forgot:hover {
+        color: #ffffff;
+      }
+
+      .auth-login-card__divider {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        color: #cccccc;
+        font-size: 14px;
+      }
+
+      .auth-login-card__divider span {
+        flex: 1;
+        height: 1px;
+        background: #4c4c4c;
+      }
+
+      .auth-login-card__socials {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 16px;
       }
 
-      .auth-mode-switch__button {
-        min-height: 44px;
-        border: 1px solid var(--fd-border);
-        background: transparent;
-        color: var(--fd-soft);
-        cursor: pointer;
-      }
-
-      .auth-mode-switch__button--active {
-        border-color: var(--fd-accent);
-        background: rgba(178, 45, 0, 0.12);
-        color: var(--fd-text);
-      }
-
-      .auth-provider-button {
+      .auth-social-button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 14px;
-        min-height: 52px;
-        padding-inline: 18px;
-        border-radius: var(--fd-radius);
-        font-weight: 600;
+        min-height: 48px;
+        border: 1px solid #4c4c4c !important;
+        background: #4c4c4c !important;
+        color: #ffffff !important;
+        border-radius: 4px !important;
         box-shadow: none !important;
       }
 
-      .auth-provider-button__icon {
+      .auth-social-button:hover {
+        background: #5b5b5b !important;
+      }
+
+      .auth-login-card__register-copy {
+        color: #bababa;
+        font-size: 14px;
+        text-align: right;
+        margin-top: 4px;
+      }
+
+      .auth-provider-button {
+        width: 100%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 18px;
-        height: 18px;
-        flex: 0 0 18px;
-      }
-
-      .auth-provider-button__icon svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .auth-provider-button__label {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        text-align: center;
+        min-height: 48px;
+        padding-inline: 18px;
+        border-radius: 4px;
+        font-weight: 600;
+        box-shadow: none !important;
       }
 
       .auth-provider-button--primary {
@@ -573,44 +552,40 @@ type AuthMode = 'login' | 'register';
         background: var(--fd-accent) !important;
       }
 
+      .auth-provider-button--solid {
+        min-height: 48px;
+        border-radius: 4px !important;
+      }
+
+      .auth-provider-button--linkedin {
+        border: 1px solid #0a66c2 !important;
+        color: #ffffff !important;
+        background: #0a66c2 !important;
+      }
+
+      .auth-provider-button--linkedin:hover {
+        border-color: #004182 !important;
+        background: #004182 !important;
+      }
+
       .auth-provider-button--primary:hover {
         border-color: var(--fd-accent-strong) !important;
         background: var(--fd-accent-strong) !important;
       }
 
-      .auth-provider-button--secondary {
-        border: 1px solid var(--fd-border) !important;
-        color: var(--fd-text) !important;
-        background: var(--fd-surface-overlay) !important;
-      }
-
-      .auth-provider-button--secondary:hover {
-        border-color: var(--fd-border-strong) !important;
-        background: var(--fd-nav-active) !important;
-      }
-
-      .auth-gate__divider {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: var(--fd-soft);
-      }
-
-      .auth-gate__divider span {
-        flex: 1;
-        height: 1px;
-        background: var(--fd-border);
-      }
-
       .auth-profile-form {
         display: grid;
-        gap: 16px;
+        gap: 28px;
+      }
+
+      .auth-profile-form--register {
+        margin-top: 4px;
       }
 
       .auth-profile-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
+        gap: 12px;
       }
 
       .auth-profile-grid--single {
@@ -620,6 +595,11 @@ type AuthMode = 'login' | 'register';
       .auth-field {
         display: grid;
         gap: 8px;
+      }
+
+      .auth-field--floating {
+        position: relative;
+        gap: 0;
       }
 
       .auth-field--full {
@@ -635,13 +615,24 @@ type AuthMode = 'login' | 'register';
       .auth-field input,
       .auth-field select {
         width: 100%;
-        min-height: 48px;
+        min-height: 52px;
         padding: 0 14px;
-        border: 1px solid var(--fd-border);
-        border-radius: var(--fd-radius);
-        background: #111111;
+        border: 1px solid #4c4c4c;
+        border-radius: 4px;
+        background: #2c2c2c;
         color: var(--fd-text);
         outline: none;
+      }
+
+      .auth-field--floating span {
+        position: absolute;
+        top: -8px;
+        left: 10px;
+        padding: 0 2px;
+        color: #bababa;
+        background: linear-gradient(180deg, #1f1f1f 0%, #1f1f1f 50%, #2c2c2c 50%, #2c2c2c 100%);
+        font-size: 14px;
+        font-weight: 300;
       }
 
       .auth-field input:focus,
@@ -684,28 +675,191 @@ type AuthMode = 'login' | 'register';
         line-height: 1.6;
       }
 
-      .auth-gate__legal {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .auth-gate__legal a {
-        color: var(--fd-soft);
+      .auth-gate__register-link {
+        margin-left: 4px;
+        color: #696969;
         text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
       }
 
-      .auth-gate__legal a:hover {
-        color: var(--fd-text);
+      .auth-gate__register-link:hover {
+        color: #ffffff;
+      }
+
+      .auth-step-card {
+        gap: 28px;
+      }
+
+      .auth-step-card__intro {
+        display: grid;
+        gap: 18px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .auth-step-card__logo {
+        width: 88px;
+        height: auto;
+      }
+
+      .auth-step-card__fields {
+        gap: 16px;
+      }
+
+      .auth-avatar-field {
+        display: grid;
+        justify-items: center;
+        gap: 14px;
+        padding: 8px 0 4px;
+        text-align: center;
+      }
+
+      .auth-avatar-field__preview {
+        width: 92px;
+        height: 92px;
+        border: 1px solid #4c4c4c;
+        border-radius: 999px;
+        object-fit: cover;
+        background: #2c2c2c;
+      }
+
+      .auth-avatar-field__copy {
+        display: grid;
+        gap: 6px;
+        max-width: 360px;
+      }
+
+      .auth-avatar-field__copy strong {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .auth-avatar-field__copy span {
+        color: var(--fd-muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .auth-step-card__progress {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .auth-step-card__progress span {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: #4c4c4c;
+      }
+
+      .auth-step-card__progress-dot--active {
+        background: var(--fd-accent) !important;
+      }
+
+      .auth-step-card__actions {
+        display: grid;
+        gap: 14px;
+      }
+
+      .auth-step-card__secondary-action {
+        min-height: 48px;
+        border: 1px solid #4c4c4c;
+        border-radius: 4px;
+        background: transparent;
+        color: #ffffff;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .auth-step-card__secondary-action:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .auth-loading-card {
+        display: grid;
+        justify-items: center;
+        align-content: center;
+        gap: 18px;
+        min-height: 200px;
+        text-align: center;
+      }
+
+      .auth-loading-card__logo {
+        width: 60px;
+        height: auto;
+      }
+
+      .auth-loading-card__copy {
+        display: grid;
+        gap: 6px;
+      }
+
+      .auth-button__content {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .auth-button__content--loading {
+        opacity: 0.96;
+      }
+
+      .auth-button__spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.28);
+        border-top-color: #ffffff;
+        border-radius: 999px;
+        animation: auth-spin 0.8s linear infinite;
+      }
+
+      :host ::ng-deep .auth-toast {
+        min-width: 320px;
+        border-radius: 12px;
+      }
+
+      :host ::ng-deep .auth-toast .mat-mdc-snack-bar-label {
+        color: #f6f6f6;
+      }
+
+      :host ::ng-deep .auth-toast--success {
+        --mdc-snackbar-container-color: #1e7a4f;
+      }
+
+      :host ::ng-deep .auth-toast--error {
+        --mdc-snackbar-container-color: #a93b32;
+      }
+
+      :host ::ng-deep .auth-toast--warning {
+        --mdc-snackbar-container-color: #8a6420;
       }
 
       @media (max-width: 720px) {
+        .global-loading__grid {
+          grid-template-columns: 1fr;
+        }
+
         .auth-profile-grid {
           grid-template-columns: 1fr;
         }
 
         .auth-field--full {
           grid-column: auto;
+        }
+      }
+
+      @keyframes auth-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes app-skeleton {
+        to {
+          transform: translateX(100%);
         }
       }
     `
@@ -715,27 +869,19 @@ type AuthMode = 'login' | 'register';
 export class App {
   protected readonly auth = inject(AuthService);
   protected readonly supabase = inject(SupabaseService);
+  private readonly snackBar = inject(MatSnackBar);
   private readonly router = inject(Router);
-
-  protected readonly authMode = signal<AuthMode>('login');
-  protected readonly authSubmitting = signal(false);
+  protected readonly profileStep = signal<1 | 2 | 3>(1);
+  protected readonly isAuthRedirecting = signal(false);
+  protected readonly isRouteLoading = signal(false);
   protected readonly errorMessage = signal('');
   protected readonly profileErrorMessage = signal('');
   protected readonly profileSaving = signal(false);
+  protected readonly registerSteps: Array<1 | 2 | 3> = [1, 2, 3];
 
-  protected readonly loginEmail = signal('');
-  protected readonly loginPassword = signal('');
-
-  protected readonly registerName = signal('');
-  protected readonly registerEmail = signal('');
-  protected readonly registerPassword = signal('');
-  protected readonly registerWhatsapp = signal('');
-  protected readonly registerAge = signal<number | null>(null);
-  protected readonly registerTechnicalLevel = signal<TechnicalLevel | ''>('');
-  protected readonly registerEducationInstitution = signal('');
-  protected readonly registerAcceptedTerms = signal(false);
-
-  protected readonly profileName = signal('');
+  protected readonly profileFirstName = signal('');
+  protected readonly profileLastName = signal('');
+  protected readonly profileEmail = signal('');
   protected readonly profileWhatsapp = signal('');
   protected readonly profileAge = signal<number | null>(null);
   protected readonly profileTechnicalLevel = signal<TechnicalLevel | ''>('');
@@ -746,6 +892,7 @@ export class App {
   protected readonly isGateEnabled = computed(
     () => !this.auth.isAuthenticated() && !this.currentUrl().startsWith('/legal/')
   );
+  protected readonly profileAvatarPreview = computed(() => this.auth.user()?.avatarUrl || '/user-default.jpg');
   protected readonly isProfileCompletionOpen = computed(() => {
     if (this.currentUrl().startsWith('/legal/')) {
       return false;
@@ -753,91 +900,108 @@ export class App {
 
     return this.auth.isAuthenticated() && this.auth.requiresProfileCompletion(this.auth.user());
   });
-  protected readonly roleLabel = computed(() => {
-    const role = this.auth.user()?.role ?? 'user';
-    if (role === 'admin') {
-      return 'Administrador';
-    }
-
-    if (role === 'instructor') {
-      return 'Instrutor';
-    }
-
-    return 'Usuario comum';
-  });
-
   constructor() {
-    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event) => {
-      this.currentUrl.set((event as NavigationEnd).urlAfterRedirects);
-    });
+    this.router.events
+      .pipe(
+        filter(
+          (event) =>
+            event instanceof NavigationStart ||
+            event instanceof NavigationEnd ||
+            event instanceof NavigationCancel ||
+            event instanceof NavigationError
+        )
+      )
+      .subscribe((event) => {
+        if (event instanceof NavigationStart) {
+          this.isRouteLoading.set(true);
+          return;
+        }
+
+        if (event instanceof NavigationEnd) {
+          this.currentUrl.set(event.urlAfterRedirects);
+        }
+
+        this.isRouteLoading.set(false);
+      });
 
     this.syncProfileForm();
+    this.warnIfSupabaseMissing();
   }
 
-  protected setAuthMode(mode: AuthMode): void {
-    this.authMode.set(mode);
-    this.errorMessage.set('');
+  protected goToNextProfileStep(): void {
+    this.profileErrorMessage.set('');
+
+    if (this.profileStep() === 1 && !this.profileFirstName().trim()) {
+      this.showToast('warning', 'Preencha o primeiro nome para continuar.');
+      return;
+    }
+
+    if (this.profileStep() === 2 && (!this.profileAge() || !this.profileTechnicalLevel())) {
+      this.showToast('warning', 'Preencha idade e nivel tecnico para continuar.');
+      return;
+    }
+
+    this.profileStep.update((current) => (current < 3 ? ((current + 1) as 1 | 2 | 3) : current));
   }
+
+  protected goToPreviousProfileStep(): void {
+    this.profileErrorMessage.set('');
+    this.profileStep.update((current) => (current > 1 ? ((current - 1) as 1 | 2 | 3) : current));
+  }
+
+  protected profileStepTitle = computed(() => {
+    if (this.profileStep() === 1) {
+      return 'Detalhes pessoais';
+    }
+
+    if (this.profileStep() === 2) {
+      return 'Complete seu cadastro';
+    }
+
+    return 'Confirme seu acesso';
+  });
 
   protected async signInWithGoogle(): Promise<void> {
     this.errorMessage.set('');
+    this.isAuthRedirecting.set(true);
     const result = await this.auth.signInWithGoogle();
-    this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar com Google.'));
+    if (!result.ok) {
+      this.isAuthRedirecting.set(false);
+      this.showToast('error', result.message ?? 'Nao foi possivel entrar com Google.');
+    }
   }
 
   protected async signInWithLinkedIn(): Promise<void> {
     this.errorMessage.set('');
+    this.isAuthRedirecting.set(true);
     const result = await this.auth.signInWithLinkedIn();
-    this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar com LinkedIn.'));
-  }
-
-  protected async submitEmailLogin(): Promise<void> {
-    this.errorMessage.set('');
-    this.authSubmitting.set(true);
-    const result = await this.auth.signInWithEmail(this.loginEmail(), this.loginPassword());
-    this.authSubmitting.set(false);
-    this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar com e-mail e senha.'));
-  }
-
-  protected async submitEmailRegistration(): Promise<void> {
-    this.errorMessage.set('');
-    const technicalLevel = this.registerTechnicalLevel();
-    if (!technicalLevel) {
-      this.errorMessage.set('Selecione seu nivel tecnico para concluir o cadastro.');
-      return;
+    if (!result.ok) {
+      this.isAuthRedirecting.set(false);
+      this.showToast('error', result.message ?? 'Nao foi possivel entrar com LinkedIn.');
     }
-
-    this.authSubmitting.set(true);
-
-    const result = await this.auth.registerWithEmail({
-      name: this.registerName(),
-      email: this.registerEmail(),
-      password: this.registerPassword(),
-      whatsappNumber: this.registerWhatsapp(),
-      age: this.registerAge(),
-      technicalLevel,
-      educationInstitution: this.registerEducationInstitution(),
-      acceptedTerms: this.registerAcceptedTerms()
-    });
-
-    this.authSubmitting.set(false);
-    this.errorMessage.set(result.ok ? (result.message ?? '') : (result.message ?? 'Nao foi possivel concluir o cadastro.'));
   }
 
   protected onAgeChange(value: string | number | null): void {
     this.profileAge.set(this.normalizeAge(value));
   }
 
-  protected onRegisterAgeChange(value: string | number | null): void {
-    this.registerAge.set(this.normalizeAge(value));
-  }
-
   protected async submitProfileCompletion(): Promise<void> {
     this.profileErrorMessage.set('');
+    if (this.profileStep() !== 3) {
+      this.goToNextProfileStep();
+      return;
+    }
+
+    if (!this.profileAcceptedTerms()) {
+      this.showToast('warning', 'Voce precisa aceitar os termos para concluir o cadastro.');
+      return;
+    }
+
     this.profileSaving.set(true);
+    const name = [this.profileFirstName().trim(), this.profileLastName().trim()].filter(Boolean).join(' ');
 
     const result = await this.auth.completeOAuthProfile({
-      name: this.profileName(),
+      name,
       whatsappNumber: this.profileWhatsapp(),
       age: this.profileAge(),
       technicalLevel: this.profileTechnicalLevel() || null,
@@ -846,7 +1010,17 @@ export class App {
     });
 
     this.profileSaving.set(false);
-    this.profileErrorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel salvar seus dados.'));
+    if (!result.ok) {
+      this.showToast('error', result.message ?? 'Nao foi possivel salvar seus dados.');
+      return;
+    }
+
+    this.showToast('success', 'Cadastro complementar salvo com sucesso.');
+  }
+
+  protected cancelOAuthCompletion(): void {
+    this.profileStep.set(1);
+    void this.auth.signOut();
   }
 
   private normalizeAge(value: string | number | null): number | null {
@@ -854,15 +1028,40 @@ export class App {
     return Number.isFinite(next) && next > 0 ? next : null;
   }
 
+  private showToast(kind: 'success' | 'error' | 'warning', message: string): void {
+    this.snackBar.open(message, 'Fechar', {
+      duration: 4500,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+      panelClass: ['auth-toast', `auth-toast--${kind}`]
+    });
+  }
+
+  private warnIfSupabaseMissing(): void {
+    effect(() => {
+      if (this.supabase.isConfigured || !this.supabase.configError) {
+        return;
+      }
+
+      this.showToast('warning', this.supabase.configError);
+    });
+  }
+
   private syncProfileForm(): void {
     effect(() => {
       const user = this.auth.user();
-      this.profileName.set(user?.name ?? '');
+      const [firstName = '', ...rest] = (user?.name ?? '').trim().split(/\s+/).filter(Boolean);
+      this.profileFirstName.set(firstName);
+      this.profileLastName.set(rest.join(' '));
+      this.profileEmail.set(user?.email ?? '');
       this.profileWhatsapp.set(user?.whatsappNumber ?? '');
       this.profileAge.set(user?.age ?? null);
       this.profileTechnicalLevel.set(user?.technicalLevel ?? '');
       this.profileEducationInstitution.set(user?.educationInstitution ?? '');
       this.profileAcceptedTerms.set(Boolean(user?.acceptedTerms));
+      this.profileStep.set(1);
+      this.profileErrorMessage.set('');
+      this.isAuthRedirecting.set(false);
     });
   }
 }

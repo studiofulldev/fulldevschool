@@ -55,21 +55,13 @@ import { ThemeService } from '../services/theme.service';
                 <strong>{{ user.name }}</strong>
               </div>
 
-              @if (user.avatarUrl) {
-                <img [src]="user.avatarUrl" [alt]="user.name" />
-              } @else {
-                <span class="platform-user__avatar">{{ userInitials() }}</span>
-              }
+              <img [src]="userAvatarUrl()" [alt]="user.name" />
             </button>
 
             <mat-menu #userMenu="matMenu" xPosition="before" panelClass="fd-user-menu-panel">
               <div class="fd-user-menu" (click)="$event.stopPropagation()">
                 <div class="fd-user-menu__header">
-                  @if (user.avatarUrl) {
-                    <img class="fd-user-menu__avatar-image" [src]="user.avatarUrl" [alt]="user.name" />
-                  } @else {
-                    <div class="fd-user-menu__avatar">{{ userInitials() }}</div>
-                  }
+                  <img class="fd-user-menu__avatar-image" [src]="userAvatarUrl()" [alt]="user.name" />
 
                   <div class="fd-user-menu__identity">
                     <strong>{{ user.name }}</strong>
@@ -410,6 +402,7 @@ export class PlatformShellComponent {
   protected readonly auth = inject(AuthService);
   protected readonly theme = inject(ThemeService);
   private readonly router = inject(Router);
+  protected readonly userAvatarUrl = computed(() => this.auth.user()?.avatarUrl || '/user-default.jpg');
   protected readonly userInitials = computed(() => {
     const user = this.auth.user();
     if (!user) {
