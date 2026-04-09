@@ -13,6 +13,8 @@ interface SupabaseClientConfig {
   anonKey: string;
 }
 
+export type OAuthProvider = 'google' | 'linkedin_oidc';
+
 @Injectable({ providedIn: 'root' })
 export class SupabaseService {
   private readonly runtimeConfig = inject(RuntimeConfigService);
@@ -61,10 +63,10 @@ export class SupabaseService {
     });
   }
 
-  async signInWithGoogle() {
+  async signInWithOAuth(provider: OAuthProvider) {
     this.ensureConfigured();
     return this.client.auth.signInWithOAuth({
-      provider: 'google',
+      provider,
       options: {
         redirectTo: typeof window !== 'undefined' ? window.location.origin + '/courses/home' : undefined
       }
@@ -76,9 +78,25 @@ export class SupabaseService {
     return this.client.auth.signOut();
   }
 
+  async updateUserMetadata(metadata: Record<string, unknown>) {
+    this.ensureConfigured();
+    return this.client.auth.updateUser({
+      data: metadata
+    });
+  }
+
   async upsertProfile(profile: Record<string, unknown>) {
     this.ensureConfigured();
     return this.client.from('profiles').upsert(profile).select('id').single();
+  }
+
+  async upsertLead(lead: Record<string, unknown>) {
+    this.ensureConfigured();
+    return this.client
+      .from('leads')
+      .upsert(lead, { onConflict: 'email' })
+      .select('email')
+      .single();
   }
 
   toUserMetadata(user: User) {
@@ -90,7 +108,8 @@ export class SupabaseService {
       educationInstitution: String(metadata['education_institution'] ?? ''),
       acceptedTerms: Boolean(metadata['accepted_terms'] ?? false),
       acceptedTermsAt: String(metadata['accepted_terms_at'] ?? ''),
-      age: metadata['age']
+      age: metadata['age'],
+      role: String(metadata['app_role'] ?? metadata['role'] ?? 'user')
     };
   }
 

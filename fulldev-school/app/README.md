@@ -4,7 +4,7 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 
 ## Stack
 
-- Angular 19
+- Angular 21
 - standalone components
 - Signals
 - Angular Material
@@ -26,7 +26,7 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - visão geral com painel de boas-vindas com embed de vídeo e árvore expansível customizada
 - `mat-expansion-panel` deve permanecer sem sombra em toda a interface
 - o shell dos cursos não usa footer próprio
-- o gate de autenticacao exibe apenas `Entrar com Google` por enquanto
+- o gate de autenticacao oferece `Entrar com Google` e `Entrar com LinkedIn`
 - os botoes das paginas de `/courses` seguem o mesmo padrao vermelho do fluxo do curso
 
 ## Arquivos centrais
@@ -40,6 +40,9 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 ## Documentação técnica
 
 - `docs/`: visão do produto, arquitetura, stack, modelo de conteúdo e estratégia de áudio
+- `docs/09-backlog-operacional.md`: backlog priorizado para execução
+- `docs/10-autenticacao-social-e-profiles.md`: fluxo de login com Google e LinkedIn e persistência em `profiles`
+- `docs/11-supabase-setup-completo.md`: guia completo para recriar Auth, tabelas, RLS e configuração do Supabase
 
 ## Rodando localmente
 
@@ -66,10 +69,14 @@ npm run build
   1. `window.__FULLDEV_SCHOOL_CONFIG__.supabase`
   2. `localStorage`
   3. `environment.ts` ou `environment.prod.ts`
+- para LinkedIn no Supabase, habilite o provider `linkedin_oidc` e inclua o callback do projeto na allow list de redirects
 
 ## Observações
 
 - a interface de áudio está adiada
-- o conteúdo depende de `fulldev-school/mock-db/doc`
+- o conteúdo depende de `fulldev-school/mock-db/doc` como fonte transitória nesta fase
+- no futuro o conteúdo deve migrar para fluxo administrativo com perfis de administrador e instrutor
+- administradores poderão gerenciar usuários e cursos
+- instrutores poderão cadastrar e editar apenas os cursos vinculados a eles
 - ainda existem arquivos `.md` com encoding a revisar
 - existem warnings de style budget em `lesson-page.component.ts` e `app.scss`

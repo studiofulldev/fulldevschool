@@ -11,6 +11,7 @@ Repositório do guia editorial da FullDev com uma aplicação Angular para naveg
 - cada página é carregada por `slug`
 - cada seção interna do Markdown com `##` vira um bloco expansível na leitura
 - os painéis do menu lateral e do conteúdo usam visual reto, sem sombra padrão do Material
+- o frontend está em Angular 21
 
 ## Produto atual
 
@@ -25,7 +26,7 @@ O projeto hoje não é mais um reader estilo Speechify. O fluxo principal é um 
 ## Estrutura
 
 - `doc/`: fonte principal da documentação
-- `fulldev-school/mock-db/doc/`: espelho usado pela aplicação no frontend
+- `fulldev-school/mock-db/doc/`: espelho transitório usado pela aplicação no frontend
 - `fulldev-school/mock-db/navigation/tree.json`: árvore da navegação
 - `fulldev-school/app/`: aplicação Angular
 
@@ -39,12 +40,16 @@ O projeto hoje não é mais um reader estilo Speechify. O fluxo principal é um 
 - o conteúdo da página abre subtópicos por painéis expansíveis simples
 - a UI usa `Inter` como tipografia base
 - os títulos do menu lateral podem ser abreviados para manter uma linha só
+- o `mock-db` continua como fonte local da interface nesta fase
+- no futuro haverá área administrativa para gerenciar usuários e cursos
+- no futuro haverá área de instrutor para cadastrar e editar cursos pertencentes ao próprio instrutor
 
 ## Pontos em aberto
 
 - revisar encoding dos arquivos Markdown que ainda têm caracteres corrompidos
 - transformar links internos do estilo Obsidian em navegação real
 - revisar ortografia final dos textos próprios da UI
+- planejar a migração do `mock-db` para a camada administrativa e de autoria quando o backend real entrar
 
 ## Execução
 
