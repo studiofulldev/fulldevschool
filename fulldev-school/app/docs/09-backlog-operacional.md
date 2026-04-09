@@ -2,13 +2,13 @@
 
 ## Objetivo
 
-Organizar a execução da Fulldev School em blocos priorizados, separando o que já está entregue, o que está em consolidação e o que vem na próxima fase operacional.
+Organizar a execucao da Fulldev School em blocos priorizados, separando o que ja esta entregue, o que esta em consolidacao e o que entra na proxima fase.
 
-Critério de leitura:
+Criterio de leitura:
 
-- `Pronto`: já existe no código e deve ser preservado, refinado ou usado como base.
-- `Em andamento`: já existe parcialmente, mas ainda precisa fechamento funcional, técnico ou visual.
-- `Próximo`: ainda não foi consolidado e deve entrar na sequência de execução.
+- `Pronto`: ja existe no codigo e deve ser preservado, refinado ou usado como base
+- `Em andamento`: ja existe parcialmente, mas ainda precisa fechamento funcional, tecnico ou visual
+- `Proximo`: ainda nao foi consolidado e deve entrar na sequencia de execucao
 
 ---
 
@@ -19,131 +19,133 @@ Critério de leitura:
 Status operacional:
 
 - app em Angular 21 com standalone components, Signals e Angular Material
-- rotas principais de legal, catálogo, conta e curso já estruturadas
-- shell do curso e shell da plataforma já separados
+- rotas principais de legal, catalogo, conta e curso estruturadas
+- shell do curso e shell da plataforma separados
 
-Entregáveis já existentes:
+Entregaveis ja existentes:
 
-- navegação principal
+- navegacao principal
 - leitura por rota
 - estrutura visual base da plataforma
 
-Critério de aceite:
+Criterio de aceite:
 
 - manter compatibilidade com a arquitetura atual
-- evitar regressão das rotas `/courses`, `/courses/:courseSlug`, `/courses/:courseSlug/modules/:moduleSlug` e `/courses/:courseSlug/lessons/:lessonSlug`
+- evitar regressao das rotas `/courses`, `/courses/:courseSlug`, `/courses/:courseSlug/modules/:moduleSlug` e `/courses/:courseSlug/lessons/:lessonSlug`
 
-### 2. Conteúdo via `mock-db`
+### 2. Conteudo via `mock-db`
 
 Status operacional:
 
-- conteúdo consumido a partir de `mock-db/navigation/tree.json` e `mock-db/doc`
-- parsing de frontmatter e Markdown já funcionando
-- separação por blocos `##` já implementada
+- conteudo consumido a partir de `mock-db/navigation/tree.json` e `mock-db/doc`
+- parsing de frontmatter e Markdown funcionando
+- separacao por blocos `##` implementada
 
-Entregáveis já existentes:
+Entregaveis ja existentes:
 
-- árvore de navegação
+- arvore de navegacao
 - leitura por `slug`
-- relação anterior/próximo
+- relacao anterior/proximo
 
-Critério de aceite:
+Criterio de aceite:
 
-- preservar o `mock-db` como fonte transitória
-- não hardcodar conteúdo na UI
+- preservar o `mock-db` como fonte transitoria
+- nao hardcodar conteudo na UI
 
-### 3. Gate inicial de autenticação
+### 3. Gate inicial de autenticacao
 
 Status operacional:
 
-- login com Google e LinkedIn já implementado
-- fluxo de completar perfil OAuth já implementado
-- base de integração com Supabase já disponível
+- login com Google e LinkedIn implementado
+- estado intermediario de autenticacao antes do redirect OAuth implementado
+- fluxo de completar perfil OAuth em wizard implementado
+- base de integracao com Supabase disponivel
+- persistencia complementar em `profiles` e `leads` conectada
 
-Entregáveis já existentes:
+Entregaveis ja existentes:
 
-- bloqueio da app para usuário não autenticado
-- leitura de configuração via runtime config e environment
-- suporte a `profiles` no Supabase
+- bloqueio visual da app para usuario nao autenticado
+- leitura de configuracao via runtime config e environment
+- suporte a `profiles` e `leads` no Supabase
 
-Critério de aceite:
+Criterio de aceite:
 
-- manter autenticação funcional sem expor `service_role`
-- preservar fallback seguro quando a tabela `profiles` ainda não existir
+- manter autenticacao funcional sem expor `service_role`
+- preservar fallback seguro quando `profiles` ou `leads` ainda nao existirem
 
 ### 4. Estrutura de progresso local
 
 Status operacional:
 
-- check de curso, módulo e lição já existe
+- check de curso, modulo e licao existe
 - estado armazenado em `localStorage`
-- percentuais já são usados em partes da UI
+- percentuais ja sao usados em partes da UI
 
-Entregáveis já existentes:
+Entregaveis ja existentes:
 
 - `CourseProgressService`
-- botões de concluir em módulo e lição
-- leitura de status na conta e no catálogo
+- botoes de concluir em modulo e licao
+- leitura de status na conta e no catalogo
 
-Critério de aceite:
+Criterio de aceite:
 
-- tratar a implementação atual como base temporária
-- não considerar o requisito encerrado enquanto não houver persistência alinhada ao usuário autenticado
+- tratar a implementacao atual como base temporaria
+- nao considerar o requisito encerrado enquanto nao houver persistencia alinhada ao usuario autenticado
 
 ---
 
 ## Em andamento
 
-### 1. Persistência correta do check de cursos, módulos e lições
+### 1. Persistencia correta do check de cursos, modulos e licoes
 
 Objetivo:
 
-- ajustar a forma como os checks de progresso funcionam para que o estado deixe de ser apenas local e passe a ser persistido de forma confiável
+- ajustar a forma como os checks de progresso funcionam para deixar de ser apenas local e passar a ser persistido de forma confiavel
 
 Escopo operacional:
 
 - revisar o modelo atual de `CourseProgressService`
-- definir chave de persistência por usuário autenticado
-- decidir transição entre `localStorage` temporário e persistência remota
-- evitar inconsistência entre check de lição, módulo e curso
-- recalcular conclusão de módulo e curso a partir do estado real das lições
+- definir chave de persistencia por usuario autenticado
+- decidir transicao entre `localStorage` temporario e persistencia remota
+- evitar inconsistencia entre check de licao, modulo e curso
+- recalcular conclusao de modulo e curso a partir do estado real das licoes
 
-Entregáveis:
+Entregaveis:
 
-- regra única de conclusão
-- persistência consistente por usuário
-- UI refletindo estado real após reload e novo login
+- regra unica de conclusao
+- persistencia consistente por usuario
+- UI refletindo estado real apos reload e novo login
 
-Critério de aceite:
+Criterio de aceite:
 
-- usuário autenticado volta e encontra seus checks preservados
-- curso concluído não depende de marcação manual isolada em conflito com as lições
-- módulo concluído reflete as lições concluídas ou a regra oficial definida
+- usuario autenticado volta e encontra seus checks preservados
+- curso concluido nao depende de marcacao manual isolada em conflito com as licoes
+- modulo concluido reflete as licoes concluidas ou a regra oficial definida
 
 ### 2. Preload skeleton para o projeto todo
 
 Objetivo:
 
-- sair do skeleton isolado da página de lição e padronizar estados de carregamento em toda a experiência
+- sair do skeleton isolado da pagina de licao e padronizar estados de carregamento em toda a experiencia
 
 Escopo operacional:
 
 - mapear telas sem loading consistente
-- definir padrão visual único para skeleton
-- aplicar em catálogo, dashboard, conta, módulo, curso e leitura
-- separar loading de conteúdo, loading de autenticação e loading de configuração
+- definir padrao visual unico para skeleton
+- aplicar em catalogo, dashboard, conta, modulo, curso e leitura
+- separar loading de conteudo, loading de autenticacao e loading de configuracao
 
-Entregáveis:
+Entregaveis:
 
-- componente ou padrão compartilhado de skeleton
+- componente ou padrao compartilhado de skeleton
 - cobertura de loading nas principais rotas
-- redução de tela vazia durante bootstrap e troca de rota
+- reducao de tela vazia durante bootstrap e troca de rota
 
-Critério de aceite:
+Criterio de aceite:
 
 - nenhuma tela principal deve piscar vazia antes de carregar
 - skeleton precisa ser visualmente coerente com a identidade atual
-- loading não deve deslocar layout de forma brusca
+- loading nao deve deslocar layout de forma brusca
 
 ### 3. Ajustes pendentes de UI
 
@@ -153,177 +155,177 @@ Objetivo:
 
 Escopo operacional:
 
-- revisar placeholders de vídeo
-- revisar hierarquia visual de dashboard, catálogo, módulos e conta
-- revisar labels truncados e abreviações da sidebar
-- revisar alinhamento, espaçamento e consistência de botões de ação
+- revisar placeholders de video
+- revisar hierarquia visual de dashboard, catalogo, modulos e conta
+- revisar labels truncados e abreviacoes da sidebar
+- revisar alinhamento, espacamento e consistencia de botoes de acao
 - revisar warnings de style budget em `lesson-page.component.ts` e `app.scss`
 
-Entregáveis:
+Entregaveis:
 
 - interface mais consistente entre plataforma e curso
-- redução de áreas com cara de placeholder
-- padronização visual dos estados de ação, loading e conclusão
+- reducao de areas com cara de placeholder
+- padronizacao visual dos estados de acao, loading e conclusao
 
-Critério de aceite:
+Criterio de aceite:
 
 - telas principais com acabamento visual consistente
-- sem elementos com aparência provisória onde o fluxo já está ativo
+- sem elementos com aparencia provisoria onde o fluxo ja esta ativo
 - style budget revisado ou justificado tecnicamente
 
 ### 4. Alinhamento documental com o estado real da app
 
 Objetivo:
 
-- manter a documentação aderente ao que está implementado
+- manter a documentacao aderente ao que esta implementado
 
 Escopo operacional:
 
-- continuar removendo descrições antigas de rotas e comportamento
-- refletir Angular 21, plataforma `/courses` e papel transitório do `mock-db`
-- registrar decisões de produto sobre admin e instrutor
+- continuar removendo descricoes antigas de rotas e comportamento
+- refletir Angular 21, plataforma `/courses`, papel transitorio do `mock-db` e fluxo atual de autenticacao
+- registrar decisoes de produto sobre admin e instrutor
 
-Entregáveis:
+Entregaveis:
 
-- documentação técnica coerente com o código
-- backlog vivo de execução
+- documentacao tecnica coerente com o codigo
+- backlog vivo de execucao
 
-Critério de aceite:
+Criterio de aceite:
 
-- documentos principais sem drift relevante em relação à implementação
+- documentos principais sem drift relevante em relacao a implementacao
 
 ---
 
-## Próximo
+## Proximo
 
-### 1. Navegação real para links internos estilo Obsidian
+### 1. Navegacao real para links internos estilo Obsidian
 
 Objetivo:
 
-- transformar links `[[...]]` em navegação real da plataforma
+- transformar links `[[...]]` em navegacao real da plataforma
 
 Escopo operacional:
 
-- mapear slug de destino a partir do conteúdo
-- substituir `href="#"` por rota válida
+- mapear slug de destino a partir do conteudo
+- substituir `href="#"` por rota valida
 - tratar casos com alias e links quebrados
 
-Entregáveis:
+Entregaveis:
 
-- parser de links internos integrado à navegação
-- fallback explícito para referências não resolvidas
+- parser de links internos integrado a navegacao
+- fallback explicito para referencias nao resolvidas
 
-Critério de aceite:
+Criterio de aceite:
 
-- links internos navegam para páginas válidas
-- conteúdo legado não quebra renderização
+- links internos navegam para paginas validas
+- conteudo legado nao quebra renderizacao
 
-### 2. Correção de encoding e revisão editorial final
+### 2. Correcao de encoding e revisao editorial final
 
 Objetivo:
 
-- eliminar caracteres corrompidos e ruídos herdados dos Markdown e da documentação
+- eliminar caracteres corrompidos e ruidos herdados dos Markdown e da documentacao
 
 Escopo operacional:
 
 - revisar arquivos com encoding quebrado
-- corrigir textos visíveis na UI e docs
-- validar consistência de acentuação e nomenclatura
+- corrigir textos visiveis na UI e docs
+- validar consistencia de acentuacao e nomenclatura
 
-Entregáveis:
+Entregaveis:
 
 - base editorial limpa
 - UI sem strings corrompidas
 
-Critério de aceite:
+Criterio de aceite:
 
-- ausência de caracteres quebrados nos fluxos principais
-- textos revisados nas páginas mais acessadas
+- ausencia de caracteres quebrados nos fluxos principais
+- textos revisados nas paginas mais acessadas
 
-### 3. Dashboard e catálogo menos placeholder
+### 3. Dashboard e catalogo menos placeholder
 
 Objetivo:
 
-- substituir blocos genéricos por funcionalidades reais de plataforma
+- substituir blocos genericos por funcionalidades reais de plataforma
 
 Escopo operacional:
 
 - definir cards e atalhos reais para home
-- exibir progresso, retomada e recomendações
-- enriquecer catálogo com status, capa, contexto e entrada no curso
+- exibir progresso, retomada e recomendacoes
+- enriquecer catalogo com status, capa, contexto e entrada no curso
 
-Entregáveis:
+Entregaveis:
 
-- home útil
-- catálogo mais informativo
+- home util
+- catalogo mais informativo
 
-Critério de aceite:
+Criterio de aceite:
 
-- dashboard com função operacional real
-- catálogo deixando de ser apenas estrutura inicial
+- dashboard com funcao operacional real
+- catalogo deixando de ser apenas estrutura inicial
 
-### 4. Evolução da camada de conteúdo além do `mock-db`
+### 4. Evolucao da camada de conteudo alem do `mock-db`
 
 Objetivo:
 
-- preparar a migração gradual do conteúdo para backend real
+- preparar a migracao gradual do conteudo para backend real
 
 Escopo operacional:
 
-- definir modelo de dados para cursos, módulos, lições e permissões
+- definir modelo de dados para cursos, modulos, licoes e permissoes
 - definir backoffice administrativo
-- definir área de instrutor com escopo restrito aos próprios cursos
-- planejar migração sem quebrar a leitura atual
+- definir area de instrutor com escopo restrito aos proprios cursos
+- planejar migracao sem quebrar a leitura atual
 
-Entregáveis:
+Entregaveis:
 
-- blueprint técnico da camada administrativa
-- estratégia de migração
+- blueprint tecnico da camada administrativa
+- estrategia de migracao
 
-Critério de aceite:
+Criterio de aceite:
 
-- backlog técnico fechado para admin e instrutor
+- backlog tecnico fechado para admin e instrutor
 - contrato de dados definido antes de remover o `mock-db`
 
-### 5. Retomada futura do áudio guiado
+### 5. Retomada futura do audio guiado
 
 Objetivo:
 
-- reativar o áudio quando a base principal de conteúdo, progresso e UI estiver estável
+- reativar o audio quando a base principal de conteudo, progresso e UI estiver estavel
 
 Escopo operacional:
 
-- decidir entre TTS, áudio pronto ou modo híbrido
+- decidir entre TTS, audio pronto ou modo hibrido
 - reintroduzir player sem poluir o fluxo de leitura
-- persistir progresso de áudio quando a feature voltar
+- persistir progresso de audio quando a feature voltar
 
-Entregáveis:
+Entregaveis:
 
-- estratégia validada para player
-- plano de implementação desacoplado da leitura principal
+- estrategia validada para player
+- plano de implementacao desacoplado da leitura principal
 
-Critério de aceite:
+Criterio de aceite:
 
-- áudio volta como feature real, não como placeholder
+- audio volta como feature real, nao como placeholder
 
 ---
 
-## Ordem prática de execução
+## Ordem pratica de execucao
 
 ### Bloco 1
 
-- persistência correta do check de cursos, módulos e lições
+- persistencia correta do check de cursos, modulos e licoes
 - preload skeleton para o projeto todo
-- ajustes pendentes de UI nas telas já ativas
+- ajustes pendentes de UI nas telas ja ativas
 
 ### Bloco 2
 
 - links internos estilo Obsidian
-- correção de encoding e revisão editorial final
-- dashboard e catálogo com função real
+- correcao de encoding e revisao editorial final
+- dashboard e catalogo com funcao real
 
 ### Bloco 3
 
-- desenho da área administrativa
-- desenho da área de instrutor
-- plano de migração do `mock-db` para backend real
+- desenho da area administrativa
+- desenho da area de instrutor
+- plano de migracao do `mock-db` para backend real

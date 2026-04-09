@@ -4,6 +4,38 @@
 
 Este documento e o guia completo para recriar o Supabase da Fulldev School a partir de uma conta limpa.
 
+## Execucao rapida
+
+### Rode agora
+
+1. criar o projeto no Supabase
+2. configurar Auth com:
+   - Google
+   - LinkedIn OIDC
+   - Email, apenas se quiser manter o backend preparado para esse fluxo
+3. configurar as redirect URLs
+4. executar o SQL da secao `3. SQL completo para criar a base atual`
+5. se o banco ja existia antes, executar tambem a secao `3.1. SQL de ajuste para bancos ja criados`
+6. configurar o frontend com URL e publishable key
+
+### Valide agora
+
+1. login com Google volta para `/courses/home`
+2. login com LinkedIn volta para `/courses/home`
+3. `public.profiles` recebe ou atualiza os dados do usuario
+4. `public.leads` recebe ou atualiza os dados do usuario sem `403`
+5. o popup de complemento de cadastro aparece quando faltam campos obrigatorios
+6. `technical_level` aceita os valores atuais do frontend
+7. o papel `admin` ou `instructor` reflete na UI quando atualizado em `auth.users` e `profiles`
+
+### Deixe para depois
+
+1. upload de avatar proprio
+2. avatar customizado estilo personagem
+3. tabelas academicas e de progresso real no backend
+4. painel administrativo
+5. area de instrutor
+
 Ele cobre:
 
 - configuracao do projeto
@@ -30,9 +62,9 @@ Hoje, o frontend depende diretamente de:
 
 ## Visao geral da arquitetura atual
 
-Hoje o login funciona assim:
+Hoje o login exposto na interface funciona assim:
 
-1. o usuario autentica via Google, LinkedIn ou e-mail/senha no Supabase Auth
+1. o usuario autentica via Google ou LinkedIn no Supabase Auth
 2. a app restaura a sessao
 3. a app tenta sincronizar o usuario em `profiles`
 4. a app tenta sincronizar o contato em `leads`
@@ -49,7 +81,8 @@ Importante:
 Crie agora:
 
 - projeto Supabase
-- Auth com e-mail/senha
+- Auth com Google e LinkedIn
+- Auth com e-mail/senha, apenas se quiser manter esse fluxo disponivel no backend
 - provider `google`
 - provider `linkedin_oidc`
 - tabela `profiles`
@@ -72,9 +105,9 @@ No painel do Supabase:
 No painel do Supabase:
 
 1. abra `Authentication`
-2. habilite `Email`
-3. habilite `Google`
-4. habilite `LinkedIn (OIDC)` como `linkedin_oidc`
+2. habilite `Google`
+3. habilite `LinkedIn (OIDC)` como `linkedin_oidc`
+4. habilite `Email` somente se quiser preservar suporte de backend a esse fluxo
 
 ### Redirect URL
 
@@ -119,7 +152,16 @@ create table if not exists public.profiles (
   age integer null check (age is null or age > 0),
   technical_level text null check (
     technical_level is null
-    or technical_level in ('iniciante', 'intermediario', 'avancado')
+    or technical_level in (
+      'estudante',
+      'estagiario',
+      'junior',
+      'pleno',
+      'senior',
+      'lead',
+      'staff',
+      'principal'
+    )
   ),
   education_institution text not null default '',
   avatar_url text null,
@@ -217,13 +259,14 @@ with check (
   or public.current_profile_role() = 'admin'
 );
 
-drop policy if exists "leads_select_admin_only" on public.leads;
-create policy "leads_select_admin_only"
+drop policy if exists "leads_select_own_or_admin" on public.leads;
+create policy "leads_select_own_or_admin"
 on public.leads
 for select
 to authenticated
 using (
   public.current_profile_role() = 'admin'
+  or lower(email) = lower(auth.email())
 );
 
 drop policy if exists "leads_insert_authenticated" on public.leads;
@@ -235,20 +278,105 @@ with check (
   auth.uid() is not null
 );
 
-drop policy if exists "leads_update_admin_only" on public.leads;
-create policy "leads_update_admin_only"
+drop policy if exists "leads_update_own_or_admin" on public.leads;
+create policy "leads_update_own_or_admin"
 on public.leads
 for update
 to authenticated
 using (
   public.current_profile_role() = 'admin'
+  or lower(email) = lower(auth.email())
 )
 with check (
   public.current_profile_role() = 'admin'
+  or lower(email) = lower(auth.email())
 );
 
 commit;
 ```
+
+## 3.1. SQL de ajuste para bancos ja criados
+
+Se voce ja executou a versao antiga do schema, rode este bloco complementar para alinhar o banco ao frontend atual:
+
+```sql
+begin;
+
+do $$
+declare
+  r record;
+begin
+  for r in
+    select c.conname
+    from pg_constraint c
+    join pg_class t on t.oid = c.conrelid
+    join pg_namespace n on n.oid = t.relnamespace
+    where n.nspname = 'public'
+      and t.relname = 'profiles'
+      and c.contype = 'c'
+      and pg_get_constraintdef(c.oid) ilike '%technical_level%'
+  loop
+    execute format('alter table public.profiles drop constraint %I', r.conname);
+  end loop;
+end $$;
+
+update public.profiles
+set technical_level = case technical_level
+  when 'iniciante' then 'estudante'
+  when 'intermediario' then 'junior'
+  when 'avancado' then 'senior'
+  else technical_level
+end;
+
+alter table public.profiles
+  add constraint profiles_technical_level_check
+  check (
+    technical_level is null
+    or technical_level in (
+      'estudante',
+      'estagiario',
+      'junior',
+      'pleno',
+      'senior',
+      'lead',
+      'staff',
+      'principal'
+    )
+  );
+
+drop policy if exists "leads_select_admin_only" on public.leads;
+drop policy if exists "leads_select_own_or_admin" on public.leads;
+create policy "leads_select_own_or_admin"
+on public.leads
+for select
+to authenticated
+using (
+  public.current_profile_role() = 'admin'
+  or lower(email) = lower(auth.email())
+);
+
+drop policy if exists "leads_update_admin_only" on public.leads;
+drop policy if exists "leads_update_own_or_admin" on public.leads;
+create policy "leads_update_own_or_admin"
+on public.leads
+for update
+to authenticated
+using (
+  public.current_profile_role() = 'admin'
+  or lower(email) = lower(auth.email())
+)
+with check (
+  public.current_profile_role() = 'admin'
+  or lower(email) = lower(auth.email())
+);
+
+commit;
+```
+
+Observacao:
+
+- esse bloco foi validado em um banco que ainda tinha constraints antigas de `technical_level`
+- se voce estiver com a aplicacao aberta, prefira pausar o frontend durante a migracao para evitar escrita concorrente em `profiles`
 
 ## 4. O que cada tabela faz
 
@@ -263,7 +391,7 @@ Campos:
 - `full_name`: nome do usuario
 - `whatsapp_number`: telefone ou WhatsApp
 - `age`: idade
-- `technical_level`: `iniciante`, `intermediario`, `avancado`
+- `technical_level`: `estudante`, `estagiario`, `junior`, `pleno`, `senior`, `lead`, `staff`, `principal`
 - `education_institution`: instituicao de ensino
 - `avatar_url`: avatar vindo do provider
 - `provider`: `google`, `linkedin_oidc` ou `email`
@@ -300,8 +428,8 @@ O frontend faz `upsert` em `profiles` quando:
 
 - restaura sessao
 - recebe evento de auth
-- usuario faz cadastro com e-mail
 - usuario completa o cadastro social
+- opcionalmente, se voce mantiver o fluxo de e-mail ativo no backend
 
 ### `leads`
 
@@ -309,13 +437,21 @@ O frontend faz `upsert` em `leads` quando:
 
 - restaura sessao
 - recebe evento de auth
-- usuario faz cadastro com e-mail
+- opcionalmente, se voce mantiver o fluxo de e-mail ativo no backend
 
 Conflito usado:
 
 - `email`
 
 Por isso a tabela `leads.email` precisa ser `unique`.
+
+Importante:
+
+- como o frontend usa `upsert(...).select('email').single()`, a tabela `leads` precisa permitir:
+  - `insert` para usuario autenticado
+  - `select` do proprio lead
+  - `update` do proprio lead
+- se `select` ou `update` ficarem restritos apenas a admin, o Supabase pode responder `403 Forbidden` no `upsert`
 
 ## 6. Campos de metadata no Auth
 
@@ -442,13 +578,51 @@ Depois de criar tudo, valide:
 
 1. login com Google redireciona de volta para `/courses/home`
 2. login com LinkedIn redireciona de volta para `/courses/home`
-3. cadastro com e-mail cria usuario
-4. login com e-mail funciona
-5. ao logar, uma linha aparece em `public.leads`
-6. ao logar, um registro aparece ou atualiza em `public.profiles`
-7. no login social incompleto, o popup de completar cadastro aparece
-8. ao salvar o popup, `profiles` e `user_metadata` sao atualizados
-9. ao promover um usuario para `admin`, o papel aparece refletido na app
+3. ao logar, uma linha aparece em `public.leads`
+4. ao logar, um registro aparece ou atualiza em `public.profiles`
+5. no login social incompleto, o popup de completar cadastro aparece
+6. ao salvar o popup, `profiles` e `user_metadata` sao atualizados
+7. ao promover um usuario para `admin`, o papel aparece refletido na app
+
+## 11.1. Proximos passos operacionais
+
+Depois que o SQL estiver aplicado e o login funcionando, siga esta ordem:
+
+1. conferir no Supabase se `profiles.technical_level` aceita:
+   - `estudante`
+   - `estagiario`
+   - `junior`
+   - `pleno`
+   - `senior`
+   - `lead`
+   - `staff`
+   - `principal`
+2. testar login com Google
+3. testar login com LinkedIn
+4. confirmar se `public.leads` recebe ou atualiza a linha do usuario autenticado sem `403`
+5. confirmar se `public.profiles` recebe:
+   - `full_name`
+   - `email`
+   - `technical_level`
+   - `avatar_url`
+   - `accepted_terms`
+6. validar se usuario sem foto fica com avatar default no frontend
+7. promover manualmente um usuario para `admin` e confirmar reflexo na UI
+8. revisar depois a configuracao de `Storage` caso queira permitir upload de avatar proprio
+9. revisar depois a modelagem de avatar customizado se quiser evoluir para bonequinho personalizado
+
+## 11.2. Checklist final de entrega
+
+Considere o setup concluido quando tudo abaixo estiver verdadeiro:
+
+- o frontend autentica com Google e LinkedIn
+- o redirect volta corretamente para a plataforma
+- o usuario aparece em `auth.users`
+- o perfil aparece em `public.profiles`
+- o lead aparece em `public.leads`
+- o `technical_level` salvo bate com a lista atual do frontend
+- o complemento de cadastro salva sem erro
+- o papel de acesso reflete corretamente na interface
 
 ## 12. Consultas uteis
 

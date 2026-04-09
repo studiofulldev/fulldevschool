@@ -27,6 +27,17 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - `mat-expansion-panel` deve permanecer sem sombra em toda a interface
 - o shell dos cursos não usa footer próprio
 - o gate de autenticacao oferece `Entrar com Google` e `Entrar com LinkedIn`
+- ao iniciar OAuth, o modal troca para um estado intermediario de confirmacao
+- o complemento de cadastro usa wizard com fallback de avatar default e aceite de termos em popup
+- `technical_level` hoje representa senioridade:
+  - `estudante`
+  - `estagiario`
+  - `junior`
+  - `pleno`
+  - `senior`
+  - `lead`
+  - `staff`
+  - `principal`
 - os botoes das paginas de `/courses` seguem o mesmo padrao vermelho do fluxo do curso
 
 ## Arquivos centrais
@@ -41,7 +52,7 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 
 - `docs/`: visão do produto, arquitetura, stack, modelo de conteúdo e estratégia de áudio
 - `docs/09-backlog-operacional.md`: backlog priorizado para execução
-- `docs/10-autenticacao-social-e-profiles.md`: fluxo de login com Google e LinkedIn e persistência em `profiles`
+- `docs/10-autenticacao-social-e-profiles.md`: fluxo atual de login social, complemento de perfil e persistencia em `profiles` e `leads`
 - `docs/11-supabase-setup-completo.md`: guia completo para recriar Auth, tabelas, RLS e configuração do Supabase
 
 ## Rodando localmente
