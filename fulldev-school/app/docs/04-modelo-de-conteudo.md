@@ -2,13 +2,21 @@
 
 ## Ideia central
 
-O conteúdo vai funcionar como um banco de dados mockado.
+O conteúdo funciona hoje a partir de um `mock-db` local.
 
 Ou seja:
 
 - nada fica hardcoded na interface
 - tudo vem de arquivos estruturados
 - o Angular só lê, valida e renderiza
+
+Nesta fase, o `mock-db` é a fonte transitória da aplicação.
+
+No futuro, essa camada deve ser substituída por uma origem administrativa real, com:
+
+- área de administrador para gerenciar usuários e cursos
+- área de instrutor para cadastrar e editar apenas os cursos que pertencem a ele
+- persistência real para catálogo, autoria e permissões
 
 ## Unidades principais
 

@@ -40,15 +40,16 @@ Também é objetivo do produto reforçar a IA como ferramenta de apoio transvers
 
 - renderizar o conteúdo em Angular
 - navegar por árvore e breadcrumbs
-- carregar páginas a partir de um banco de dados mockado
+- carregar páginas a partir do `mock-db` como fonte transitória da interface
 - reproduzir áudio por página
 - preparar sincronização entre áudio e blocos de texto
 - abrir a jornada com uma etapa clara sobre IA, mercado, medo e oportunidade
 
 ## Fora da V1
 
-- autenticação
-- backend real
+- backend real com gestão de usuários e cursos
+- área administrativa para gerenciar usuários e cursos
+- área de instrutor para cadastrar e editar cursos pertencentes ao próprio instrutor
 - CMS real
 - analytics avançado
 - comentários

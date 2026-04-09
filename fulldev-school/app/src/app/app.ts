@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { filter } from 'rxjs';
-import { AuthService } from './services/auth.service';
-import { TechnicalLevel } from './services/auth.service';
+import { AuthService, TechnicalLevel } from './services/auth.service';
 import { SupabaseService } from './services/supabase.service';
+
+type AuthMode = 'login' | 'register';
 
 @Component({
   selector: 'app-root',
@@ -27,8 +28,33 @@ import { SupabaseService } from './services/supabase.service';
             <img class="auth-gate__brand" src="logo-fulldev.svg" alt="Fulldev School" />
           </div>
 
-          <h1 id="auth-gate-title">Entre para continuar</h1>
-          <p>Escolha um provedor para acessar a plataforma no mesmo padrao visual da area de cursos.</p>
+          <h1 id="auth-gate-title">{{ authMode() === 'login' ? 'Entre para continuar' : 'Crie sua conta' }}</h1>
+          <p>
+            @if (authMode() === 'login') {
+              Escolha um provedor ou entre com e-mail e senha para acessar a plataforma.
+            } @else {
+              Preencha seu cadastro completo ou use Google e LinkedIn para iniciar o acesso.
+            }
+          </p>
+
+          <div class="auth-mode-switch" role="tablist" aria-label="Modo de autenticacao">
+            <button
+              type="button"
+              class="auth-mode-switch__button"
+              [class.auth-mode-switch__button--active]="authMode() === 'login'"
+              (click)="setAuthMode('login')"
+            >
+              Entrar
+            </button>
+            <button
+              type="button"
+              class="auth-mode-switch__button"
+              [class.auth-mode-switch__button--active]="authMode() === 'register'"
+              (click)="setAuthMode('register')"
+            >
+              Cadastrar
+            </button>
+          </div>
 
           <div class="auth-gate__actions">
             <button
@@ -58,7 +84,9 @@ import { SupabaseService } from './services/supabase.service';
                   />
                 </svg>
               </span>
-              <span class="auth-provider-button__label">Entrar com Google</span>
+              <span class="auth-provider-button__label">
+                {{ authMode() === 'login' ? 'Entrar com Google' : 'Continuar com Google' }}
+              </span>
             </button>
 
             <button
@@ -76,9 +104,178 @@ import { SupabaseService } from './services/supabase.service';
                   />
                 </svg>
               </span>
-              <span class="auth-provider-button__label">Entrar com LinkedIn</span>
+              <span class="auth-provider-button__label">
+                {{ authMode() === 'login' ? 'Entrar com LinkedIn' : 'Continuar com LinkedIn' }}
+              </span>
             </button>
           </div>
+
+          <div class="auth-gate__divider">
+            <span></span>
+            <strong>ou</strong>
+            <span></span>
+          </div>
+
+          @if (authMode() === 'login') {
+            <form class="auth-profile-form" (ngSubmit)="submitEmailLogin()">
+              <div class="auth-profile-grid auth-profile-grid--single">
+                <label class="auth-field" for="login-email">
+                  <span>E-mail</span>
+                  <input
+                    id="login-email"
+                    name="login-email"
+                    type="email"
+                    [ngModel]="loginEmail()"
+                    (ngModelChange)="loginEmail.set($event)"
+                    autocomplete="email"
+                    required
+                  />
+                </label>
+
+                <label class="auth-field" for="login-password">
+                  <span>Senha</span>
+                  <input
+                    id="login-password"
+                    name="login-password"
+                    type="password"
+                    [ngModel]="loginPassword()"
+                    (ngModelChange)="loginPassword.set($event)"
+                    autocomplete="current-password"
+                    required
+                  />
+                </label>
+              </div>
+
+              <div class="auth-gate__actions">
+                <button
+                  mat-flat-button
+                  class="auth-provider-button auth-provider-button--primary"
+                  type="submit"
+                  [disabled]="authSubmitting()"
+                >
+                  {{ authSubmitting() ? 'Entrando...' : 'Entrar com e-mail e senha' }}
+                </button>
+              </div>
+            </form>
+          } @else {
+            <form class="auth-profile-form" (ngSubmit)="submitEmailRegistration()">
+              <div class="auth-profile-grid">
+                <label class="auth-field" for="register-name">
+                  <span>Nome completo</span>
+                  <input
+                    id="register-name"
+                    name="register-name"
+                    type="text"
+                    [ngModel]="registerName()"
+                    (ngModelChange)="registerName.set($event)"
+                    autocomplete="name"
+                    required
+                  />
+                </label>
+
+                <label class="auth-field" for="register-email">
+                  <span>E-mail</span>
+                  <input
+                    id="register-email"
+                    name="register-email"
+                    type="email"
+                    [ngModel]="registerEmail()"
+                    (ngModelChange)="registerEmail.set($event)"
+                    autocomplete="email"
+                    required
+                  />
+                </label>
+
+                <label class="auth-field" for="register-password">
+                  <span>Senha</span>
+                  <input
+                    id="register-password"
+                    name="register-password"
+                    type="password"
+                    [ngModel]="registerPassword()"
+                    (ngModelChange)="registerPassword.set($event)"
+                    autocomplete="new-password"
+                    required
+                  />
+                </label>
+
+                <label class="auth-field" for="register-whatsapp">
+                  <span>WhatsApp</span>
+                  <input
+                    id="register-whatsapp"
+                    name="register-whatsapp"
+                    type="tel"
+                    [ngModel]="registerWhatsapp()"
+                    (ngModelChange)="registerWhatsapp.set($event)"
+                    autocomplete="tel"
+                  />
+                </label>
+
+                <label class="auth-field" for="register-age">
+                  <span>Idade</span>
+                  <input
+                    id="register-age"
+                    name="register-age"
+                    type="number"
+                    min="1"
+                    [ngModel]="registerAge()"
+                    (ngModelChange)="onRegisterAgeChange($event)"
+                    required
+                  />
+                </label>
+
+                <label class="auth-field" for="register-level">
+                  <span>Nivel tecnico</span>
+                  <select
+                    id="register-level"
+                    name="register-level"
+                    [ngModel]="registerTechnicalLevel()"
+                    (ngModelChange)="registerTechnicalLevel.set($event)"
+                    required
+                  >
+                    <option value="">Selecione</option>
+                    <option value="iniciante">Iniciante</option>
+                    <option value="intermediario">Intermediario</option>
+                    <option value="avancado">Avancado</option>
+                  </select>
+                </label>
+
+                <label class="auth-field auth-field--full" for="register-education">
+                  <span>Instituicao de ensino</span>
+                  <input
+                    id="register-education"
+                    name="register-education"
+                    type="text"
+                    [ngModel]="registerEducationInstitution()"
+                    (ngModelChange)="registerEducationInstitution.set($event)"
+                    autocomplete="organization"
+                  />
+                </label>
+              </div>
+
+              <label class="auth-check" for="register-terms">
+                <input
+                  id="register-terms"
+                  name="register-terms"
+                  type="checkbox"
+                  [ngModel]="registerAcceptedTerms()"
+                  (ngModelChange)="registerAcceptedTerms.set(!!$event)"
+                />
+                <span>Li e aceito a Politica de Privacidade e os Termos de Uso.</span>
+              </label>
+
+              <div class="auth-gate__actions">
+                <button
+                  mat-flat-button
+                  class="auth-provider-button auth-provider-button--primary"
+                  type="submit"
+                  [disabled]="authSubmitting()"
+                >
+                  {{ authSubmitting() ? 'Cadastrando...' : 'Cadastrar com e-mail e senha' }}
+                </button>
+              </div>
+            </form>
+          }
 
           <div class="auth-gate__legal">
             <a routerLink="/legal/privacy">Politica de Privacidade</a>
@@ -88,11 +285,6 @@ import { SupabaseService } from './services/supabase.service';
           @if (!supabase.isConfigured && supabase.configError) {
             <p class="auth-gate__warning">{{ supabase.configError }}</p>
           }
-
-          <!--
-          Fluxos de e-mail e criacao de conta foram desativados temporariamente.
-          Manter este bloco comentado ate a autenticacao por e-mail voltar para a UI.
-          -->
 
           @if (errorMessage()) {
             <p class="auth-gate__error">{{ errorMessage() }}</p>
@@ -107,12 +299,15 @@ import { SupabaseService } from './services/supabase.service';
 
         <section class="auth-gate__dialog auth-gate__dialog--profile" aria-modal="true" role="dialog" aria-labelledby="profile-gate-title">
           <div class="auth-gate__header">
-            <span class="auth-gate__eyebrow">Complete seu perfil</span>
+            <span class="auth-gate__eyebrow">Complete seu cadastro</span>
             <img class="auth-gate__brand" src="logo-fulldev.svg" alt="Fulldev School" />
           </div>
 
           <h2 id="profile-gate-title">Faltam alguns dados para liberar sua conta.</h2>
-          <p>Seu acesso com Google ou LinkedIn ja foi validado. Agora complete o cadastro para persistir seus dados na plataforma.</p>
+          <p>
+            Seu acesso com Google ou LinkedIn ja foi validado. Agora complete as informacoes restantes
+            para atualizar o cadastro no banco e finalizar a liberacao da plataforma.
+          </p>
 
           <form class="auth-profile-form" (ngSubmit)="submitProfileCompletion()">
             <div class="auth-profile-grid">
@@ -126,6 +321,18 @@ import { SupabaseService } from './services/supabase.service';
                   (ngModelChange)="profileName.set($event)"
                   autocomplete="name"
                   required
+                />
+              </label>
+
+              <label class="auth-field" for="oauth-email">
+                <span>E-mail</span>
+                <input
+                  id="oauth-email"
+                  name="oauth-email"
+                  type="email"
+                  [ngModel]="auth.user()?.email ?? ''"
+                  autocomplete="email"
+                  disabled
                 />
               </label>
 
@@ -181,6 +388,11 @@ import { SupabaseService } from './services/supabase.service';
                   autocomplete="organization"
                 />
               </label>
+            </div>
+
+            <div class="auth-role-preview">
+              <span class="auth-role-preview__label">Tipo de acesso atual</span>
+              <strong>{{ roleLabel() }}</strong>
             </div>
 
             <label class="auth-check" for="oauth-terms">
@@ -251,7 +463,7 @@ import { SupabaseService } from './services/supabase.service';
         z-index: 1;
         display: grid;
         gap: 16px;
-        width: min(100%, 520px);
+        width: min(100%, 560px);
         max-height: min(92vh, 920px);
         padding: 28px;
         overflow: auto;
@@ -261,7 +473,7 @@ import { SupabaseService } from './services/supabase.service';
       }
 
       .auth-gate__dialog--profile {
-        width: min(100%, 640px);
+        width: min(100%, 680px);
       }
 
       .auth-gate__header {
@@ -299,6 +511,26 @@ import { SupabaseService } from './services/supabase.service';
       .auth-gate__form {
         display: grid;
         gap: 14px;
+      }
+
+      .auth-mode-switch {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .auth-mode-switch__button {
+        min-height: 44px;
+        border: 1px solid var(--fd-border);
+        background: transparent;
+        color: var(--fd-soft);
+        cursor: pointer;
+      }
+
+      .auth-mode-switch__button--active {
+        border-color: var(--fd-accent);
+        background: rgba(178, 45, 0, 0.12);
+        color: var(--fd-text);
       }
 
       .auth-provider-button {
@@ -357,6 +589,19 @@ import { SupabaseService } from './services/supabase.service';
         background: var(--fd-nav-active) !important;
       }
 
+      .auth-gate__divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--fd-soft);
+      }
+
+      .auth-gate__divider span {
+        flex: 1;
+        height: 1px;
+        background: var(--fd-border);
+      }
+
       .auth-profile-form {
         display: grid;
         gap: 16px;
@@ -366,6 +611,10 @@ import { SupabaseService } from './services/supabase.service';
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
+      }
+
+      .auth-profile-grid--single {
+        grid-template-columns: 1fr;
       }
 
       .auth-field {
@@ -410,6 +659,21 @@ import { SupabaseService } from './services/supabase.service';
         margin-top: 3px;
       }
 
+      .auth-role-preview {
+        display: grid;
+        gap: 4px;
+        padding: 14px;
+        border: 1px solid var(--fd-border);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .auth-role-preview__label {
+        color: var(--fd-soft);
+        font-size: var(--fd-text-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
       .auth-gate__error {
         color: #ff9e7a !important;
       }
@@ -452,15 +716,32 @@ export class App {
   protected readonly auth = inject(AuthService);
   protected readonly supabase = inject(SupabaseService);
   private readonly router = inject(Router);
+
+  protected readonly authMode = signal<AuthMode>('login');
+  protected readonly authSubmitting = signal(false);
   protected readonly errorMessage = signal('');
   protected readonly profileErrorMessage = signal('');
   protected readonly profileSaving = signal(false);
+
+  protected readonly loginEmail = signal('');
+  protected readonly loginPassword = signal('');
+
+  protected readonly registerName = signal('');
+  protected readonly registerEmail = signal('');
+  protected readonly registerPassword = signal('');
+  protected readonly registerWhatsapp = signal('');
+  protected readonly registerAge = signal<number | null>(null);
+  protected readonly registerTechnicalLevel = signal<TechnicalLevel | ''>('');
+  protected readonly registerEducationInstitution = signal('');
+  protected readonly registerAcceptedTerms = signal(false);
+
   protected readonly profileName = signal('');
   protected readonly profileWhatsapp = signal('');
   protected readonly profileAge = signal<number | null>(null);
   protected readonly profileTechnicalLevel = signal<TechnicalLevel | ''>('');
   protected readonly profileEducationInstitution = signal('');
   protected readonly profileAcceptedTerms = signal(false);
+
   private readonly currentUrl = signal(this.router.url);
   protected readonly isGateEnabled = computed(
     () => !this.auth.isAuthenticated() && !this.currentUrl().startsWith('/legal/')
@@ -472,6 +753,18 @@ export class App {
 
     return this.auth.isAuthenticated() && this.auth.requiresProfileCompletion(this.auth.user());
   });
+  protected readonly roleLabel = computed(() => {
+    const role = this.auth.user()?.role ?? 'user';
+    if (role === 'admin') {
+      return 'Administrador';
+    }
+
+    if (role === 'instructor') {
+      return 'Instrutor';
+    }
+
+    return 'Usuario comum';
+  });
 
   constructor() {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe((event) => {
@@ -479,6 +772,11 @@ export class App {
     });
 
     this.syncProfileForm();
+  }
+
+  protected setAuthMode(mode: AuthMode): void {
+    this.authMode.set(mode);
+    this.errorMessage.set('');
   }
 
   protected async signInWithGoogle(): Promise<void> {
@@ -493,9 +791,45 @@ export class App {
     this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar com LinkedIn.'));
   }
 
+  protected async submitEmailLogin(): Promise<void> {
+    this.errorMessage.set('');
+    this.authSubmitting.set(true);
+    const result = await this.auth.signInWithEmail(this.loginEmail(), this.loginPassword());
+    this.authSubmitting.set(false);
+    this.errorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel entrar com e-mail e senha.'));
+  }
+
+  protected async submitEmailRegistration(): Promise<void> {
+    this.errorMessage.set('');
+    const technicalLevel = this.registerTechnicalLevel();
+    if (!technicalLevel) {
+      this.errorMessage.set('Selecione seu nivel tecnico para concluir o cadastro.');
+      return;
+    }
+
+    this.authSubmitting.set(true);
+
+    const result = await this.auth.registerWithEmail({
+      name: this.registerName(),
+      email: this.registerEmail(),
+      password: this.registerPassword(),
+      whatsappNumber: this.registerWhatsapp(),
+      age: this.registerAge(),
+      technicalLevel,
+      educationInstitution: this.registerEducationInstitution(),
+      acceptedTerms: this.registerAcceptedTerms()
+    });
+
+    this.authSubmitting.set(false);
+    this.errorMessage.set(result.ok ? (result.message ?? '') : (result.message ?? 'Nao foi possivel concluir o cadastro.'));
+  }
+
   protected onAgeChange(value: string | number | null): void {
-    const next = Number(value);
-    this.profileAge.set(Number.isFinite(next) && next > 0 ? next : null);
+    this.profileAge.set(this.normalizeAge(value));
+  }
+
+  protected onRegisterAgeChange(value: string | number | null): void {
+    this.registerAge.set(this.normalizeAge(value));
   }
 
   protected async submitProfileCompletion(): Promise<void> {
@@ -513,6 +847,11 @@ export class App {
 
     this.profileSaving.set(false);
     this.profileErrorMessage.set(result.ok ? '' : (result.message ?? 'Nao foi possivel salvar seus dados.'));
+  }
+
+  private normalizeAge(value: string | number | null): number | null {
+    const next = Number(value);
+    return Number.isFinite(next) && next > 0 ? next : null;
   }
 
   private syncProfileForm(): void {

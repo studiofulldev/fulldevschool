@@ -18,6 +18,7 @@ import { PlatformDataService } from '../services/platform-data.service';
           <h1>{{ user.name }}</h1>
           <p>{{ user.email }}</p>
           <span>Login via {{ providerLabel(user.provider) }}</span>
+          <span>Acesso: {{ roleLabel(user.role) }}</span>
 
           <div class="account-details">
             <div class="account-detail">
@@ -180,5 +181,17 @@ export class AccountPageComponent {
     }
 
     return 'e-mail';
+  }
+
+  protected roleLabel(role: string): string {
+    if (role === 'admin') {
+      return 'Administrador';
+    }
+
+    if (role === 'instructor') {
+      return 'Instrutor';
+    }
+
+    return 'Usuario comum';
   }
 }

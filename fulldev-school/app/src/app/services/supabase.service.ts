@@ -90,6 +90,15 @@ export class SupabaseService {
     return this.client.from('profiles').upsert(profile).select('id').single();
   }
 
+  async upsertLead(lead: Record<string, unknown>) {
+    this.ensureConfigured();
+    return this.client
+      .from('leads')
+      .upsert(lead, { onConflict: 'email' })
+      .select('email')
+      .single();
+  }
+
   toUserMetadata(user: User) {
     const metadata = user.user_metadata ?? {};
     return {
@@ -99,7 +108,8 @@ export class SupabaseService {
       educationInstitution: String(metadata['education_institution'] ?? ''),
       acceptedTerms: Boolean(metadata['accepted_terms'] ?? false),
       acceptedTermsAt: String(metadata['accepted_terms_at'] ?? ''),
-      age: metadata['age']
+      age: metadata['age'],
+      role: String(metadata['app_role'] ?? metadata['role'] ?? 'user')
     };
   }
 

@@ -6,6 +6,7 @@ import { OAuthProvider, SupabaseService } from './supabase.service';
 
 export type AuthProvider = OAuthProvider | 'email';
 export type TechnicalLevel = 'iniciante' | 'intermediario' | 'avancado';
+export type AppRole = 'admin' | 'instructor' | 'user';
 
 export interface AuthUser {
   id: string;
@@ -13,6 +14,7 @@ export interface AuthUser {
   email: string;
   avatarUrl?: string | null;
   provider: AuthProvider;
+  role: AppRole;
   whatsappNumber?: string;
   age?: number | null;
   technicalLevel?: TechnicalLevel | null;
@@ -80,17 +82,21 @@ export class AuthService {
 
   // Auth decisions are based solely on the verified user.
   readonly isAuthenticated = computed(() => this.verifiedUserState() !== null && this.sessionCheckCompleteState());
+  readonly isAdmin = computed(() => this.verifiedUserState()?.role === 'admin');
+  readonly isInstructor = computed(() => this.verifiedUserState()?.role === 'instructor');
+  readonly isCommonUser = computed(() => this.verifiedUserState()?.role === 'user');
 
   constructor() {
     void this.restoreSupabaseSession();
 
-    this.supabase.onAuthStateChange(({ session, event }) => {
+    this.supabase.onAuthStateChange(async ({ session, event }) => {
       const supabaseUser = session?.user;
       if (!supabaseUser) {
         this.verifiedUserState.set(null);
         this.clearUserCache();
       } else {
         const authUser = this.mapSupabaseUser(supabaseUser);
+        await this.syncUserRecords(authUser);
         this.verifiedUserState.set(authUser);
         this.cacheUser(authUser);
       }
@@ -141,6 +147,7 @@ export class AuthService {
       }
 
       const authUser = this.mapSupabaseUser(data.user);
+      await this.syncUserRecords(authUser);
       this.verifiedUserState.set(authUser);
       this.cacheUser(authUser);
       this.sessionCheckCompleteState.set(true);
@@ -171,7 +178,8 @@ export class AuthService {
       technical_level: payload.technicalLevel,
       education_institution: payload.educationInstitution?.trim() || '',
       accepted_terms: true,
-      accepted_terms_at: acceptedAt
+      accepted_terms_at: acceptedAt,
+      app_role: 'user'
     };
 
     try {
@@ -191,8 +199,17 @@ export class AuthService {
           education_institution: metadata.education_institution,
           avatar_url: data.user.user_metadata['avatar_url'] ?? null,
           provider: 'email',
+          role: 'user',
           accepted_terms: true,
           accepted_terms_at: acceptedAt,
+          updated_at: acceptedAt
+        });
+
+        await this.tryUpsertLead({
+          email,
+          name,
+          provider: 'email',
+          profile_id: data.user.id,
           updated_at: acceptedAt
         });
 
@@ -256,7 +273,8 @@ export class AuthService {
       technical_level: payload.technicalLevel,
       education_institution: educationInstitution,
       accepted_terms: true,
-      accepted_terms_at: acceptedAt
+      accepted_terms_at: acceptedAt,
+      app_role: user.role
     };
 
     try {
@@ -275,6 +293,7 @@ export class AuthService {
         education_institution: educationInstitution,
         avatar_url: user.avatarUrl ?? null,
         provider: user.provider,
+        role: user.role,
         accepted_terms: true,
         accepted_terms_at: acceptedAt,
         updated_at: new Date().toISOString()
@@ -304,6 +323,7 @@ export class AuthService {
       const { data } = await this.supabase.getSession();
       if (data.session?.user) {
         const authUser = this.mapSupabaseUser(data.session.user);
+        await this.syncUserRecords(authUser);
         this.verifiedUserState.set(authUser);
         this.cacheUser(authUser);
       }
@@ -333,6 +353,7 @@ export class AuthService {
       email: user.email ?? '',
       avatarUrl: this.sanitizeAvatarUrl(user.user_metadata?.['avatar_url']),
       provider,
+      role: this.toAppRole(metadata.role),
       whatsappNumber: metadata.whatsappNumber,
       age: typeof metadata.age === 'number' ? metadata.age : null,
       technicalLevel: this.toTechnicalLevel(metadata.technicalLevel),
@@ -344,6 +365,18 @@ export class AuthService {
 
   private toTechnicalLevel(value: unknown): TechnicalLevel | null {
     return value === 'iniciante' || value === 'intermediario' || value === 'avancado' ? value : null;
+  }
+
+  private toAppRole(value: unknown): AppRole {
+    return value === 'admin' || value === 'instructor' ? value : 'user';
+  }
+
+  hasRole(role: AppRole | AppRole[], user: AuthUser | null = this.verifiedUserState()): boolean {
+    if (!user) {
+      return false;
+    }
+
+    return Array.isArray(role) ? role.includes(user.role) : user.role === role;
   }
 
   // Allow only HTTPS avatar URLs from known trusted providers.
@@ -384,6 +417,45 @@ export class AuthService {
     } catch {
       // The profiles table may not exist yet. Auth should continue working without it.
     }
+  }
+
+  private async tryUpsertLead(lead: Record<string, unknown>): Promise<void> {
+    try {
+      await this.supabase.upsertLead(lead);
+    } catch {
+      // The leads table may not exist yet. Auth should continue working without it.
+    }
+  }
+
+  private async syncUserRecords(user: AuthUser): Promise<void> {
+    const timestamp = new Date().toISOString();
+    const fullName = user.name.trim() || user.email || 'Lead FullDev';
+
+    if (user.email) {
+      await this.tryUpsertLead({
+        email: user.email,
+        name: fullName,
+        provider: user.provider,
+        profile_id: user.id,
+        updated_at: timestamp
+      });
+    }
+
+    await this.tryUpsertProfile({
+      id: user.id,
+      email: user.email,
+      full_name: fullName,
+      whatsapp_number: user.whatsappNumber?.trim() || '',
+      age: user.age ?? null,
+      technical_level: user.technicalLevel ?? null,
+      education_institution: user.educationInstitution?.trim() || '',
+      avatar_url: user.avatarUrl ?? null,
+      provider: user.provider,
+      role: user.role,
+      accepted_terms: Boolean(user.acceptedTerms),
+      accepted_terms_at: user.acceptedTermsAt ?? null,
+      updated_at: timestamp
+    });
   }
 
   private normalizeSupabaseAuthError(message: string): string {

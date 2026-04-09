@@ -4,7 +4,7 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 
 ## Stack
 
-- Angular 19
+- Angular 21
 - standalone components
 - Signals
 - Angular Material
@@ -40,6 +40,9 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 ## Documentação técnica
 
 - `docs/`: visão do produto, arquitetura, stack, modelo de conteúdo e estratégia de áudio
+- `docs/09-backlog-operacional.md`: backlog priorizado para execução
+- `docs/10-autenticacao-social-e-profiles.md`: fluxo de login com Google e LinkedIn e persistência em `profiles`
+- `docs/11-supabase-setup-completo.md`: guia completo para recriar Auth, tabelas, RLS e configuração do Supabase
 
 ## Rodando localmente
 
@@ -71,6 +74,9 @@ npm run build
 ## Observações
 
 - a interface de áudio está adiada
-- o conteúdo depende de `fulldev-school/mock-db/doc`
+- o conteúdo depende de `fulldev-school/mock-db/doc` como fonte transitória nesta fase
+- no futuro o conteúdo deve migrar para fluxo administrativo com perfis de administrador e instrutor
+- administradores poderão gerenciar usuários e cursos
+- instrutores poderão cadastrar e editar apenas os cursos vinculados a eles
 - ainda existem arquivos `.md` com encoding a revisar
 - existem warnings de style budget em `lesson-page.component.ts` e `app.scss`
