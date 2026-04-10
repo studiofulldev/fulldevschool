@@ -414,16 +414,18 @@ export class AuthService {
   private async tryUpsertProfile(profile: Record<string, unknown>): Promise<void> {
     try {
       await this.supabase.upsertProfile(profile);
-    } catch {
+    } catch (err) {
       // The profiles table may not exist yet. Auth should continue working without it.
+      console.error('[AuthService] tryUpsertProfile failed:', err);
     }
   }
 
   private async tryUpsertLead(lead: Record<string, unknown>): Promise<void> {
     try {
       await this.supabase.upsertLead(lead);
-    } catch {
+    } catch (err) {
       // The leads table may not exist yet. Auth should continue working without it.
+      console.error('[AuthService] tryUpsertLead failed:', err);
     }
   }
 
