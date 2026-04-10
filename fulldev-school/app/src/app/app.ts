@@ -889,12 +889,16 @@ export class App {
   protected readonly profileAcceptedTerms = signal(false);
 
   private readonly currentUrl = signal(this.router.url);
-  protected readonly isGateEnabled = computed(
-    () => !this.auth.isAuthenticated() && !this.currentUrl().startsWith('/legal/')
-  );
+  private readonly publicRoutes = ['/', '/login'];
+  protected readonly isGateEnabled = computed(() => {
+    const url = this.currentUrl();
+    const isPublic = this.publicRoutes.includes(url) || url.startsWith('/legal/');
+    return !this.auth.isAuthenticated() && !isPublic;
+  });
   protected readonly profileAvatarPreview = computed(() => this.auth.user()?.avatarUrl || '/user-default.jpg');
   protected readonly isProfileCompletionOpen = computed(() => {
-    if (this.currentUrl().startsWith('/legal/')) {
+    const url = this.currentUrl();
+    if (url === '/' || url.startsWith('/legal/')) {
       return false;
     }
 
