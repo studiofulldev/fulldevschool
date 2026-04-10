@@ -99,6 +99,21 @@ export class SupabaseService {
       .single();
   }
 
+  async upsertProgress(row: Record<string, unknown>) {
+    this.ensureConfigured();
+    return this.client
+      .from('user_progress')
+      .upsert(row, { onConflict: 'user_id,course_slug,lesson_slug,module_slug,type' });
+  }
+
+  async fetchUserProgress(userId: string) {
+    this.ensureConfigured();
+    return this.client
+      .from('user_progress')
+      .select('course_slug, lesson_slug, module_slug, type, completed')
+      .eq('user_id', userId);
+  }
+
   toUserMetadata(user: User) {
     const metadata = user.user_metadata ?? {};
     return {
