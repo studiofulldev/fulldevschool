@@ -23,10 +23,10 @@ export const roleGuard: CanActivateFn = (route) => {
     auth.hasRole(allowedRoles);
 
   if (auth.sessionCheckComplete()) {
-    return hasAccess() ? true : router.createUrlTree(['/courses/home']);
+    return hasAccess() ? true : router.createUrlTree(['/']);
   }
 
   return auth.sessionCheckComplete$.pipe(
-    map(() => (hasAccess() ? true : router.createUrlTree(['/courses/home'])))
+    map(() => (hasAccess() ? true : router.createUrlTree(['/'])))
   );
 };

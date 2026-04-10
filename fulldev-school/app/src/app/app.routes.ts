@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
 import { AccountPageComponent } from './pages/account-page.component';
+import { CourseOverviewComponent } from './pages/course-overview.component';
+import { LandingPageComponent } from './pages/landing-page.component';
 import { LegalPageComponent } from './pages/legal-page.component';
 import { LessonPageComponent } from './pages/lesson-page.component';
 import { LoginPageComponent } from './pages/login-page.component';
@@ -13,7 +15,7 @@ import { PlatformShellComponent } from './shells/platform-shell.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'courses',
+    component: LandingPageComponent,
     pathMatch: 'full'
   },
   {
@@ -65,8 +67,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'lessons/visao-geral-do-guia',
-        pathMatch: 'full'
+        component: CourseOverviewComponent
       },
       {
         path: 'modules/:moduleSlug',
@@ -80,6 +81,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'courses/home'
+    redirectTo: ''
   }
 ];
