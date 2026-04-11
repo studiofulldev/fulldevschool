@@ -80,6 +80,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'courses/home'
+    redirectTo: ''
   }
 ];
