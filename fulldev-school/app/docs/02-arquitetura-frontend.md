@@ -5,7 +5,7 @@
 - Angular com standalone APIs
 - Angular Router
 - Angular Material + CDK
-- `marked` para renderização de Markdown
+- `marked` para renderizacao de Markdown
 
 ## Estrutura arquitetural proposta
 
@@ -24,62 +24,62 @@ fulldev-school/
 
 ### 1. App Shell
 
-Responsável por:
+Responsavel por:
 
 - layout principal
 - sidebar principal da plataforma
 - sidebar de curso com a mesma linguagem visual da plataforma
 - header fixo
-- área de conteúdo
+- area de conteudo
 - progresso visual de leitura
-- persistência do estado de expansão da navegação
-- remoção de footer no shell de curso para manter leitura direta
-- `mat-expansion-panel` sem shadow por padrão em shell e conteúdo
-- gate de autenticacao centralizado no componente raiz, com entrada por Google e LinkedIn
+- persistencia do estado de expansao da navegacao
+- remocao de footer no shell de curso para manter leitura direta
+- `mat-expansion-panel` sem shadow por padrao em shell e conteudo
+- rota dedicada de login com entrada por Google e LinkedIn
 - estado intermediario de autenticacao durante o redirecionamento OAuth
-- wizard de complemento de cadastro social com termos em popup e avatar default quando o provider nao envia foto
+- wizard de complemento de cadastro social em rota protegida, com termos e avatar default quando o provider nao envia foto
 - padrao visual de botoes vermelhos reaproveitado entre plataforma e conteudo do curso
 
-### 2. Camada de Navegação
+### 2. Camada de Navegacao
 
-Responsável por:
+Responsavel por:
 
-- ler a árvore do `mock-db`
-- montar rotas amigáveis
-- identificar etapa anterior e próxima
+- ler a arvore do `mock-db`
+- montar rotas amigaveis
+- identificar etapa anterior e proxima
 - expor metadados para breadcrumbs
 
-### 3. Camada de Conteúdo
+### 3. Camada de Conteudo
 
-Responsável por:
+Responsavel por:
 
-- buscar lições no `mock-db`
+- buscar licoes no `mock-db`
 - renderizar o Markdown
 - mapear blocos renderizados com `blockId`
-- persistir expansão dos blocos por lição no navegador
-- renderizar componentes auxiliares por contexto, como o painel de boas-vindas com vídeo incorporado e a árvore expansível da visão geral
+- persistir expansao dos blocos por licao no navegador
+- renderizar componentes auxiliares por contexto, como o painel de boas-vindas com video incorporado e a arvore expansivel da visao geral
 
 ### 4. Camada de Estado Local
 
-Responsável por:
+Responsavel por:
 
-- expansões persistidas em `localStorage`
-- página atual
+- expansoes persistidas em `localStorage`
+- pagina atual
 - progresso de leitura por scroll
 
-## Estratégia de dados
+## Estrategia de dados
 
-A V1 não depende de API real.
+A V1 nao depende de API real.
 
-O conteúdo vai sair do `mock-db`, tratado como fonte única da interface.
+O conteudo vai sair do `mock-db`, tratado como fonte unica da interface.
 
 Isso permite:
 
-- evoluir rápido
+- evoluir rapido
 - validar a UX
 - mudar o backend depois sem reescrever a interface inteira
 
-## Estratégia de rotas
+## Estrategia de rotas
 
 Formato atual:
 
@@ -92,12 +92,12 @@ Formato atual:
 
 Cada rota resolve:
 
-- metadados da página
+- metadados da pagina
 - documento Markdown
-- contexto de navegação
-- redirecionamento automático do curso para a primeira lição disponível
+- contexto de navegacao
+- redirecionamento automatico do curso para a primeira licao disponivel
 
-## Estratégia de composição
+## Estrategia de composicao
 
 Componentes principais previstos:
 
@@ -110,6 +110,24 @@ Componentes principais previstos:
 
 ## Diretriz importante
 
-O conteúdo não deve nascer dentro dos componentes Angular.
+O conteudo nao deve nascer dentro dos componentes Angular.
 
-A UI deve consumir o conteúdo como dado.
+A UI deve consumir o conteudo como dado.
+
+## Regra de arquivos de componente
+
+Para manter rastreabilidade e reduzir acoplamento visual com logica:
+
+- `shells` devem usar `templateUrl` e `styleUrl`
+- `pages` com markup relevante ou CSS relevante devem usar `templateUrl` e `styleUrl`
+- componentes inline ficam restritos a casos pequenos e locais
+- quando um `.ts` mistura logica, HTML e CSS de tela, ele deve ser extraido
+
+Aplicacao ja feita nesta fase:
+
+- `app.ts` foi separado em `app.component.html` e `app.component.scss`
+- `platform-shell.component.ts` foi separado em `platform-shell.component.html` e `platform-shell.component.scss`
+
+Pendencia ainda aberta:
+
+- ainda existem `pages` grandes inline e isso deve continuar sendo reduzido nas proximas refatoracoes

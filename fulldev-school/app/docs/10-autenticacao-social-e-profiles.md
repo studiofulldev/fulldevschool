@@ -19,16 +19,16 @@ Na pratica:
 - a sessao autenticada volta para a app
 - a app tenta sincronizar o usuario nas tabelas `leads` e `profiles`
 - a app verifica se faltam dados obrigatorios de perfil
-- se faltarem dados, abre o fluxo de completar perfil
+- se faltarem dados, redireciona para a rota de completar perfil
 - depois faz update dos dados restantes em `user_metadata` do Supabase Auth e na tabela `profiles`
 
 Observacao:
 
-- o codigo ainda tem base para login e cadastro por e-mail e senha, mas esse fluxo nao esta exposto na UI atual
+- o codigo ainda preserva base para e-mail/senha no servico, mas a UI atual expoe apenas login social
 
 ## Onde o login comeca
 
-O gate de entrada fica no componente raiz da app.
+O fluxo de entrada fica na rota `/login`.
 
 Botoes expostos hoje:
 
@@ -37,9 +37,12 @@ Botoes expostos hoje:
 
 Arquivos envolvidos:
 
-- `src/app/app.ts`
+- `src/app/pages/login-page/login-page.component.ts`
 - `src/app/services/auth.service.ts`
 - `src/app/services/supabase.service.ts`
+- `src/app/guards/auth.guard.ts`
+- `src/app/guards/profile-completion.guard.ts`
+- `src/app/guards/profile-completion-required.guard.ts`
 
 ## Fluxo de login com Google e LinkedIn
 
@@ -78,7 +81,7 @@ Ou seja:
 
 ### 3. Estado intermediario de autenticacao
 
-Ao iniciar o OAuth, a interface troca temporariamente para um card de confirmacao visual enquanto o redirecionamento esta sendo iniciado.
+Ao iniciar o OAuth, a rota `/login` troca temporariamente para estado de carregamento enquanto o redirecionamento esta sendo iniciado.
 
 Objetivo:
 
@@ -103,6 +106,7 @@ Importante:
 
 - a decisao de autenticacao usa o usuario verificado pelo Supabase
 - o `localStorage` e apenas cache visual temporario, nao fonte de verdade de auth
+- a protecao efetiva das areas privadas acontece nos guards de rota
 
 ## Como o usuario e mapeado na app
 
@@ -145,12 +149,12 @@ Para login via Google ou LinkedIn, a app exige complemento de perfil se faltar q
 Regra atual:
 
 - usuario social autenticado entra
-- se faltar perfil minimo, a app abre o modal de completar perfil
+- se faltar perfil minimo, o guard redireciona o usuario para `/complete-profile`
 - o usuario precisa salvar para liberar a plataforma
 
 ## Fluxo de complemento de cadastro
 
-O complemento de cadastro hoje funciona como wizard em etapas.
+O complemento de cadastro hoje funciona como wizard em etapas na rota `/complete-profile`.
 
 Campos operacionais:
 
@@ -164,18 +168,12 @@ Campos operacionais:
 
 Lista atual de senioridade:
 
-- `estudante`
-- `estagiario`
-- `junior`
-- `pleno`
-- `senior`
-- `lead`
-- `staff`
-- `principal`
+- `iniciante`
+- `intermediario`
+- `avancado`
 
 Comportamentos relevantes:
 
-- o aceite de termos abre um popup auxiliar na propria interface
 - se o provider nao enviar foto, o frontend usa o fallback `/user-default.jpg`
 
 ## O que acontece ao completar o perfil social
@@ -317,3 +315,18 @@ Uso pretendido:
 - `admin`: acesso a area administrativa
 - `instructor`: acesso a area de instrutor e aos cursos vinculados
 - `user`: acesso comum de aluno ou usuario final
+
+## Observacao de estrutura frontend
+
+O fluxo de autenticacao foi desacoplado do shell global.
+
+Estado atual:
+
+- a rota `/login` concentra a interface de entrada
+- a rota `/complete-profile` concentra o wizard de complemento
+- a protecao de acesso fica em guards
+- o shell nao deve carregar modal global de autenticacao
+
+Diretriz complementar:
+
+- componentes de shell e telas grandes nao devem manter HTML e CSS inline no `.ts`

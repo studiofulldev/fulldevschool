@@ -24,7 +24,7 @@ Este documento e o guia completo para recriar o Supabase da Fulldev School a par
 2. login com LinkedIn volta para `/courses/home`
 3. `public.profiles` recebe ou atualiza os dados do usuario
 4. `public.leads` recebe ou atualiza os dados do usuario sem `403`
-5. o popup de complemento de cadastro aparece quando faltam campos obrigatorios
+5. a rota `/complete-profile` aparece quando faltam campos obrigatorios
 6. `technical_level` aceita os valores atuais do frontend
 7. o papel `admin` ou `instructor` reflete na UI quando atualizado em `auth.users` e `profiles`
 
@@ -68,7 +68,7 @@ Hoje o login exposto na interface funciona assim:
 2. a app restaura a sessao
 3. a app tenta sincronizar o usuario em `profiles`
 4. a app tenta sincronizar o contato em `leads`
-5. no caso de Google/LinkedIn, se faltarem campos obrigatorios, a app abre popup para completar cadastro
+5. no caso de Google/LinkedIn, se faltarem campos obrigatorios, a app redireciona para `/complete-profile`
 6. ao salvar, a app atualiza `user_metadata` do Supabase Auth e a tabela `profiles`
 
 Importante:
@@ -82,7 +82,7 @@ Crie agora:
 
 - projeto Supabase
 - Auth com Google e LinkedIn
-- Auth com e-mail/senha, apenas se quiser manter esse fluxo disponivel no backend
+- Auth com e-mail/senha apenas se quiser manter esse fluxo disponivel no backend, sem expor na UI
 - provider `google`
 - provider `linkedin_oidc`
 - tabela `profiles`

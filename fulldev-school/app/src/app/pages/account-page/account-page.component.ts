@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthService } from '../services/auth.service';
-import { CourseProgressService } from '../services/course-progress.service';
-import { PlatformDataService } from '../services/platform-data.service';
+import { AuthService } from '../../services/auth.service';
+import { CourseProgressService } from '../../services/course-progress.service';
+import { PlatformDataService } from '../../services/platform-data.service';
 
 @Component({
   selector: 'app-account-page',

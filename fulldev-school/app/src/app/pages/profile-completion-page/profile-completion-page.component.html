@@ -1,0 +1,180 @@
+<div class="profile-completion-page">
+  <section class="profile-completion-card" aria-labelledby="profile-gate-title">
+    <form class="auth-profile-form auth-step-card" (ngSubmit)="submitProfileCompletion()">
+      <div class="auth-step-card__intro">
+        <img class="auth-step-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
+        <div class="auth-gate__trust-badge">Ambiente 100% seguro</div>
+        <h1 id="profile-gate-title">{{ profileStepTitle() }}</h1>
+      </div>
+
+      @if (profileStep() === 1) {
+        <div class="auth-profile-grid auth-profile-grid--single auth-profile-grid--floating auth-step-card__fields">
+          <div class="auth-avatar-field">
+            <img class="auth-avatar-field__preview" [src]="profileAvatarPreview()" alt="Avatar do usuario" />
+            <div class="auth-avatar-field__copy">
+              <strong>Foto do perfil</strong>
+              <span>Se o provedor nao enviar uma foto, usaremos o avatar padrao por enquanto.</span>
+            </div>
+          </div>
+
+          <label class="auth-field auth-field--floating" for="oauth-first-name">
+            <span>Primeiro nome*</span>
+            <input
+              id="oauth-first-name"
+              name="oauth-first-name"
+              type="text"
+              [ngModel]="profileFirstName()"
+              (ngModelChange)="profileFirstName.set($event)"
+              autocomplete="given-name"
+              required
+            />
+          </label>
+
+          <label class="auth-field auth-field--floating" for="oauth-last-name">
+            <span>Segundo nome</span>
+            <input
+              id="oauth-last-name"
+              name="oauth-last-name"
+              type="text"
+              [ngModel]="profileLastName()"
+              (ngModelChange)="profileLastName.set($event)"
+              autocomplete="family-name"
+            />
+          </label>
+        </div>
+      }
+
+      @if (profileStep() === 2) {
+        <div class="auth-profile-grid auth-profile-grid--single auth-profile-grid--floating auth-step-card__fields">
+          <label class="auth-field auth-field--floating" for="oauth-whatsapp">
+            <span>WhatsApp</span>
+            <input
+              id="oauth-whatsapp"
+              name="oauth-whatsapp"
+              type="tel"
+              [ngModel]="profileWhatsapp()"
+              (ngModelChange)="profileWhatsapp.set($event)"
+              autocomplete="tel"
+            />
+          </label>
+
+          <label class="auth-field auth-field--floating" for="oauth-age">
+            <span>Idade*</span>
+            <input
+              id="oauth-age"
+              name="oauth-age"
+              type="number"
+              min="1"
+              [ngModel]="profileAge()"
+              (ngModelChange)="onAgeChange($event)"
+              required
+            />
+          </label>
+
+          <label class="auth-field auth-field--floating" for="oauth-level">
+            <span>Nivel tecnico*</span>
+            <select
+              id="oauth-level"
+              name="oauth-level"
+              [ngModel]="profileTechnicalLevel()"
+              (ngModelChange)="profileTechnicalLevel.set($event)"
+              required
+            >
+              <option value="">Selecione</option>
+              <option value="iniciante">Iniciante</option>
+              <option value="intermediario">Intermediario</option>
+              <option value="avancado">Avancado</option>
+            </select>
+          </label>
+
+          <label class="auth-field auth-field--floating" for="oauth-education">
+            <span>Instituicao de ensino</span>
+            <input
+              id="oauth-education"
+              name="oauth-education"
+              type="text"
+              [ngModel]="profileEducationInstitution()"
+              (ngModelChange)="profileEducationInstitution.set($event)"
+              autocomplete="organization"
+            />
+          </label>
+        </div>
+      }
+
+      @if (profileStep() === 3) {
+        <div class="auth-profile-grid auth-profile-grid--single auth-profile-grid--floating auth-step-card__fields">
+          <label class="auth-field auth-field--floating" for="oauth-email">
+            <span>E-mail</span>
+            <input
+              id="oauth-email"
+              name="oauth-email"
+              type="email"
+              [ngModel]="profileEmail()"
+              autocomplete="email"
+              readonly
+            />
+          </label>
+        </div>
+
+        <label class="auth-check auth-check--register" for="oauth-terms">
+          <input
+            id="oauth-terms"
+            name="oauth-terms"
+            type="checkbox"
+            [ngModel]="profileAcceptedTerms()"
+            (ngModelChange)="profileAcceptedTerms.set(!!$event)"
+          />
+          <span>Li e aceito os termos do cadastro.</span>
+        </label>
+      }
+
+      <div class="auth-step-card__progress" aria-hidden="true">
+        @for (step of registerSteps; track step) {
+          <span [class.auth-step-card__progress-dot--active]="profileStep() === step"></span>
+        }
+      </div>
+
+      <div class="auth-step-card__actions">
+        @if (profileStep() < 3) {
+          <button
+            mat-flat-button
+            class="auth-provider-button auth-provider-button--primary auth-provider-button--solid"
+            type="button"
+            (click)="goToNextProfileStep()"
+            [disabled]="profileSaving()"
+          >
+            <span class="auth-button__content" [class.auth-button__content--loading]="profileSaving()">
+              @if (profileSaving()) {
+                <span class="auth-button__spinner" aria-hidden="true"></span>
+              }
+              <span>{{ profileSaving() ? 'Carregando...' : 'Proximo' }}</span>
+            </span>
+          </button>
+        } @else {
+          <button
+            mat-flat-button
+            class="auth-provider-button auth-provider-button--primary auth-provider-button--solid"
+            type="submit"
+            [disabled]="profileSaving()"
+          >
+            <span class="auth-button__content" [class.auth-button__content--loading]="profileSaving()">
+              @if (profileSaving()) {
+                <span class="auth-button__spinner" aria-hidden="true"></span>
+              }
+              <span>{{ profileSaving() ? 'Salvando...' : 'Concluir cadastro' }}</span>
+            </span>
+          </button>
+        }
+
+        <button
+          type="button"
+          class="auth-step-card__secondary-action"
+          (click)="profileStep() === 1 ? cancelOAuthCompletion() : goToPreviousProfileStep()"
+          [disabled]="profileSaving()"
+        >
+          {{ profileStep() === 1 ? 'Cancelar' : 'Voltar' }}
+        </button>
+      </div>
+    </form>
+  </section>
+</div>

@@ -1,0 +1,130 @@
+.login-page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top, rgba(255, 108, 49, 0.12), transparent 30%),
+    linear-gradient(180deg, #121212 0%, #191919 100%);
+}
+
+.auth-gate__dialog {
+  position: relative;
+  width: min(100%, 472px);
+  border: 1px solid #4c4c4c;
+  border-radius: 4px;
+  background: #1f1f1f;
+  color: var(--fd-text);
+}
+
+.auth-login-card__body {
+  display: grid;
+  gap: 32px;
+  padding: 58px 44px 42px;
+}
+
+.auth-login-card__intro {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+
+.auth-login-card__logo {
+  width: 88px;
+  height: auto;
+}
+
+.auth-gate__trust-badge {
+  width: fit-content;
+  min-height: 32px;
+  padding: 0 16px;
+  border: 1px solid #4c4c4c;
+  background: #2c2c2c;
+  color: #bababa;
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--fd-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.auth-login-card__copy {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+}
+
+.auth-gate__dialog h1,
+.auth-gate__dialog p {
+  margin: 0;
+}
+
+.auth-gate__dialog h1 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.auth-gate__dialog p {
+  color: var(--fd-muted);
+  font-size: 16px;
+}
+
+.auth-login-card__socials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.auth-social-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border: 1px solid #4c4c4c !important;
+  background: #4c4c4c !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+
+.auth-social-button:hover {
+  background: #5b5b5b !important;
+}
+
+.auth-loading-card {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 18px;
+  min-height: 200px;
+  text-align: center;
+}
+
+.auth-loading-card__logo {
+  width: 60px;
+  height: auto;
+}
+
+.auth-loading-card__copy {
+  display: grid;
+  gap: 6px;
+}
+
+.auth-gate__error {
+  margin: 0;
+  color: #ff9e7a;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .auth-login-card__body {
+    padding: 42px 20px 28px;
+  }
+
+  .auth-login-card__socials {
+    grid-template-columns: 1fr;
+  }
+}

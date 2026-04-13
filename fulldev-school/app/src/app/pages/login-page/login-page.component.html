@@ -1,0 +1,48 @@
+<div class="login-page">
+  <section class="auth-gate__dialog" aria-labelledby="auth-gate-title">
+    <div class="auth-login-card__body">
+      @if (!loading()) {
+        <div class="auth-login-card__intro">
+          <img class="auth-login-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
+          <div class="auth-gate__trust-badge">Ambiente 100% seguro</div>
+          <div class="auth-login-card__copy">
+            <h1 id="auth-gate-title">Fala Dev, Bem-vindo de Volta!</h1>
+            <p>Entre com Google ou LinkedIn para continuar.</p>
+          </div>
+        </div>
+
+        <div class="auth-login-card__socials">
+          <button
+            mat-stroked-button
+            class="auth-social-button"
+            type="button"
+            (click)="signInWithGoogle()"
+          >
+            <span>Google</span>
+          </button>
+
+          <button
+            mat-stroked-button
+            class="auth-social-button"
+            type="button"
+            (click)="signInWithLinkedIn()"
+          >
+            <span>LinkedIn</span>
+          </button>
+        </div>
+      } @else {
+        <div class="auth-loading-card">
+          <img class="auth-loading-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
+          <div class="auth-loading-card__copy">
+            <h1 id="auth-gate-title">Quase la!</h1>
+            <p>Estamos confirmando seus dados</p>
+          </div>
+        </div>
+      }
+
+      @if (errorMessage()) {
+        <p class="auth-gate__error" role="alert">{{ errorMessage() }}</p>
+      }
+    </div>
+  </section>
+</div>
