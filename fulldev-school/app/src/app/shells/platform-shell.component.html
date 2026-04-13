@@ -61,6 +61,16 @@
                 <mat-icon>person</mat-icon>
                 <span>Minha conta</span>
               </button>
+
+              <button class="fd-user-menu__item" type="button" (click)="goToPrivacy()">
+                <mat-icon>shield</mat-icon>
+                <span>Privacidade</span>
+              </button>
+
+              <button class="fd-user-menu__item fd-user-menu__item--border-top" type="button" (click)="goToTerms()">
+                <mat-icon>description</mat-icon>
+                <span>Termos</span>
+              </button>
             </div>
 
             <button class="fd-user-menu__item fd-user-menu__item--logout fd-user-menu__item--border-top" type="button" (click)="signOut()">
@@ -78,8 +88,8 @@
   </div>
 </div>
 
-<mat-menu #accountMenu="matMenu" xPosition="after" panelClass="fd-user-menu-panel fd-user-menu-panel--compact">
-  <div class="fd-user-menu fd-user-menu--compact" (click)="$event.stopPropagation()">
+<mat-menu #accountMenu="matMenu" xPosition="after" panelClass="fd-user-menu-panel">
+  <div class="fd-user-menu" (click)="$event.stopPropagation()">
     <div class="fd-user-menu__links">
       <button class="fd-user-menu__item fd-user-menu__item--border-bottom" type="button" (click)="goToAccount()">
         <mat-icon>person</mat-icon>
@@ -94,6 +104,11 @@
       <button class="fd-user-menu__item fd-user-menu__item--border-top" type="button" (click)="goToTerms()">
         <mat-icon>description</mat-icon>
         <span>Termos</span>
+      </button>
+
+      <button class="fd-user-menu__item fd-user-menu__item--logout fd-user-menu__item--border-top" type="button" (click)="signOut()">
+        <mat-icon>logout</mat-icon>
+        <span>Sair da conta</span>
       </button>
     </div>
   </div>

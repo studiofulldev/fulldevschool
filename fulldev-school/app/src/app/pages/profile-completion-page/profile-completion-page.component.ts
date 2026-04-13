@@ -15,6 +15,7 @@ import { AuthService, TechnicalLevel } from '../../services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileCompletionPageComponent {
+  private static readonly defaultAvatarUrl = '/user-default.jpg';
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
   private readonly snackBar = inject(MatSnackBar);
@@ -33,6 +34,9 @@ export class ProfileCompletionPageComponent {
   protected readonly profileAcceptedTerms = signal(false);
 
   protected readonly profileAvatarPreview = computed(() => this.auth.user()?.avatarUrl || '/user-default.jpg');
+  protected readonly hasProviderAvatar = computed(
+    () => this.profileAvatarPreview() !== ProfileCompletionPageComponent.defaultAvatarUrl
+  );
   protected readonly profileStepTitle = computed(() => {
     if (this.profileStep() === 1) {
       return 'Detalhes pessoais';
