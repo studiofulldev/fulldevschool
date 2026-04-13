@@ -451,16 +451,6 @@ export class AuthService {
     const timestamp = new Date().toISOString();
     const fullName = user.name.trim() || user.email || 'Lead FullDev';
 
-    if (user.email) {
-      await this.tryUpsertLead({
-        email: user.email,
-        name: fullName,
-        provider: user.provider,
-        profile_id: user.id,
-        updated_at: timestamp
-      });
-    }
-
     await this.tryUpsertProfile({
       id: user.id,
       email: user.email,
@@ -476,6 +466,16 @@ export class AuthService {
       accepted_terms_at: user.acceptedTermsAt ?? null,
       updated_at: timestamp
     });
+
+    if (user.email) {
+      await this.tryUpsertLead({
+        email: user.email,
+        name: fullName,
+        provider: user.provider,
+        profile_id: user.id,
+        updated_at: timestamp
+      });
+    }
   }
 
   private normalizeSupabaseAuthError(message: string): string {
