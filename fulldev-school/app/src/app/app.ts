@@ -890,11 +890,15 @@ export class App {
 
   private readonly currentUrl = signal(this.router.url);
   protected readonly isGateEnabled = computed(
-    () => !this.auth.isAuthenticated() && !this.currentUrl().startsWith('/legal/')
+    () =>
+      this.auth.sessionCheckComplete() &&
+      !this.auth.isAuthenticated() &&
+      !this.currentUrl().startsWith('/legal/') &&
+      !this.currentUrl().startsWith('/login')
   );
   protected readonly profileAvatarPreview = computed(() => this.auth.user()?.avatarUrl || '/user-default.jpg');
   protected readonly isProfileCompletionOpen = computed(() => {
-    if (this.currentUrl().startsWith('/legal/')) {
+    if (!this.auth.sessionCheckComplete() || this.currentUrl().startsWith('/legal/') || this.currentUrl().startsWith('/login')) {
       return false;
     }
 
