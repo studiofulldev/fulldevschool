@@ -2,8 +2,10 @@
   <section class="profile-completion-card" aria-labelledby="profile-gate-title">
     <form class="auth-profile-form auth-step-card" (ngSubmit)="submitProfileCompletion()">
       <div class="auth-step-card__intro">
-        <img class="auth-step-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
-        <div class="auth-gate__trust-badge">Ambiente 100% seguro</div>
+        @if (!hasProviderAvatar()) {
+          <img class="auth-step-card__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
+          <div class="auth-gate__trust-badge">Ambiente 100% seguro</div>
+        }
         <h1 id="profile-gate-title">{{ profileStepTitle() }}</h1>
       </div>
 
