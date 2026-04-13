@@ -15,10 +15,11 @@ import { ThemeService } from '../services/theme.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlatformShellComponent {
+  private static readonly defaultAvatarUrl = '/user-default.jpg';
   protected readonly auth = inject(AuthService);
   protected readonly theme = inject(ThemeService);
   private readonly router = inject(Router);
-  protected readonly userAvatarUrl = computed(() => this.auth.user()?.avatarUrl || '/user-default.jpg');
+  protected readonly userAvatarUrl = computed(() => this.auth.user()?.avatarUrl || PlatformShellComponent.defaultAvatarUrl);
   protected readonly userInitials = computed(() => {
     const user = this.auth.user();
     if (!user) {
@@ -48,5 +49,14 @@ export class PlatformShellComponent {
   protected async signOut(): Promise<void> {
     await this.auth.signOut();
     await this.router.navigateByUrl('/login');
+  }
+
+  protected handleAvatarError(event: Event): void {
+    const image = event.target as HTMLImageElement | null;
+    if (!image || image.src.endsWith(PlatformShellComponent.defaultAvatarUrl)) {
+      return;
+    }
+
+    image.src = PlatformShellComponent.defaultAvatarUrl;
   }
 }

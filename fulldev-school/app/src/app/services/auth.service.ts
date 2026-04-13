@@ -82,10 +82,31 @@ export class AuthService {
 
   // Display user: shows cached data while loading, then the verified user (or null).
   readonly user = computed<AuthUser | null>(() => {
+    const cachedUser = this.cachedDisplayUser;
+    const verifiedUser = this.verifiedUserState();
+
     if (!this.sessionCheckCompleteState()) {
-      return this.cachedDisplayUser;
+      return cachedUser;
     }
-    return this.verifiedUserState();
+
+    if (!verifiedUser) {
+      return null;
+    }
+
+    if (!cachedUser) {
+      return verifiedUser;
+    }
+
+    return {
+      ...cachedUser,
+      ...verifiedUser,
+      avatarUrl: verifiedUser.avatarUrl ?? cachedUser.avatarUrl ?? null,
+      name: verifiedUser.name || cachedUser.name,
+      email: verifiedUser.email || cachedUser.email,
+      whatsappNumber: verifiedUser.whatsappNumber || cachedUser.whatsappNumber,
+      educationInstitution: verifiedUser.educationInstitution || cachedUser.educationInstitution,
+      acceptedTermsAt: verifiedUser.acceptedTermsAt || cachedUser.acceptedTermsAt || null
+    };
   });
 
   // Auth decisions are based solely on the verified user.
@@ -451,16 +472,6 @@ export class AuthService {
     const timestamp = new Date().toISOString();
     const fullName = user.name.trim() || user.email || 'Lead FullDev';
 
-    if (user.email) {
-      await this.tryUpsertLead({
-        email: user.email,
-        name: fullName,
-        provider: user.provider,
-        profile_id: user.id,
-        updated_at: timestamp
-      });
-    }
-
     await this.tryUpsertProfile({
       id: user.id,
       email: user.email,
@@ -476,6 +487,16 @@ export class AuthService {
       accepted_terms_at: user.acceptedTermsAt ?? null,
       updated_at: timestamp
     });
+
+    if (user.email) {
+      await this.tryUpsertLead({
+        email: user.email,
+        name: fullName,
+        provider: user.provider,
+        profile_id: user.id,
+        updated_at: timestamp
+      });
+    }
   }
 
   private normalizeSupabaseAuthError(message: string): string {

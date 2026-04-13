@@ -12,7 +12,7 @@
       @if (profileStep() === 1) {
         <div class="auth-profile-grid auth-profile-grid--single auth-profile-grid--floating auth-step-card__fields">
           <div class="auth-avatar-field">
-            <img class="auth-avatar-field__preview" [src]="profileAvatarPreview()" alt="Avatar do usuario" />
+            <img class="auth-avatar-field__preview" [src]="profileAvatarPreview()" alt="Avatar do usuario" (error)="handleAvatarError($event)" />
             <div class="auth-avatar-field__copy">
               <strong>Foto do perfil</strong>
               <span>Se o provedor nao enviar uma foto, usaremos o avatar padrao por enquanto.</span>
