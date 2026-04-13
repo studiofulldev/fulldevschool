@@ -82,10 +82,31 @@ export class AuthService {
 
   // Display user: shows cached data while loading, then the verified user (or null).
   readonly user = computed<AuthUser | null>(() => {
+    const cachedUser = this.cachedDisplayUser;
+    const verifiedUser = this.verifiedUserState();
+
     if (!this.sessionCheckCompleteState()) {
-      return this.cachedDisplayUser;
+      return cachedUser;
     }
-    return this.verifiedUserState();
+
+    if (!verifiedUser) {
+      return null;
+    }
+
+    if (!cachedUser) {
+      return verifiedUser;
+    }
+
+    return {
+      ...cachedUser,
+      ...verifiedUser,
+      avatarUrl: verifiedUser.avatarUrl ?? cachedUser.avatarUrl ?? null,
+      name: verifiedUser.name || cachedUser.name,
+      email: verifiedUser.email || cachedUser.email,
+      whatsappNumber: verifiedUser.whatsappNumber || cachedUser.whatsappNumber,
+      educationInstitution: verifiedUser.educationInstitution || cachedUser.educationInstitution,
+      acceptedTermsAt: verifiedUser.acceptedTermsAt || cachedUser.acceptedTermsAt || null
+    };
   });
 
   // Auth decisions are based solely on the verified user.

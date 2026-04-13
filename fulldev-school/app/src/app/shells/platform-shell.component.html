@@ -42,13 +42,13 @@
             <strong>{{ user.name }}</strong>
           </div>
 
-          <img [src]="userAvatarUrl()" [alt]="user.name" />
+          <img [src]="userAvatarUrl()" [alt]="user.name" (error)="handleAvatarError($event)" />
         </button>
 
         <mat-menu #userMenu="matMenu" xPosition="before" panelClass="fd-user-menu-panel">
           <div class="fd-user-menu" (click)="$event.stopPropagation()">
             <div class="fd-user-menu__header">
-              <img class="fd-user-menu__avatar-image" [src]="userAvatarUrl()" [alt]="user.name" />
+              <img class="fd-user-menu__avatar-image" [src]="userAvatarUrl()" [alt]="user.name" (error)="handleAvatarError($event)" />
 
               <div class="fd-user-menu__identity">
                 <strong>{{ user.name }}</strong>

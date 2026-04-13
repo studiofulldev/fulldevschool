@@ -128,6 +128,15 @@ export class ProfileCompletionPageComponent {
     await this.router.navigateByUrl('/login');
   }
 
+  protected handleAvatarError(event: Event): void {
+    const image = event.target as HTMLImageElement | null;
+    if (!image || image.src.endsWith(ProfileCompletionPageComponent.defaultAvatarUrl)) {
+      return;
+    }
+
+    image.src = ProfileCompletionPageComponent.defaultAvatarUrl;
+  }
+
   private showToast(kind: 'success' | 'error' | 'warning', message: string): void {
     this.snackBar.open(message, 'Fechar', {
       duration: 4500,
