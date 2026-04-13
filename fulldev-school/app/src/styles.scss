@@ -170,7 +170,8 @@ input {
   }
 
   .mat-mdc-menu-panel {
-    min-width: 352px !important;
+    min-width: min(352px, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
     overflow: hidden !important;
     border: 1px solid #4c4c4c !important;
     border-radius: 4px !important;
@@ -181,20 +182,21 @@ input {
 
 .fd-user-menu-panel--compact {
   .mat-mdc-menu-panel {
-    min-width: 240px !important;
+    min-width: min(240px, calc(100vw - 32px)) !important;
   }
 }
 
 .fd-user-menu {
   display: grid;
-  width: 352px;
+  width: min(352px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
   overflow: hidden;
   background: #1f1f1f;
   color: #bababa;
 }
 
 .fd-user-menu--compact {
-  width: 240px;
+  width: min(240px, calc(100vw - 32px));
 }
 
 .fd-user-menu__header {
@@ -258,7 +260,7 @@ input {
   background: transparent;
   color: #bababa;
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.3;
   text-align: left;
   cursor: pointer;
   transition: background-color var(--fd-motion-fast), color var(--fd-motion-fast);
@@ -272,7 +274,10 @@ input {
 .fd-user-menu__item span {
   font-size: 14px;
   font-weight: 300;
-  line-height: 1;
+  line-height: 1.3;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .fd-user-menu__item mat-icon {

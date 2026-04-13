@@ -431,5 +431,6 @@ export class PlatformShellComponent {
 
   protected async signOut(): Promise<void> {
     await this.auth.signOut();
+    await this.router.navigateByUrl('/login');
   }
 }
