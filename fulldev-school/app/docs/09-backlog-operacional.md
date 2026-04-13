@@ -52,7 +52,7 @@ Criterio de aceite:
 - preservar o `mock-db` como fonte transitoria
 - nao hardcodar conteudo na UI
 
-### 3. Gate inicial de autenticacao
+### 3. Fluxo inicial de autenticacao
 
 Status operacional:
 
@@ -64,7 +64,9 @@ Status operacional:
 
 Entregaveis ja existentes:
 
-- bloqueio visual da app para usuario nao autenticado
+- protecao de rotas com guards
+- rota `/login`
+- rota `/complete-profile`
 - leitura de configuracao via runtime config e environment
 - suporte a `profiles` e `leads` no Supabase
 
@@ -423,3 +425,28 @@ Criterio de aceite:
 - painel de administrador e instrutor com moderacao de cursos
 - cadastro de imagem do usuario
 - avatar personalizado para usuario sem foto
+
+---
+
+## Observacao estrutural
+
+Diretriz aplicada nesta fase:
+
+- `shells` nao devem manter template inline no `.ts`
+- `shells` nao devem manter styles inline no `.ts`
+- `pages` grandes devem migrar gradualmente para `templateUrl` e `styleUrl`
+
+Extracoes ja feitas:
+
+- `app.ts`
+- `platform-shell.component.ts`
+
+Proximos alvos recomendados:
+
+- `lesson-page`
+- `legal-page`
+- `account-page`
+- `module-page`
+- `platform-home`
+- `platform-dashboard`
+- `course-overview`

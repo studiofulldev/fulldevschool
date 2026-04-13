@@ -4,9 +4,9 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
 import { MatButtonModule } from '@angular/material/button';
-import { SchoolContentService } from '../data/school-content.service';
-import { PlatformDataService } from '../services/platform-data.service';
-import { CourseProgressService } from '../services/course-progress.service';
+import { SchoolContentService } from '../../data/school-content.service';
+import { PlatformDataService } from '../../services/platform-data.service';
+import { CourseProgressService } from '../../services/course-progress.service';
 
 @Component({
   selector: 'app-module-page',
