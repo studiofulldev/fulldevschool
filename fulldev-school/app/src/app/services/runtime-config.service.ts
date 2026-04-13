@@ -23,6 +23,10 @@ declare global {
 
 @Injectable({ providedIn: 'root' })
 export class RuntimeConfigService {
+  private normalizeValue(value: string | undefined | null): string {
+    return (value ?? '').trim();
+  }
+
   constructor() {
     // Freeze the global config object to prevent third-party scripts from
     // overwriting credentials after they have been read.
@@ -53,13 +57,23 @@ export class RuntimeConfigService {
 
   get supabase(): SupabaseRuntimeConfig | null {
     const globalConfig = window.__FULLDEV_SCHOOL_CONFIG__?.supabase;
-    const globalKey = globalConfig?.publishableKey || globalConfig?.anonKey;
-    if (globalConfig?.url && globalKey) {
-      return { url: globalConfig.url, anonKey: globalKey, publishableKey: globalConfig.publishableKey };
+    const globalUrl = this.normalizeValue(globalConfig?.url);
+    const globalPublishableKey = this.normalizeValue(globalConfig?.publishableKey);
+    const globalAnonKey = this.normalizeValue(globalConfig?.anonKey);
+    const globalKey = globalPublishableKey || globalAnonKey;
+
+    if (globalUrl && globalKey) {
+      return {
+        url: globalUrl,
+        anonKey: globalKey,
+        publishableKey: globalPublishableKey || undefined
+      };
     }
 
-    const url = localStorage.getItem('fds.supabase.url');
-    const anonKey = localStorage.getItem('fds.supabase.publishableKey') || localStorage.getItem('fds.supabase.anonKey');
+    const url = this.normalizeValue(localStorage.getItem('fds.supabase.url'));
+    const anonKey = this.normalizeValue(
+      localStorage.getItem('fds.supabase.publishableKey') || localStorage.getItem('fds.supabase.anonKey')
+    );
 
     if (!url || !anonKey) {
       return null;
