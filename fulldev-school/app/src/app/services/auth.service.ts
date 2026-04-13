@@ -5,7 +5,15 @@ import { Observable } from 'rxjs';
 import { OAuthProvider, SupabaseService } from './supabase.service';
 
 export type AuthProvider = OAuthProvider | 'email';
-export type TechnicalLevel = 'iniciante' | 'intermediario' | 'avancado';
+export type TechnicalLevel =
+  | 'estudante'
+  | 'estagiario'
+  | 'junior'
+  | 'pleno'
+  | 'senior'
+  | 'lead'
+  | 'staff'
+  | 'principal';
 export type AppRole = 'admin' | 'instructor' | 'user';
 
 export interface AuthUser {
@@ -96,14 +104,15 @@ export class AuthService {
         this.clearUserCache();
       } else {
         const authUser = this.mapSupabaseUser(supabaseUser);
-        await this.syncUserRecords(authUser);
         this.verifiedUserState.set(authUser);
         this.cacheUser(authUser);
+        this.markSessionCheckComplete();
+        void this.syncUserRecords(authUser);
       }
 
       // Mark session check complete on any auth event after INITIAL_SESSION.
       if (event === 'INITIAL_SESSION' || !this.sessionCheckCompleteState()) {
-        this.sessionCheckCompleteState.set(true);
+        this.markSessionCheckComplete();
       }
     });
   }
@@ -147,10 +156,10 @@ export class AuthService {
       }
 
       const authUser = this.mapSupabaseUser(data.user);
-      await this.syncUserRecords(authUser);
       this.verifiedUserState.set(authUser);
       this.cacheUser(authUser);
-      this.sessionCheckCompleteState.set(true);
+      this.markSessionCheckComplete();
+      void this.syncUserRecords(authUser);
       return { ok: true };
     } catch {
       return { ok: false, message: 'Nao foi possivel validar sua conta no momento.' };
@@ -321,16 +330,18 @@ export class AuthService {
   private async restoreSupabaseSession(): Promise<void> {
     try {
       const { data } = await this.supabase.getSession();
+
       if (data.session?.user) {
         const authUser = this.mapSupabaseUser(data.session.user);
-        await this.syncUserRecords(authUser);
         this.verifiedUserState.set(authUser);
         this.cacheUser(authUser);
+        this.markSessionCheckComplete();
+        void this.syncUserRecords(authUser);
       }
     } catch {
       // Session restoration failed — keep verifiedUserState as null.
     } finally {
-      this.sessionCheckCompleteState.set(true);
+      this.markSessionCheckComplete();
     }
   }
 
@@ -364,7 +375,16 @@ export class AuthService {
   }
 
   private toTechnicalLevel(value: unknown): TechnicalLevel | null {
-    return value === 'iniciante' || value === 'intermediario' || value === 'avancado' ? value : null;
+    return value === 'estudante' ||
+      value === 'estagiario' ||
+      value === 'junior' ||
+      value === 'pleno' ||
+      value === 'senior' ||
+      value === 'lead' ||
+      value === 'staff' ||
+      value === 'principal'
+      ? value
+      : null;
   }
 
   private toAppRole(value: unknown): AppRole {
@@ -472,6 +492,12 @@ export class AuthService {
     }
 
     return message;
+  }
+
+  private markSessionCheckComplete(): void {
+    if (!this.sessionCheckCompleteState()) {
+      this.sessionCheckCompleteState.set(true);
+    }
   }
 
   private cacheUser(user: AuthUser): void {
