@@ -1,21 +1,172 @@
-# Fulldev School — Guia de Arquitetura Frontend
+# Fulldev School — Guia do Projeto
 
 Este arquivo é carregado automaticamente pelo Claude Code em toda conversa neste projeto.
-Siga estas regras sempre que criar, modificar ou revisar componentes Angular.
+Contém visão de produto, estado atual, OKRs, backlog e regras de arquitetura.
 
 ---
 
-## Stack
+## Visão do Produto
 
-- Angular 19 (standalone components, signals)
-- Supabase (auth + DB)
-- Angular Material (ícones, menus, botões)
-- DOMPurify (sanitização de HTML)
-- Deploy: Vercel
+**Fulldev School** é uma plataforma educacional de desenvolvimento de software da FullDev.
+
+O objetivo é transformar o conteúdo editorial existente em uma experiência de plataforma real: com login, progresso, conta, trilhas e comunidade — tudo clean, funcional e preparado para crescer.
+
+### Usuário principal
+
+Desenvolvedor em formação:
+- Iniciante que quer entrar no mercado (quer emprego, não diploma)
+- Junior que quer evoluir (já trabalha, quer crescer na carreira)
+- Pessoa em transição de carreira (quer se tornar dev)
+
+**Comportamento real:** assiste aulas no celular no ônibus, no desktop em casa. Zero paciência para conteúdo lento ou mal produzido. Compara tudo com o YouTube. Se a experiência for pior, abre o YouTube.
+
+**Maior inimigo:** abandono silencioso — o aluno que para de acessar sem cancelar. Não fala nada. Simplesmente some.
+
+**Competidores:** Alura, Rocketseat, DIO.
+
+### Diferencial da Fulldev School
+
+- Ambiente real de desenvolvimento (não apenas teoria)
+- Review de PRs pela comunidade
+- IA como ferramenta de aceleração de carreira, não como atalho
+- Comunidade de devs que fazem parte de algo maior
+- Conteúdo editorial forte: trilhas, mapa de área, mercado, portfólio, mindset
 
 ---
 
-## Estrutura de pastas
+## Estado Atual do Produto (abril 2026)
+
+### ✅ Pronto
+
+- **Autenticação completa** — login Google, LinkedIn e email/senha via Supabase
+- **Conteúdo mockado funcional** — app renderiza a partir de `mock-db/navigation/tree.json` e `mock-db/doc/`, sem hardcode na UI
+- **1 curso:** "Start: Começando na tecnologia" com 58 lições em 16 seções temáticas
+- **Estrutura de progresso** — checks de lição, módulo e curso já existem; persistência local via `localStorage` (migração para Supabase está no backlog imediato)
+- **Arquitetura Angular 19 limpa** — shells / pages / services / data / guards com signals e OnPush
+- **Papéis de usuário** — `admin`, `instructor`, `user` na base de auth
+- **Guards** — `authGuard`, `profileCompletionGuard`, `roleGuard` funcionando
+- **`AudioNarrationService`** via Web Speech API — código existe, removido da UI intencionalmente (aguarda conteúdo de áudio)
+- **Docker + nginx** para deploy containerizado
+- **Vercel** configurado
+- **Página 404** com humor dev e matrix rain vermelho no fundo
+
+### 🔄 Em andamento
+
+- **Migração de progresso para Supabase** — `CourseProgressService` hoje usa só `localStorage`; device change ou clear de cache = progresso perdido. Prioridade máxima do backlog.
+
+### 📋 Próximo (backlog priorizado)
+
+1. **Persistência de progresso por usuário autenticado** — migrar `CourseProgressService` para Supabase com `localStorage` como fallback offline
+2. **Dashboard real** — `/courses/home` ainda é placeholder estático; precisa mostrar: última lição acessada, % de progresso no curso atual, próxima lição recomendada
+3. **Tracking de eventos** — sem `lesson_started`, `lesson_completed`, `session_started` nenhum KR é mensurável; usar Posthog ou direto no Supabase
+4. **Áreas admin e instrutor** — papéis existem na base, mas flows de gestão ainda estão fora da V1
+5. **Cursos alimentados por instrutores** — conteúdo ainda vem do `mock-db`; próximo passo é permitir cadastro/edição por instrutores
+6. **Áudio guiado** — base técnica existe no frontend; aguarda consolidação do conteúdo
+7. **Edição completa de perfil e imagem** — dados extras do cadastro existem parcialmente no fluxo de complemento; edição e troca de avatar ainda não fechados
+8. **Avatar personalizado** — hoje usa provider social ou fallback; upload/troca manual ainda não implementado
+9. **Streak de acesso** — retenção ativa; colunas `streak_count` + `last_active_date` no perfil
+10. **Certificado de conclusão** — tela de conclusão + geração client-side com Canvas ou html2canvas
+11. **Fórum por tópico** — promover interações entre membros; moderação a definir
+12. **Votos no curso** — métrica de sucesso do conteúdo
+13. **Ranking de membros** — gamificação inteligente; precisa ser discutida antes de implementar para não banalizar
+
+---
+
+## OKRs — Q2 2026 (90 dias)
+
+### Objetivo 1: O aluno termina a primeira semana com sensação de progresso real
+
+**Contexto:** o dashboard é um placeholder estático e o progresso some ao trocar de dispositivo. Os bloqueadores críticos são a sync de progresso e um dashboard real. Sem isso, os outros OKRs são ficção.
+
+| Key Result | Meta | Baseline |
+|---|---|---|
+| KR1: % de usuários que se cadastram e completam ao menos 1 lição na primeira sessão | ≥ 70% | Não mensurável (sem tracking) |
+| KR2: Retenção no dia 7 (usuários que voltam à plataforma no 7º dia) | ≥ 40% | Não mensurável |
+| KR3: Progresso de lições sincronizado com Supabase para 100% dos usuários autenticados | 100% | 0% (só localStorage) |
+
+---
+
+### Objetivo 2: O produto tem cara — não parece beta eterno
+
+**Contexto:** o dashboard é estático, o onboarding não usa o `technicalLevel` coletado. O produto coleta dados do usuário mas não faz nada com eles. Isso quebra a confiança na primeira sessão — exatamente quando a comparação com o YouTube é mais violenta.
+
+| Key Result | Meta | Baseline |
+|---|---|---|
+| KR1: Fluxo de auth funcional ponta a ponta: `/login`, `/complete-profile`, redirect pós-auth correto, estado de loading visível | Funcional | Auth existe; E2E não validado |
+| KR2: Dashboard mostra ao menos 3 elementos dinâmicos reais: última lição, % progresso no curso atual, próxima lição recomendada | Funcional | Placeholder estático |
+| KR3: Onboarding pós-cadastro redireciona para trilha compatível com `technicalLevel`, reduzindo tempo "cadastro → primeira lição" para < 60 segundos | < 60s | Não implementado |
+
+---
+
+### Objetivo 3: O aluno tem motivo para voltar amanhã
+
+**Contexto:** o maior inimigo é o abandono silencioso. Hoje não há nenhum mecanismo ativo de retenção — sem streak, sem certificado, sem nada. O conteúdo existe (58 lições) mas a plataforma não cria o hábito.
+
+| Key Result | Meta | Baseline |
+|---|---|---|
+| KR1: Streak implementado e visível na UI — ao menos 30% dos usuários ativos formam sequência de 3 dias no primeiro mês | 30% | Não implementado |
+| KR2: Tela de conclusão com certificado (PDF ou imagem compartilhável) publicada — 100% dos que concluírem o "Start" recebem certificado | 100% | Não implementado |
+| KR3: Média de streak de usuários ativos (3+ acessos) chega a 5 dias no período | 5 dias | Não mensurável |
+
+---
+
+## O que NÃO construir nos próximos 90 dias
+
+| Feature | Motivo |
+|---|---|
+| Narração em áudio | `AudioNarrationService` implementado, mas gravar/sincronizar áudio para 58 lições é trabalho editorial massivo. Não voltar até ter tração com conteúdo escrito. |
+| Segundo curso novo | Antes de escalar catálogo, resolver retenção no curso existente. |
+| App mobile nativo | Angular com responsivo resolve a necessidade real agora. |
+| Comunidade/fórum | Alto custo de moderação, baixo retorno antes de ter base de usuários. Backlog pós-OKR 3. |
+| Gamificação complexa (badges, pontos, leaderboard) | Sem substância, aumenta churn depois. Streak simples basta por 90 dias. |
+| CMS visual para instrutores | `mock-db` + Markdown é suficiente para o time publicar conteúdo agora. |
+
+---
+
+## Cadeia de dependências de features
+
+```
+auth completo (login + complemento de perfil)
+  → progresso sincronizado no Supabase
+      → dashboard real
+          → streak
+              → certificado
+
+tracking de eventos
+  → todos os KRs acima se tornam mensuráveis
+  (sem tracking, o time voa cego)
+```
+
+**Tracking entra na Fase 1.** É a segunda coisa mais urgente depois da sync de progresso.
+
+---
+
+## Tabelas Supabase (modelo de dados)
+
+| Tabela | Função |
+|---|---|
+| `auth.users` | Gerenciado pelo Supabase Auth |
+| `profiles` | Perfil público/privado do usuário (`full_name`, `avatar_url`, `technical_level`, `streak_count`, `last_active_date`, etc.) |
+| `email_leads` | Emails coletados no cadastro para disparo de comunicações |
+| `courses` | Catálogo de cursos |
+| `modules` | Módulos por curso |
+| `lessons` | Lições por módulo |
+| `enrollments` | Vínculo usuário ↔ curso (`last_lesson_id`, `status`, `completed_at`) |
+| `lesson_progress` | Progresso granular por lição (`completed`, `status`, `last_block_id`) |
+
+---
+
+## Arquitetura Técnica
+
+### Stack
+
+- **Angular 19** (standalone components, signals, OnPush)
+- **Supabase** (auth + DB + Edge Functions)
+- **Angular Material** (ícones, menus, botões)
+- **DOMPurify** (sanitização de HTML)
+- **Deploy:** Vercel (prod) / Docker + nginx (local/container)
+
+### Estrutura de pastas
 
 ```
 src/app/
@@ -26,68 +177,38 @@ src/app/
   shells/        — Layouts que envolvem páginas (sidebar, header, router-outlet)
 ```
 
-Não criar subpastas além dessas sem discutir com o time. Se um novo domínio surgir
-(ex: `forms/`, `pipes/`), abrir discussão antes.
+Não criar subpastas além dessas sem discutir com o time.
 
----
+### Classificação de componentes
 
-## Classificação de componentes
+**Shell (`shells/`)** — gerencia layout e roteamento. Injeta serviços apenas para dados de UI estrutural. Não executa operações de negócio.
 
-### 1. Shell (`shells/`)
-Gerencia **layout e roteamento**. Injeta serviços apenas para dados de UI estrutural
-(tema, usuário logado para exibir nome/avatar no header). Não executa operações de negócio.
+**Page (`pages/`)** — componente smart. Coordena serviços, gerencia estado local, lida com ações do usuário. Uma page por rota. A page orquestra, não implementa.
 
-Exemplos: `platform-shell.component.ts`, `course-shell.component.ts`
+**Componente reutilizável (futuro: `components/`)** — apresentacional. Recebe `@Input()`, emite `@Output()`. Não injeta serviços de negócio.
 
-### 2. Page (`pages/`)
-Componente **smart** — coordena serviços, gerencia estado local, lida com ações do usuário.
-Uma page por rota. Pode injetar múltiplos serviços.
+### Separação de responsabilidades
 
-Regra: a page orquestra, não implementa. Lógica de negócio fica nos serviços.
-
-Exemplos: `login-page.component.ts`, `account-page.component.ts`
-
-### 3. Componentes reutilizáveis (futuro: `components/`)
-Componentes **apresentacionais** — recebem dados via `@Input()`, emitem eventos via `@Output()`.
-Não injetam serviços de negócio. Completamente agnósticos ao contexto da aplicação.
-
----
-
-## Separação de responsabilidades
-
-### O que fica no componente (`.component.ts`)
+**No componente (`.component.ts`):**
 - Estado local de UI (`loading`, `errorMessage`, valores de formulário)
-- Métodos handler que delegam para serviços (`async signIn() { await this.auth.signIn(...) }`)
-- `computed()` para derivar dados de display a partir de signals de serviço
-- Lógica de navegação via `Router` (ex: `router.navigateByUrl('/courses/home')`)
+- Métodos handler que delegam para serviços
+- `computed()` para derivar dados de display
+- Lógica de navegação via `Router`
 
-### O que fica nos serviços (`services/` ou `data/`)
-- Lógica de negócio (autenticação, persistência, transformação de dados)
-- Estado compartilhado entre componentes (signals no serviço, readonly para fora)
+**Nos serviços (`services/` ou `data/`):**
+- Lógica de negócio (autenticação, persistência, transformação)
+- Estado compartilhado entre componentes (signals readonly para fora)
 - Chamadas ao Supabase, HTTP, localStorage
 - Regras de validação de domínio
 
-### Nunca no componente
+**Nunca no componente:**
 - Chamadas diretas ao Supabase, fetch ou localStorage
-- Regras de negócio (ex: "aceite de termos é obrigatório")
+- Regras de negócio
 - Transformação complexa de dados que não seja para display
 
----
+### Separação de arquivos
 
-## Separação de arquivos por tipo de componente
-
-### Regra geral: sempre separar template e estilos
-
-Separar template e estilos em arquivos próprios é boa prática em qualquer framework —
-melhora legibilidade, facilita code review (diff limpo por arquivo) e é o padrão do Angular CLI.
-
-| Elemento       | Inline OK?                                      | Arquivo separado?        |
-|----------------|-------------------------------------------------|--------------------------|
-| Template HTML  | Nunca em pages/shells. Só em componentes de 1-3 linhas triviais | `templateUrl` sempre em pages/shells |
-| Estilos CSS    | Nunca em pages/shells                           | `styleUrl` sempre        |
-| Lógica `.ts`   | Até ~150 linhas de lógica de componente         | extrair para serviço     |
-
-**Pages e shells sempre usam arquivos separados:**
+Pages e shells sempre usam arquivos separados:
 ```ts
 @Component({
   selector: 'app-login-page',
@@ -96,63 +217,49 @@ melhora legibilidade, facilita code review (diff limpo por arquivo) e é o padr�
 })
 ```
 
-**Exceção:** componentes puramente presentacionais de uma única responsabilidade simples
-(ex: um `<app-badge>` que exibe um texto com cor) podem ter template de 1-3 linhas inline.
-Se tiver `@if`, `@for` ou mais de uma tag, já merece arquivo separado.
+Componentes de 1-3 linhas triviais podem ter template inline.
 
----
+### Padrão de signals
 
-## Padrão de signals
-
-**Serviço** — expõe signals como readonly:
 ```ts
+// Serviço — expõe signals como readonly
 private readonly _state = signal<AuthUser | null>(null);
 readonly state = this._state.asReadonly();
 readonly isActive = computed(() => this._state() !== null);
-```
 
-**Componente** — injeta e usa os signals do serviço para display:
-```ts
+// Componente — injeta e usa
 protected readonly auth = inject(AuthService);
 protected readonly label = computed(() => this.auth.user()?.name ?? 'Visitante');
-```
 
-**Estado local de UI** — signal no próprio componente:
-```ts
+// Estado local de UI
 protected readonly loading = signal(false);
 protected readonly errorMessage = signal<string | null>(null);
 ```
 
 ---
 
-## Formulários
+## Segurança (não negociável)
 
-- Não usar `FormsModule` com `[(ngModel)]` para formulários complexos — preferir
-  Angular Reactive Forms (`FormBuilder`, `FormGroup`) quando houver validação cruzada.
-- Para formulários simples de login/cadastro com poucos campos, `ngModel` é aceitável.
-- Nunca fazer validação de regras de negócio no template — mover para o serviço ou para
-  um método do componente antes de chamar o serviço.
-
----
-
-## Inputs e acessibilidade
-
-- Todo `<input>` deve ter `id` e `<label for="...">` correspondente.
-- Botões de submit devem ter `type="submit"` explícito dentro de `<form>`.
-- Mensagens de erro devem ter `role="alert"` para leitores de tela.
-- Imagens devem ter `alt` descritivo (nunca vazio para imagens com conteúdo).
-
----
-
-## Segurança (regras fixas, não negociáveis)
-
-- **Nunca renderizar HTML sem DOMPurify.** Todo output de `marked` ou qualquer
-  renderização dinâmica passa por `DOMPurify.sanitize()`.
-- **Nunca confiar em dados do `localStorage` para decisões de autenticação.**
-  `isAuthenticated` depende de sessão verificada pelo Supabase.
+- **Nunca renderizar HTML sem DOMPurify.** Todo output de `marked` ou renderização dinâmica passa por `DOMPurify.sanitize()`.
+- **Nunca confiar em localStorage para decisões de autenticação.** `isAuthenticated` depende de sessão verificada pelo Supabase.
 - **Nunca fazer `.trim()` em senhas.** Espaços são caracteres válidos.
 - **Validar URLs externas** antes de usar como `src` de imagem — usar allowlist de domínios.
 - **Route guards em todas as rotas protegidas.** Não depender apenas de UI condicional.
+
+---
+
+## Formulários
+
+- Formulários complexos: Angular Reactive Forms (`FormBuilder`, `FormGroup`)
+- Formulários simples (login, poucos campos): `ngModel` aceitável
+- Nunca validar regras de negócio no template
+
+## Inputs e acessibilidade
+
+- Todo `<input>` deve ter `id` e `<label for="...">` correspondente
+- Botões de submit: `type="submit"` explícito dentro de `<form>`
+- Mensagens de erro: `role="alert"` para leitores de tela
+- Imagens: `alt` descritivo (nunca vazio para imagens com conteúdo)
 
 ---
 
@@ -167,48 +274,16 @@ protected readonly errorMessage = signal<string | null>(null);
 
 ---
 
-## O que NÃO fazer
-
-```ts
-// ❌ Chamada direta ao Supabase no componente
-async login() {
-  const { data } = await supabase.auth.signIn(...)
-}
-
-// ✅ Delegar ao serviço
-async login() {
-  const result = await this.auth.signInWithEmail(this.email, this.password);
-}
-```
-
-```ts
-// ❌ Lógica de negócio no componente
-if (!this.email.includes('@') || this.password.length < 8) { ... }
-
-// ✅ Validação no serviço
-const result = await this.auth.signInWithEmail(this.email, this.password);
-if (!result.ok) this.errorMessage.set(result.message);
-```
-
-```html
-<!-- ❌ Renderizar HTML sem sanitização -->
-<div [innerHTML]="rawHtml"></div>
-
-<!-- ✅ Sempre sanitizar -->
-<div [innerHTML]="sanitizedHtml()"></div>
-<!-- onde sanitizedHtml = computed(() => DOMPurify.sanitize(this.rawHtml())) -->
-```
-
----
-
 ## Referências no código
 
-| Padrão               | Onde ver                          |
-|----------------------|-----------------------------------|
-| Service com signals  | `services/auth.service.ts`        |
-| Route guard          | `guards/auth.guard.ts`            |
-| Shell layout         | `shells/platform-shell.component.ts` |
-| Template separado    | `shells/course-shell.component.ts` |
-| Page smart           | `pages/account-page.component.ts` |
-| Sanitização markdown | `data/school-content.service.ts`  |
-| Validação de URL     | `services/auth.service.ts` → `sanitizeAvatarUrl()` |
+| Padrão | Onde ver |
+|---|---|
+| Service com signals | `services/auth.service.ts` |
+| Route guard | `guards/auth.guard.ts` |
+| Shell layout | `shells/platform-shell.component.ts` |
+| Template separado | `shells/course-shell.component.ts` |
+| Page smart | `pages/account-page/account-page.component.ts` |
+| Sanitização markdown | `data/school-content.service.ts` |
+| Validação de URL | `services/auth.service.ts` → `sanitizeAvatarUrl()` |
+| Mock content | `mock-db/navigation/tree.json` + `mock-db/doc/` |
+| OKRs e plano de execução | `plan/okrs.md` |
