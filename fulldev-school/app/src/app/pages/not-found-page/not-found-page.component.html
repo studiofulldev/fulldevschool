@@ -1,10 +1,23 @@
 <main class="not-found">
   <div class="not-found__inner">
     <span class="not-found__code" aria-hidden="true">404</span>
-    <h1 class="not-found__title">Página não encontrada</h1>
+
+    <h1 class="not-found__title">
+      TypeError: Cannot read properties of undefined
+      <span class="not-found__title-detail">(reading 'route')</span>
+    </h1>
+
+    <pre class="not-found__trace" aria-hidden="true"><code>  at Angular.navigate (app.routes.ts:404:1)
+  at YourBrain.at3am (decisions.ts:23:7)
+  at Promise.resolve (&lt;anonymous&gt;)</code></pre>
+
     <p class="not-found__desc">
-      Essa rota não existe. Pode ter sido removida, renomeada ou você digitou o endereço errado.
+      Essa rota não existe — ou foi pro <code>stash</code> e ninguém fez o <code>pop</code>.<br>
+      Acontece até com os melhores.
     </p>
-    <a class="not-found__cta" routerLink="/">Voltar para o início</a>
+
+    <a class="not-found__cta" routerLink="/">
+      <span class="not-found__cta-prefix">$</span> git checkout /
+    </a>
   </div>
 </main>
