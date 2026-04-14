@@ -6,6 +6,7 @@ import { profileCompletionRequiredGuard } from './guards/profile-completion-requ
 import { AccountPageComponent } from './pages/account-page/account-page.component';
 import { CourseOverviewComponent } from './pages/course-overview/course-overview.component';
 import { LandingPageComponent } from './pages/landing-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { LegalPageComponent } from './pages/legal-page/legal-page.component';
 import { LessonPageComponent } from './pages/lesson-page/lesson-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -91,6 +92,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    component: NotFoundPageComponent
   }
 ];
