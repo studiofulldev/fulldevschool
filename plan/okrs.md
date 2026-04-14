@@ -1,196 +1,197 @@
-# fulldev school — OKRs & Execution Plan
-> Cycle: Q2 2026 (90 days) · Last updated: 2026-04-09
+# Fulldev School — OKRs & Plano de Execução
+> Ciclo: Q2 2026 (90 dias) · Última atualização: 2026-04-14
 
-## Context
+## Contexto
 
-fulldev school is a developer education platform — courses, learning paths, practical projects, community.
+Fulldev School é uma plataforma educacional de desenvolvimento de software — cursos, trilhas, projetos práticos, comunidade.
 
-**Primary user:** developer in formation:
-- Beginner wanting to enter the market (wants a job, not a degree)
-- Junior dev wanting to level up (already working, wants to advance)
-- Career switcher (coming from another field, wants to become a dev)
+**Usuário primário:** desenvolvedor em formação:
+- Iniciante que quer entrar no mercado (quer emprego, não diploma)
+- Junior que quer evoluir (já trabalha, quer crescer na carreira)
+- Pessoa em transição de carreira (quer se tornar dev)
 
-**Behavior:** watches lessons on the phone on the bus, on desktop at home. Zero patience for slow or poorly produced content. Compares everything to YouTube — if content is less engaging, opens YouTube.
+**Comportamento real:** assiste aulas no celular no ônibus, no desktop em casa. Zero paciência para conteúdo lento ou mal produzido. Compara tudo com o YouTube — se o conteúdo for menos interessante, abre o YouTube.
 
-**Biggest enemy:** silent abandonment — student who stops accessing without cancelling. They don't say anything. They just disappear.
+**Maior inimigo:** abandono silencioso — o aluno que para de acessar sem cancelar. Não fala nada. Simplesmente some.
 
-**Competition:** Alura, Rocketseat, DIO.
+**Competidores:** Alura, Rocketseat, DIO.
 
 ---
 
-## Product State (as of 2026-04-10)
+## Estado do Produto (em 2026-04-14)
 
-### What exists
-- Angular 19 standalone + signals with clean architecture (shells / pages / services / data / guards)
-- Complete Supabase auth: email registration, email login, Google OAuth, LinkedIn OAuth
-- `LoginPageComponent` with full UI — `/login` route declared in `app.routes.ts` (merged to main)
-- `CourseProgressService` — persists lesson/module/course progress in `localStorage` (does NOT sync with Supabase yet)
-- `SchoolContentService` reading content from mock-db (Markdown + JSON tree)
-- `AudioNarrationService` via Web Speech API — deliberately removed from UI (code comment confirms)
+### O que existe
+- Angular 19 standalone + signals com arquitetura limpa (shells / pages / services / data / guards)
+- Auth completa no Supabase: cadastro por email, login por email, Google OAuth, LinkedIn OAuth
+- `LoginPageComponent` com UI completa — rota `/login` declarada em `app.routes.ts` (merged na main)
+- `CourseProgressService` — persiste progresso de lição/módulo/curso no `localStorage` (ainda NÃO sincroniza com Supabase)
+- `SchoolContentService` lendo conteúdo do mock-db (Markdown + JSON tree)
+- `AudioNarrationService` via Web Speech API — removido da UI intencionalmente (comentário no código confirma)
 - `SeoService` + `ThemeService` (dark/light)
-- `AuthGuard` with correct session verification
-- `RoleGuard` for role-based access control
-- Docker + nginx setup for containerized deploy
-- Vercel deploy configured
+- `AuthGuard` com verificação correta de sessão
+- `RoleGuard` para controle de acesso por papel
+- Docker + nginx para deploy containerizado
+- Vercel configurado
+- Página 404 com humor dev e efeito matrix vermelho no fundo
 
-### Existing pages (routes)
-- `/login` — LoginPageComponent with Google + LinkedIn OAuth (now exists — merged)
-- `/courses/home` — PlatformDashboard (static placeholder, no real data)
-- `/courses/catalog` — course listing with cards
-- `/courses/account` — user profile + course progress %
-- `/courses/:courseSlug` — CourseOverview with modules
+### Páginas existentes (rotas)
+- `/login` — LoginPageComponent com Google + LinkedIn OAuth (existe — merged na main)
+- `/courses/home` — PlatformDashboard (placeholder estático, sem dados reais)
+- `/courses/catalog` — listagem de cursos com cards
+- `/courses/account` — perfil do usuário + % de progresso nos cursos
+- `/courses/:courseSlug` — CourseOverview com módulos
 - `/courses/:courseSlug/modules/:moduleSlug` — ModulePage
-- `/courses/:courseSlug/lessons/:lessonSlug` — LessonPage (Markdown with expandable panels, prev/next nav, scroll reading bar)
-- `/legal/privacy` and `/legal/terms`
+- `/courses/:courseSlug/lessons/:lessonSlug` — LessonPage (Markdown com painéis expansíveis, nav anterior/próximo, barra de leitura)
+- `/legal/privacy` e `/legal/terms`
+- `/**` — Página 404 com humor dev
 
-### Content
-- 1 course: "Start: Começando na tecnologia"
-- 58 lessons in `tree.json` across 16 thematic sections
-- All content in Markdown — 0/58 `audioManifestPath` filled
-- Rich editorial content: area maps, specialty paths, job market, portfolio, mindset, glossary, FAQ
+### Conteúdo
+- 1 curso: "Start: Começando na tecnologia"
+- 58 lições em `tree.json` distribuídas em 16 seções temáticas
+- Todo conteúdo em Markdown — 0/58 `audioManifestPath` preenchidos
+- Conteúdo editorial rico: mapas de área, trilhas de especialidade, mercado de trabalho, portfólio, mindset, glossário, FAQ
 
-### Critical gaps
+### Gaps críticos
 
-1. **~~`/login` route does not exist~~** — **RESOLVED (merged to main).** `LoginPageComponent` was implemented with full OAuth wizard UI (Google + LinkedIn). Route `/login` is declared in `app.routes.ts`. Auth guard redirect is now functional.
-2. **Progress does not persist on server** — `CourseProgressService` uses only `localStorage`. Device change or cache clear = all progress lost.
-3. **Dashboard is a static placeholder** — `/courses/home` is static HTML with "Estrutura inicial da plataforma" text. No real data, no dynamic content.
-4. **No recurring engagement mechanism** — zero streak, zero notification, zero reminder. Nothing that brings the user back tomorrow.
-5. **No onboarding path** — registration collects `technicalLevel` but this information doesn't route to any learning path.
-6. **No certificate** — no structure for certificate issuance on course completion.
-7. **Zero analytics** — no tracking events. Completion rate, day 7 retention — none of these are measurable today.
-8. **Obsidian internal links broken** — `[[...]]` links from Obsidian don't become real navigation.
-9. **`PlatformDataService` hardcoded to 1 course** — `computed(() => [this.buildStartCourse()])`. Publishing a second course requires service refactoring.
-10. **Corrupted encoding** — README notes markdown files with corrupted characters still needing review.
+1. **Progresso não persiste no servidor** — `CourseProgressService` usa apenas `localStorage`. Troca de dispositivo ou clear de cache = todo progresso perdido.
+2. **Dashboard é placeholder estático** — `/courses/home` tem HTML estático com texto "Estrutura inicial da plataforma". Sem dados reais, sem conteúdo dinâmico.
+3. **Nenhum mecanismo de engajamento recorrente** — zero streak, zero notificação, zero lembrete. Nada que traga o usuário de volta amanhã.
+4. **Nenhuma trilha de onboarding** — o cadastro coleta `technicalLevel` mas essa informação não roteia para nenhuma trilha de aprendizado.
+5. **Sem certificado** — sem estrutura para emissão de certificado ao concluir o curso.
+6. **Zero analytics** — sem eventos de tracking. Taxa de conclusão, retenção no dia 7 — nada disso é mensurável hoje.
+7. **Links internos do Obsidian quebrados** — links `[[...]]` do Obsidian não viram navegação real.
+8. **`PlatformDataService` hardcoded para 1 curso** — `computed(() => [this.buildStartCourse()])`. Publicar um segundo curso exige refatoração do serviço.
+9. **Encoding corrompido** — o README menciona arquivos Markdown com caracteres corrompidos ainda pendentes de revisão.
 
 ---
 
 ## OKRs — Q2 2026
 
-### Objective 1: Student finishes the first week with a sense of real progress
+### Objetivo 1: O aluno termina a primeira semana com sensação de progresso real
 
-**Rationale:** The dashboard is a static placeholder and progress disappears on device change. The `/login` route was missing at analysis time but has since been merged — auth routing now works. The remaining critical path blockers are progress sync and a real dashboard. Without these, all other OKRs are fiction.
+**Contexto:** O dashboard é placeholder estático e o progresso some ao trocar de dispositivo. A rota `/login` estava ausente na análise anterior mas foi merged — o roteamento de auth funciona. Os bloqueadores críticos restantes são a sync de progresso e um dashboard real. Sem esses, todos os outros OKRs são ficção.
 
-| Key Result | Target | Baseline |
+| Key Result | Meta | Baseline |
 |---|---|---|
-| KR1: % of users who register and complete at least 1 lesson in their first session | ≥ 70% | Not measurable (no tracking) |
-| KR2: Day 7 retention (users who return to platform on day 7) | ≥ 40% | Not measurable |
-| KR3: Lesson progress synced with Supabase for 100% of authenticated users | 100% | 0% (localStorage only) |
+| KR1: % de usuários que se cadastram e completam ao menos 1 lição na primeira sessão | ≥ 70% | Não mensurável (sem tracking) |
+| KR2: Retenção no dia 7 (usuários que voltam à plataforma no 7º dia) | ≥ 40% | Não mensurável |
+| KR3: Progresso de lições sincronizado com Supabase para 100% dos usuários autenticados | 100% | 0% (só localStorage) |
 
 ---
 
-### Objective 2: The product has a face — doesn't feel like perpetual beta
+### Objetivo 2: O produto tem cara — não parece beta eterno
 
-**Rationale:** Dashboard is static, auth guard points to a non-existent route, and onboarding doesn't use collected `technicalLevel`. The product collects user data but does nothing with it. This breaks trust in the first session — exactly when the YouTube comparison is most violent.
+**Contexto:** O dashboard é estático e o onboarding não usa o `technicalLevel` coletado. O produto coleta dados do usuário mas não faz nada com eles. Isso quebra a confiança na primeira sessão — exatamente quando a comparação com o YouTube é mais violenta.
 
-| Key Result | Target | Baseline |
+| Key Result | Meta | Baseline |
 |---|---|---|
-| KR1: 100% of auth flow functional end-to-end: `/login` route, `/register`, correct post-auth redirect, loading state visible during session verification | Functional | `/login` merged — verify `/register` and post-auth redirect e2e |
-| KR2: Dashboard shows at least 3 real dynamic elements: last lesson accessed, % progress in current course, next recommended lesson | Functional | Static placeholder |
-| KR3: Post-registration onboarding routes user to first lesson of path matching their `technicalLevel`, reducing time "register → first lesson" to < 60 seconds | < 60s | Not implemented |
+| KR1: Fluxo de auth funcional ponta a ponta: rota `/login`, `/register`, redirect pós-auth correto, estado de loading visível durante verificação de sessão | Funcional | `/login` merged — validar `/register` e redirect pós-auth E2E |
+| KR2: Dashboard exibe ao menos 3 elementos dinâmicos reais: última lição acessada, % de progresso no curso atual, próxima lição recomendada | Funcional | Placeholder estático |
+| KR3: Onboarding pós-cadastro roteia o usuário para a primeira lição da trilha compatível com seu `technicalLevel`, reduzindo o tempo "cadastro → primeira lição" para menos de 60 segundos | < 60s | Não implementado |
 
 ---
 
-### Objective 3: Student has a reason to come back tomorrow
+### Objetivo 3: O aluno tem motivo para voltar amanhã
 
-**Rationale:** The biggest enemy is silent abandonment. Today there's zero active retention mechanism — no streak, no certificate, nothing. Content exists (58 lessons) but the platform doesn't create the habit. Duolingo solved this in 2005. Can't compete with Rocketseat and Alura without at least one return mechanism.
+**Contexto:** O maior inimigo é o abandono silencioso. Hoje não há nenhum mecanismo ativo de retenção — sem streak, sem certificado, nada. O conteúdo existe (58 lições) mas a plataforma não cria o hábito. O Duolingo resolveu isso em 2005. Não dá para competir com Rocketseat e Alura sem ao menos um mecanismo de retorno.
 
-| Key Result | Target | Baseline |
+| Key Result | Meta | Baseline |
 |---|---|---|
-| KR1: Streak implemented and visible in UI — at least 30% of active users form a 3-day sequence in first month | 30% | Not implemented |
-| KR2: Course completion screen with certificate (PDF or shareable image) published — 100% of users who complete "Start" receive certificate | 100% | Not implemented |
-| KR3: Average streak of active users (3+ accesses) reaches 5 days in the period | 5 days | Not measurable |
+| KR1: Streak implementado e visível na UI — ao menos 30% dos usuários ativos formam sequência de 3 dias no primeiro mês | 30% | Não implementado |
+| KR2: Tela de conclusão com certificado (PDF ou imagem compartilhável) publicada — 100% dos usuários que concluírem o "Start" recebem certificado | 100% | Não implementado |
+| KR3: Média de streak dos usuários ativos (3+ acessos) chega a 5 dias no período | 5 dias | Não mensurável |
 
 ---
 
-## Execution Plan
+## Plano de Execução
 
-### Phase 1 — Weeks 1–3: Fix critical breaks
+### Fase 1 — Semanas 1–3: Corrigir os gaps críticos
 
-Everything broken or missing that prevents the basic journey from working.
+Tudo que está quebrado ou faltando e impede a jornada básica de funcionar.
 
-**Week 1–2:**
-- [x] ~~Create `/login` route and `LoginPageComponent`~~ — **DONE (merged to main).** OAuth wizard with Google + LinkedIn is live.
-- [ ] Verify `/register` route and post-auth redirect work end-to-end (smoke test the full auth flow since `/login` is now real)
-- [ ] Fix corrupted encoding in Markdown files (editorial task, low technical cost)
-- [ ] Transform `[[Obsidian]]` links into real `RouterLink` in `SchoolContentService`
+**Semanas 1–2:**
+- [x] ~~Criar rota `/login` e `LoginPageComponent`~~ — **FEITO (merged na main).** Wizard OAuth com Google + LinkedIn está no ar.
+- [ ] Verificar rota `/register` e redirect pós-auth funcionando ponta a ponta (smoke test do fluxo completo de auth)
+- [ ] Corrigir encoding corrompido nos arquivos Markdown (tarefa editorial, baixo custo técnico)
+- [ ] Transformar links `[[Obsidian]]` em `RouterLink` reais no `SchoolContentService`
 
-**Week 3:**
-- [ ] Migrate `CourseProgressService` to persist in Supabase when user is authenticated, keeping localStorage as offline fallback
-- [ ] Add `last_lesson_accessed` to progress table (needed for dashboard)
-- [ ] Add basic tracking events (Posthog or direct to Supabase): `lesson_started`, `lesson_completed`, `session_started` — **without this, no KR is measurable**
+**Semana 3:**
+- [ ] Migrar `CourseProgressService` para persistir no Supabase quando o usuário estiver autenticado, mantendo localStorage como fallback offline
+- [ ] Adicionar `last_lesson_accessed` na tabela de progresso (necessário para o dashboard)
+- [ ] Adicionar eventos básicos de tracking (Posthog ou direto no Supabase): `lesson_started`, `lesson_completed`, `session_started` — **sem isso, nenhum KR é mensurável**
 
-**What NOT to do yet:** streak, certificate, audio — without the critical path working, these features are waste.
-
----
-
-### Phase 2 — Weeks 4–6: Real dashboard + functional onboarding
-
-The product needs a face.
-
-**Week 4–5:**
-- [ ] Redesign `PlatformDashboardComponent` with real data: last lesson accessed, % progress in "Start", next lesson (consuming progress now persisted in Supabase)
-- [ ] Post-registration onboarding: on account create, redirect to path selection page; if `technicalLevel === 'beginner'`, go directly to first "Start" lesson
-- [ ] Full-course progress bar visible in `CourseShellComponent` sidebar
-
-**Week 6:**
-- [ ] Refactor `PlatformDataService` to support multiple courses without hardcode — `courses = computed(() => [this.buildStartCourse()])` must come from Supabase or a JSON array. This unblocks publishing a second course without urgent refactoring.
-
-**What NOT to do yet:** certificate (depends on consolidated completion on server), streak (needs server-side progress stabilized first).
+**O que NÃO fazer ainda:** streak, certificado, áudio — sem o caminho crítico funcionando, essas features são desperdício.
 
 ---
 
-### Phase 3 — Weeks 7–10: Active retention
+### Fase 2 — Semanas 4–6: Dashboard real + onboarding funcional
 
-Now the habit mechanisms, because the base is solid.
+O produto precisa ter cara.
 
-**Week 7–8:**
-- [ ] Streak: `streak_count` + `last_active_date` columns in Supabase profile; simple visual component in dashboard and course shell; update logic on each `lesson_completed` — **the number "your streak: 4 days" changes behavior; doesn't need to be elaborate**
+**Semanas 4–5:**
+- [ ] Redesenhar `PlatformDashboardComponent` com dados reais: última lição acessada, % de progresso no "Start", próxima lição (consumindo o progresso agora persistido no Supabase)
+- [ ] Onboarding pós-cadastro: ao criar conta, redirecionar para página de seleção de trilha; se `technicalLevel === 'beginner'`, ir direto para a primeira lição do "Start"
+- [ ] Barra de progresso completa do curso visível na sidebar do `CourseShellComponent`
 
-**Week 9–10:**
-- [ ] Course completion screen: trigger when `setCourseCompleted` called for the first time; emit `course_completed` tracking event
-- [ ] Certificate: client-side generation with Canvas or html2canvas with student name, course, date — sufficient for LinkedIn sharing; no server needed now
-- [ ] Re-engagement email after 3 days without access (via Supabase Edge Functions) — only for users who completed at least 1 lesson
+**Semana 6:**
+- [ ] Refatorar `PlatformDataService` para suportar múltiplos cursos sem hardcode — `courses = computed(() => [this.buildStartCourse()])` precisa vir do Supabase ou de um array JSON. Desbloqueia publicação de um segundo curso sem refatoração urgente.
+
+**O que NÃO fazer ainda:** certificado (depende de conclusão consolidada no servidor), streak (precisa do progresso server-side estabilizado primeiro).
 
 ---
 
-### Feature dependency chain
+### Fase 3 — Semanas 7–10: Retenção ativa
+
+Agora os mecanismos de hábito, porque a base está sólida.
+
+**Semanas 7–8:**
+- [ ] Streak: colunas `streak_count` + `last_active_date` no perfil no Supabase; componente visual simples no dashboard e no course shell; lógica de atualização em cada `lesson_completed` — **o número "seu streak: 4 dias" muda comportamento; não precisa ser elaborado**
+
+**Semanas 9–10:**
+- [ ] Tela de conclusão do curso: disparada quando `setCourseCompleted` for chamado pela primeira vez; emite evento de tracking `course_completed`
+- [ ] Certificado: geração client-side com Canvas ou html2canvas com nome do aluno, curso e data — suficiente para compartilhar no LinkedIn; sem necessidade de servidor por ora
+- [ ] Email de reengajamento após 3 dias sem acesso (via Supabase Edge Functions) — apenas para usuários que completaram ao menos 1 lição
+
+---
+
+### Cadeia de dependências das features
 
 ```
-/login + /register routes (fix)
-  → progress synced to Supabase
-      → real dashboard
+rotas /login + /register (corrigir)
+  → progresso sincronizado no Supabase
+      → dashboard real
           → streak
-              → certificate
+              → certificado
 
-tracking events
-  → all KRs above become measurable
-  (without tracking, day 90 the team is flying blind)
+eventos de tracking
+  → todos os KRs acima se tornam mensuráveis
+  (sem tracking, no dia 90 o time está voando às cegas)
 ```
 
-**Tracking must enter in Phase 1.** It's the second most urgent thing after the broken routes.
+**Tracking entra na Fase 1.** É a segunda coisa mais urgente depois da sync de progresso.
 
 ---
 
-## What NOT to build in the next 90 days
+## O que NÃO construir nos próximos 90 dias
 
-| Feature | Reason |
+| Feature | Motivo |
 |---|---|
-| Audio narration | `AudioNarrationService` is implemented correctly but recording/syncing audio for 58 lessons is massive editorial work. UI was removed for a good reason. Don't return until traction with written content. |
-| Second new course | Before scaling catalog, fix retention in the existing course. 20% completion rate on one good course beats 5 courses with 3%. |
-| Native mobile app | Angular with good responsive solves the real mobile need for entry-level devices now. |
-| Community / forum | High moderation cost, low return before user base exists. Backlog. |
-| Complex gamification (badges, points, leaderboard) | Without substance, increases churn later. Simple streak is enough for 90 days. |
-| CMS for instructors | mock-db + Markdown structure is sufficient for team to publish content. Visual CMS costs weeks of dev. |
+| Narração em áudio | `AudioNarrationService` implementado corretamente, mas gravar/sincronizar áudio para 58 lições é trabalho editorial massivo. A UI foi removida por uma boa razão. Não voltar até ter tração com conteúdo escrito. |
+| Segundo curso novo | Antes de escalar o catálogo, resolver a retenção no curso existente. 20% de conclusão em um bom curso bate 5 cursos com 3%. |
+| App mobile nativo | Angular com responsivo resolve a necessidade real de dispositivos de entrada agora. |
+| Comunidade / fórum | Alto custo de moderação, baixo retorno antes de ter base de usuários. Backlog pós-OKR 3. |
+| Gamificação complexa (badges, pontos, leaderboard) | Sem substância, aumenta churn depois. Streak simples basta por 90 dias. |
+| CMS para instrutores | mock-db + Markdown é suficiente para o time publicar conteúdo. CMS visual custa semanas de dev. |
 
 ---
 
-## Risks
+## Riscos
 
-| Risk | Probability | Impact | Mitigation |
+| Risco | Probabilidade | Impacto | Mitigação |
 |---|---|---|---|
-| ~~`/login` route missing breaks auth guard in production~~ | ~~**Critical**~~ | ~~**Critical**~~ | **RESOLVED** — `LoginPageComponent` merged to main. Auth guard redirect functional. |
-| localStorage progress = silent abandonment from technical frustration | High | High | Migrate to Supabase in Phase 1, week 3 |
-| No tracking = impossible to know if KRs were achieved | High | Critical | Add tracking events in Phase 1 — non-negotiable |
-| Corrupted encoding damages quality perception | High | Medium | Dev is the user; they notice encoding errors before anything else |
-| Hardcoded `PlatformDataService` blocks catalog growth | Medium | Medium | Address in Phase 2, week 6 before it becomes technical debt blocking Phase 3 |
-| Generic onboarding wastes collected segmentation | High | Medium | `technicalLevel` must route the journey — Phase 2 |
+| ~~Rota `/login` ausente quebra o auth guard em produção~~ | ~~**Crítico**~~ | ~~**Crítico**~~ | **RESOLVIDO** — `LoginPageComponent` merged na main. Redirect do auth guard funcional. |
+| Progresso em localStorage = abandono silencioso por frustração técnica | Alta | Alta | Migrar para Supabase na Fase 1, semana 3 |
+| Sem tracking = impossível saber se os KRs foram alcançados | Alta | Crítico | Adicionar eventos de tracking na Fase 1 — não negociável |
+| Encoding corrompido prejudica a percepção de qualidade | Alta | Médio | Dev é o usuário; percebe erros de encoding antes de qualquer outra coisa |
+| `PlatformDataService` hardcoded bloqueia crescimento do catálogo | Médio | Médio | Tratar na Fase 2, semana 6, antes de virar dívida técnica bloqueando a Fase 3 |
+| Onboarding genérico desperdiça a segmentação coletada | Alta | Médio | `technicalLevel` precisa rotear a jornada — Fase 2 |
