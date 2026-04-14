@@ -1,7 +1,6 @@
 # Configuração do Supabase local para desenvolvimento e testes.
 # Documentação: https://supabase.com/docs/reference/cli/config
 
-[project]
 project_id = "fulldev-school-local"
 
 # =============================================================================
