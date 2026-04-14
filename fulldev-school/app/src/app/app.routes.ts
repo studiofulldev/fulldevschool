@@ -4,6 +4,9 @@ import { guestOnlyGuard } from './guards/guest-only.guard';
 import { profileCompletionGuard } from './guards/profile-completion.guard';
 import { profileCompletionRequiredGuard } from './guards/profile-completion-required.guard';
 import { AccountPageComponent } from './pages/account-page/account-page.component';
+import { CourseOverviewComponent } from './pages/course-overview/course-overview.component';
+import { LandingPageComponent } from './pages/landing-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { LegalPageComponent } from './pages/legal-page/legal-page.component';
 import { LessonPageComponent } from './pages/lesson-page/lesson-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -17,7 +20,7 @@ import { PlatformShellComponent } from './shells/platform-shell.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'courses',
+    component: LandingPageComponent,
     pathMatch: 'full'
   },
   {
@@ -75,8 +78,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'lessons/visao-geral-do-guia',
-        pathMatch: 'full'
+        component: CourseOverviewComponent
       },
       {
         path: 'modules/:moduleSlug',
@@ -90,6 +92,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    component: NotFoundPageComponent
   }
 ];
