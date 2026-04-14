@@ -4,115 +4,263 @@
   <header class="landing-nav">
     <div class="landing-nav__inner">
       <img class="landing-nav__logo" src="/logo-fulldev.svg" alt="Fulldev School" />
-      <a mat-flat-button class="landing-nav__cta" routerLink="/login">Entrar</a>
+      <div class="landing-nav__actions">
+        <a class="landing-nav__link" routerLink="/login">Já tenho conta</a>
+        <a mat-flat-button class="landing-nav__cta" routerLink="/login">Começar grátis</a>
+      </div>
     </div>
   </header>
 
   <!-- ===== HERO ===== -->
   <section class="landing-hero">
+    <div class="landing-hero__avatars" aria-hidden="true">
+      @for (avatar of avatars; track avatar.initials) {
+        <div class="landing-avatar" [style.background]="avatar.bg">{{ avatar.initials }}</div>
+      }
+    </div>
     <div class="landing-hero__inner">
-      <span class="landing-eyebrow">Plataforma de ensino para devs</span>
+      <span class="landing-eyebrow">+1.200 devs evoluindo toda semana</span>
       <h1 class="landing-hero__title">
-        Aprenda desenvolvimento.<br />
-        <span class="landing-hero__title--accent">De verdade.</span>
+        O lugar onde dev júnior<br />
+        <span class="landing-hero__title--accent">vira dev que entrega.</span>
       </h1>
       <p class="landing-hero__subtitle">
-        Conteúdo prático, progresso rastreado e comunidade ativa.<br />
-        Sem enrolação — só o que você precisa para evoluir.
+        Trilhas práticas, projetos reais e uma comunidade que responde quando você trava.<br />
+        Tudo gratuito — porque aprender não deveria depender do quanto você pode pagar.
       </p>
       <div class="landing-hero__actions">
         <a mat-flat-button class="landing-cta-primary" routerLink="/login">
-          Começar agora
+          Entrar na comunidade
         </a>
-        <a mat-stroked-button class="landing-cta-secondary" routerLink="/login">
-          Conhecer o catálogo
-        </a>
+        <a class="landing-cta-anchor" href="#trilhas">Ver as trilhas</a>
       </div>
     </div>
     <div class="landing-hero__glow" aria-hidden="true"></div>
   </section>
 
-  <!-- ===== STATS ===== -->
-  <section class="landing-stats" aria-label="Números da plataforma">
-    <div class="landing-stats__inner">
-      <div class="landing-stat">
-        <span class="landing-stat__number">58</span>
-        <span class="landing-stat__label">Lições disponíveis</span>
+  <!-- ===== SOCIAL PROOF ===== -->
+  <section class="landing-proof" aria-label="Depoimentos">
+    <div class="landing-proof__inner">
+
+      <div class="landing-proof__testimonials">
+
+        <article class="landing-testimonial">
+          <p class="landing-testimonial__quote">
+            "Travei no useEffect por dois dias. Postei no Discord às 23h, tinha resposta em 10 minutos. Que comunidade é essa."
+          </p>
+          <footer class="landing-testimonial__author">
+            <div class="landing-testimonial__avatar">AB</div>
+            <div>
+              <strong>Ana Beatriz</strong>
+              <span>dev frontend júnior</span>
+            </div>
+          </footer>
+        </article>
+
+        <article class="landing-testimonial">
+          <p class="landing-testimonial__quote">
+            "Fiz a trilha de JavaScript em 3 semanas no celular, no ônibus. Sem desculpa pra não estudar."
+          </p>
+          <footer class="landing-testimonial__author">
+            <div class="landing-testimonial__avatar">RM</div>
+            <div>
+              <strong>Rodrigo M.</strong>
+              <span>estudante em transição de carreira</span>
+            </div>
+          </footer>
+        </article>
+
+        <article class="landing-testimonial">
+          <p class="landing-testimonial__quote">
+            "Primeira plataforma que não me deixou preso em vídeo de 4h sobre teoria que nunca vou usar."
+          </p>
+          <footer class="landing-testimonial__author">
+            <div class="landing-testimonial__avatar">CH</div>
+            <div>
+              <strong>Carlos H.</strong>
+              <span>dev em transição de carreira</span>
+            </div>
+          </footer>
+        </article>
+
       </div>
-      <div class="landing-stat">
-        <span class="landing-stat__number">100%</span>
-        <span class="landing-stat__label">Conteúdo prático</span>
+
+      <div class="landing-proof__stats">
+        <div class="landing-stat">
+          <span class="landing-stat__number">+1.200</span>
+          <span class="landing-stat__label">devs na comunidade</span>
+        </div>
+        <div class="landing-stat">
+          <span class="landing-stat__number">58</span>
+          <span class="landing-stat__label">lições disponíveis</span>
+        </div>
+        <div class="landing-stat">
+          <span class="landing-stat__number">100%</span>
+          <span class="landing-stat__label">gratuito — por princípio</span>
+        </div>
       </div>
-      <div class="landing-stat">
-        <span class="landing-stat__number">0</span>
-        <span class="landing-stat__label">Teoria sem aplicação</span>
-      </div>
+
     </div>
   </section>
 
-  <!-- ===== FEATURES ===== -->
+  <!-- ===== O QUE VOCÊ VAI ENCONTRAR ===== -->
   <section class="landing-features" aria-labelledby="features-title">
     <div class="landing-features__inner">
       <span class="landing-eyebrow">Por que a Fulldev?</span>
-      <h2 id="features-title" class="landing-features__title">Tudo que você precisa para evoluir</h2>
+      <h2 id="features-title" class="landing-section-title">Um ambiente real de desenvolvimento</h2>
+      <p class="landing-features__sub">Não é curso. É o jeito que devs de verdade trabalham — desde o primeiro dia.</p>
 
       <div class="landing-features__grid">
 
         <article class="landing-feature-card">
           <div class="landing-feature-card__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="18" r="3" stroke="currentColor" stroke-width="2"/>
+              <circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="2"/>
+              <circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="12" y1="12" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="landing-feature-card__title">Conteúdo em Markdown</h3>
+          <h3 class="landing-feature-card__title">Git, PRs e code review desde o início</h3>
           <p class="landing-feature-card__desc">
-            Lições escritas com clareza técnica. Código, explicações e exemplos reais — sem slides vazios nem vídeos longos.
+            Você não aprende <em>sobre</em> Git — você usa Git. Abre branches, cria PRs e trabalha como dev de time desde a primeira trilha.
           </p>
         </article>
 
         <article class="landing-feature-card">
           <div class="landing-feature-card__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="landing-feature-card__title">Progresso Rastreado</h3>
+          <h3 class="landing-feature-card__title">Seu código revisado pela comunidade</h3>
           <p class="landing-feature-card__desc">
-            Saiba exatamente onde parou. Módulos, lições e cursos com controle de progresso automático e persistente.
+            Outros devs revisam seus PRs. Você aprende a dar e receber feedback de código — habilidade que a maioria só descobre quando entra no primeiro emprego.
           </p>
         </article>
 
         <article class="landing-feature-card">
           <div class="landing-feature-card__icon" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="landing-feature-card__title">Comunidade de Devs</h3>
+          <h3 class="landing-feature-card__title">IA como ferramenta de carreira</h3>
           <p class="landing-feature-card__desc">
-            Aprenda junto com outros desenvolvedores. Discussões reais, dúvidas respondidas e network que faz sentido.
+            Aprenda a usar IA para escrever código melhor e mais rápido — sem depender dela. O dev que sabe usar IA bem tem vantagem real. O que não sabe, fica pra trás.
           </p>
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ===== TRILHAS ===== -->
+  <section class="landing-trails" id="trilhas" aria-labelledby="trails-title">
+    <div class="landing-trails__inner">
+      <span class="landing-eyebrow">Conteúdo</span>
+      <h2 id="trails-title" class="landing-section-title">Por onde você vai começar?</h2>
+      <p class="landing-trails__sub">Cada trilha tem começo, meio e projeto final.</p>
+
+      <div class="landing-trails__grid">
+
+        <article class="landing-trail-card">
+          <span class="landing-trail-card__tag">Iniciante</span>
+          <h3 class="landing-trail-card__title">HTML & CSS</h3>
+          <p class="landing-trail-card__meta">12 lições · ~6h</p>
+          <p class="landing-trail-card__desc">Fundamentos da web. Do zero ao seu primeiro layout responsivo.</p>
+          <a class="landing-trail-card__cta" routerLink="/login">Começar trilha →</a>
+        </article>
+
+        <article class="landing-trail-card">
+          <span class="landing-trail-card__tag">Iniciante</span>
+          <h3 class="landing-trail-card__title">JavaScript</h3>
+          <p class="landing-trail-card__meta">18 lições · ~10h</p>
+          <p class="landing-trail-card__desc">Do básico ao assíncrono. Lógica real, não exercício de escola.</p>
+          <a class="landing-trail-card__cta" routerLink="/login">Começar trilha →</a>
+        </article>
+
+        <article class="landing-trail-card">
+          <span class="landing-trail-card__tag">Intermediário</span>
+          <h3 class="landing-trail-card__title">Git & GitHub</h3>
+          <p class="landing-trail-card__meta">8 lições · ~4h</p>
+          <p class="landing-trail-card__desc">Fluxo de trabalho real. O que todo dev precisa saber antes de entrar num time.</p>
+          <a class="landing-trail-card__cta" routerLink="/login">Começar trilha →</a>
+        </article>
+
+        <article class="landing-trail-card landing-trail-card--more">
+          <p class="landing-trail-card__more-text">Mais trilhas disponíveis</p>
+          <a class="landing-trail-card__cta" routerLink="/login">Ver catálogo completo →</a>
+        </article>
+
+      </div>
+
+      <p class="landing-trails__note">58 lições no total · todas gratuitas · novos conteúdos toda semana</p>
+    </div>
+  </section>
+
+  <!-- ===== COMUNIDADE ===== -->
+  <section class="landing-community" aria-labelledby="community-title">
+    <div class="landing-community__inner">
+
+      <div class="landing-community__feed" aria-label="Atividade recente da comunidade">
+        <p class="landing-community__feed-label">Acontecendo agora</p>
+        <ul class="landing-community__activity">
+          <li class="landing-activity">
+            <div class="landing-activity__avatar" aria-hidden="true">AK</div>
+            <span><strong>&#64;ana_k</strong> terminou a trilha de HTML & CSS 🎉</span>
+          </li>
+          <li class="landing-activity">
+            <div class="landing-activity__avatar" aria-hidden="true">RM</div>
+            <span><strong>&#64;rodrigo_m</strong> fez uma pergunta sobre Promises</span>
+          </li>
+          <li class="landing-activity">
+            <div class="landing-activity__avatar" aria-hidden="true">LF</div>
+            <span><strong>&#64;lucas_f</strong> publicou projeto no GitHub</span>
+          </li>
+          <li class="landing-activity">
+            <div class="landing-activity__avatar" aria-hidden="true">PH</div>
+            <span><strong>&#64;pedro_h</strong> revisou o código de <strong>&#64;carla_s</strong></span>
+          </li>
+          <li class="landing-activity">
+            <div class="landing-activity__avatar" aria-hidden="true">JS</div>
+            <span><strong>&#64;julia_s</strong> entrou na comunidade</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="landing-community__invite">
+        <h2 id="community-title" class="landing-section-title">
+          Aprender sozinho é lento.<br />
+          <span class="landing-hero__title--accent">Aprender com a galera certa é diferente.</span>
+        </h2>
+        <p class="landing-community__desc">
+          A comunidade Fulldev tem devs em todos os estágios — de quem está no primeiro HTML até quem já está em produção.
+          Alguém já passou pelo problema que você está tendo agora.
+        </p>
+        <a mat-flat-button class="landing-cta-primary" routerLink="/login">
+          Entrar na comunidade
+        </a>
+      </div>
+
     </div>
   </section>
 
   <!-- ===== CTA FINAL ===== -->
   <section class="landing-cta-section" aria-labelledby="cta-section-title">
     <div class="landing-cta-section__inner">
-      <h2 id="cta-section-title" class="landing-cta-section__title">Pronto para começar?</h2>
-      <p class="landing-cta-section__desc">Entre com Google ou LinkedIn e acesse tudo agora. É gratuito.</p>
+      <h2 id="cta-section-title" class="landing-cta-section__title">
+        Sua trilha começa hoje.<br />Demora menos de 1 minuto.
+      </h2>
+      <p class="landing-cta-section__desc">
+        Nada de cartão de crédito, nada de trial.<br />
+        É gratuito porque sempre foi — e sempre será.
+      </p>
       <a mat-flat-button class="landing-cta-primary" routerLink="/login">
-        Criar conta gratuita
+        Fazer parte da fulldev
       </a>
+      <p class="landing-cta-section__social">+1.200 devs já começaram assim</p>
     </div>
   </section>
 
