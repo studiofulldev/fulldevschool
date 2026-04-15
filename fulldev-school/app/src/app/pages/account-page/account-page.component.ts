@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthService } from '../services/auth.service';
-import { CourseProgressService } from '../services/course-progress.service';
-import { PlatformDataService } from '../services/platform-data.service';
+import { AuthService } from '../../services/auth.service';
+import { CourseProgressService } from '../../services/course-progress.service';
+import { PlatformDataService } from '../../services/platform-data.service';
 
 @Component({
   selector: 'app-account-page',
@@ -31,7 +31,7 @@ import { PlatformDataService } from '../services/platform-data.service';
             </div>
             <div class="account-detail">
               <strong>Nivel tecnico</strong>
-              <span>{{ user.technicalLevel || 'Nao informado' }}</span>
+              <span>{{ technicalLevelLabel(user.technicalLevel) }}</span>
             </div>
             <div class="account-detail">
               <strong>Instituicao</strong>
@@ -193,5 +193,28 @@ export class AccountPageComponent {
     }
 
     return 'Usuario comum';
+  }
+
+  protected technicalLevelLabel(level: string | null | undefined): string {
+    switch (level) {
+      case 'estudante':
+        return 'Estudante';
+      case 'estagiario':
+        return 'Estagiario';
+      case 'junior':
+        return 'Junior';
+      case 'pleno':
+        return 'Pleno';
+      case 'senior':
+        return 'Senior';
+      case 'lead':
+        return 'Lead';
+      case 'staff':
+        return 'Staff';
+      case 'principal':
+        return 'Principal';
+      default:
+        return 'Nao informado';
+    }
   }
 }

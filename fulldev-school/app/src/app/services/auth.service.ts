@@ -5,7 +5,15 @@ import { Observable } from 'rxjs';
 import { OAuthProvider, SupabaseService } from './supabase.service';
 
 export type AuthProvider = OAuthProvider | 'email';
-export type TechnicalLevel = 'iniciante' | 'intermediario' | 'avancado';
+export type TechnicalLevel =
+  | 'estudante'
+  | 'estagiario'
+  | 'junior'
+  | 'pleno'
+  | 'senior'
+  | 'lead'
+  | 'staff'
+  | 'principal';
 export type AppRole = 'admin' | 'instructor' | 'user';
 
 export interface AuthUser {
@@ -74,10 +82,31 @@ export class AuthService {
 
   // Display user: shows cached data while loading, then the verified user (or null).
   readonly user = computed<AuthUser | null>(() => {
+    const cachedUser = this.cachedDisplayUser;
+    const verifiedUser = this.verifiedUserState();
+
     if (!this.sessionCheckCompleteState()) {
-      return this.cachedDisplayUser;
+      return cachedUser;
     }
-    return this.verifiedUserState();
+
+    if (!verifiedUser) {
+      return null;
+    }
+
+    if (!cachedUser) {
+      return verifiedUser;
+    }
+
+    return {
+      ...cachedUser,
+      ...verifiedUser,
+      avatarUrl: verifiedUser.avatarUrl ?? cachedUser.avatarUrl ?? null,
+      name: verifiedUser.name || cachedUser.name,
+      email: verifiedUser.email || cachedUser.email,
+      whatsappNumber: verifiedUser.whatsappNumber || cachedUser.whatsappNumber,
+      educationInstitution: verifiedUser.educationInstitution || cachedUser.educationInstitution,
+      acceptedTermsAt: verifiedUser.acceptedTermsAt || cachedUser.acceptedTermsAt || null
+    };
   });
 
   // Auth decisions are based solely on the verified user.
@@ -96,14 +125,15 @@ export class AuthService {
         this.clearUserCache();
       } else {
         const authUser = this.mapSupabaseUser(supabaseUser);
-        await this.syncUserRecords(authUser);
         this.verifiedUserState.set(authUser);
         this.cacheUser(authUser);
+        this.markSessionCheckComplete();
+        void this.syncUserRecords(authUser);
       }
 
       // Mark session check complete on any auth event after INITIAL_SESSION.
       if (event === 'INITIAL_SESSION' || !this.sessionCheckCompleteState()) {
-        this.sessionCheckCompleteState.set(true);
+        this.markSessionCheckComplete();
       }
     });
   }
@@ -147,10 +177,10 @@ export class AuthService {
       }
 
       const authUser = this.mapSupabaseUser(data.user);
-      await this.syncUserRecords(authUser);
       this.verifiedUserState.set(authUser);
       this.cacheUser(authUser);
-      this.sessionCheckCompleteState.set(true);
+      this.markSessionCheckComplete();
+      void this.syncUserRecords(authUser);
       return { ok: true };
     } catch {
       return { ok: false, message: 'Nao foi possivel validar sua conta no momento.' };
@@ -321,16 +351,18 @@ export class AuthService {
   private async restoreSupabaseSession(): Promise<void> {
     try {
       const { data } = await this.supabase.getSession();
+
       if (data.session?.user) {
         const authUser = this.mapSupabaseUser(data.session.user);
-        await this.syncUserRecords(authUser);
         this.verifiedUserState.set(authUser);
         this.cacheUser(authUser);
+        this.markSessionCheckComplete();
+        void this.syncUserRecords(authUser);
       }
     } catch {
       // Session restoration failed — keep verifiedUserState as null.
     } finally {
-      this.sessionCheckCompleteState.set(true);
+      this.markSessionCheckComplete();
     }
   }
 
@@ -364,7 +396,16 @@ export class AuthService {
   }
 
   private toTechnicalLevel(value: unknown): TechnicalLevel | null {
-    return value === 'iniciante' || value === 'intermediario' || value === 'avancado' ? value : null;
+    return value === 'estudante' ||
+      value === 'estagiario' ||
+      value === 'junior' ||
+      value === 'pleno' ||
+      value === 'senior' ||
+      value === 'lead' ||
+      value === 'staff' ||
+      value === 'principal'
+      ? value
+      : null;
   }
 
   private toAppRole(value: unknown): AppRole {
@@ -433,16 +474,6 @@ export class AuthService {
     const timestamp = new Date().toISOString();
     const fullName = user.name.trim() || user.email || 'Lead FullDev';
 
-    if (user.email) {
-      await this.tryUpsertLead({
-        email: user.email,
-        name: fullName,
-        provider: user.provider,
-        profile_id: user.id,
-        updated_at: timestamp
-      });
-    }
-
     await this.tryUpsertProfile({
       id: user.id,
       email: user.email,
@@ -458,6 +489,16 @@ export class AuthService {
       accepted_terms_at: user.acceptedTermsAt ?? null,
       updated_at: timestamp
     });
+
+    if (user.email) {
+      await this.tryUpsertLead({
+        email: user.email,
+        name: fullName,
+        provider: user.provider,
+        profile_id: user.id,
+        updated_at: timestamp
+      });
+    }
   }
 
   private normalizeSupabaseAuthError(message: string): string {
@@ -474,6 +515,12 @@ export class AuthService {
     }
 
     return message;
+  }
+
+  private markSessionCheckComplete(): void {
+    if (!this.sessionCheckCompleteState()) {
+      this.sessionCheckCompleteState.set(true);
+    }
   }
 
   private cacheUser(user: AuthUser): void {

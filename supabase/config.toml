@@ -1,7 +1,6 @@
 # Configuração do Supabase local para desenvolvimento e testes.
 # Documentação: https://supabase.com/docs/reference/cli/config
 
-[project]
 project_id = "fulldev-school-local"
 
 # =============================================================================
@@ -20,7 +19,7 @@ max_rows = 1000
 [db]
 port = 5432
 shadow_port = 5433
-major_version = 15
+major_version = 17
 
 [db.pooler]
 enabled = false

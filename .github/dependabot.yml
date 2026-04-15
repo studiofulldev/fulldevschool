@@ -1,0 +1,57 @@
+version: 2
+
+updates:
+  # npm — Angular app dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+      timezone: "America/Sao_Paulo"
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "dependencies"
+    groups:
+      # Security fixes: one PR per group, includes CVE descriptions automatically.
+      # Merge promptly — these fix known exploits.
+      security-fixes:
+        applies-to: security-updates
+        patterns:
+          - "*"
+      # Suggested bumps: one PR for minor/patch, low urgency.
+      # Review calmly — no known vulnerabilities.
+      regular-updates:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+      # Major bumps: one PR, requires manual validation for breaking changes.
+      major-updates:
+        applies-to: version-updates
+        update-types:
+          - "major"
+
+  # GitHub Actions — keep workflow action versions up to date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+      timezone: "America/Sao_Paulo"
+    commit-message:
+      prefix: "chore(ci)"
+    labels:
+      - "dependencies"
+      - "ci"
+    groups:
+      actions-security-fixes:
+        applies-to: security-updates
+        patterns:
+          - "*"
+      actions-updates:
+        applies-to: version-updates
+        patterns:
+          - "*"

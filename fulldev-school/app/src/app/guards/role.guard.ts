@@ -16,6 +16,7 @@ export const roleGuard: CanActivateFn = (route) => {
   const auth = inject(AuthService);
   const router = inject(Router);
   const allowedRoles = resolveAllowedRoles(route);
+  const loginRedirect = () => router.createUrlTree(['/login']);
 
   const hasAccess = () =>
     auth.isAuthenticated() &&
@@ -23,10 +24,10 @@ export const roleGuard: CanActivateFn = (route) => {
     auth.hasRole(allowedRoles);
 
   if (auth.sessionCheckComplete()) {
-    return hasAccess() ? true : router.createUrlTree(['/courses/home']);
+    return hasAccess() ? true : loginRedirect();
   }
 
   return auth.sessionCheckComplete$.pipe(
-    map(() => (hasAccess() ? true : router.createUrlTree(['/courses/home'])))
+    map(() => (hasAccess() ? true : loginRedirect()))
   );
 };

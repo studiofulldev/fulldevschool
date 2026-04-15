@@ -1,0 +1,115 @@
+<div class="platform-shell">
+  <aside class="platform-sidebar">
+    <header class="platform-sidebar__header">
+      <img class="platform-sidebar__logo platform-sidebar__logo--compact" src="logo-fulldev.svg" alt="Fulldev" />
+      <img
+        class="platform-sidebar__logo platform-sidebar__logo--full"
+        [src]="theme.isDark() ? 'logo-completa-branca.png' : 'logo-completa-preta.png'"
+        alt="Fulldev"
+      />
+    </header>
+
+    <nav class="platform-sidebar__nav" aria-label="Navegacao da plataforma">
+      <a class="platform-nav-item" routerLink="/courses/home" routerLinkActive="is-active">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+
+      <a class="platform-nav-item" routerLink="/courses/catalog" routerLinkActive="is-active">
+        <mat-icon>school</mat-icon>
+        <span>Cursos</span>
+      </a>
+    </nav>
+
+    <div class="platform-sidebar__account">
+      <button class="platform-nav-item platform-nav-item--button" type="button" [matMenuTriggerFor]="accountMenu">
+        <mat-icon>person</mat-icon>
+        <span>Minha conta</span>
+      </button>
+    </div>
+  </aside>
+
+  <div class="platform-main">
+    <header class="platform-header">
+      <div class="platform-header__copy">
+        <span class="platform-header__eyebrow">Guia de tecnologia</span>
+        <strong>Fulldev School</strong>
+      </div>
+
+      @if (auth.user(); as user) {
+        <button class="platform-user" type="button" [matMenuTriggerFor]="userMenu">
+          <div class="platform-user__meta">
+            <strong>{{ user.name }}</strong>
+          </div>
+
+          <img [src]="userAvatarUrl()" [alt]="user.name" (error)="handleAvatarError($event)" />
+        </button>
+
+        <mat-menu #userMenu="matMenu" xPosition="before" panelClass="fd-user-menu-panel">
+          <div class="fd-user-menu" (click)="$event.stopPropagation()">
+            <div class="fd-user-menu__header">
+              <img class="fd-user-menu__avatar-image" [src]="userAvatarUrl()" [alt]="user.name" (error)="handleAvatarError($event)" />
+
+              <div class="fd-user-menu__identity">
+                <strong>{{ user.name }}</strong>
+                <span>{{ user.email }}</span>
+              </div>
+            </div>
+
+            <div class="fd-user-menu__links">
+              <button class="fd-user-menu__item fd-user-menu__item--border-bottom" type="button" (click)="goToAccount()">
+                <mat-icon>person</mat-icon>
+                <span>Minha conta</span>
+              </button>
+
+              <button class="fd-user-menu__item" type="button" (click)="goToPrivacy()">
+                <mat-icon>shield</mat-icon>
+                <span>Privacidade</span>
+              </button>
+
+              <button class="fd-user-menu__item fd-user-menu__item--border-top" type="button" (click)="goToTerms()">
+                <mat-icon>description</mat-icon>
+                <span>Termos</span>
+              </button>
+            </div>
+
+            <button class="fd-user-menu__item fd-user-menu__item--logout fd-user-menu__item--border-top" type="button" (click)="signOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Sair da conta</span>
+            </button>
+          </div>
+        </mat-menu>
+      }
+    </header>
+
+    <main class="platform-content">
+      <router-outlet />
+    </main>
+  </div>
+</div>
+
+<mat-menu #accountMenu="matMenu" xPosition="after" panelClass="fd-user-menu-panel">
+  <div class="fd-user-menu" (click)="$event.stopPropagation()">
+    <div class="fd-user-menu__links">
+      <button class="fd-user-menu__item fd-user-menu__item--border-bottom" type="button" (click)="goToAccount()">
+        <mat-icon>person</mat-icon>
+        <span>Minha conta</span>
+      </button>
+
+      <button class="fd-user-menu__item" type="button" (click)="goToPrivacy()">
+        <mat-icon>shield</mat-icon>
+        <span>Privacidade</span>
+      </button>
+
+      <button class="fd-user-menu__item fd-user-menu__item--border-top" type="button" (click)="goToTerms()">
+        <mat-icon>description</mat-icon>
+        <span>Termos</span>
+      </button>
+
+      <button class="fd-user-menu__item fd-user-menu__item--logout fd-user-menu__item--border-top" type="button" (click)="signOut()">
+        <mat-icon>logout</mat-icon>
+        <span>Sair da conta</span>
+      </button>
+    </div>
+  </div>
+</mat-menu>

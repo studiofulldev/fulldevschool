@@ -131,10 +131,13 @@ export class SupabaseService {
   private resolveConfig(): SupabaseClientConfig | null {
     const runtimeConfig = this.runtimeConfig.supabase;
     if (runtimeConfig?.url && runtimeConfig.anonKey) {
-      return runtimeConfig;
+      return {
+        url: this.normalizeUrl(runtimeConfig.url),
+        anonKey: runtimeConfig.anonKey.trim()
+      };
     }
 
-    const url = environment.supabase.url.trim();
+    const url = this.normalizeUrl(environment.supabase.url);
     const anonKey = environment.supabase.publishableKey.trim();
 
     if (!url || !anonKey) {
@@ -142,6 +145,10 @@ export class SupabaseService {
     }
 
     return { url, anonKey };
+  }
+
+  private normalizeUrl(url: string): string {
+    return url.trim().replace(/\/+$/, '');
   }
 
   private ensureConfigured(): asserts this is this & { client: SupabaseClient } {

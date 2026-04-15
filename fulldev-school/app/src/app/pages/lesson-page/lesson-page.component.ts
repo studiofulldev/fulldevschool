@@ -8,8 +8,8 @@ import { from } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
-import { NavigationNode, SchoolContentService } from '../data/school-content.service';
-import { PlatformDataService } from '../services/platform-data.service';
+import { NavigationNode, SchoolContentService } from '../../data/school-content.service';
+import { PlatformDataService } from '../../services/platform-data.service';
 
 interface ProjectTreeNode {
   id: string;
