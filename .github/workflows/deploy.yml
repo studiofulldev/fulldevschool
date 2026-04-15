@@ -9,6 +9,7 @@ jobs:
   migrate-and-deploy:
     name: Apply migrations → Deploy
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Checkout
