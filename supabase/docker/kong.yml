@@ -36,6 +36,10 @@ services:
   # ---------------------------------------------------------------------------
   # Auth — GoTrue
   # ---------------------------------------------------------------------------
+  # Nota: key-auth NÃO é aplicado aqui intencionalmente.
+  # O fluxo OAuth usa redirect de browser — o browser não envia headers personalizados,
+  # só navega para a URL. GoTrue controla sua própria autenticação; o key-auth do Kong
+  # serve para identificar o role no PostgREST (rest-v1 abaixo), não para o GoTrue.
   - name: auth-v1
     url: http://auth:9999/
     routes:
@@ -69,9 +73,6 @@ services:
             - X-Auth-Token
           credentials: true
           max_age: 3600
-      - name: key-auth
-        config:
-          hide_credentials: false
 
   # ---------------------------------------------------------------------------
   # REST — PostgREST
