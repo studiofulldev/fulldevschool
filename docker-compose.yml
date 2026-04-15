@@ -1,3 +1,25 @@
+# =============================================================================
+# Fulldev School — docker-compose.yml
+# =============================================================================
+#
+# Este compose gerencia apenas o app Angular (nginx).
+# O Supabase local é gerenciado pelo Supabase CLI (supabase start),
+# que cuida de sua própria rede de containers Docker.
+#
+# Ponto de entrada recomendado:
+#   make up   → sobe Supabase + app com um único comando
+#
+# Para subir só o app (se o Supabase já estiver rodando via CLI):
+#   make docker-up
+#
+# Comunicação app → Supabase:
+#   O SDK do Supabase roda no BROWSER (JavaScript client-side) — não no container nginx.
+#   O nginx apenas serve arquivos estáticos. Por isso, a URL do Supabase deve ser
+#   acessível pelo browser, que está no host: use localhost:54321.
+#   NÃO use host.docker.internal — esse endereço é para containers alcançarem o host,
+#   não para browsers. Veja: fulldev-school/app/public/runtime-config.local.js.example
+# =============================================================================
+
 services:
   app:
     build:
@@ -9,5 +31,14 @@ services:
       # Monta o runtime-config.js local para apontar para o Supabase desejado.
       # Copie o exemplo antes de subir: cp fulldev-school/app/public/runtime-config.local.js.example
       #                                    fulldev-school/app/public/runtime-config.js
+      # ATENÇÃO: No modo Docker, a URL do Supabase deve usar host.docker.internal, não localhost.
       - ./fulldev-school/app/public/runtime-config.js:/usr/share/nginx/html/runtime-config.js:ro
+    # Garante que o nginx esteja respondendo antes de reportar como healthy.
+    # O Supabase é gerenciado externamente pelo CLI — não há dependência declarável aqui.
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
     restart: unless-stopped

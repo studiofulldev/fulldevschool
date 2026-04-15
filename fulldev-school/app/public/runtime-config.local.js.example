@@ -1,18 +1,29 @@
-// Configuração para ambiente LOCAL com Supabase via Docker.
+// Configuração local do Supabase — para desenvolvimento (nunca commitar runtime-config.js).
 //
 // Como usar:
-//   1. Inicie o Supabase local: make supabase-start
-//   2. Copie este arquivo: cp runtime-config.local.js.example runtime-config.js
-//      (runtime-config.js está no .gitignore — nunca commitar)
-//   3. Inicie o Angular: npm start
+//   1. Execute: make setup  (copia este arquivo para runtime-config.js automaticamente)
+//   2. Execute: make up     (sobe Supabase + app) ou make serve (Angular dev server)
 //
-// Credenciais locais padrão do Supabase CLI:
-// URL e anon key são sempre iguais em qualquer máquina com `supabase start`.
-// São credenciais públicas de desenvolvimento — seguras para commitar neste arquivo de exemplo.
+// ─────────────────────────────────────────────────────────────────────────────
+// POR QUE localhost:54321 funciona em ambos os modos (Docker e make serve)?
+// ─────────────────────────────────────────────────────────────────────────────
+// O SDK do Supabase roda no BROWSER (JavaScript client-side).
+// O nginx (modo Docker) apenas serve arquivos estáticos — não faz chamadas ao Supabase.
+// O browser está sempre no host, então localhost:54321 é sempre o endereço correto.
+//
+// host.docker.internal seria necessário apenas para SSR (Node.js no servidor).
+// Este projeto é SPA puro — não há SSR.
+//
+// ─────────────────────────────────────────────────────────────────────────────
+// CREDENCIAIS LOCAIS PADRÃO DO SUPABASE CLI
+// ─────────────────────────────────────────────────────────────────────────────
+// URL e publishableKey são sempre iguais em qualquer máquina com `supabase start`.
+// São credenciais públicas de desenvolvimento — seguras para commitar neste exemplo.
+// O runtime-config.js gerado está no .gitignore e NUNCA deve ser commitado.
 
 window.__FULLDEV_SCHOOL_CONFIG__ = {
   supabase: {
     url: 'http://localhost:54321',
-    publishableKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU'
+    publishableKey: 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH'
   }
 };

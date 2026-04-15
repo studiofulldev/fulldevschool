@@ -8,7 +8,9 @@
 #
 # Comandos principais:
 #   make setup           Configura o ambiente local pela primeira vez
-#   make supabase-start  Inicia o Supabase local (Docker)
+#   make up              ★ Sobe TUDO: Supabase + app Angular (ponto de entrada recomendado)
+#   make down            Para tudo: app + Supabase
+#   make supabase-start  Inicia o Supabase local (Docker) isoladamente
 #   make supabase-stop   Para o Supabase local
 #   make supabase-reset  Reseta o banco e aplica seed.sql
 #   make supabase-status Mostra URLs e credenciais locais
@@ -21,9 +23,10 @@
 #   make test-watch      Executa os testes em modo watch
 #   make test-coverage   Executa os testes com relatório de cobertura
 
-.PHONY: setup serve test test-watch test-coverage \
+.PHONY: setup up down \
         supabase-start supabase-stop supabase-reset supabase-status \
         docker-build docker-up docker-down docker-logs \
+        serve test test-watch test-coverage \
         help
 
 APP_DIR = fulldev-school/app
@@ -48,13 +51,77 @@ setup: ## Configura o ambiente local pela primeira vez
 	  echo "    ℹ️   $(APP_DIR)/public/runtime-config.js já existe — não sobrescrito."; \
 	fi
 	@echo ""
-	@echo "✅  Setup concluído. Próximo passo: make supabase-start"
+	@echo "✅  Setup concluído. Próximo passo: make up"
 
 # =============================================================================
-# Supabase local
+# Ponto de entrada principal — sobe tudo com um único comando
+# =============================================================================
+#
+# Estratégia escolhida: wrapper script (Opção C)
+#
+# Por quê não as outras opções:
+#   - Opção A (serviços Supabase no docker-compose): exigiria manter ~10 services
+#     com variáveis de ambiente, imagens e redes manualmente. Cada release do Supabase
+#     CLI quebraria a configuração. Alto custo de manutenção.
+#   - Opção B (Supabase CLI dentro de container): requer Docker-in-Docker — frágil,
+#     lento e exige privilégios elevados no daemon Docker.
+#   - Opção C (wrapper no Makefile): usa o Supabase CLI oficial que já gerencia toda
+#     a complexidade dos serviços. Migrations e seed são aplicados automaticamente.
+#     Um único comando para o dev. Backward compatible com quem já usa supabase start.
+
+up: ## ★ Sobe TUDO: Supabase local + app Angular (ponto de entrada recomendado)
+	@echo "════════════════════════════════════════════"
+	@echo "  Fulldev School — Ambiente de desenvolvimento"
+	@echo "════════════════════════════════════════════"
+	@echo ""
+	@echo "── [1/3] Verificando pré-requisitos..."
+	@supabase --version > /dev/null 2>&1 || \
+	  (echo "❌  Supabase CLI não encontrado. Instale com: brew install supabase/tap/supabase" && exit 1)
+	@if [ ! -f $(APP_DIR)/public/runtime-config.js ]; then \
+	  echo "❌  runtime-config.js não encontrado. Execute: make setup" && exit 1; \
+	fi
+	@echo "    OK"
+	@echo ""
+	@echo "── [2/3] Iniciando Supabase local (migrations + seed serão aplicados automaticamente)..."
+	@echo "    Pode levar alguns minutos na primeira execução..."
+	@echo ""
+	@# Verifica se já está rodando para evitar mensagens de erro desnecessárias
+	@if supabase status 2>/dev/null | grep -q "API URL"; then \
+	  echo "    ℹ️   Supabase já está rodando — pulando."; \
+	else \
+	  supabase start; \
+	fi
+	@echo ""
+	@echo "── [3/3] Subindo app Angular (porta 4200)..."
+	@echo ""
+	docker compose up -d app
+	@echo ""
+	@echo "════════════════════════════════════════════"
+	@echo "  ✅  Ambiente pronto!"
+	@echo ""
+	@echo "  App Angular:      http://localhost:4200"
+	@echo "  Supabase API:     http://localhost:54321"
+	@echo "  Supabase Studio:  http://localhost:54323"
+	@echo "  Email (Inbucket): http://localhost:54324"
+	@echo ""
+	@echo "  Logs do app:      make docker-logs"
+	@echo "  Parar tudo:       make down"
+	@echo "════════════════════════════════════════════"
+
+down: ## Para tudo: app Angular + Supabase local
+	@echo "── Parando app Angular..."
+	docker compose down
+	@echo ""
+	@echo "── Parando Supabase local..."
+	supabase stop
+	@echo ""
+	@echo "✅  Tudo parado."
+
+# =============================================================================
+# Supabase local — comandos isolados (backward compatible)
 # =============================================================================
 
-supabase-start: ## Inicia o Supabase local via Docker
+supabase-start: ## Inicia o Supabase local via Docker (aplica migrations automaticamente)
 	supabase start
 
 supabase-stop: ## Para os containers do Supabase local
@@ -67,13 +134,13 @@ supabase-status: ## Mostra URLs e credenciais do Supabase local
 	supabase status
 
 # =============================================================================
-# Docker — app Angular
+# Docker — app Angular (comandos isolados, backward compatible)
 # =============================================================================
 
 docker-build: ## Builda a imagem Docker do app (nginx + build de produção)
 	docker compose build app
 
-docker-up: ## Sobe o app em Docker na porta 4200 (requer runtime-config.js)
+docker-up: ## Sobe o app em Docker na porta 4200 (requer runtime-config.js e Supabase já rodando)
 	docker compose up -d app
 
 docker-down: ## Para e remove os containers do app
