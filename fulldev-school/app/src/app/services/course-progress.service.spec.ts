@@ -1,13 +1,38 @@
 import { TestBed } from '@angular/core/testing';
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { of } from 'rxjs';
 import { CourseProgressService } from './course-progress.service';
+import { AuthService } from './auth.service';
+import { SupabaseService } from './supabase.service';
+
+function makeAuthMock() {
+  return {
+    user: vi.fn().mockReturnValue(null),
+    sessionCheckComplete$: of(true)
+  };
+}
+
+function makeSupabaseMock() {
+  return {
+    isConfigured: true,
+    configError: null,
+    fetchUserProgress: vi.fn().mockResolvedValue({ data: [], error: null }),
+    upsertProgress: vi.fn().mockResolvedValue({ error: null })
+  };
+}
 
 describe('CourseProgressService', () => {
   let service: CourseProgressService;
 
   beforeEach(() => {
     localStorage.clear();
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        CourseProgressService,
+        { provide: AuthService, useValue: makeAuthMock() },
+        { provide: SupabaseService, useValue: makeSupabaseMock() }
+      ]
+    });
     service = TestBed.inject(CourseProgressService);
   });
 

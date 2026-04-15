@@ -124,7 +124,7 @@ describe('AuthService', () => {
       name: 'Ana Lima',
       email: 'ana@example.com',
       password: 'senha123',
-      technicalLevel: 'iniciante' as const,
+      technicalLevel: 'junior' as const,
       age: 22,
       acceptedTerms: true
     };
