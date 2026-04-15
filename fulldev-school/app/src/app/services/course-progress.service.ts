@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { AuthService } from './auth.service';
+import { LoggerService } from './logger.service';
 import { SupabaseService } from './supabase.service';
 
 // Persistence strategy:
@@ -12,6 +13,7 @@ import { SupabaseService } from './supabase.service';
 @Injectable({ providedIn: 'root' })
 export class CourseProgressService {
   private readonly auth = inject(AuthService);
+  private readonly logger = inject(LoggerService);
   private readonly supabase = inject(SupabaseService);
 
   private readonly lessonStorageKey = 'fulldev-school.progress.lessons';
@@ -104,7 +106,7 @@ export class CourseProgressService {
     try {
       const { data, error } = await this.supabase.fetchUserProgress(user.id);
       if (error || !data) {
-        console.error('[CourseProgressService] hydrateFromSupabase failed:', error);
+        this.logger.error('CourseProgressService', 'hydrateFromSupabase failed', error);
         return;
       }
 
@@ -126,7 +128,7 @@ export class CourseProgressService {
       this.writeState(this.moduleStorageKey, modules);
       this.writeState(this.courseStorageKey, courses);
     } catch (err) {
-      console.error('[CourseProgressService] hydrateFromSupabase unexpected error:', err);
+      this.logger.error('CourseProgressService', 'hydrateFromSupabase unexpected error', err);
     }
   }
 
@@ -155,10 +157,10 @@ export class CourseProgressService {
       });
 
       if (error) {
-        console.error('[CourseProgressService] syncToSupabase failed:', error);
+        this.logger.error('CourseProgressService', 'syncToSupabase failed', error);
       }
     } catch (err) {
-      console.error('[CourseProgressService] syncToSupabase unexpected error:', err);
+      this.logger.error('CourseProgressService', 'syncToSupabase unexpected error', err);
     }
   }
 
