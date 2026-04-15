@@ -41,7 +41,7 @@ Desenvolvedor em formação:
 - **Autenticação completa** — login Google, LinkedIn e email/senha via Supabase
 - **Conteúdo mockado funcional** — app renderiza a partir de `mock-db/navigation/tree.json` e `mock-db/doc/`, sem hardcode na UI
 - **1 curso:** "Start: Começando na tecnologia" com 58 lições em 16 seções temáticas
-- **Estrutura de progresso** — checks de lição, módulo e curso já existem; persistência local via `localStorage` (migração para Supabase está no backlog imediato)
+- **Progresso sincronizado com Supabase** — `CourseProgressService` persiste progresso de lição/módulo/curso no Supabase para usuários autenticados; `localStorage` como cache otimista e fallback offline. Tabela `user_progress` com RLS completa (SELECT, INSERT, UPDATE, DELETE). Entregue nos PRs #22 e #31.
 - **Arquitetura Angular 19 limpa** — shells / pages / services / data / guards com signals e OnPush
 - **Papéis de usuário** — `admin`, `instructor`, `user` na base de auth
 - **Guards** — `authGuard`, `profileCompletionGuard`, `roleGuard` funcionando
@@ -49,26 +49,31 @@ Desenvolvedor em formação:
 - **Docker + nginx** para deploy containerizado
 - **Vercel** configurado
 - **Página 404** com humor dev e matrix rain vermelho no fundo
+- **Segurança do banco reforçada** — grants excessivos do role `anon` revogados em todas as tabelas; policy DELETE em `user_progress` para compliance LGPD (PR #35)
+- **CI com testes unitários automáticos** — workflow executa em todo PR; 25 specs para `CourseProgressService` + specs para `AuthService` (PR #34)
+- **Dependabot configurado** — atualizações de segurança de dependências automáticas (PR #32)
 
 ### 🔄 Em andamento
 
-- **Migração de progresso para Supabase** — `CourseProgressService` hoje usa só `localStorage`; device change ou clear de cache = progresso perdido. Prioridade máxima do backlog.
+- **Nenhum item em andamento no momento.** Os gaps críticos de infraestrutura foram resolvidos.
 
 ### 📋 Próximo (backlog priorizado)
 
-1. **Persistência de progresso por usuário autenticado** — migrar `CourseProgressService` para Supabase com `localStorage` como fallback offline
-2. **Dashboard real** — `/courses/home` ainda é placeholder estático; precisa mostrar: última lição acessada, % de progresso no curso atual, próxima lição recomendada
-3. **Tracking de eventos** — sem `lesson_started`, `lesson_completed`, `session_started` nenhum KR é mensurável; usar Posthog ou direto no Supabase
-4. **Áreas admin e instrutor** — papéis existem na base, mas flows de gestão ainda estão fora da V1
-5. **Cursos alimentados por instrutores** — conteúdo ainda vem do `mock-db`; próximo passo é permitir cadastro/edição por instrutores
-6. **Áudio guiado** — base técnica existe no frontend; aguarda consolidação do conteúdo
-7. **Edição completa de perfil e imagem** — dados extras do cadastro existem parcialmente no fluxo de complemento; edição e troca de avatar ainda não fechados
-8. **Avatar personalizado** — hoje usa provider social ou fallback; upload/troca manual ainda não implementado
-9. **Streak de acesso** — retenção ativa; colunas `streak_count` + `last_active_date` no perfil
-10. **Certificado de conclusão** — tela de conclusão + geração client-side com Canvas ou html2canvas
-11. **Fórum por tópico** — promover interações entre membros; moderação a definir
-12. **Votos no curso** — métrica de sucesso do conteúdo
-13. **Ranking de membros** — gamificação inteligente; precisa ser discutida antes de implementar para não banalizar
+1. **Tracking de eventos** — sem `lesson_started`, `lesson_completed`, `session_started` nenhum KR é mensurável; usar Posthog ou direto no Supabase. **Prioridade máxima — bloqueia a mensuração de todos os OKRs.**
+2. **Dashboard real** — `/courses/home` ainda é placeholder estático; agora desbloqueado pela sync de progresso (PR #22). Precisa mostrar: última lição acessada, % de progresso no curso atual, próxima lição recomendada.
+3. **Verificar rota `/register` e redirect pós-auth** — smoke test do fluxo completo de auth ponta a ponta
+4. **Corrigir encoding corrompido nos Markdowns** — tarefa editorial, baixo custo técnico
+5. **Transformar links `[[Obsidian]]` em `RouterLink` reais** no `SchoolContentService`
+6. **Onboarding pós-cadastro** — usar `technicalLevel` coletado no cadastro para rotear o usuário à trilha correta; reduzir "cadastro → primeira lição" para menos de 60 segundos
+7. **Áreas admin e instrutor** — papéis existem na base, mas flows de gestão ainda estão fora da V1
+8. **Cursos alimentados por instrutores** — conteúdo ainda vem do `mock-db`; próximo passo é permitir cadastro/edição por instrutores
+9. **Áudio guiado** — base técnica existe no frontend; aguarda consolidação do conteúdo
+10. **Edição completa de perfil e imagem** — dados extras do cadastro existem parcialmente; edição e troca de avatar ainda não fechados
+11. **Streak de acesso** — retenção ativa; colunas `streak_count` + `last_active_date` no perfil; desbloqueado pela sync de progresso (PR #22)
+12. **Certificado de conclusão** — tela de conclusão + geração client-side com Canvas ou html2canvas; desbloqueado pela sync de progresso (PR #22)
+13. **Fórum por tópico** — promover interações entre membros; moderação a definir
+14. **Votos no curso** — métrica de sucesso do conteúdo
+15. **Ranking de membros** — gamificação inteligente; precisa ser discutida antes de implementar para não banalizar
 
 ---
 
@@ -143,16 +148,17 @@ tracking de eventos
 
 ## Tabelas Supabase (modelo de dados)
 
-| Tabela | Função |
-|---|---|
-| `auth.users` | Gerenciado pelo Supabase Auth |
-| `profiles` | Perfil público/privado do usuário (`full_name`, `avatar_url`, `technical_level`, `streak_count`, `last_active_date`, etc.) |
-| `email_leads` | Emails coletados no cadastro para disparo de comunicações |
-| `courses` | Catálogo de cursos |
-| `modules` | Módulos por curso |
-| `lessons` | Lições por módulo |
-| `enrollments` | Vínculo usuário ↔ curso (`last_lesson_id`, `status`, `completed_at`) |
-| `lesson_progress` | Progresso granular por lição (`completed`, `status`, `last_block_id`) |
+| Tabela | Função | Status |
+|---|---|---|
+| `auth.users` | Gerenciado pelo Supabase Auth | Ativo |
+| `profiles` | Perfil público/privado do usuário (`full_name`, `avatar_url`, `technical_level`, `streak_count`, `last_active_date`, etc.) | Ativo |
+| `email_leads` | Emails coletados no cadastro para disparo de comunicações | Ativo |
+| `user_progress` | Progresso por usuário autenticado — lições, módulos, cursos; RLS com SELECT, INSERT, UPDATE, DELETE; policy DELETE para LGPD | **Criada (PR #31)** |
+| `courses` | Catálogo de cursos | Planejada |
+| `modules` | Módulos por curso | Planejada |
+| `lessons` | Lições por módulo | Planejada |
+| `enrollments` | Vínculo usuário ↔ curso (`last_lesson_id`, `status`, `completed_at`) | Planejada |
+| `lesson_progress` | Progresso granular por lição (`completed`, `status`, `last_block_id`) | Planejada — avaliar consolidação com `user_progress` |
 
 ---
 
