@@ -1,29 +1,24 @@
 # =============================================================================
 # Fulldev School — Comandos de desenvolvimento e testes locais
 # =============================================================================
-# Requisitos:
+# Único pré-requisito:
 #   - Docker Desktop (https://www.docker.com/products/docker-desktop)
-#   - Supabase CLI  (https://supabase.com/docs/guides/cli)
-#     Instalar: brew install supabase/tap/supabase
 #
 # Comandos principais:
-#   make setup           Configura o ambiente local pela primeira vez
-#   make supabase-start  Inicia o Supabase local (Docker)
-#   make supabase-stop   Para o Supabase local
-#   make supabase-reset  Reseta o banco e aplica seed.sql
-#   make supabase-status Mostra URLs e credenciais locais
-#   make docker-build    Builda a imagem Docker do app
-#   make docker-up       Sobe o app em Docker (nginx na porta 4200)
-#   make docker-down     Para e remove os containers do app
-#   make docker-logs     Exibe os logs do container do app
-#   make serve           Inicia o dev server Angular (sem Docker)
-#   make test            Executa os testes unitários
-#   make test-watch      Executa os testes em modo watch
-#   make test-coverage   Executa os testes com relatório de cobertura
+#   make setup         Configura o ambiente local pela primeira vez
+#   make up            ★ Sobe TUDO: Supabase (db+auth+rest+kong+studio) + app Angular
+#   make down          Para e remove todos os containers (dados persistem)
+#   make logs          Exibe os logs de todos os serviços
+#   make db-reset      Recria o banco do zero e reaplica migrations + seed
+#   make docker-build  Builda a imagem Docker do app Angular
+#   make serve         Inicia o dev server Angular (sem Docker)
+#   make test          Executa os testes unitários
+#   make test-watch    Executa os testes em modo watch
+#   make test-coverage Executa os testes com relatório de cobertura
 
-.PHONY: setup serve test test-watch test-coverage \
-        supabase-start supabase-stop supabase-reset supabase-status \
-        docker-build docker-up docker-down docker-logs \
+.PHONY: setup up down logs db-reset \
+        docker-build \
+        serve test test-watch test-coverage \
         help
 
 APP_DIR = fulldev-school/app
@@ -36,57 +31,132 @@ setup: ## Configura o ambiente local pela primeira vez
 	@echo "── Instalando dependências do Angular app..."
 	cd $(APP_DIR) && npm install
 	@echo ""
-	@echo "── Verificando Supabase CLI..."
-	@supabase --version || (echo "\n❌  Supabase CLI não encontrado." && \
-	  echo "    Instale com: brew install supabase/tap/supabase" && exit 1)
-	@echo ""
 	@echo "── Copiando runtime-config local..."
 	@if [ ! -f $(APP_DIR)/public/runtime-config.js ]; then \
 	  cp $(APP_DIR)/public/runtime-config.local.js.example $(APP_DIR)/public/runtime-config.js; \
 	  echo "    ✅  $(APP_DIR)/public/runtime-config.js criado."; \
+	  echo ""; \
+	  echo "    ℹ️   O arquivo já está configurado com as credenciais locais Docker."; \
+	  echo "        URL: http://localhost:8000  (Kong API gateway)"; \
+	  echo "        Não é necessário editar — pronto para uso."; \
 	else \
 	  echo "    ℹ️   $(APP_DIR)/public/runtime-config.js já existe — não sobrescrito."; \
 	fi
 	@echo ""
-	@echo "✅  Setup concluído. Próximo passo: make supabase-start"
+	@echo "✅  Setup concluído. Próximo passo: make up"
 
 # =============================================================================
-# Supabase local
+# Ponto de entrada principal — sobe tudo com um único comando
 # =============================================================================
+#
+# 100% Docker — sem dependência do Supabase CLI.
+# O postgres inicializa schemas, roles, migrations e seed automaticamente
+# na primeira vez que o volume db-data está vazio.
+#
+# Serviços que sobem:
+#   db       → PostgreSQL 15 (porta 5433 no host)
+#   auth     → GoTrue / Supabase Auth (interno, roteado pelo Kong)
+#   rest     → PostgREST (interno, roteado pelo Kong)
+#   kong     → API Gateway (porta 8000 — URL que o browser usa)
+#   meta     → postgres-meta (usado pelo Studio)
+#   studio   → Supabase Studio (porta 3000)
+#   inbucket → Servidor de e-mail local (porta 54324)
+#   app      → Angular via nginx (porta 4200)
 
-supabase-start: ## Inicia o Supabase local via Docker
-	supabase start
+up: ## ★ Sobe TUDO: Supabase + app Angular (ponto de entrada recomendado)
+	@echo "════════════════════════════════════════════════════"
+	@echo "  Fulldev School — Ambiente de desenvolvimento"
+	@echo "════════════════════════════════════════════════════"
+	@echo ""
+	@echo "── Verificando pré-requisitos..."
+	@docker info > /dev/null 2>&1 || \
+	  (echo "❌  Docker não encontrado ou não está rodando." && \
+	   echo "    Instale o Docker Desktop: https://www.docker.com/products/docker-desktop" && exit 1)
+	@if [ ! -f $(APP_DIR)/public/runtime-config.js ]; then \
+	  echo "❌  runtime-config.js não encontrado. Execute: make setup" && exit 1; \
+	fi
+	@echo "    OK"
+	@echo ""
+	@echo "── Subindo serviços Supabase + app..."
+	@echo "    Na primeira execução o banco será inicializado (migrations + seed)."
+	@echo "    Pode levar 1-2 minutos enquanto as imagens são baixadas."
+	@echo ""
+	docker compose up -d --build
+	@echo ""
+	@echo "── Aguardando os serviços ficarem prontos..."
+	@docker compose wait db auth kong 2>/dev/null || true
+	@echo ""
+	@echo "════════════════════════════════════════════════════"
+	@echo "  ✅  Ambiente pronto!"
+	@echo ""
+	@echo "  App Angular:      http://localhost:4200"
+	@echo "  Supabase API:     http://localhost:8000   (Kong gateway)"
+	@echo "  Supabase Studio:  http://localhost:3000"
+	@echo "  PostgreSQL:       localhost:5433"
+	@echo "  Email (Inbucket): http://localhost:54324"
+	@echo ""
+	@echo "  Logs:             make logs"
+	@echo "  Parar tudo:       make down"
+	@echo "  Resetar banco:    make db-reset"
+	@echo "════════════════════════════════════════════════════"
 
-supabase-stop: ## Para os containers do Supabase local
-	supabase stop
+down: ## Para e remove todos os containers (volume do banco é preservado)
+	@echo "── Parando e removendo containers..."
+	docker compose down
+	@echo ""
+	@echo "✅  Containers parados. Volume do banco preservado."
+	@echo "    Para apagar o banco também: docker compose down -v"
 
-supabase-reset: ## Reseta o banco e reaplica migrations + seed.sql
-	supabase db reset
-
-supabase-status: ## Mostra URLs e credenciais do Supabase local
-	supabase status
+logs: ## Exibe os logs de todos os serviços (Ctrl+C para sair)
+	docker compose logs -f
 
 # =============================================================================
-# Docker — app Angular
+# Reset do banco de dados
+# =============================================================================
+#
+# Remove o volume do banco e recria do zero.
+# As migrations e o seed são reaplicados automaticamente na próxima subida.
+#
+# Útil quando:
+#   - Uma migration mudou e o banco local está desatualizado
+#   - O banco ficou em estado inconsistente
+#   - Você quer começar do zero
+
+db-reset: ## Recria o banco do zero e reaplica migrations + seed
+	@echo "════════════════════════════════════════════════════"
+	@echo "  ⚠️   db-reset: todos os dados locais serão apagados"
+	@echo "════════════════════════════════════════════════════"
+	@echo ""
+	@echo "── Parando containers..."
+	docker compose down -v
+	@echo ""
+	@echo "── Removendo volume do banco..."
+	docker volume rm fulldevschool-db-data 2>/dev/null || true
+	@echo ""
+	@echo "── Subindo novamente (migrations + seed serão reaplicados)..."
+	docker compose up -d db auth rest kong meta studio inbucket
+	@echo ""
+	@echo "── Aguardando o banco estar pronto..."
+	@for i in $$(seq 1 30); do \
+	  docker compose exec db pg_isready -U postgres -d postgres > /dev/null 2>&1 && break; \
+	  printf "."; \
+	  sleep 2; \
+	done
+	@echo ""
+	@echo "✅  Banco recriado. Suba o app com: make up"
+
+# =============================================================================
+# Docker — build do app Angular
 # =============================================================================
 
 docker-build: ## Builda a imagem Docker do app (nginx + build de produção)
 	docker compose build app
 
-docker-up: ## Sobe o app em Docker na porta 4200 (requer runtime-config.js)
-	docker compose up -d app
-
-docker-down: ## Para e remove os containers do app
-	docker compose down
-
-docker-logs: ## Exibe os logs do container do app
-	docker compose logs -f app
-
 # =============================================================================
 # Angular dev server (sem Docker)
 # =============================================================================
 
-serve: ## Inicia o servidor de desenvolvimento Angular
+serve: ## Inicia o servidor de desenvolvimento Angular (porta 4200, sem Docker)
 	cd $(APP_DIR) && npm start
 
 # =============================================================================

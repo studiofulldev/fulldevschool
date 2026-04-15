@@ -1,0 +1,119 @@
+# =============================================================================
+# kong.yml — Configuração declarativa do Kong API Gateway
+# =============================================================================
+#
+# O Kong roteia as chamadas do browser (porta 8000) para os serviços internos:
+#   /auth/v1/*   → GoTrue (auth:9999)
+#   /rest/v1/*   → PostgREST (rest:3000)
+#
+# Autenticação:
+#   Todos os endpoints exigem a anon key (apikey) ou service_role key no header
+#   "apikey" ou na query string "apikey=...".
+#   O PostgREST depois interpreta o JWT para determinar o role (anon/authenticated).
+#
+# CORS:
+#   Configurado para aceitar requests de http://localhost:4200 (app Angular).
+# =============================================================================
+
+_format_version: "3.0"
+
+# =============================================================================
+# Consumers (identidades que fazem chamadas ao Kong)
+# =============================================================================
+consumers:
+  - username: anon
+    keyauth_credentials:
+      - key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU
+
+  - username: service_role
+    keyauth_credentials:
+      - key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hj04zWl196z2-SBc0
+
+# =============================================================================
+# Serviços e rotas
+# =============================================================================
+services:
+  # ---------------------------------------------------------------------------
+  # Auth — GoTrue
+  # ---------------------------------------------------------------------------
+  - name: auth-v1
+    url: http://auth:9999/
+    routes:
+      - name: auth-v1-route
+        strip_path: true
+        paths:
+          - /auth/v1/
+    plugins:
+      - name: cors
+        config:
+          origins:
+            - http://localhost:4200
+            - http://localhost:3000
+          methods:
+            - GET
+            - POST
+            - PUT
+            - PATCH
+            - DELETE
+            - OPTIONS
+          headers:
+            - Accept
+            - Accept-Version
+            - Content-Length
+            - Content-MD5
+            - Content-Type
+            - Date
+            - apikey
+            - Authorization
+          exposed_headers:
+            - X-Auth-Token
+          credentials: true
+          max_age: 3600
+      - name: key-auth
+        config:
+          hide_credentials: false
+
+  # ---------------------------------------------------------------------------
+  # REST — PostgREST
+  # ---------------------------------------------------------------------------
+  - name: rest-v1
+    url: http://rest:3000/
+    routes:
+      - name: rest-v1-route
+        strip_path: true
+        paths:
+          - /rest/v1/
+    plugins:
+      - name: cors
+        config:
+          origins:
+            - http://localhost:4200
+            - http://localhost:3000
+          methods:
+            - GET
+            - POST
+            - PUT
+            - PATCH
+            - DELETE
+            - OPTIONS
+            - HEAD
+          headers:
+            - Accept
+            - Accept-Version
+            - Content-Length
+            - Content-MD5
+            - Content-Type
+            - Date
+            - apikey
+            - Authorization
+            - Prefer
+            - Range
+          exposed_headers:
+            - Content-Range
+            - Range-Unit
+            - Content-Length
+          credentials: true
+          max_age: 3600
+      - name: key-auth
+        config:
+          hide_credentials: false
