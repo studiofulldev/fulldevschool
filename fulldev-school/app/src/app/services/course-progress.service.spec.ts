@@ -74,6 +74,20 @@ describe('CourseProgressService', () => {
       const state = JSON.parse(raw!);
       expect(state['course-start::lesson::lesson-1']).toBe(true);
     });
+
+    it('survives a service re-instantiation (reads from localStorage)', () => {
+      service.setLessonCompleted('course-start', 'lesson-1', true);
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [
+          CourseProgressService,
+          { provide: AuthService, useValue: makeAuthMock() },
+          { provide: SupabaseService, useValue: makeSupabaseMock() }
+        ]
+      });
+      const freshService = TestBed.inject(CourseProgressService);
+      expect(freshService.isLessonCompleted('course-start', 'lesson-1')).toBe(true);
+    });
   });
 
   describe('module progress', () => {
@@ -123,6 +137,71 @@ describe('CourseProgressService', () => {
       expect(courseRaw).not.toBeNull();
       expect(lessonRaw).not.toBe(moduleRaw);
       expect(moduleRaw).not.toBe(courseRaw);
+    });
+  });
+
+  describe('resilience', () => {
+    it('returns empty state when localStorage contains malformed JSON for lessons', () => {
+      localStorage.setItem('fulldev-school.progress.lessons', 'not-json{{{');
+      expect(service.isLessonCompleted('course-start', 'lesson-1')).toBe(false);
+    });
+
+    it('returns empty state when localStorage contains malformed JSON for modules', () => {
+      localStorage.setItem('fulldev-school.progress.modules', 'not-json{{{');
+      expect(service.isModuleCompleted('course-start', 'module-1')).toBe(false);
+    });
+
+    it('returns empty state when localStorage contains malformed JSON for courses', () => {
+      localStorage.setItem('fulldev-school.progress.courses', 'not-json{{{');
+      expect(service.isCourseCompleted('course-start')).toBe(false);
+    });
+
+    it('does not throw when writing after malformed JSON was in localStorage', () => {
+      localStorage.setItem('fulldev-school.progress.lessons', 'not-json{{{');
+      expect(() => service.setLessonCompleted('course-start', 'lesson-1', true)).not.toThrow();
+      expect(service.isLessonCompleted('course-start', 'lesson-1')).toBe(true);
+    });
+  });
+
+  describe('edge cases', () => {
+    it('does not throw when courseSlug is an empty string', () => {
+      expect(() => service.setLessonCompleted('', 'lesson-1', true)).not.toThrow();
+      expect(service.isLessonCompleted('', 'lesson-1')).toBe(true);
+    });
+
+    it('does not throw when lessonSlug is an empty string', () => {
+      expect(() => service.setLessonCompleted('course-start', '', true)).not.toThrow();
+      expect(service.isLessonCompleted('course-start', '')).toBe(true);
+    });
+
+    it('does not throw when courseSlug is an empty string for courses', () => {
+      expect(() => service.setCourseCompleted('', true)).not.toThrow();
+      expect(service.isCourseCompleted('')).toBe(true);
+    });
+
+    it('treats empty courseSlug as distinct from a named course', () => {
+      service.setCourseCompleted('', true);
+      expect(service.isCourseCompleted('course-start')).toBe(false);
+    });
+
+    it('is idempotent: marking the same lesson completed twice does not corrupt state', () => {
+      service.setLessonCompleted('course-start', 'lesson-1', true);
+      service.setLessonCompleted('course-start', 'lesson-1', true);
+      expect(service.isLessonCompleted('course-start', 'lesson-1')).toBe(true);
+    });
+
+    it('is idempotent: unmarking the same lesson twice does not corrupt state', () => {
+      service.setLessonCompleted('course-start', 'lesson-1', true);
+      service.setLessonCompleted('course-start', 'lesson-1', false);
+      service.setLessonCompleted('course-start', 'lesson-1', false);
+      expect(service.isLessonCompleted('course-start', 'lesson-1')).toBe(false);
+    });
+
+    it('lesson and module with the same slug under the same course are stored independently', () => {
+      service.setLessonCompleted('course-start', 'intro', true);
+      service.setModuleCompleted('course-start', 'intro', false);
+      expect(service.isLessonCompleted('course-start', 'intro')).toBe(true);
+      expect(service.isModuleCompleted('course-start', 'intro')).toBe(false);
     });
   });
 });
