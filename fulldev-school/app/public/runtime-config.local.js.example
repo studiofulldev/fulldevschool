@@ -2,30 +2,35 @@
 //
 // Como usar:
 //   1. Execute: make setup  (copia este arquivo para runtime-config.js automaticamente)
-//   2. Execute: make up     (sobe Supabase + app) ou make serve (Angular dev server)
+//   2. Execute: make up     (sobe tudo: db + auth + rest + kong + studio + app)
 //
 // ─────────────────────────────────────────────────────────────────────────────
-// POR QUE localhost:54321 funciona em ambos os modos (Docker e make serve)?
+// POR QUE localhost:8000 (Kong) e não localhost:54321?
 // ─────────────────────────────────────────────────────────────────────────────
-// O SDK do Supabase roda no BROWSER (JavaScript client-side).
-// O nginx (modo Docker) apenas serve arquivos estáticos — não faz chamadas ao Supabase.
-// O browser está sempre no host, então localhost:54321 é sempre o endereço correto.
+// O ambiente agora é 100% Docker — sem Supabase CLI.
+// O Kong (API gateway) é o ponto de entrada e roda na porta 8000.
+// Ele roteia /auth/v1/* → GoTrue e /rest/v1/* → PostgREST.
 //
-// host.docker.internal seria necessário apenas para SSR (Node.js no servidor).
-// Este projeto é SPA puro — não há SSR.
+// O SDK do Supabase roda no BROWSER (SPA puro, sem SSR).
+// O nginx apenas serve arquivos estáticos — não faz chamadas ao Supabase.
+// O browser está sempre no host, então localhost:8000 é sempre o endereço correto.
 //
 // ─────────────────────────────────────────────────────────────────────────────
-// CREDENCIAIS LOCAIS PADRÃO DO SUPABASE CLI
+// CREDENCIAIS LOCAIS DE DESENVOLVIMENTO
 // ─────────────────────────────────────────────────────────────────────────────
-// URL e publishableKey são sempre iguais em qualquer máquina com `supabase start`.
-// São credenciais públicas de desenvolvimento — seguras para commitar neste exemplo.
+// Estas credenciais são ESTÁTICAS e PÚBLICAS para o ambiente local Docker.
+// São seguras para commitar neste arquivo de exemplo.
 // O runtime-config.js gerado está no .gitignore e NUNCA deve ser commitado.
+//
+// JWT Secret:   super-secret-jwt-token-with-at-least-32-characters-long
+// anon key:     gerada com o secret acima — válida localmente até 2033
+// service key:  gerada com o secret acima — não usar no client-side
 
 window.__FULLDEV_SCHOOL_CONFIG__ = {
   supabase: {
-    url: 'http://localhost:54321',
-    // Obtenha sua publishableKey local rodando: supabase status
-    // (a key aparece na linha "Publishable")
-    publishableKey: 'cole-aqui-o-valor-de-supabase-status'
+    // Kong API gateway — ponto de entrada unificado para auth e rest
+    url: 'http://localhost:8000',
+    // anon/publishable key local — segura para commitar no exemplo
+    publishableKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU'
   }
 };

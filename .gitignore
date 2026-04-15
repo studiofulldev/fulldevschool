@@ -4,7 +4,10 @@ Thumbs.db
 Desktop.ini
 fulldev-school/app/public/runtime-config.js
 
-# Supabase CLI — arquivos gerados localmente
+# Supabase CLI — arquivos gerados localmente (não usados no modo Docker puro)
 supabase/.branches
 supabase/.temp
 supabase/volumes/
+
+# Docker — dados persistentes (volume gerenciado pelo Docker, não pelo git)
+# Os arquivos em supabase/docker/ (kong.yml, init-db.sh) SÃO commitados.

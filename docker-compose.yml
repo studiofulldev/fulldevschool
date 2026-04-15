@@ -2,25 +2,287 @@
 # Fulldev School — docker-compose.yml
 # =============================================================================
 #
-# Este compose gerencia apenas o app Angular (nginx).
-# O Supabase local é gerenciado pelo Supabase CLI (supabase start),
-# que cuida de sua própria rede de containers Docker.
+# Ambiente de desenvolvimento 100% Docker — sem dependência do Supabase CLI.
+# Único pré-requisito: Docker Desktop.
 #
-# Ponto de entrada recomendado:
-#   make up   → sobe Supabase + app com um único comando
+# Ponto de entrada:
+#   make up          → sobe tudo (db + auth + rest + kong + studio + app)
+#   make down        → para e remove todos os containers
+#   make db-reset    → recria o banco e reaplica migrations + seed
 #
-# Para subir só o app (se o Supabase já estiver rodando via CLI):
-#   make docker-up
+# Portas expostas:
+#   4200  → App Angular (nginx)
+#   8000  → Supabase API gateway (Kong) — URL que o browser usa
+#   8443  → Kong HTTPS (não usado em dev)
+#   5433  → PostgreSQL (acesso direto para ferramentas como psql/TablePlus)
+#   8001  → Kong Admin API (debug)
+#   3000  → Supabase Studio (interface visual do banco)
+#   54324 → Inbucket (e-mail local para testes de auth)
 #
 # Comunicação app → Supabase:
-#   O SDK do Supabase roda no BROWSER (JavaScript client-side) — não no container nginx.
-#   O nginx apenas serve arquivos estáticos. Por isso, a URL do Supabase deve ser
-#   acessível pelo browser, que está no host: use localhost:54321.
-#   NÃO use host.docker.internal — esse endereço é para containers alcançarem o host,
-#   não para browsers. Veja: fulldev-school/app/public/runtime-config.local.js.example
+#   O SDK do Supabase roda no BROWSER (SPA puro, sem SSR).
+#   O browser acessa http://localhost:8000 (Kong).
+#   Os containers internos se comunicam via nome de serviço (ex: db, auth).
+#
+# Credenciais locais (valores estáticos de dev — NÃO usar em produção):
+#   JWT Secret:   super-secret-jwt-token-with-at-least-32-characters-long
+#   anon key:     eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU
+#   service key:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hj04zWl196z2-SBc0
+#   DB password:  postgres
 # =============================================================================
 
+# Variáveis compartilhadas entre serviços
+x-supabase-env: &supabase-env
+  POSTGRES_HOST: db
+  POSTGRES_PORT: 5432
+  POSTGRES_DB: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+  ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU
+  SERVICE_ROLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hj04zWl196z2-SBc0
+
 services:
+
+  # ===========================================================================
+  # db — PostgreSQL com extensões Supabase
+  # ===========================================================================
+  # IMPORTANTE: usa supabase/postgres, não postgres:15 vanilla.
+  # A imagem supabase/postgres inclui extensões necessárias:
+  #   pg_graphql, supabase_vault, pgjwt, pg_stat_statements, pgcrypto, uuid-ossp
+  # O postgres vanilla NÃO tem essas extensões — não trocar por postgres:15.
+  #
+  # A imagem já inicializa roles Supabase internamente (supabase_admin, authenticator,
+  # anon, authenticated, service_role) via seu próprio migrate.sh.
+  # Nossas migrations de aplicação são aplicadas pelo serviço db-migrate (abaixo).
+  # ===========================================================================
+  db:
+    image: supabase/postgres:15.8.1.060
+    restart: unless-stopped
+    ports:
+      - "5433:5432"  # Exposto como 5433 para não conflitar com postgres local do host
+    command:
+      - postgres
+      - -c
+      - config_file=/etc/postgresql/postgresql.conf
+      - -c
+      - log_min_messages=fatal
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU
+      SERVICE_ROLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hj04zWl196z2-SBc0
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      # roles.sql é executado pelo migrate.sh da imagem após a inicialização.
+      # Configura as senhas dos roles authenticator e supabase_auth_admin
+      # para que GoTrue e PostgREST consigam se conectar.
+      - ./supabase/docker/roles.sql:/etc/postgresql.schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+  # ===========================================================================
+  # db-migrate — Aplica migrations e seed do projeto
+  # ===========================================================================
+  # Padrão initContainer: roda uma vez após o banco estar healthy e sai.
+  # restart: no garante que não reinicia após concluir com sucesso.
+  #
+  # Por que serviço separado e não docker-entrypoint-initdb.d?
+  #   A imagem supabase/postgres já ocupa o docker-entrypoint-initdb.d com seus
+  #   próprios scripts de inicialização. Montar volumes lá sobrescreveria esses scripts.
+  #   Um serviço separado é mais limpo, previsível e re-executável (make db-reset).
+  # ===========================================================================
+  db-migrate:
+    image: supabase/postgres:15.8.1.060
+    restart: "no"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      POSTGRES_PASSWORD: postgres
+      PGPASSWORD: postgres
+    volumes:
+      - ./supabase/docker/init-db.sh:/init-db.sh:ro
+      - ./supabase/migrations:/migrations:ro
+      - ./supabase/seed.sql:/seed.sql:ro
+    entrypoint: ["bash", "/init-db.sh"]
+
+  # ===========================================================================
+  # auth — GoTrue (Supabase Auth)
+  # Gerencia autenticação: email/senha, OAuth, JWT, sessões, refresh tokens.
+  # ===========================================================================
+  auth:
+    # supabase/gotrue foi renomeado para supabase/auth
+    image: supabase/auth:v2.164.0
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      <<: *supabase-env
+      GOTRUE_API_HOST: 0.0.0.0
+      GOTRUE_API_PORT: 9999
+      API_EXTERNAL_URL: http://localhost:8000
+      GOTRUE_DB_DRIVER: postgres
+      GOTRUE_DB_DATABASE_URL: postgres://supabase_auth_admin:postgres@db:5432/postgres?search_path=auth
+      GOTRUE_SITE_URL: http://localhost:4200
+      GOTRUE_URI_ALLOW_LIST: "http://localhost:4200,http://localhost:4200/login"
+      GOTRUE_DISABLE_SIGNUP: "false"
+      GOTRUE_JWT_ADMIN_ROLES: service_role
+      GOTRUE_JWT_AUD: authenticated
+      GOTRUE_JWT_EXP: 3600
+      # Define o role padrão para novos usuários no JWT.
+      # Apesar do warning de deprecação, esta variável ainda é necessária
+      # para que o campo "role" no JWT seja preenchido como "authenticated".
+      # Sem ela, o PostgREST não consegue determinar o role do usuário.
+      GOTRUE_JWT_DEFAULT_GROUP_NAME: authenticated
+      GOTRUE_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      GOTRUE_EXTERNAL_EMAIL_ENABLED: "true"
+      GOTRUE_EXTERNAL_PHONE_ENABLED: "false"
+      GOTRUE_SMTP_ADMIN_EMAIL: admin@fulldev.local
+      GOTRUE_SMTP_HOST: inbucket
+      GOTRUE_SMTP_PORT: 2500
+      GOTRUE_SMTP_USER: ""
+      GOTRUE_SMTP_PASS: ""
+      GOTRUE_SMTP_SENDER_NAME: "Fulldev School Local"
+      GOTRUE_MAILER_AUTOCONFIRM: "true"
+      GOTRUE_MAILER_SECURE_EMAIL_CHANGE_ENABLED: "false"
+      GOTRUE_LOG_LEVEL: warn
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9999/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+
+  # ===========================================================================
+  # rest — PostgREST
+  # Expõe o banco PostgreSQL como API REST automática via RLS.
+  # ===========================================================================
+  rest:
+    image: postgrest/postgrest:v12.2.3
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGRST_DB_URI: postgres://authenticator:postgres@db:5432/postgres
+      PGRST_DB_SCHEMAS: public,graphql_public
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      PGRST_DB_USE_LEGACY_GUCS: "false"
+      PGRST_APP_SETTINGS_JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      PGRST_APP_SETTINGS_JWT_EXP: 3600
+      PGRST_LOG_LEVEL: warn
+
+  # ===========================================================================
+  # kong — API Gateway
+  # Roteador central: recebe todas as chamadas do browser na porta 8000
+  # e encaminha para auth (/auth/v1) ou rest (/rest/v1).
+  # ===========================================================================
+  kong:
+    image: kong:3.6
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      auth:
+        condition: service_healthy
+    ports:
+      - "8000:8000"   # API pública (browser usa esta porta)
+      - "8001:8001"   # Admin API (debug)
+      - "8443:8443"   # HTTPS (não usado em dev)
+    environment:
+      KONG_DATABASE: "off"                # Modo declarativo (sem banco separado)
+      KONG_DECLARATIVE_CONFIG: /var/lib/kong/kong.yml
+      KONG_DNS_ORDER: LAST,A,CNAME
+      KONG_PLUGINS: request-transformer,cors,key-auth,acl,basic-auth
+      KONG_NGINX_PROXY_PROXY_BUFFER_SIZE: 160k
+      KONG_NGINX_PROXY_PROXY_BUFFERS: 64 160k
+      KONG_LOG_LEVEL: warn
+      SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU
+      SUPABASE_SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hj04zWl196z2-SBc0
+    volumes:
+      - ./supabase/docker/kong.yml:/var/lib/kong/kong.yml:ro
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+  # ===========================================================================
+  # meta — Supabase PostgreSQL Meta
+  # API de metadados do banco (usada pelo Studio para listar tabelas, etc.)
+  # ===========================================================================
+  meta:
+    image: supabase/postgres-meta:v0.83.2
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PG_META_PORT: 8080
+      PG_META_DB_HOST: db
+      PG_META_DB_PORT: 5432
+      PG_META_DB_NAME: postgres
+      PG_META_DB_USER: postgres
+      PG_META_DB_PASSWORD: postgres
+
+  # ===========================================================================
+  # studio — Supabase Studio
+  # Interface visual do banco de dados para debug em dev.
+  # Acesse: http://localhost:3000
+  # ===========================================================================
+  studio:
+    image: supabase/studio:latest
+    restart: unless-stopped
+    depends_on:
+      - meta
+    ports:
+      - "3000:3000"
+    # Desabilita o healthcheck interno da imagem: ele tenta connect em localhost:3000
+    # dentro do container, mas o Next.js escuta em 0.0.0.0 — bug da imagem latest.
+    # O Studio está acessível externamente em http://localhost:3000.
+    healthcheck:
+      disable: true
+    environment:
+      STUDIO_PG_META_URL: http://meta:8080
+      POSTGRES_PASSWORD: postgres
+      DEFAULT_ORGANIZATION_NAME: "Fulldev School Local"
+      DEFAULT_PROJECT_NAME: "fulldev-school-local"
+      SUPABASE_URL: http://kong:8000
+      SUPABASE_PUBLIC_URL: http://localhost:8000
+      SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU
+      SUPABASE_SERVICE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hj04zWl196z2-SBc0
+      LOGFLARE_API_KEY: ""
+      LOGFLARE_URL: ""
+      NEXT_PUBLIC_ENABLE_LOGS: "false"
+      NEXT_ANALYTICS_BACKEND_PROVIDER: ""
+
+  # ===========================================================================
+  # inbucket — Servidor de e-mail local para testes
+  # Captura todos os e-mails enviados pelo GoTrue (confirmação, reset de senha).
+  # Acesse: http://localhost:54324
+  # ===========================================================================
+  inbucket:
+    image: inbucket/inbucket:3.0.4
+    restart: unless-stopped
+    ports:
+      - "54324:9000"  # Interface web na mesma porta do Supabase CLI (compatibilidade)
+    environment:
+      INBUCKET_WEB_ADDR: "0.0.0.0:9000"
+      INBUCKET_SMTP_ADDR: "0.0.0.0:2500"
+      INBUCKET_POP3_ADDR: "0.0.0.0:1100"
+
+  # ===========================================================================
+  # app — App Angular servido via nginx
+  # ===========================================================================
   app:
     build:
       context: fulldev-school/app
@@ -28,17 +290,23 @@ services:
     ports:
       - "4200:80"
     volumes:
-      # Monta o runtime-config.js local para apontar para o Supabase desejado.
+      # Monta o runtime-config.js local (aponta para http://localhost:8000).
       # Copie o exemplo antes de subir: cp fulldev-school/app/public/runtime-config.local.js.example
       #                                    fulldev-school/app/public/runtime-config.js
-      # ATENÇÃO: No modo Docker, a URL do Supabase deve usar host.docker.internal, não localhost.
       - ./fulldev-school/app/public/runtime-config.js:/usr/share/nginx/html/runtime-config.js:ro
-    # Garante que o nginx esteja respondendo antes de reportar como healthy.
-    # O Supabase é gerenciado externamente pelo CLI — não há dependência declarável aqui.
+    depends_on:
+      kong:
+        condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
       interval: 10s
       timeout: 5s
       retries: 3
-      start_period: 10s
+      start_period: 15s
     restart: unless-stopped
+
+volumes:
+  db-data:
+    name: fulldevschool-db-data
+    # Volume nomeado para persistência.
+    # Para resetar completamente: make db-reset (ou docker compose down -v)
