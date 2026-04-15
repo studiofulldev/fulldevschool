@@ -24,6 +24,8 @@
 window.__FULLDEV_SCHOOL_CONFIG__ = {
   supabase: {
     url: 'http://localhost:54321',
-    publishableKey: 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH'
+    // Obtenha sua publishableKey local rodando: supabase status
+    // (a key aparece na linha "Publishable")
+    publishableKey: 'cole-aqui-o-valor-de-supabase-status'
   }
 };

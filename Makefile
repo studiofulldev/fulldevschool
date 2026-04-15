@@ -47,6 +47,13 @@ setup: ## Configura o ambiente local pela primeira vez
 	@if [ ! -f $(APP_DIR)/public/runtime-config.js ]; then \
 	  cp $(APP_DIR)/public/runtime-config.local.js.example $(APP_DIR)/public/runtime-config.js; \
 	  echo "    ✅  $(APP_DIR)/public/runtime-config.js criado."; \
+	  echo ""; \
+	  echo "    ⚠️   Edite o arquivo antes de continuar:"; \
+	  echo "        $(APP_DIR)/public/runtime-config.js"; \
+	  echo ""; \
+	  echo "    Substitua 'cole-aqui-o-valor-de-supabase-status' pela sua publishableKey local."; \
+	  echo "    Para obter o valor, rode: make supabase-start && supabase status"; \
+	  echo "    (linha 'Publishable')"; \
 	else \
 	  echo "    ℹ️   $(APP_DIR)/public/runtime-config.js já existe — não sobrescrito."; \
 	fi
