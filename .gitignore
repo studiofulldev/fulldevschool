@@ -9,5 +9,9 @@ supabase/.branches
 supabase/.temp
 supabase/volumes/
 
+# Variáveis de ambiente locais (credenciais OAuth, secrets)
+# Use .env.example como referência.
+.env
+
 # Docker — dados persistentes (volume gerenciado pelo Docker, não pelo git)
 # Os arquivos em supabase/docker/ (kong.yml, init-db.sh) SÃO commitados.
