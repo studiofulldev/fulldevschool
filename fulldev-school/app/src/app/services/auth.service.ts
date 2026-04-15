@@ -2,6 +2,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { filter, map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { LoggerService } from './logger.service';
 import { OAuthProvider, SupabaseService } from './supabase.service';
 
 export type AuthProvider = OAuthProvider | 'email';
@@ -58,6 +59,7 @@ export interface AuthActionResult {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  private readonly logger = inject(LoggerService);
   private readonly supabase = inject(SupabaseService);
   private readonly storageKey = 'fulldev-school.auth.user';
 
@@ -455,16 +457,18 @@ export class AuthService {
   private async tryUpsertProfile(profile: Record<string, unknown>): Promise<void> {
     try {
       await this.supabase.upsertProfile(profile);
-    } catch {
+    } catch (err) {
       // The profiles table may not exist yet. Auth should continue working without it.
+      this.logger.error('AuthService', 'tryUpsertProfile failed', err);
     }
   }
 
   private async tryUpsertLead(lead: Record<string, unknown>): Promise<void> {
     try {
       await this.supabase.upsertLead(lead);
-    } catch {
+    } catch (err) {
       // The leads table may not exist yet. Auth should continue working without it.
+      this.logger.error('AuthService', 'tryUpsertLead failed', err);
     }
   }
 
