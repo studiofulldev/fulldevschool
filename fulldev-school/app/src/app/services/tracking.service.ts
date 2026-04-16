@@ -1,6 +1,7 @@
 import { Injectable, Injector, inject } from '@angular/core';
 import type { AuthUser } from './auth.service';
 import { AuthService } from './auth.service';
+import { RuntimeConfigService } from './runtime-config.service';
 import posthog from 'posthog-js';
 import { environment } from '../../environments/environment';
 
@@ -19,6 +20,7 @@ export class TrackingService {
   // AuthService is only needed at method call time (not at construction time),
   // so we defer resolution until the injector graph is fully settled.
   private readonly injector = inject(Injector);
+  private readonly runtimeConfig = inject(RuntimeConfigService);
   private _auth: AuthService | null = null;
 
   private get auth(): AuthService {
@@ -34,7 +36,11 @@ export class TrackingService {
   private readonly lessonStartTimes = new Map<string, number>();
 
   constructor() {
-    const { apiKey, host } = environment.posthog;
+    // Runtime config (Vercel env var POSTHOG_API_KEY → runtime-config.js) takes
+    // precedence; environment.posthog.apiKey is the fallback for local overrides.
+    const apiKey = this.runtimeConfig.posthog?.apiKey || environment.posthog.apiKey;
+    const host = environment.posthog.host;
+
     if (!apiKey) {
       return;
     }
