@@ -62,13 +62,20 @@ jobs:
           DEPLOY_HOSTNAME="${DEPLOYMENT_URL#https://}"
           echo "Deployment hostname: $DEPLOY_HOSTNAME"
 
-          DEPLOYMENT_ID=$(curl -sf \
+          DEPLOY_RESPONSE=$(curl -s \
             -H "Authorization: Bearer $VERCEL_TOKEN" \
-            "https://api.vercel.com/v13/deployments?url=$DEPLOY_HOSTNAME&teamId=$VERCEL_ORG_ID&limit=1" \
-            | jq -r '.deployments[0].uid')
+            "https://api.vercel.com/v13/deployments?url=$DEPLOY_HOSTNAME&teamId=$VERCEL_ORG_ID&limit=1")
+          echo "Deploy lookup response: $DEPLOY_RESPONSE"
+
+          DEPLOYMENT_ID=$(echo "$DEPLOY_RESPONSE" | jq -r '.deployments[0].uid // empty')
           echo "Deployment ID: $DEPLOYMENT_ID"
 
-          PROMOTE_RESULT=$(curl -sf -X POST \
+          if [[ -z "$DEPLOYMENT_ID" ]]; then
+            echo "::error::Não foi possível obter o deployment ID"
+            exit 1
+          fi
+
+          PROMOTE_RESULT=$(curl -s -X POST \
             -H "Authorization: Bearer $VERCEL_TOKEN" \
             -H "Content-Type: application/json" \
             "https://api.vercel.com/v10/projects/$VERCEL_PROJECT_ID/promote/$DEPLOYMENT_ID?teamId=$VERCEL_ORG_ID")
