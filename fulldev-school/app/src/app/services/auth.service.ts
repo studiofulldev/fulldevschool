@@ -4,6 +4,7 @@ import { filter, map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { LoggerService } from './logger.service';
 import { OAuthProvider, SupabaseService } from './supabase.service';
+import { TrackingService } from './tracking.service';
 
 export type AuthProvider = OAuthProvider | 'email';
 export type TechnicalLevel =
@@ -61,6 +62,7 @@ export interface AuthActionResult {
 export class AuthService {
   private readonly logger = inject(LoggerService);
   private readonly supabase = inject(SupabaseService);
+  private readonly tracking = inject(TrackingService);
   private readonly storageKey = 'fulldev-school.auth.user';
 
   // Verified user — only set after Supabase confirms the session.
@@ -138,6 +140,11 @@ export class AuthService {
         this.cacheUser(authUser);
         this.markSessionCheckComplete();
         void this.syncUserRecords(authUser);
+
+        if (event === 'INITIAL_SESSION') {
+          const isFirst = this.isFirstSession(authUser);
+          this.tracking.trackSessionStarted(authUser, isFirst);
+        }
       }
 
       // Mark session check complete on any auth event after INITIAL_SESSION.
@@ -276,6 +283,7 @@ export class AuthService {
 
     this.verifiedUserState.set(null);
     this.clearUserCache();
+    this.tracking.resetSession();
   }
 
   requiresProfileCompletion(user: AuthUser | null = this.verifiedUserState()): boolean {
@@ -506,6 +514,20 @@ export class AuthService {
     }
 
     return message;
+  }
+
+  private isFirstSession(user: AuthUser): boolean {
+    const key = `fulldev-school.tracking.first-session.${user.id}`;
+    if (typeof localStorage === 'undefined') {
+      return false;
+    }
+
+    const isFirst = !localStorage.getItem(key);
+    if (isFirst) {
+      localStorage.setItem(key, 'true');
+    }
+
+    return isFirst;
   }
 
   private markSessionCheckComplete(): void {

@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { AuthService } from './auth.service';
 import { LoggerService } from './logger.service';
 import { SupabaseService } from './supabase.service';
+import { TrackingService, LessonTrackingContext } from './tracking.service';
 
 // Persistence strategy:
 // - localStorage is written immediately for responsive UI (optimistic update).
@@ -15,6 +16,7 @@ export class CourseProgressService {
   private readonly auth = inject(AuthService);
   private readonly logger = inject(LoggerService);
   private readonly supabase = inject(SupabaseService);
+  private readonly tracking = inject(TrackingService);
 
   private readonly lessonStorageKey = 'fulldev-school.progress.lessons';
   private readonly moduleStorageKey = 'fulldev-school.progress.modules';
@@ -49,10 +51,20 @@ export class CourseProgressService {
   // Public write API — optimistic localStorage + async Supabase sync
   // ----------------------------------------------------------------
 
-  setLessonCompleted(courseSlug: string, lessonSlug: string, completed: boolean): void {
+  setLessonCompleted(
+    courseSlug: string,
+    lessonSlug: string,
+    completed: boolean,
+    trackingContext?: LessonTrackingContext
+  ): void {
     const state = this.readState(this.lessonStorageKey);
     state[this.lessonKey(courseSlug, lessonSlug)] = completed;
     this.writeState(this.lessonStorageKey, state);
+
+    if (completed && trackingContext) {
+      const time = this.tracking.calculateTimeOnLesson(lessonSlug);
+      this.tracking.trackLessonCompleted(trackingContext, time);
+    }
 
     void this.syncToSupabase({
       course_slug: courseSlug,
