@@ -12,11 +12,15 @@ import { EVENT_TRACKING_PROVIDER, EventTrackingProvider } from './event-tracking
 // -----------------------------------------------------------------------
 // Mock do EventTrackingProvider
 // -----------------------------------------------------------------------
-function makeProviderMock(): EventTrackingProvider & {
+// Tipo separado para que vi.fn() não precise satisfazer as assinaturas da interface.
+// O cast para EventTrackingProvider é feito apenas no ponto de registro do DI.
+interface ProviderMock {
   identify: ReturnType<typeof vi.fn>;
   capture: ReturnType<typeof vi.fn>;
   reset: ReturnType<typeof vi.fn>;
-} {
+}
+
+function makeProviderMock(): ProviderMock {
   return {
     identify: vi.fn(),
     capture: vi.fn(),
@@ -105,7 +109,7 @@ function setupTestBed(
       TrackingService,
       { provide: AuthService, useValue: makeAuthMock(userValue) },
       { provide: SupabaseService, useValue: makeSupabaseMock() },
-      { provide: EVENT_TRACKING_PROVIDER, useValue: provider }
+      { provide: EVENT_TRACKING_PROVIDER, useValue: provider as unknown as EventTrackingProvider }
     ]
   });
   return { service: TestBed.inject(TrackingService), provider };
@@ -478,7 +482,7 @@ describe('CourseProgressService + TrackingService integration', () => {
         CourseProgressService,
         { provide: AuthService, useValue: makeAuthMock(makeUser()) },
         { provide: SupabaseService, useValue: makeSupabaseMock() },
-        { provide: EVENT_TRACKING_PROVIDER, useValue: makeProviderMock() }
+        { provide: EVENT_TRACKING_PROVIDER, useValue: makeProviderMock() as unknown as EventTrackingProvider }
       ]
     });
 

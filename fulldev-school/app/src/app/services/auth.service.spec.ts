@@ -2,6 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { AuthService } from './auth.service';
 import { SupabaseService } from './supabase.service';
+import { EVENT_TRACKING_PROVIDER } from './event-tracking.provider';
+
+const mockTrackingProvider = { identify: vi.fn(), capture: vi.fn(), reset: vi.fn() };
 
 // Minimal SupabaseService mock — only the methods AuthService calls
 function makeSupabaseMock() {
@@ -39,7 +42,8 @@ describe('AuthService', () => {
     TestBed.configureTestingModule({
       providers: [
         AuthService,
-        { provide: SupabaseService, useValue: supabaseMock }
+        { provide: SupabaseService, useValue: supabaseMock },
+        { provide: EVENT_TRACKING_PROVIDER, useValue: mockTrackingProvider }
       ]
     });
     service = TestBed.inject(AuthService);

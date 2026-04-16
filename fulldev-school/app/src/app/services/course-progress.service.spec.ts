@@ -4,6 +4,9 @@ import { of } from 'rxjs';
 import { CourseProgressService } from './course-progress.service';
 import { AuthService } from './auth.service';
 import { SupabaseService } from './supabase.service';
+import { EVENT_TRACKING_PROVIDER } from './event-tracking.provider';
+
+const mockTrackingProvider = { identify: vi.fn(), capture: vi.fn(), reset: vi.fn() };
 
 function makeAuthMock() {
   return {
@@ -30,7 +33,8 @@ describe('CourseProgressService', () => {
       providers: [
         CourseProgressService,
         { provide: AuthService, useValue: makeAuthMock() },
-        { provide: SupabaseService, useValue: makeSupabaseMock() }
+        { provide: SupabaseService, useValue: makeSupabaseMock() },
+        { provide: EVENT_TRACKING_PROVIDER, useValue: mockTrackingProvider }
       ]
     });
     service = TestBed.inject(CourseProgressService);
@@ -82,7 +86,8 @@ describe('CourseProgressService', () => {
         providers: [
           CourseProgressService,
           { provide: AuthService, useValue: makeAuthMock() },
-          { provide: SupabaseService, useValue: makeSupabaseMock() }
+          { provide: SupabaseService, useValue: makeSupabaseMock() },
+          { provide: EVENT_TRACKING_PROVIDER, useValue: mockTrackingProvider }
         ]
       });
       const freshService = TestBed.inject(CourseProgressService);
