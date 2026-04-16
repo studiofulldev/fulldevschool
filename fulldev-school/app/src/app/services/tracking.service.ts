@@ -1,7 +1,8 @@
 import { Injectable, Injector, inject } from '@angular/core';
+import type { AuthUser } from './auth.service';
+import { AuthService } from './auth.service';
 import posthog from 'posthog-js';
 import { environment } from '../../environments/environment';
-import { AuthService } from './auth.service';
 
 export interface LessonTrackingContext {
   lessonId: string;
@@ -42,15 +43,25 @@ export class TrackingService {
       api_host: host,
       autocapture: false,
       capture_pageview: false,
-      person_profiles: 'identified_only'
+      person_profiles: 'identified_only',
+      // Remove auto-collected URL properties to avoid exposing lesson slugs
+      // before the user has given analytics consent.
+      sanitize_properties: (props) => {
+        delete props['$current_url'];
+        delete props['$referrer'];
+        delete props['$referring_domain'];
+        return props;
+      }
     });
   }
 
-  trackSessionStarted(user: import('./auth.service').AuthUser, isFirstSession: boolean): void {
+  trackSessionStarted(user: AuthUser, isFirstSession: boolean): void {
+    // Identify with pseudonymous properties only — no email or name.
+    // Sending PII (email, name) to PostHog requires an explicit legal basis
+    // under LGPD. The user UUID is sufficient for identity stitching.
     posthog.identify(user.id, {
-      email: user.email,
-      name: user.name,
-      role: user.role
+      role: user.role,
+      technical_level: user.technicalLevel ?? null
     });
 
     let daysSinceSignup = -1;
@@ -104,20 +115,23 @@ export class TrackingService {
       course_id: context.courseId,
       lesson_index: context.lessonIndex,
       time_on_lesson: timeOnLesson,
+      // Always sent explicitly — true on first completion, false thereafter.
+      // Reset to true after resetSession().
       first_lesson_completed: isFirst
     });
   }
 
+  // TODO(streak-okr): implement when streak feature is delivered (OKR 3 / KR1)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   trackStreakUpdated(_newStreak: number): void {
-    // Future implementation
+    // Stub — wired up but intentionally empty until streak is built.
   }
 
   resetSession(): void {
     try {
       posthog.reset();
     } catch {
-      // Never propagate posthog errors to callers
+      // Never propagate posthog errors to callers.
     }
 
     this.firstLessonCompletedThisSession = false;
@@ -134,6 +148,9 @@ export class TrackingService {
       return 0;
     }
 
+    // Remove the entry after reading — the time has been consumed.
+    // recordLessonStart() will create a fresh entry if the lesson is revisited.
+    this.lessonStartTimes.delete(lessonId);
     return Math.floor((Date.now() - start) / 1000);
   }
 }

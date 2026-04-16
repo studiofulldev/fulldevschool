@@ -151,14 +151,16 @@ describe('TrackingService — trackSessionStarted', () => {
     TestBed.resetTestingModule();
   });
 
-  it('T2.1: calls posthog.identify with user id and profile data', () => {
+  it('T2.1: calls posthog.identify with user id and pseudonymous properties (no PII)', () => {
     const user = makeUser();
     service.trackSessionStarted(user as never, false);
 
+    // email and name are intentionally excluded — sending PII to PostHog
+    // requires explicit LGPD legal basis. UUID + role is sufficient for
+    // identity stitching and funnel analysis.
     expect(mockPosthog.identify).toHaveBeenCalledWith(user.id, {
-      email: user.email,
-      name: user.name,
-      role: user.role
+      role: user.role,
+      technical_level: null
     });
   });
 

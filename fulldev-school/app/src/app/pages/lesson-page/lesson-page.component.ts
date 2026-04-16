@@ -1104,10 +1104,17 @@ export class LessonPageComponent {
     return Math.max(1, Math.ceil(words / 200));
   });
 
+  // Tracks the last lesson slug sent to PostHog to prevent duplicate
+  // lesson_started events if reactive signals (e.g. navigationTree) re-fire
+  // the effect for the same lesson.
+  private readonly _trackedLessonId = signal<string | null>(null);
+
   constructor() {
     effect(() => {
       const l = this.lesson();
       if (!l) return;
+      if (this._trackedLessonId() === l.meta.slug) return;
+      this._trackedLessonId.set(l.meta.slug);
       const ctx = this.buildTrackingContext(l);
       this.tracking.recordLessonStart(l.meta.slug);
       this.tracking.trackLessonStarted(ctx);
