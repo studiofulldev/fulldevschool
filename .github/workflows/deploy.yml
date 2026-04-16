@@ -66,6 +66,10 @@ jobs:
             READY_STATE=$(echo "$STATUS" | jq -r '.readyState')
             echo "[$i/30] Estado: $READY_STATE"
 
+            if [[ "$READY_STATE" == "null" ]]; then
+              echo "Resposta da API: $(echo "$STATUS" | jq -c '{error,state,readyState}')"
+            fi
+
             if [[ "$READY_STATE" == "READY" ]]; then
               URL=$(echo "$STATUS" | jq -r '.url')
               echo "Deploy concluído: https://$URL"
