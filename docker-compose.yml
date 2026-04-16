@@ -290,28 +290,36 @@ services:
       INBUCKET_POP3_ADDR: "0.0.0.0:1100"
 
   # ===========================================================================
-  # app — App Angular servido via nginx
+  # app — App Angular com hot reload (ng serve)
+  #
+  # O código-fonte é montado via volume para que alterações reflitam
+  # sem rebuild da imagem. node_modules fica isolado dentro do container
+  # (volume anônimo sobrepõe o bind mount, evitando conflito com host).
+  #
+  # Pré-requisito: runtime-config.js deve existir em public/:
+  #   cp fulldev-school/app/public/runtime-config.local.js.example \
+  #      fulldev-school/app/public/runtime-config.js
   # ===========================================================================
   app:
     build:
       context: fulldev-school/app
       dockerfile: Dockerfile
+      target: dev
     ports:
-      - "4200:80"
+      - "4200:4200"
     volumes:
-      # Monta o runtime-config.js local (aponta para http://localhost:8000).
-      # Copie o exemplo antes de subir: cp fulldev-school/app/public/runtime-config.local.js.example
-      #                                    fulldev-school/app/public/runtime-config.js
-      - ./fulldev-school/app/public/runtime-config.js:/usr/share/nginx/html/runtime-config.js:ro
+      - ./fulldev-school/app:/app
+      - /app/node_modules   # volume anônimo: impede que node_modules do host sobreponha o do container
+      - /app/.angular       # cache do Angular CLI — não montar do host
     depends_on:
       kong:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 15s
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:4200/"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 60s   # ng serve demora mais que nginx para iniciar
     restart: unless-stopped
 
 volumes:
