@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml, SafeResourceUrl } from '@angular/platform-browser';
@@ -8,8 +8,9 @@ import { from } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
-import { NavigationNode, SchoolContentService } from '../../data/school-content.service';
+import { LessonContent, NavigationNode, SchoolContentService } from '../../data/school-content.service';
 import { PlatformDataService } from '../../services/platform-data.service';
+import { TrackingService, LessonTrackingContext } from '../../services/tracking.service';
 
 interface ProjectTreeNode {
   id: string;
@@ -990,6 +991,7 @@ export class LessonPageComponent {
   private readonly hiddenProjectSections = new Set(['16-painel-de-progresso', '90-templates']);
   protected readonly content = inject(SchoolContentService);
   private readonly platform = inject(PlatformDataService);
+  private readonly tracking = inject(TrackingService);
   protected readonly contentSupporters: ContentSupporter[] = [
     {
       id: 'fulldev',
@@ -1101,6 +1103,29 @@ export class LessonPageComponent {
 
     return Math.max(1, Math.ceil(words / 200));
   });
+
+  constructor() {
+    effect(() => {
+      const l = this.lesson();
+      if (!l) return;
+      const ctx = this.buildTrackingContext(l);
+      this.tracking.recordLessonStart(l.meta.slug);
+      this.tracking.trackLessonStarted(ctx);
+    });
+  }
+
+  private buildTrackingContext(lesson: LessonContent): LessonTrackingContext {
+    const tree = this.content.navigationTree();
+    const index = tree.findIndex(n => n.slug === lesson.meta.slug);
+    const node = tree[index];
+    return {
+      lessonId: lesson.meta.slug,
+      lessonTitle: lesson.meta.title,
+      moduleId: node?.section ?? '',
+      courseId: this.courseSlug(),
+      lessonIndex: index
+    };
+  }
 
   private async resolveLesson(slug: string | null) {
     if (slug) {
