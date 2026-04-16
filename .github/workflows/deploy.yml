@@ -47,7 +47,12 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Deploy to Vercel
-        run: npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          OUTPUT=$(npx vercel deploy --prod --yes --no-color --token=${{ secrets.VERCEL_TOKEN }} 2>&1)
+          echo "$OUTPUT"
+          DEPLOYMENT_URL=$(echo "$OUTPUT" | grep -Eo 'https://[a-zA-Z0-9_-]+\.vercel\.app' | grep -v 'fulldevschool-fulldevstudio' | tail -1)
+          echo "Promoting: $DEPLOYMENT_URL"
+          npx vercel promote "$DEPLOYMENT_URL" --yes --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
