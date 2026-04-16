@@ -1,9 +1,7 @@
 import { Injectable, Injector, inject } from '@angular/core';
 import type { AuthUser } from './auth.service';
 import { AuthService } from './auth.service';
-import { RuntimeConfigService } from './runtime-config.service';
-import posthog from 'posthog-js';
-import { environment } from '../../environments/environment';
+import { EVENT_TRACKING_PROVIDER } from './event-tracking.provider';
 
 export interface LessonTrackingContext {
   lessonId: string;
@@ -15,19 +13,16 @@ export interface LessonTrackingContext {
 
 @Injectable({ providedIn: 'root' })
 export class TrackingService {
-  // Injector used to resolve AuthService lazily, breaking the circular dep:
+  // Injector usado para resolver AuthService de forma lazy, quebrando a dep circular:
   // AuthService -> TrackingService -> AuthService.
-  // AuthService is only needed at method call time (not at construction time),
-  // so we defer resolution until the injector graph is fully settled.
   private readonly injector = inject(Injector);
-  private readonly runtimeConfig = inject(RuntimeConfigService);
+  private readonly provider = inject(EVENT_TRACKING_PROVIDER);
   private _auth: AuthService | null = null;
 
   private get auth(): AuthService {
     if (!this._auth) {
       this._auth = this.injector.get(AuthService);
     }
-
     return this._auth;
   }
 
@@ -35,37 +30,8 @@ export class TrackingService {
   private firstLessonCompletedThisSession = false;
   private readonly lessonStartTimes = new Map<string, number>();
 
-  constructor() {
-    // Runtime config (Vercel env var POSTHOG_API_KEY → runtime-config.js) takes
-    // precedence; environment.posthog.apiKey is the fallback for local overrides.
-    const apiKey = this.runtimeConfig.posthog?.apiKey || environment.posthog.apiKey;
-    const host = environment.posthog.host;
-
-    if (!apiKey) {
-      return;
-    }
-
-    posthog.init(apiKey, {
-      api_host: host,
-      autocapture: false,
-      capture_pageview: false,
-      person_profiles: 'identified_only',
-      // Remove auto-collected URL properties to avoid exposing lesson slugs
-      // before the user has given analytics consent.
-      sanitize_properties: (props) => {
-        delete props['$current_url'];
-        delete props['$referrer'];
-        delete props['$referring_domain'];
-        return props;
-      }
-    });
-  }
-
   trackSessionStarted(user: AuthUser, isFirstSession: boolean): void {
-    // Identify with pseudonymous properties only — no email or name.
-    // Sending PII (email, name) to PostHog requires an explicit legal basis
-    // under LGPD. The user UUID is sufficient for identity stitching.
-    posthog.identify(user.id, {
+    this.provider.identify(user.id, {
       role: user.role,
       technical_level: user.technicalLevel ?? null
     });
@@ -77,7 +43,7 @@ export class TrackingService {
       );
     }
 
-    posthog.capture('session_started', {
+    this.provider.capture('session_started', {
       user_id: user.id,
       user_role: user.role,
       platform: 'web',
@@ -89,7 +55,7 @@ export class TrackingService {
   trackLessonStarted(context: LessonTrackingContext): void {
     const user = this.auth.user();
 
-    posthog.capture('lesson_started', {
+    this.provider.capture('lesson_started', {
       user_id: user?.id,
       user_role: user?.role,
       platform: 'web',
@@ -110,7 +76,7 @@ export class TrackingService {
       this.firstLessonCompletedThisSession = true;
     }
 
-    posthog.capture('lesson_completed', {
+    this.provider.capture('lesson_completed', {
       user_id: user?.id,
       user_role: user?.role,
       platform: 'web',
@@ -121,23 +87,21 @@ export class TrackingService {
       course_id: context.courseId,
       lesson_index: context.lessonIndex,
       time_on_lesson: timeOnLesson,
-      // Always sent explicitly — true on first completion, false thereafter.
-      // Reset to true after resetSession().
       first_lesson_completed: isFirst
     });
   }
 
-  // TODO(streak-okr): implement when streak feature is delivered (OKR 3 / KR1)
+  // TODO(streak-okr): implementar quando streak for entregue (OKR 3 / KR1)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   trackStreakUpdated(_newStreak: number): void {
-    // Stub — wired up but intentionally empty until streak is built.
+    // Stub — conectado mas intencionalmente vazio até streak ser construído.
   }
 
   resetSession(): void {
     try {
-      posthog.reset();
+      this.provider.reset();
     } catch {
-      // Never propagate posthog errors to callers.
+      // Nunca propagar erros de tracking para os callers.
     }
 
     this.firstLessonCompletedThisSession = false;
@@ -154,8 +118,7 @@ export class TrackingService {
       return 0;
     }
 
-    // Remove the entry after reading — the time has been consumed.
-    // recordLessonStart() will create a fresh entry if the lesson is revisited.
+    // Remove a entrada após leitura — o tempo foi consumido.
     this.lessonStartTimes.delete(lessonId);
     return Math.floor((Date.now() - start) / 1000);
   }

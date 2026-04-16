@@ -5,9 +5,5 @@ export const environment = {
   supabase: {
     url: '',
     publishableKey: ''
-  },
-  posthog: {
-    apiKey: '', // filled via runtime-config.js at deploy time
-    host: 'https://eu.i.posthog.com'
   }
 };

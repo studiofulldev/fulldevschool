@@ -12,16 +12,11 @@ export interface SupabaseRuntimeConfig {
   publishableKey?: string;
 }
 
-export interface PosthogRuntimeConfig {
-  apiKey: string;
-}
-
 declare global {
   interface Window {
     __FULLDEV_SCHOOL_CONFIG__?: {
       azureSpeech?: AzureSpeechRuntimeConfig;
       supabase?: SupabaseRuntimeConfig;
-      posthog?: PosthogRuntimeConfig;
     };
   }
 }
@@ -58,11 +53,6 @@ export class RuntimeConfigService {
     }
 
     return { key, region, voice };
-  }
-
-  get posthog(): PosthogRuntimeConfig | null {
-    const key = this.normalizeValue(window.__FULLDEV_SCHOOL_CONFIG__?.posthog?.apiKey);
-    return key ? { apiKey: key } : null;
   }
 
   get supabase(): SupabaseRuntimeConfig | null {
