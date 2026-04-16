@@ -118,8 +118,6 @@ export class AuthService {
   readonly isCommonUser = computed(() => this.verifiedUserState()?.role === 'user');
 
   constructor() {
-    void this.restoreSupabaseSession();
-
     this.supabase.onAuthStateChange(async ({ session, event }) => {
       const supabaseUser = session?.user;
       if (!supabaseUser) {
@@ -347,24 +345,6 @@ export class AuthService {
       return { ok: true };
     } catch {
       return { ok: false, message: 'Nao foi possivel salvar seus dados agora.' };
-    }
-  }
-
-  private async restoreSupabaseSession(): Promise<void> {
-    try {
-      const { data } = await this.supabase.getSession();
-
-      if (data.session?.user) {
-        const authUser = this.mapSupabaseUser(data.session.user);
-        this.verifiedUserState.set(authUser);
-        this.cacheUser(authUser);
-        this.markSessionCheckComplete();
-        void this.syncUserRecords(authUser);
-      }
-    } catch {
-      // Session restoration failed — keep verifiedUserState as null.
-    } finally {
-      this.markSessionCheckComplete();
     }
   }
 
