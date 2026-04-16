@@ -118,7 +118,16 @@ export class AuthService {
   readonly isCommonUser = computed(() => this.verifiedUserState()?.role === 'user');
 
   constructor() {
+    // Safety net: if INITIAL_SESSION never fires (private browsing with blocked
+    // storage, GoTrue network timeout), unblock guards after 5 seconds so the
+    // user sees the login page instead of a blank screen.
+    const sessionTimeout = setTimeout(
+      () => this.markSessionCheckComplete(),
+      5000
+    );
+
     this.supabase.onAuthStateChange(async ({ session, event }) => {
+      clearTimeout(sessionTimeout);
       const supabaseUser = session?.user;
       if (!supabaseUser) {
         this.verifiedUserState.set(null);
