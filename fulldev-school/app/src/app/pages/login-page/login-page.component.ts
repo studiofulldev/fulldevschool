@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { ActivatedRoute, Router } from '@angular/router';
+import { filter, take } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -13,9 +16,26 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginPageComponent {
   private readonly auth = inject(AuthService);
+  private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
 
   protected readonly loading = signal(false);
   protected readonly errorMessage = signal<string | null>(null);
+
+  constructor() {
+    // Safety net: if the user lands on /login already authenticated (e.g. after OAuth
+    // redirect when the guard fired too early), navigate them to the intended destination.
+    // Uses take(1) so the subscription self-completes on first truthy emission.
+    toObservable(this.auth.isAuthenticated)
+      .pipe(filter(Boolean), take(1))
+      .subscribe(() => {
+        const returnUrl = this.route.snapshot.queryParams['returnUrl'] as string | undefined;
+        // Strip any hash fragment — tokens must not be forwarded as a path segment.
+        const cleanUrl = returnUrl?.split('#')[0] ?? '/courses/home';
+        const safeUrl = cleanUrl.startsWith('/') ? cleanUrl : '/courses/home';
+        void this.router.navigateByUrl(safeUrl);
+      });
+  }
 
   protected async signInWithGoogle(): Promise<void> {
     this.loading.set(true);
