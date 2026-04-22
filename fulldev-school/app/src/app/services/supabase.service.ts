@@ -114,6 +114,11 @@ export class SupabaseService {
       .eq('user_id', userId);
   }
 
+  async invokeFn(name: string, options?: { body?: Record<string, unknown> }) {
+    this.ensureConfigured();
+    return this.client.functions.invoke(name, options);
+  }
+
   toUserMetadata(user: User) {
     const metadata = user.user_metadata ?? {};
     return {
