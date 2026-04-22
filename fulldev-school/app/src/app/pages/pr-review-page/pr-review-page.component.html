@@ -80,7 +80,7 @@
           <a
             mat-flat-button
             class="pr-btn pr-btn--secondary"
-            [href]="pr.github_pr_url"
+            [href]="safeGithubUrl(pr.github_pr_url)"
             target="_blank"
             rel="noopener noreferrer"
           >

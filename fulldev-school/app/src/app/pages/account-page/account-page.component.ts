@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -22,6 +22,7 @@ export class AccountPageComponent implements OnInit {
   private readonly platform = inject(PlatformDataService);
   private readonly progress = inject(CourseProgressService);
   protected readonly profileService = inject(ProfileService);
+  private readonly cdr = inject(ChangeDetectorRef);
   protected readonly courses = computed(() => this.platform.courses());
 
   protected socialDraft: SocialLinks = {
@@ -46,6 +47,7 @@ export class AccountPageComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.profileService.loadSocialLinks();
     this.socialDraft = { ...this.profileService.socialLinks() };
+    this.cdr.markForCheck();
   }
 
   protected async saveSocialLinks(): Promise<void> {

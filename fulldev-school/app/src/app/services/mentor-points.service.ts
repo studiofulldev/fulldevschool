@@ -50,7 +50,7 @@ export class MentorPointsService {
 
   async loadPoints(): Promise<void> {
     const user = this.auth.user();
-    if (!user) return;
+    if (!user || !this.supabase.isConfigured) return;
 
     const { data } = await this.supabase.client!
       .from('profiles')

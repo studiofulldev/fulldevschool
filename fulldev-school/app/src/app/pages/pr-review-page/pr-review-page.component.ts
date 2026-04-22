@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,11 +13,15 @@ import { PrSubmissionService, PrSubmission } from '../../services/pr-submission.
   styleUrl: './pr-review-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PrReviewPageComponent {
+export class PrReviewPageComponent implements OnInit {
   protected readonly prService = inject(PrSubmissionService);
 
   protected prUrl = '';
   protected readonly showForm = signal(false);
+
+  async ngOnInit(): Promise<void> {
+    await this.prService.loadSubmissions();
+  }
 
   protected toggleForm(): void {
     this.showForm.update(v => !v);
@@ -42,6 +46,10 @@ export class PrReviewPageComponent {
     if (state === 'merged') return 'pr-state--merged';
     if (state === 'closed') return 'pr-state--closed';
     return 'pr-state--open';
+  }
+
+  protected safeGithubUrl(url: string): string {
+    return url.startsWith('https://github.com/') ? url : '#';
   }
 
   protected trackById(_: number, item: PrSubmission): string {

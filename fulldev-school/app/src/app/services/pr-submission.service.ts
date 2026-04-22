@@ -90,15 +90,28 @@ export class PrSubmissionService {
     }
   }
 
-  async syncPr(submissionId: string): Promise<void> {
-    const { data } = await this.supabase.invokeFn('sync-pr-data', {
-      body: { submissionId },
-    });
+  async loadSubmissions(): Promise<void> {
+    if (!this.supabase.isConfigured) return;
+    const { data } = await this.supabase.client!
+      .from('pr_submissions')
+      .select('*')
+      .eq('is_active', true)
+      .order('created_at', { ascending: false })
+      .limit(50);
+    if (data) this._submissions.set(data as PrSubmission[]);
+  }
 
-    if (data) {
+  async syncPr(submissionId: string): Promise<void> {
+    try {
+      const { data, error } = await this.supabase.invokeFn('sync-pr-data', {
+        body: { submissionId },
+      });
+      if (error || !data) return;
       this._submissions.update(list =>
         list.map(s => (s.id === submissionId ? { ...s, ...(data as Partial<PrSubmission>) } : s))
       );
+    } catch {
+      // sync is best-effort
     }
   }
 }
