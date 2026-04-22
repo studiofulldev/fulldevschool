@@ -1,7 +1,6 @@
 .pr-page {
   display: grid;
   gap: 18px;
-  max-width: 800px;
 }
 
 .pr-header {
@@ -15,6 +14,7 @@
 .pr-header__copy {
   display: grid;
   gap: 6px;
+  min-width: 0;
 
   h1 {
     margin: 0;
@@ -27,6 +27,21 @@
     color: var(--fd-muted);
     font-size: var(--fd-text-sm);
     max-width: 480px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pr-header {
+    flex-direction: column;
+  }
+
+  .pr-header__copy h1 {
+    font-size: var(--fd-text-xl);
+  }
+
+  .pr-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 

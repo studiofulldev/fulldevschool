@@ -245,6 +245,30 @@ services:
 
   # ===========================================================================
   # studio — Supabase Studio
+  # ===========================================================================
+  # functions — Deno HTTP server para Edge Functions locais
+  # Serve em http://localhost:8000/functions/v1/sync-pr-data
+  # ===========================================================================
+  functions:
+    image: denoland/deno:2.3.3
+    restart: unless-stopped
+    depends_on:
+      kong:
+        condition: service_healthy
+    environment:
+      JWT_SECRET: super-secret-jwt-token-with-at-least-32-characters-long
+      SUPABASE_URL: http://kong:8000
+      SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRFA0NiK7W9oA9_3J3_0E9pNTTxMRStomCuMEoL-_IU
+      SUPABASE_SERVICE_ROLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hj04zWl196z2-SBc0
+      VERIFY_JWT: "true"
+      DENO_DIR: /deno-cache
+    volumes:
+      - ./supabase/functions:/home/deno/functions:ro
+      - deno-cache:/deno-cache
+    command: >
+      run --allow-net --allow-env --allow-read
+      /home/deno/functions/sync-pr-data/index.ts
+
   # Interface visual do banco de dados para debug em dev.
   # Acesse: http://localhost:3000
   # ===========================================================================
@@ -327,3 +351,5 @@ volumes:
     name: fulldevschool-db-data
     # Volume nomeado para persistência.
     # Para resetar completamente: make db-reset (ou docker compose down -v)
+  deno-cache:
+    name: fulldevschool-deno-cache
