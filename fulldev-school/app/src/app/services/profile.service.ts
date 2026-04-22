@@ -61,7 +61,7 @@ export class ProfileService {
 
   async saveSocialLinks(links: SocialLinks): Promise<void> {
     const user = this.auth.user();
-    if (!user) return;
+    if (!user || !this.supabase.isConfigured) return;
 
     const fields: SocialLinkField[] = ['github', 'linkedin', 'instagram', 'youtube'];
     const handleMap: Record<SocialLinkField, string> = {
@@ -94,18 +94,22 @@ export class ProfileService {
         .eq('id', user.id);
 
       if (error) {
-        const pgError = error as { code?: string };
+        const pgError = error as { code?: string; message?: string };
         if (pgError.code === '23505') {
           this._saveError.set('Este username do GitHub já está vinculado a outra conta Fulldev.');
         } else {
           this._saveError.set('Erro ao salvar. Tente novamente.');
         }
+        console.error('[ProfileService] saveSocialLinks:', pgError);
         return;
       }
 
       this._socialLinks.set(links);
       this._saveSuccess.set(true);
       setTimeout(() => this._saveSuccess.set(false), 3000);
+    } catch (err) {
+      console.error('[ProfileService] saveSocialLinks threw:', err);
+      this._saveError.set('Erro ao salvar. Tente novamente.');
     } finally {
       this._saving.set(false);
     }

@@ -143,6 +143,8 @@
 }
 
 .social-prefix {
+  width: 148px;
+  flex-shrink: 0;
   padding: 10px 12px;
   background: rgba(255, 255, 255, 0.05);
   border-right: 1px solid var(--fd-border);
