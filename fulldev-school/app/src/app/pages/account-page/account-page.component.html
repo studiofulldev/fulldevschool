@@ -70,46 +70,74 @@
       <div class="social-field">
         <label for="github_username">GitHub</label>
         <p class="social-unverified">Username não verificado — use apenas o seu próprio. Verificação via OAuth em breve.</p>
-        <input
-          id="github_username"
-          type="url"
-          placeholder="https://github.com/seu-usuario"
-          [(ngModel)]="socialDraft.github_username"
-          name="github_username"
-        />
+        <div class="social-input-group">
+          <span class="social-prefix">github.com/</span>
+          <input
+            id="github_username"
+            type="text"
+            placeholder="seu-usuario"
+            [(ngModel)]="socialDraft.github_username"
+            name="github_username"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
+        </div>
       </div>
 
       <div class="social-field">
         <label for="linkedin_url">LinkedIn</label>
-        <input
-          id="linkedin_url"
-          type="url"
-          placeholder="https://linkedin.com/in/seu-perfil"
-          [(ngModel)]="socialDraft.linkedin_url"
-          name="linkedin_url"
-        />
+        <div class="social-input-group">
+          <span class="social-prefix">linkedin.com/in/</span>
+          <input
+            id="linkedin_url"
+            type="text"
+            placeholder="seu-perfil"
+            [(ngModel)]="socialDraft.linkedin_url"
+            name="linkedin_url"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
+        </div>
       </div>
 
       <div class="social-field">
         <label for="instagram_url">Instagram</label>
-        <input
-          id="instagram_url"
-          type="url"
-          placeholder="https://instagram.com/seu-usuario"
-          [(ngModel)]="socialDraft.instagram_url"
-          name="instagram_url"
-        />
+        <div class="social-input-group">
+          <span class="social-prefix">instagram.com/</span>
+          <input
+            id="instagram_url"
+            type="text"
+            placeholder="seu-usuario"
+            [(ngModel)]="socialDraft.instagram_url"
+            name="instagram_url"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
+        </div>
       </div>
 
       <div class="social-field">
         <label for="youtube_url">YouTube</label>
-        <input
-          id="youtube_url"
-          type="url"
-          placeholder="https://youtube.com/@seu-canal"
-          [(ngModel)]="socialDraft.youtube_url"
-          name="youtube_url"
-        />
+        <div class="social-input-group">
+          <span class="social-prefix">youtube.com/@</span>
+          <input
+            id="youtube_url"
+            type="text"
+            placeholder="seu-canal"
+            [(ngModel)]="socialDraft.youtube_url"
+            name="youtube_url"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
+        </div>
       </div>
 
       @if (profileService.saveError()) {

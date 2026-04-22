@@ -2,7 +2,12 @@ import { Injectable, inject, signal } from '@angular/core';
 import { AuthService } from './auth.service';
 import { SupabaseService } from './supabase.service';
 import { MentorPointsService } from './mentor-points.service';
-import { validateSocialUrl, SocialLinkField } from './social-links.utils';
+import {
+  validateSocialHandle,
+  buildSocialUrl,
+  stripSocialPrefix,
+  SocialLinkField,
+} from './social-links.utils';
 
 export interface SocialLinks {
   github_username: string;
@@ -44,10 +49,10 @@ export class ProfileService {
 
     if (data) {
       this._socialLinks.set({
-        github_username: data.github_username ?? '',
-        linkedin_url: data.linkedin_url ?? '',
-        instagram_url: data.instagram_url ?? '',
-        youtube_url: data.youtube_url ?? '',
+        github_username: stripSocialPrefix('github', data.github_username ?? ''),
+        linkedin_url: stripSocialPrefix('linkedin', data.linkedin_url ?? ''),
+        instagram_url: stripSocialPrefix('instagram', data.instagram_url ?? ''),
+        youtube_url: stripSocialPrefix('youtube', data.youtube_url ?? ''),
       });
     }
 
@@ -59,7 +64,7 @@ export class ProfileService {
     if (!user) return;
 
     const fields: SocialLinkField[] = ['github', 'linkedin', 'instagram', 'youtube'];
-    const urlMap: Record<SocialLinkField, string> = {
+    const handleMap: Record<SocialLinkField, string> = {
       github: links.github_username,
       linkedin: links.linkedin_url,
       instagram: links.instagram_url,
@@ -67,8 +72,8 @@ export class ProfileService {
     };
 
     for (const field of fields) {
-      if (!validateSocialUrl(field, urlMap[field])) {
-        this._saveError.set(`Link do ${field} inválido. Verifique o formato e tente novamente.`);
+      if (!validateSocialHandle(field, handleMap[field])) {
+        this._saveError.set(`Handle do ${field} inválido. Use apenas o nome de usuário, sem o link completo.`);
         return;
       }
     }
@@ -80,10 +85,10 @@ export class ProfileService {
     try {
       const { error } = await this.supabase.upsertProfile({
         id: user.id,
-        github_username: links.github_username || null,
-        linkedin_url: links.linkedin_url || null,
-        instagram_url: links.instagram_url || null,
-        youtube_url: links.youtube_url || null,
+        github_username: buildSocialUrl('github', links.github_username) || null,
+        linkedin_url: buildSocialUrl('linkedin', links.linkedin_url) || null,
+        instagram_url: buildSocialUrl('instagram', links.instagram_url) || null,
+        youtube_url: buildSocialUrl('youtube', links.youtube_url) || null,
       });
 
       if (error) {

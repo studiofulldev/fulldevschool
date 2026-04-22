@@ -1,52 +1,99 @@
 import { describe, it, expect } from 'vitest';
-import { validateSocialUrl } from './social-links.utils';
+import {
+  validateSocialHandle,
+  buildSocialUrl,
+  stripSocialPrefix,
+  SOCIAL_PREFIXES,
+} from './social-links.utils';
 
-describe('validateSocialUrl', () => {
-  describe('happy path — URLs válidas', () => {
-    it('aceita URL do GitHub válida', () => {
-      expect(validateSocialUrl('github', 'https://github.com/johndoe')).toBe(true);
+describe('validateSocialHandle', () => {
+  describe('happy path — handles válidos', () => {
+    it('aceita handle simples', () => {
+      expect(validateSocialHandle('github', 'johndoe')).toBe(true);
     });
 
-    it('aceita URL do LinkedIn válida', () => {
-      expect(validateSocialUrl('linkedin', 'https://www.linkedin.com/in/johndoe')).toBe(true);
-    });
-
-    it('aceita URL do Instagram válida', () => {
-      expect(validateSocialUrl('instagram', 'https://instagram.com/johndoe')).toBe(true);
-    });
-
-    it('aceita URL do YouTube válida', () => {
-      expect(validateSocialUrl('youtube', 'https://youtube.com/@johndoe')).toBe(true);
+    it('aceita handle com hífen e underscore', () => {
+      expect(validateSocialHandle('instagram', 'john_doe-99')).toBe(true);
     });
 
     it('aceita string vazia (campo opcional)', () => {
-      expect(validateSocialUrl('github', '')).toBe(true);
+      expect(validateSocialHandle('github', '')).toBe(true);
     });
 
-    it('aceita URL com trailing slash', () => {
-      expect(validateSocialUrl('instagram', 'https://www.instagram.com/johndoe/')).toBe(true);
+    it('aceita string só de espaços como vazia', () => {
+      expect(validateSocialHandle('github', '   ')).toBe(true);
     });
   });
 
-  describe('edge cases — URLs inválidas', () => {
-    it('rejeita URL do LinkedIn no campo do GitHub', () => {
-      expect(validateSocialUrl('github', 'https://linkedin.com/in/foo')).toBe(false);
+  describe('edge cases — handles inválidos', () => {
+    it('rejeita handle com barra (URL colada)', () => {
+      expect(validateSocialHandle('github', 'johndoe/repo')).toBe(false);
     });
 
-    it('rejeita URL do GitHub no campo do LinkedIn', () => {
-      expect(validateSocialUrl('linkedin', 'https://github.com/foo')).toBe(false);
+    it('rejeita handle com protocolo https://', () => {
+      expect(validateSocialHandle('github', 'https://github.com/johndoe')).toBe(false);
     });
 
-    it('rejeita URL sem protocolo https', () => {
-      expect(validateSocialUrl('github', 'github.com/foo')).toBe(false);
+    it('rejeita handle com protocolo http://', () => {
+      expect(validateSocialHandle('linkedin', 'http://linkedin.com/in/johndoe')).toBe(false);
     });
 
-    it('rejeita URL com apenas o domínio sem path de usuário', () => {
-      expect(validateSocialUrl('github', 'https://github.com')).toBe(false);
+    it('rejeita handle com espaço interno', () => {
+      expect(validateSocialHandle('instagram', 'john doe')).toBe(false);
     });
+  });
+});
 
-    it('rejeita shortlink do YouTube (youtu.be)', () => {
-      expect(validateSocialUrl('youtube', 'https://youtu.be/abc123')).toBe(false);
-    });
+describe('buildSocialUrl', () => {
+  it('constrói URL completa para GitHub', () => {
+    expect(buildSocialUrl('github', 'johndoe')).toBe('https://github.com/johndoe');
+  });
+
+  it('constrói URL completa para LinkedIn', () => {
+    expect(buildSocialUrl('linkedin', 'johndoe')).toBe('https://linkedin.com/in/johndoe');
+  });
+
+  it('constrói URL completa para Instagram', () => {
+    expect(buildSocialUrl('instagram', 'johndoe')).toBe('https://instagram.com/johndoe');
+  });
+
+  it('constrói URL completa para YouTube com @', () => {
+    expect(buildSocialUrl('youtube', 'johndoe')).toBe('https://youtube.com/@johndoe');
+  });
+
+  it('retorna string vazia para handle vazio', () => {
+    expect(buildSocialUrl('github', '')).toBe('');
+    expect(buildSocialUrl('github', '   ')).toBe('');
+  });
+});
+
+describe('stripSocialPrefix', () => {
+  it('extrai handle de URL GitHub', () => {
+    expect(stripSocialPrefix('github', 'https://github.com/johndoe')).toBe('johndoe');
+  });
+
+  it('extrai handle de URL LinkedIn', () => {
+    expect(stripSocialPrefix('linkedin', 'https://linkedin.com/in/johndoe')).toBe('johndoe');
+  });
+
+  it('extrai handle de URL YouTube com @', () => {
+    expect(stripSocialPrefix('youtube', 'https://youtube.com/@johndoe')).toBe('johndoe');
+  });
+
+  it('normaliza URL com www antes de extrair', () => {
+    expect(stripSocialPrefix('instagram', 'https://www.instagram.com/johndoe')).toBe('johndoe');
+  });
+
+  it('retorna string vazia para valor vazio', () => {
+    expect(stripSocialPrefix('github', '')).toBe('');
+  });
+
+  it('buildSocialUrl e stripSocialPrefix são inversos', () => {
+    const fields = Object.keys(SOCIAL_PREFIXES) as (keyof typeof SOCIAL_PREFIXES)[];
+    for (const field of fields) {
+      const handle = 'testuser';
+      const url = buildSocialUrl(field, handle);
+      expect(stripSocialPrefix(field, url)).toBe(handle);
+    }
   });
 });
