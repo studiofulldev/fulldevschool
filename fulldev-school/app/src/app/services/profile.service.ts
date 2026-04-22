@@ -83,13 +83,15 @@ export class ProfileService {
     this._saveSuccess.set(false);
 
     try {
-      const { error } = await this.supabase.upsertProfile({
-        id: user.id,
-        github_username: buildSocialUrl('github', links.github_username) || null,
-        linkedin_url: buildSocialUrl('linkedin', links.linkedin_url) || null,
-        instagram_url: buildSocialUrl('instagram', links.instagram_url) || null,
-        youtube_url: buildSocialUrl('youtube', links.youtube_url) || null,
-      });
+      const { error } = await this.supabase.client!
+        .from('profiles')
+        .update({
+          github_username: buildSocialUrl('github', links.github_username) || null,
+          linkedin_url: buildSocialUrl('linkedin', links.linkedin_url) || null,
+          instagram_url: buildSocialUrl('instagram', links.instagram_url) || null,
+          youtube_url: buildSocialUrl('youtube', links.youtube_url) || null,
+        })
+        .eq('id', user.id);
 
       if (error) {
         const pgError = error as { code?: string };
