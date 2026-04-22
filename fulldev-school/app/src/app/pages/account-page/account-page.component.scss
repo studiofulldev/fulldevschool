@@ -1,0 +1,202 @@
+.account-page {
+  display: grid;
+  gap: 18px;
+}
+
+.account-card,
+.account-course {
+  border: 1px solid var(--fd-border);
+  background: var(--fd-surface-overlay);
+}
+
+.account-card {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.account-eyebrow {
+  color: var(--fd-soft);
+  font-size: var(--fd-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-help {
+  margin: 0;
+  color: var(--fd-muted);
+  font-size: var(--fd-text-sm);
+}
+
+.account-card h1,
+.account-card p,
+.account-course strong,
+.account-course span,
+.account-detail strong,
+.account-detail span {
+  margin: 0;
+}
+
+.account-card p,
+.account-card span,
+.account-course span,
+.account-detail span {
+  color: var(--fd-muted);
+}
+
+.account-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.account-detail {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--fd-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Mentor Points */
+.mp-header {
+  display: grid;
+  gap: 10px;
+}
+
+.mp-info {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.mp-level {
+  font-size: var(--fd-text-lg);
+  font-weight: 700;
+  color: var(--fd-accent);
+}
+
+.mp-points {
+  color: var(--fd-muted);
+  font-size: var(--fd-text-sm);
+}
+
+.mp-progress-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.mp-progress-bar {
+  height: 6px;
+  background: var(--fd-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mp-progress-fill {
+  height: 100%;
+  background: var(--fd-accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.mp-next {
+  font-size: var(--fd-text-xs);
+  color: var(--fd-soft);
+}
+
+.mp-max {
+  font-size: var(--fd-text-sm);
+  color: var(--fd-accent);
+  font-weight: 600;
+}
+
+/* Social links form */
+.social-form {
+  display: grid;
+  gap: 12px;
+}
+
+.social-field {
+  display: grid;
+  gap: 6px;
+}
+
+.social-field label {
+  font-size: var(--fd-text-sm);
+  font-weight: 600;
+  color: var(--fd-soft);
+}
+
+.social-field input {
+  padding: 10px 14px;
+  border: 1px solid var(--fd-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--fd-foreground);
+  font-size: var(--fd-text-sm);
+  border-radius: var(--fd-radius);
+  outline: none;
+  transition: border-color 0.2s;
+
+  &:focus {
+    border-color: var(--fd-accent);
+  }
+
+  &::placeholder {
+    color: var(--fd-muted);
+    opacity: 0.5;
+  }
+}
+
+.social-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  font-size: var(--fd-text-sm);
+  border-radius: var(--fd-radius);
+}
+
+.social-success {
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+  font-size: var(--fd-text-sm);
+  border-radius: var(--fd-radius);
+}
+
+/* Courses */
+.account-courses {
+  display: grid;
+  gap: 12px;
+}
+
+.account-course {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+}
+
+.account-button {
+  min-height: 44px;
+  padding-inline: 18px;
+  border-radius: var(--fd-radius);
+  font-weight: 600;
+  width: fit-content;
+}
+
+.account-button--primary {
+  border: 1px solid var(--fd-accent) !important;
+  color: var(--fd-white) !important;
+  background: var(--fd-accent) !important;
+  box-shadow: none !important;
+}
+
+.account-button--primary:hover {
+  border-color: var(--fd-accent-strong) !important;
+  background: var(--fd-accent-strong) !important;
+}

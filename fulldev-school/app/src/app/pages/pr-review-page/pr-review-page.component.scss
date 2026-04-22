@@ -1,0 +1,260 @@
+.pr-page {
+  display: grid;
+  gap: 18px;
+  max-width: 800px;
+}
+
+.pr-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pr-header__copy {
+  display: grid;
+  gap: 6px;
+
+  h1 {
+    margin: 0;
+    font-size: var(--fd-text-2xl);
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    color: var(--fd-muted);
+    font-size: var(--fd-text-sm);
+    max-width: 480px;
+  }
+}
+
+.pr-eyebrow {
+  color: var(--fd-soft);
+  font-size: var(--fd-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pr-help {
+  margin: 0;
+  color: var(--fd-muted);
+  font-size: var(--fd-text-sm);
+}
+
+.pr-card {
+  border: 1px solid var(--fd-border);
+  background: var(--fd-surface-overlay);
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.pr-form {
+  display: grid;
+  gap: 12px;
+}
+
+.pr-field {
+  display: grid;
+  gap: 6px;
+
+  label {
+    font-size: var(--fd-text-sm);
+    font-weight: 600;
+    color: var(--fd-soft);
+  }
+
+  input {
+    padding: 10px 14px;
+    border: 1px solid var(--fd-border);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--fd-foreground);
+    font-size: var(--fd-text-sm);
+    border-radius: var(--fd-radius);
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:focus {
+      border-color: var(--fd-accent);
+    }
+
+    &::placeholder {
+      color: var(--fd-muted);
+      opacity: 0.5;
+    }
+  }
+}
+
+.pr-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  font-size: var(--fd-text-sm);
+  border-radius: var(--fd-radius);
+}
+
+.pr-list {
+  display: grid;
+  gap: 12px;
+}
+
+.pr-empty {
+  display: grid;
+  gap: 8px;
+  padding: 48px 24px;
+  text-align: center;
+  border: 1px dashed var(--fd-border);
+  border-radius: var(--fd-radius);
+  justify-items: center;
+
+  mat-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    color: var(--fd-soft);
+  }
+
+  p {
+    margin: 0;
+    color: var(--fd-muted);
+  }
+
+  .pr-empty__hint {
+    font-size: var(--fd-text-xs);
+    color: var(--fd-accent);
+  }
+}
+
+.pr-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pr-item__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pr-lang {
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--fd-border);
+  border-radius: 4px;
+  font-size: var(--fd-text-xs);
+  font-weight: 600;
+  color: var(--fd-soft);
+}
+
+.pr-state {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: var(--fd-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  &--open {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+  }
+
+  &--merged {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+  }
+
+  &--closed {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+  }
+}
+
+.pr-reviews {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fd-text-xs);
+  color: var(--fd-muted);
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.pr-item__title {
+  margin: 0;
+  font-size: var(--fd-text-base);
+  font-weight: 600;
+  color: var(--fd-foreground);
+}
+
+.pr-item__desc {
+  margin: 0;
+  font-size: var(--fd-text-sm);
+  color: var(--fd-muted);
+  line-height: 1.6;
+}
+
+.pr-item__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pr-repo {
+  font-size: var(--fd-text-xs);
+  color: var(--fd-soft);
+  font-family: monospace;
+}
+
+.pr-btn {
+  min-height: 40px;
+  padding-inline: 16px;
+  border-radius: var(--fd-radius);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+
+  &--primary {
+    border: 1px solid var(--fd-accent) !important;
+    color: var(--fd-white) !important;
+    background: var(--fd-accent) !important;
+    box-shadow: none !important;
+
+    &:hover {
+      border-color: var(--fd-accent-strong) !important;
+      background: var(--fd-accent-strong) !important;
+    }
+  }
+
+  &--secondary {
+    border: 1px solid var(--fd-border) !important;
+    color: var(--fd-foreground) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-decoration: none;
+
+    &:hover {
+      border-color: var(--fd-soft) !important;
+    }
+  }
+}

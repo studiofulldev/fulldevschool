@@ -1,0 +1,154 @@
+<section class="account-page">
+
+  <!-- Conta -->
+  <article class="account-card">
+    <span class="account-eyebrow">Conta</span>
+    @if (auth.user(); as user) {
+      <h1>{{ user.name }}</h1>
+      <p>{{ user.email }}</p>
+      <span>Login via {{ providerLabel(user.provider) }}</span>
+      <span>Acesso: {{ roleLabel(user.role) }}</span>
+
+      <div class="account-details">
+        <div class="account-detail">
+          <strong>WhatsApp</strong>
+          <span>{{ user.whatsappNumber || 'Não informado' }}</span>
+        </div>
+        <div class="account-detail">
+          <strong>Idade</strong>
+          <span>{{ user.age ?? 'Não informada' }}</span>
+        </div>
+        <div class="account-detail">
+          <strong>Nível técnico</strong>
+          <span>{{ technicalLevelLabel(user.technicalLevel) }}</span>
+        </div>
+        <div class="account-detail">
+          <strong>Instituição</strong>
+          <span>{{ user.educationInstitution || 'Não informada' }}</span>
+        </div>
+      </div>
+    } @else {
+      <h1>Sua conta</h1>
+      <p>Você ainda não está autenticado.</p>
+    }
+  </article>
+
+  <!-- Mentor Points -->
+  <article class="account-card">
+    <span class="account-eyebrow">Reputação na comunidade</span>
+    <div class="mp-header">
+      <div class="mp-info">
+        <span class="mp-level">{{ levelLabels[profileService.mentorPoints.level()] }}</span>
+        <span class="mp-points">{{ profileService.mentorPoints.points() }} Mentor Points</span>
+      </div>
+      @if (profileService.mentorPoints.nextThreshold() !== null) {
+        <div class="mp-progress-wrap">
+          <div class="mp-progress-bar">
+            <div
+              class="mp-progress-fill"
+              [style.width.%]="progressPercent()"
+            ></div>
+          </div>
+          <span class="mp-next">{{ profileService.mentorPoints.nextThreshold() }} MP para o próximo nível</span>
+        </div>
+      } @else {
+        <span class="mp-max">Nível máximo atingido 🏆</span>
+      }
+    </div>
+    <a mat-flat-button class="account-button account-button--primary" routerLink="/courses/pr-review">
+      <mat-icon>code</mat-icon>
+      Área de PR Review
+    </a>
+  </article>
+
+  <!-- Redes sociais -->
+  <article class="account-card">
+    <span class="account-eyebrow">Redes sociais</span>
+    <p class="account-help">Seus links aparecem no seu perfil dentro da plataforma e na área de PR Review.</p>
+
+    <form class="social-form" (ngSubmit)="saveSocialLinks()">
+      <div class="social-field">
+        <label for="github_username">GitHub</label>
+        <input
+          id="github_username"
+          type="url"
+          placeholder="https://github.com/seu-usuario"
+          [(ngModel)]="socialDraft.github_username"
+          name="github_username"
+        />
+      </div>
+
+      <div class="social-field">
+        <label for="linkedin_url">LinkedIn</label>
+        <input
+          id="linkedin_url"
+          type="url"
+          placeholder="https://linkedin.com/in/seu-perfil"
+          [(ngModel)]="socialDraft.linkedin_url"
+          name="linkedin_url"
+        />
+      </div>
+
+      <div class="social-field">
+        <label for="instagram_url">Instagram</label>
+        <input
+          id="instagram_url"
+          type="url"
+          placeholder="https://instagram.com/seu-usuario"
+          [(ngModel)]="socialDraft.instagram_url"
+          name="instagram_url"
+        />
+      </div>
+
+      <div class="social-field">
+        <label for="youtube_url">YouTube</label>
+        <input
+          id="youtube_url"
+          type="url"
+          placeholder="https://youtube.com/@seu-canal"
+          [(ngModel)]="socialDraft.youtube_url"
+          name="youtube_url"
+        />
+      </div>
+
+      @if (profileService.saveError()) {
+        <p class="social-error" role="alert">{{ profileService.saveError() }}</p>
+      }
+
+      @if (profileService.saveSuccess()) {
+        <p class="social-success" role="status">Links salvos com sucesso!</p>
+      }
+
+      <button
+        mat-flat-button
+        type="submit"
+        class="account-button account-button--primary"
+        [disabled]="profileService.saving()"
+      >
+        {{ profileService.saving() ? 'Salvando...' : 'Salvar links' }}
+      </button>
+    </form>
+  </article>
+
+  <!-- Cursos -->
+  <article class="account-card">
+    <span class="account-eyebrow">Cursos</span>
+    <div class="account-courses">
+      @for (course of courses(); track course.id) {
+        <div class="account-course">
+          <strong>{{ course.title }}</strong>
+          <span>{{ course.modules.length }} módulos</span>
+          <span>{{ progressLabel(course.slug, course.modules.length) }}</span>
+          <a
+            mat-flat-button
+            class="account-button account-button--primary"
+            [routerLink]="['/courses', course.slug]"
+          >
+            Abrir
+          </a>
+        </div>
+      }
+    </div>
+  </article>
+
+</section>

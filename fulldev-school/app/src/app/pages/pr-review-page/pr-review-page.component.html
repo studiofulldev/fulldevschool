@@ -1,0 +1,95 @@
+<section class="pr-page">
+
+  <header class="pr-header">
+    <div class="pr-header__copy">
+      <h1>PR Review</h1>
+      <p>Poste seu Pull Request e receba feedback da comunidade. Reviews acontecem no GitHub — a plataforma rastreia e recompensa quem participa.</p>
+    </div>
+    <button mat-flat-button class="pr-btn pr-btn--primary" type="button" (click)="toggleForm()">
+      <mat-icon>{{ showForm() ? 'close' : 'add' }}</mat-icon>
+      {{ showForm() ? 'Cancelar' : 'Enviar meu PR' }}
+    </button>
+  </header>
+
+  @if (showForm()) {
+    <article class="pr-card pr-submit-card">
+      <span class="pr-eyebrow">Novo PR para review</span>
+      <p class="pr-help">Cole a URL do seu Pull Request no GitHub. O repositório precisa ser público.</p>
+
+      <form class="pr-form" (ngSubmit)="submit()">
+        <div class="pr-field">
+          <label for="pr_url">URL do Pull Request</label>
+          <input
+            id="pr_url"
+            type="url"
+            placeholder="https://github.com/owner/repo/pull/42"
+            [(ngModel)]="prUrl"
+            name="pr_url"
+            required
+          />
+        </div>
+
+        @if (prService.errorMessage()) {
+          <p class="pr-error" role="alert">{{ prService.errorMessage() }}</p>
+        }
+
+        <button
+          mat-flat-button
+          type="submit"
+          class="pr-btn pr-btn--primary"
+          [disabled]="prService.loading() || !prUrl"
+        >
+          {{ prService.loading() ? 'Enviando...' : 'Enviar para review' }}
+        </button>
+      </form>
+    </article>
+  }
+
+  <div class="pr-list">
+    @if (prService.submissions().length === 0 && !prService.loading()) {
+      <div class="pr-empty">
+        <mat-icon>code</mat-icon>
+        <p>Nenhum PR enviado ainda. Seja o primeiro!</p>
+        <p class="pr-empty__hint">+5 Mentor Points ao enviar seu primeiro PR.</p>
+      </div>
+    }
+
+    @for (pr of prService.submissions(); track trackById($index, pr)) {
+      <article class="pr-card pr-item">
+        <div class="pr-item__header">
+          <div class="pr-item__meta">
+            @if (pr.repo_language) {
+              <span class="pr-lang">{{ pr.repo_language }}</span>
+            }
+            <span class="pr-state" [class]="stateClass(pr.pr_state)">{{ stateLabel(pr.pr_state) }}</span>
+          </div>
+          <span class="pr-reviews">
+            <mat-icon>rate_review</mat-icon>
+            {{ pr.review_count }} {{ pr.review_count === 1 ? 'review' : 'reviews' }}
+          </span>
+        </div>
+
+        <h2 class="pr-item__title">{{ pr.pr_title || pr.github_pr_url }}</h2>
+
+        @if (pr.pr_body) {
+          <p class="pr-item__desc">{{ pr.pr_body | slice:0:200 }}{{ pr.pr_body.length > 200 ? '...' : '' }}</p>
+        }
+
+        <div class="pr-item__footer">
+          <span class="pr-repo">{{ pr.repo_owner }}/{{ pr.repo_name }}</span>
+          <a
+            mat-flat-button
+            class="pr-btn pr-btn--secondary"
+            [href]="pr.github_pr_url"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <mat-icon>open_in_new</mat-icon>
+            Abrir no GitHub
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+
+</section>
