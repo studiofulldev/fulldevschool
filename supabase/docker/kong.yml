@@ -106,6 +106,7 @@ services:
             - Content-Length
             - Content-MD5
             - Content-Type
+            - Content-Profile
             - Date
             - apikey
             - Authorization
