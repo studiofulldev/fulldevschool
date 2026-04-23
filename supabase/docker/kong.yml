@@ -103,6 +103,7 @@ services:
           headers:
             - Accept
             - Accept-Version
+            - Accept-Profile
             - Content-Length
             - Content-MD5
             - Content-Type
@@ -113,6 +114,7 @@ services:
             - Prefer
             - Range
             - X-Client-Info
+            - X-Retry-Count
             - X-Supabase-Api-Version
           exposed_headers:
             - Content-Range
