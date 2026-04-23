@@ -45,50 +45,163 @@
     </article>
   }
 
-  <div class="pr-list">
-    @if (prService.submissions().length === 0 && !prService.loading()) {
-      <div class="pr-empty">
-        <mat-icon>code</mat-icon>
-        <p>Nenhum PR enviado ainda. Seja o primeiro!</p>
-        <p class="pr-empty__hint">+5 Mentor Points ao enviar seu primeiro PR.</p>
-      </div>
-    }
-
-    @for (pr of prService.submissions(); track trackById($index, pr)) {
-      <article class="pr-card pr-item">
-        <div class="pr-item__header">
-          <div class="pr-item__meta">
-            @if (pr.repo_language) {
-              <span class="pr-lang">{{ pr.repo_language }}</span>
-            }
-            <span class="pr-state" [class]="stateClass(pr.pr_state)">{{ stateLabel(pr.pr_state) }}</span>
-          </div>
-          <span class="pr-reviews">
-            <mat-icon>rate_review</mat-icon>
-            {{ pr.review_count }} {{ pr.review_count === 1 ? 'review' : 'reviews' }}
-          </span>
-        </div>
-
-        <h2 class="pr-item__title">{{ pr.pr_title || pr.github_pr_url }}</h2>
-
-        @if (pr.pr_body) {
-          <p class="pr-item__desc">{{ pr.pr_body | slice:0:200 }}{{ pr.pr_body.length > 200 ? '...' : '' }}</p>
+  @if (rankedLanguages().length > 0) {
+    <div class="pr-filters">
+      <div class="pr-filter-chips" role="group" aria-label="Filtrar por linguagem">
+        <button
+          class="pr-chip"
+          [class.pr-chip--active]="selectedLang() === null"
+          (click)="selectLang(null)"
+          type="button"
+        >Todos</button>
+        @for (lang of topLanguages(); track lang) {
+          <button
+            class="pr-chip"
+            [class.pr-chip--active]="selectedLang() === lang"
+            (click)="selectLang(lang)"
+            type="button"
+          >{{ lang }}</button>
         }
+      </div>
 
-        <div class="pr-item__footer">
-          <span class="pr-repo">{{ pr.repo_owner }}/{{ pr.repo_name }}</span>
-          <a
-            mat-flat-button
-            class="pr-btn pr-btn--secondary"
-            [href]="safeGithubUrl(pr.github_pr_url)"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <mat-icon>open_in_new</mat-icon>
-            Abrir no GitHub
-          </a>
+      @if (rankedLanguages().length > 5) {
+        <div class="pr-lang-search">
+          <div class="pr-lang-search__input-wrap">
+            <mat-icon>search</mat-icon>
+            <input
+              type="text"
+              placeholder="Outra linguagem…"
+              [value]="langSearch()"
+              (input)="langSearch.set($any($event.target).value)"
+              (focus)="langDropdownOpen.set(true)"
+              (blur)="langDropdownOpen.set(false)"
+              autocomplete="off"
+            />
+            @if (selectedLang() && !topLanguages().includes(selectedLang()!)) {
+              <span class="pr-lang-search__active">{{ selectedLang() }}</span>
+            }
+          </div>
+          @if (langDropdownOpen() && searchResults().length > 0) {
+            <ul class="pr-lang-dropdown" role="listbox">
+              @for (lang of searchResults(); track lang) {
+                <li
+                  role="option"
+                  [class.pr-lang-dropdown__item--active]="selectedLang() === lang"
+                  (mousedown)="selectLang(lang)"
+                >{{ lang }}</li>
+              }
+            </ul>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  <div class="pr-list">
+    @if (initializing()) {
+      <article class="pr-card pr-skeleton" aria-hidden="true">
+        <div class="pr-skeleton__header">
+          <div class="pr-skeleton__meta">
+            <span class="pr-skeleton__chip"></span>
+            <span class="pr-skeleton__chip pr-skeleton__chip--wide"></span>
+            <span class="pr-skeleton__chip pr-skeleton__chip--repo"></span>
+          </div>
+          <span class="pr-skeleton__chip pr-skeleton__chip--sm"></span>
+        </div>
+        <div class="pr-skeleton__body">
+          <div class="pr-skeleton__title"></div>
+          <div class="pr-skeleton__desc"></div>
         </div>
       </article>
+      <article class="pr-card pr-skeleton" aria-hidden="true">
+        <div class="pr-skeleton__header">
+          <div class="pr-skeleton__meta">
+            <span class="pr-skeleton__chip pr-skeleton__chip--wide"></span>
+            <span class="pr-skeleton__chip pr-skeleton__chip--repo"></span>
+          </div>
+          <span class="pr-skeleton__chip pr-skeleton__chip--sm"></span>
+        </div>
+        <div class="pr-skeleton__body">
+          <div class="pr-skeleton__title pr-skeleton__title--short"></div>
+        </div>
+      </article>
+      <article class="pr-card pr-skeleton" aria-hidden="true">
+        <div class="pr-skeleton__header">
+          <div class="pr-skeleton__meta">
+            <span class="pr-skeleton__chip"></span>
+            <span class="pr-skeleton__chip pr-skeleton__chip--repo"></span>
+          </div>
+          <span class="pr-skeleton__chip pr-skeleton__chip--sm"></span>
+        </div>
+        <div class="pr-skeleton__body">
+          <div class="pr-skeleton__title"></div>
+          <div class="pr-skeleton__desc pr-skeleton__desc--short"></div>
+        </div>
+      </article>
+    } @else {
+      @if (filteredSubmissions().length === 0 && !prService.loading()) {
+        <div class="pr-empty">
+          <mat-icon>code</mat-icon>
+          @if (selectedLang()) {
+            <p>Nenhum PR com linguagem <strong>{{ selectedLang() }}</strong>.</p>
+          } @else {
+            <p>Nenhum PR enviado ainda. Seja o primeiro!</p>
+            <p class="pr-empty__hint">+5 Mentor Points ao enviar seu primeiro PR.</p>
+          }
+        </div>
+      }
+
+      @for (pr of filteredSubmissions(); track trackById($index, pr)) {
+        <article
+          class="pr-card pr-item"
+          role="link"
+          tabindex="0"
+          [attr.aria-label]="'Abrir PR ' + (pr.pr_title || pr.github_pr_url) + ' no GitHub'"
+          (click)="openPr(pr)"
+          (keydown.enter)="openPr(pr)"
+          (keydown.space)="openPr(pr)"
+        >
+          <div class="pr-item__header">
+            <div class="pr-item__meta">
+              @if (pr.repo_language) {
+                <span class="pr-lang">{{ pr.repo_language }}</span>
+              }
+              <span class="pr-state" [class]="stateClass(pr.pr_state)">{{ stateLabel(pr.pr_state) }}</span>
+              <span class="pr-repo">{{ pr.repo_owner }}/{{ pr.repo_name }}</span>
+            </div>
+            <div class="pr-item__actions">
+              <span class="pr-reviews">
+                <mat-icon>rate_review</mat-icon>
+                {{ pr.review_count }}
+              </span>
+              <span class="pr-synced">{{ syncedAgo(pr.github_synced_at) }}</span>
+            </div>
+          </div>
+
+          <div class="pr-item__body">
+            <h2 class="pr-item__title">{{ pr.pr_title || pr.github_pr_url }}</h2>
+            @if (pr.pr_body) {
+              <p class="pr-item__desc">{{ pr.pr_body | slice:0:140 }}{{ pr.pr_body.length > 140 ? '...' : '' }}</p>
+            }
+          </div>
+
+          @if (pr.submitter) {
+            <div class="pr-submitter">
+              @if (pr.submitter.avatar_url) {
+                <img class="pr-submitter__avatar" [src]="pr.submitter.avatar_url" [alt]="pr.submitter.full_name || pr.submitter.github_username || ''" loading="lazy" />
+              } @else {
+                <span class="pr-submitter__avatar pr-submitter__avatar--initials">
+                  {{ (pr.submitter.full_name || pr.submitter.github_username || '?').charAt(0).toUpperCase() }}
+                </span>
+              }
+              <span class="pr-submitter__name">{{ pr.submitter.full_name || pr.submitter.github_username || 'Membro' }}</span>
+              @if (pr.submitter.github_username) {
+                <span class="pr-submitter__handle">@{{ pr.submitter.github_username }}</span>
+              }
+            </div>
+          }
+        </article>
+      }
     }
   </div>
 
