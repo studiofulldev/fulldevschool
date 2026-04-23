@@ -19,6 +19,7 @@ export type OAuthProvider = 'google' | 'linkedin_oidc';
 export class SupabaseService {
   private readonly runtimeConfig = inject(RuntimeConfigService);
   private readonly config = this.resolveConfig();
+  private _cachedAccessToken: string | null = null;
   readonly isConfigured = this.config !== null;
   readonly configError = this.isConfigured
     ? null
@@ -40,7 +41,10 @@ export class SupabaseService {
 
   onAuthStateChange(callback: (state: SupabaseAuthState) => void) {
     this.ensureConfigured();
-    return this.client.auth.onAuthStateChange((event, session) => callback({ event, session }));
+    return this.client.auth.onAuthStateChange((event, session) => {
+      this._cachedAccessToken = session?.access_token ?? null;
+      callback({ event, session });
+    });
   }
 
   async signInWithPassword(email: string, password: string) {
@@ -112,6 +116,57 @@ export class SupabaseService {
       .from('user_progress')
       .select('course_slug, lesson_slug, module_slug, type, completed')
       .eq('user_id', userId);
+  }
+
+  async invokeFn(name: string, options?: { body?: Record<string, unknown>; timeout?: number }): Promise<{ data: unknown; error: unknown }> {
+    this.ensureConfigured();
+    const { timeout, body } = options ?? {};
+    const url = `${this.config!.url}/functions/v1/${name}`;
+    const authToken = this._cachedAccessToken ?? this.config!.anonKey;
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': this.config!.anonKey,
+          'Authorization': `Bearer ${authToken}`,
+        },
+        body: body ? JSON.stringify(body) : undefined,
+        signal: AbortSignal.timeout(timeout ?? 30_000),
+      });
+
+      if (!response.ok) {
+        return { data: null, error: { context: response } };
+      }
+
+      const data = await response.json() as unknown;
+      return { data, error: null };
+    } catch (err) {
+      return { data: null, error: err };
+    }
+  }
+
+  async getUser() {
+    this.ensureConfigured();
+    return this.client.auth.getUser();
+  }
+
+  async linkGitHubIdentity() {
+    this.ensureConfigured();
+    const redirectTo = typeof window !== 'undefined' ? window.location.href.split('#')[0] : undefined;
+    return this.client.auth.linkIdentity({ provider: 'github', options: { redirectTo } });
+  }
+
+  async linkLinkedInIdentity() {
+    this.ensureConfigured();
+    const redirectTo = typeof window !== 'undefined' ? window.location.href.split('#')[0] : undefined;
+    return this.client.auth.linkIdentity({ provider: 'linkedin_oidc', options: { redirectTo } });
+  }
+
+  async unlinkIdentity(identity: unknown) {
+    this.ensureConfigured();
+    return this.client.auth.unlinkIdentity(identity as never);
   }
 
   toUserMetadata(user: User) {

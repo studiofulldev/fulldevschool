@@ -1,220 +1,132 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { CourseProgressService } from '../../services/course-progress.service';
 import { PlatformDataService } from '../../services/platform-data.service';
+import { ProfileService, SocialLinks } from '../../services/profile.service';
+import { MpInfoDialogComponent } from './mp-info-dialog.component';
 
 @Component({
   selector: 'app-account-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatButtonModule],
-  template: `
-    <section class="account-page">
-      <article class="account-card">
-        <span class="account-eyebrow">Conta</span>
-        @if (auth.user(); as user) {
-          <h1>{{ user.name }}</h1>
-          <p>{{ user.email }}</p>
-          <span>Login via {{ providerLabel(user.provider) }}</span>
-          <span>Acesso: {{ roleLabel(user.role) }}</span>
-
-          <div class="account-details">
-            <div class="account-detail">
-              <strong>WhatsApp</strong>
-              <span>{{ user.whatsappNumber || 'Nao informado' }}</span>
-            </div>
-            <div class="account-detail">
-              <strong>Idade</strong>
-              <span>{{ user.age ?? 'Nao informada' }}</span>
-            </div>
-            <div class="account-detail">
-              <strong>Nivel tecnico</strong>
-              <span>{{ technicalLevelLabel(user.technicalLevel) }}</span>
-            </div>
-            <div class="account-detail">
-              <strong>Instituicao</strong>
-              <span>{{ user.educationInstitution || 'Nao informada' }}</span>
-            </div>
-          </div>
-        } @else {
-          <h1>Sua conta</h1>
-          <p>Voce ainda nao esta autenticado.</p>
-        }
-      </article>
-
-      <article class="account-card">
-        <span class="account-eyebrow">Cursos</span>
-        <div class="account-courses">
-          @for (course of courses(); track course.id) {
-            <div class="account-course">
-              <strong>{{ course.title }}</strong>
-              <span>{{ course.modules.length }} modulos</span>
-              <span>{{ progressLabel(course.slug, course.modules.length) }}</span>
-              <a mat-flat-button class="account-button account-button--primary" [routerLink]="['/courses', course.slug]">Abrir</a>
-            </div>
-          }
-        </div>
-      </article>
-    </section>
-  `,
-  styles: [
-    `
-      .account-page {
-        display: grid;
-        gap: 18px;
-      }
-
-      .account-card,
-      .account-course {
-        border: 1px solid var(--fd-border);
-        background: var(--fd-surface-overlay);
-      }
-
-      .account-card {
-        display: grid;
-        gap: 14px;
-        padding: 24px;
-      }
-
-      .account-eyebrow {
-        color: var(--fd-soft);
-        font-size: var(--fd-text-xs);
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .account-card h1,
-      .account-card p,
-      .account-course strong,
-      .account-course span,
-      .account-detail strong,
-      .account-detail span {
-        margin: 0;
-      }
-
-      .account-card p,
-      .account-card span,
-      .account-course span,
-      .account-detail span {
-        color: var(--fd-muted);
-      }
-
-      .account-details {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 12px;
-      }
-
-      .account-detail {
-        display: grid;
-        gap: 4px;
-        padding: 14px;
-        border: 1px solid var(--fd-border);
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      .account-courses {
-        display: grid;
-        gap: 12px;
-      }
-
-      .account-course {
-        display: grid;
-        gap: 6px;
-        padding: 16px;
-      }
-
-      .account-button {
-        min-height: 44px;
-        padding-inline: 18px;
-        border-radius: var(--fd-radius);
-        font-weight: 600;
-        width: fit-content;
-      }
-
-      .account-button--primary {
-        border: 1px solid var(--fd-accent) !important;
-        color: var(--fd-white) !important;
-        background: var(--fd-accent) !important;
-        box-shadow: none !important;
-      }
-
-      .account-button--primary:hover {
-        border-color: var(--fd-accent-strong) !important;
-        background: var(--fd-accent-strong) !important;
-      }
-    `
-  ],
+  imports: [CommonModule, FormsModule, RouterLink, MatButtonModule, MatIconModule],
+  templateUrl: './account-page.component.html',
+  styleUrl: './account-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AccountPageComponent {
+export class AccountPageComponent implements OnInit {
   protected readonly auth = inject(AuthService);
   private readonly platform = inject(PlatformDataService);
   private readonly progress = inject(CourseProgressService);
+  protected readonly profileService = inject(ProfileService);
+  private readonly cdr = inject(ChangeDetectorRef);
+  private readonly dialog = inject(MatDialog);
   protected readonly courses = computed(() => this.platform.courses());
+
+  protected socialDraft: SocialLinks = {
+    linkedin_url: '',
+    instagram_url: '',
+    youtube_url: '',
+  };
+
+  protected readonly levelLabels: Record<string, string> = {
+    dev_em_formacao: 'Dev em Formação',
+    code_reviewer: 'Code Reviewer',
+    senior_reviewer: 'Senior Reviewer',
+    tech_lead: 'Tech Lead',
+    fulldev_fellow: 'Fulldev Fellow',
+  };
 
   constructor() {
     void this.platform.ensureReady();
   }
 
+  async ngOnInit(): Promise<void> {
+    await firstValueFrom(this.auth.sessionCheckComplete$);
+    await this.profileService.loadSocialLinks();
+    this.socialDraft = { ...this.profileService.socialLinks() };
+    this.cdr.markForCheck();
+  }
+
+  protected openMpInfo(): void {
+    const isMobile = window.innerWidth < 600;
+    this.dialog.open(MpInfoDialogComponent, {
+      width: isMobile ? '100%' : '560px',
+      maxWidth: isMobile ? '100vw' : '95vw',
+      panelClass: isMobile ? 'mp-bottom-sheet' : 'mp-dialog-panel',
+      position: isMobile ? { bottom: '0', left: '0', right: '0' } : undefined,
+    });
+  }
+
+  protected async saveSocialLinks(): Promise<void> {
+    await this.profileService.saveSocialLinks(this.socialDraft);
+    this.socialDraft = { ...this.profileService.socialLinks() };
+  }
+
+  protected linkGitHub(): void {
+    void this.profileService.linkGitHub();
+  }
+
+  protected unlinkGitHub(): void {
+    void this.profileService.unlinkGitHub();
+  }
+
+  protected linkLinkedIn(): void {
+    void this.profileService.linkLinkedIn();
+  }
+
+  protected unlinkLinkedIn(): void {
+    void this.profileService.unlinkLinkedIn();
+  }
+
+  protected progressPercent(): number {
+    const pts = this.profileService.mentorPoints.points();
+    const next = this.profileService.mentorPoints.nextThreshold();
+    if (next === null) return 100;
+    const levels = [0, 50, 150, 350, 700];
+    const prev = levels.filter(l => l <= pts).at(-1) ?? 0;
+    return Math.round(((pts - prev) / (next - prev)) * 100);
+  }
+
   protected progressLabel(courseSlug: string, totalModules: number): string {
     const course = this.platform.getCourseBySlug(courseSlug);
-    if (!course) {
-      return '0% concluido';
-    }
-
-    const completed = course.modules.filter((module) => this.progress.isModuleCompleted(courseSlug, module.slug)).length;
+    if (!course) return '0% concluído';
+    const completed = course.modules.filter((m) =>
+      this.progress.isModuleCompleted(courseSlug, m.slug)
+    ).length;
     const percent = totalModules === 0 ? 0 : Math.round((completed / totalModules) * 100);
-    return `${percent}% concluido`;
+    return `${percent}% concluído`;
   }
 
   protected providerLabel(provider: string): string {
-    if (provider === 'google') {
-      return 'Google';
-    }
-
-    if (provider === 'linkedin_oidc') {
-      return 'LinkedIn';
-    }
-
+    if (provider === 'google') return 'Google';
+    if (provider === 'linkedin_oidc') return 'LinkedIn';
     return 'e-mail';
   }
 
   protected roleLabel(role: string): string {
-    if (role === 'admin') {
-      return 'Administrador';
-    }
-
-    if (role === 'instructor') {
-      return 'Instrutor';
-    }
-
-    return 'Usuario comum';
+    if (role === 'admin') return 'Administrador';
+    if (role === 'instructor') return 'Instrutor';
+    return 'Usuário comum';
   }
 
   protected technicalLevelLabel(level: string | null | undefined): string {
-    switch (level) {
-      case 'estudante':
-        return 'Estudante';
-      case 'estagiario':
-        return 'Estagiario';
-      case 'junior':
-        return 'Junior';
-      case 'pleno':
-        return 'Pleno';
-      case 'senior':
-        return 'Senior';
-      case 'lead':
-        return 'Lead';
-      case 'staff':
-        return 'Staff';
-      case 'principal':
-        return 'Principal';
-      default:
-        return 'Nao informado';
-    }
+    const map: Record<string, string> = {
+      estudante: 'Estudante',
+      estagiario: 'Estagiário',
+      junior: 'Júnior',
+      pleno: 'Pleno',
+      senior: 'Sênior',
+      lead: 'Lead',
+      staff: 'Staff',
+      principal: 'Principal',
+    };
+    return map[level ?? ''] ?? 'Não informado';
   }
 }

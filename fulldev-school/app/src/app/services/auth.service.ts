@@ -145,6 +145,16 @@ export class AuthService {
           const isFirst = this.isFirstSession(authUser);
           this.tracking.trackSessionStarted(authUser, isFirst);
         }
+
+        if (event === 'USER_UPDATED' || event === 'SIGNED_IN') {
+          const githubIdentity = supabaseUser.identities?.find(i => i.provider === 'github');
+          if (githubIdentity) {
+            const username = String((githubIdentity.identity_data as Record<string, unknown>)?.['user_name'] ?? '');
+            if (username) {
+              await this.tryUpsertProfile({ id: supabaseUser.id, github_username: username });
+            }
+          }
+        }
       }
 
       // Mark session check complete on any auth event after INITIAL_SESSION.
@@ -453,10 +463,12 @@ export class AuthService {
 
   private async tryUpsertProfile(profile: Record<string, unknown>): Promise<void> {
     try {
-      await this.supabase.upsertProfile(profile);
+      const { error } = await this.supabase.upsertProfile(profile);
+      if (error) {
+        this.logger.error('AuthService', 'tryUpsertProfile failed', { error, profile });
+      }
     } catch (err) {
-      // The profiles table may not exist yet. Auth should continue working without it.
-      this.logger.error('AuthService', 'tryUpsertProfile failed', err);
+      this.logger.error('AuthService', 'tryUpsertProfile threw', err);
     }
   }
 

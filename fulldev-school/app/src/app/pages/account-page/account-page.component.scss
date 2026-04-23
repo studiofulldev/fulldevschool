@@ -1,0 +1,346 @@
+.account-page {
+  display: grid;
+  gap: 18px;
+}
+
+.account-card,
+.account-course {
+  border: 1px solid var(--fd-border);
+  background: var(--fd-surface-overlay);
+}
+
+.account-card {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.account-eyebrow {
+  color: var(--fd-soft);
+  font-size: var(--fd-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-help {
+  margin: 0;
+  color: var(--fd-muted);
+  font-size: var(--fd-text-sm);
+}
+
+.account-card h1,
+.account-card p,
+.account-course strong,
+.account-course span,
+.account-detail strong,
+.account-detail span {
+  margin: 0;
+}
+
+.account-card p,
+.account-card span,
+.account-course span,
+.account-detail span {
+  color: var(--fd-muted);
+}
+
+.account-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.account-detail {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--fd-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Mentor Points */
+.mp-header {
+  display: grid;
+  gap: 10px;
+}
+
+.mp-info {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.mp-level {
+  font-size: var(--fd-text-lg);
+  font-weight: 700;
+  color: var(--fd-accent);
+}
+
+.mp-points {
+  color: var(--fd-muted);
+  font-size: var(--fd-text-sm);
+}
+
+.mp-progress-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.mp-progress-bar {
+  height: 6px;
+  background: var(--fd-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mp-progress-fill {
+  height: 100%;
+  background: var(--fd-accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.mp-next {
+  font-size: var(--fd-text-xs);
+  color: var(--fd-soft);
+}
+
+.mp-max {
+  font-size: var(--fd-text-sm);
+  color: var(--fd-accent);
+  font-weight: 600;
+}
+
+.mp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* MP table */
+.mp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fd-text-sm);
+
+  th {
+    text-align: left;
+    padding: 6px 10px;
+    font-size: var(--fd-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fd-soft);
+    border-bottom: 1px solid var(--fd-border);
+  }
+
+  td {
+    padding: 8px 10px;
+    color: var(--fd-muted);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.mp-table__pts {
+  text-align: right;
+  font-weight: 700;
+  color: var(--fd-accent) !important;
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* GitHub connect */
+.github-connected {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--fd-border);
+  border-radius: var(--fd-radius);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.github-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--fd-border);
+  flex-shrink: 0;
+}
+
+.github-connected__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.github-connected__name {
+  font-size: var(--fd-text-sm);
+  font-weight: 600;
+  color: var(--fd-foreground);
+}
+
+.github-connected__badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fd-text-xs);
+  color: #22c55e;
+
+  mat-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Social links form */
+.social-form {
+  display: grid;
+  gap: 12px;
+}
+
+.social-field {
+  display: grid;
+  gap: 6px;
+}
+
+.social-field label {
+  font-size: var(--fd-text-sm);
+  font-weight: 600;
+  color: var(--fd-soft);
+}
+
+.social-input-group {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--fd-border);
+  border-radius: var(--fd-radius);
+  overflow: hidden;
+  transition: border-color 0.2s;
+
+  &:focus-within {
+    border-color: var(--fd-accent);
+  }
+}
+
+.social-prefix {
+  width: 148px;
+  flex-shrink: 0;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid var(--fd-border);
+  color: var(--fd-muted);
+  font-size: var(--fd-text-sm);
+  font-family: monospace;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.social-field input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--fd-foreground);
+  font-size: var(--fd-text-sm);
+  outline: none;
+
+  &::placeholder {
+    color: var(--fd-muted);
+    opacity: 0.5;
+  }
+}
+
+.social-url-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--fd-border);
+  border-radius: var(--fd-radius);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--fd-foreground);
+  font-size: var(--fd-text-sm);
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--fd-muted);
+    opacity: 0.5;
+  }
+
+  &:focus {
+    border-color: var(--fd-accent);
+  }
+}
+
+.social-error {
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  font-size: var(--fd-text-sm);
+  border-radius: var(--fd-radius);
+}
+
+.social-success {
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+  font-size: var(--fd-text-sm);
+  border-radius: var(--fd-radius);
+}
+
+/* Courses */
+.account-courses {
+  display: grid;
+  gap: 12px;
+}
+
+.account-course {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+}
+
+.account-button {
+  min-height: 44px;
+  padding-inline: 18px;
+  border-radius: var(--fd-radius);
+  font-weight: 600;
+  width: fit-content;
+}
+
+.account-button--primary {
+  border: 1px solid var(--fd-accent) !important;
+  color: var(--fd-white) !important;
+  background: var(--fd-accent) !important;
+  box-shadow: none !important;
+}
+
+.account-button--primary:hover {
+  border-color: var(--fd-accent-strong) !important;
+  background: var(--fd-accent-strong) !important;
+}
+
+.account-button--ghost {
+  border: 1px solid var(--fd-border) !important;
+  color: var(--fd-foreground) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.account-button--ghost:hover {
+  border-color: var(--fd-soft) !important;
+}

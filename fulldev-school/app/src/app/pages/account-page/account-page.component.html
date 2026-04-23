@@ -1,0 +1,241 @@
+<section class="account-page">
+
+  <!-- Conta -->
+  <article class="account-card">
+    <span class="account-eyebrow">Conta</span>
+    @if (auth.user(); as user) {
+      <h1>{{ user.name }}</h1>
+      <p>{{ user.email }}</p>
+      <span>Login via {{ providerLabel(user.provider) }}</span>
+      <span>Acesso: {{ roleLabel(user.role) }}</span>
+
+      <div class="account-details">
+        <div class="account-detail">
+          <strong>WhatsApp</strong>
+          <span>{{ user.whatsappNumber || 'Não informado' }}</span>
+        </div>
+        <div class="account-detail">
+          <strong>Idade</strong>
+          <span>{{ user.age ?? 'Não informada' }}</span>
+        </div>
+        <div class="account-detail">
+          <strong>Nível técnico</strong>
+          <span>{{ technicalLevelLabel(user.technicalLevel) }}</span>
+        </div>
+        <div class="account-detail">
+          <strong>Instituição</strong>
+          <span>{{ user.educationInstitution || 'Não informada' }}</span>
+        </div>
+      </div>
+    } @else {
+      <h1>Sua conta</h1>
+      <p>Você ainda não está autenticado.</p>
+    }
+  </article>
+
+  <!-- Mentor Points -->
+  <article class="account-card">
+    <span class="account-eyebrow">Reputação na comunidade</span>
+    <div class="mp-header">
+      <div class="mp-info">
+        <span class="mp-level">{{ levelLabels[profileService.mentorPoints.level()] }}</span>
+        <span class="mp-points">{{ profileService.mentorPoints.points() }} Mentor Points</span>
+      </div>
+      @if (profileService.mentorPoints.nextThreshold() !== null) {
+        <div class="mp-progress-wrap">
+          <div class="mp-progress-bar">
+            <div
+              class="mp-progress-fill"
+              [style.width.%]="progressPercent()"
+            ></div>
+          </div>
+          <span class="mp-next">{{ profileService.mentorPoints.nextThreshold() }} MP para o próximo nível</span>
+        </div>
+      } @else {
+        <span class="mp-max">Nível máximo atingido 🏆</span>
+      }
+    </div>
+    <div class="mp-actions">
+      <a mat-flat-button class="account-button account-button--primary" routerLink="/courses/pr-review">
+        <mat-icon>code</mat-icon>
+        Área de PR Review
+      </a>
+      <button mat-stroked-button class="account-button account-button--ghost" type="button" (click)="openMpInfo()">
+        <mat-icon>military_tech</mat-icon>
+        Como ganhar MP
+      </button>
+    </div>
+  </article>
+
+  <!-- GitHub -->
+  <article class="account-card">
+    <span class="account-eyebrow">GitHub</span>
+    <p class="account-help">Vincule sua conta do GitHub para enviar PRs para review. O username é verificado via OAuth.</p>
+
+    @if (profileService.githubUsername(); as username) {
+      <div class="github-connected">
+        <img
+          class="github-avatar"
+          [src]="'https://github.com/' + username + '.png?size=48'"
+          [alt]="'Avatar de ' + username"
+          width="48"
+          height="48"
+        />
+        <div class="github-connected__info">
+          <span class="github-connected__name">@{{ username }}</span>
+          <span class="github-connected__badge">
+            <mat-icon>verified</mat-icon>
+            Conta verificada
+          </span>
+        </div>
+        <button
+          mat-stroked-button
+          class="account-button account-button--ghost"
+          type="button"
+          (click)="unlinkGitHub()"
+        >
+          <mat-icon>link_off</mat-icon>
+          Desvincular
+        </button>
+      </div>
+    } @else {
+      <button
+        mat-flat-button
+        class="account-button account-button--primary"
+        type="button"
+        [disabled]="profileService.githubConnecting()"
+        (click)="linkGitHub()"
+      >
+        <mat-icon>link</mat-icon>
+        {{ profileService.githubConnecting() ? 'Redirecionando...' : 'Conectar com GitHub' }}
+      </button>
+    }
+  </article>
+
+  <!-- LinkedIn -->
+  <article class="account-card">
+    <span class="account-eyebrow">LinkedIn</span>
+    <p class="account-help">Vincule sua conta do LinkedIn para confirmar identidade.</p>
+
+    @if (profileService.linkedinConnected()) {
+      <div class="github-connected">
+        <div class="github-connected__info">
+          <span class="github-connected__name">LinkedIn vinculado</span>
+          <span class="github-connected__badge">
+            <mat-icon>verified</mat-icon>
+            Conta verificada
+          </span>
+        </div>
+        <button
+          mat-stroked-button
+          class="account-button account-button--ghost"
+          type="button"
+          (click)="unlinkLinkedIn()"
+        >
+          <mat-icon>link_off</mat-icon>
+          Desvincular
+        </button>
+      </div>
+    } @else {
+      <button
+        mat-flat-button
+        class="account-button account-button--primary"
+        type="button"
+        [disabled]="profileService.linkedinConnecting()"
+        (click)="linkLinkedIn()"
+      >
+        <mat-icon>link</mat-icon>
+        {{ profileService.linkedinConnecting() ? 'Redirecionando...' : 'Conectar com LinkedIn' }}
+      </button>
+    }
+  </article>
+
+  <!-- Redes sociais -->
+  <article class="account-card">
+    <span class="account-eyebrow">Redes sociais</span>
+    <p class="account-help">Seus links aparecem no seu perfil dentro da plataforma e na área de PR Review.</p>
+
+    <form class="social-form" (ngSubmit)="saveSocialLinks()">
+      <div class="social-field">
+        <label for="linkedin_url">LinkedIn — URL do perfil público</label>
+        <input
+          id="linkedin_url"
+          class="social-url-input"
+          type="url"
+          placeholder="https://linkedin.com/in/seu-perfil"
+          [(ngModel)]="socialDraft.linkedin_url"
+          name="linkedin_url"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <div class="social-field">
+        <label for="instagram_url">Instagram</label>
+        <input
+          id="instagram_url"
+          class="social-url-input"
+          type="url"
+          placeholder="https://instagram.com/seu-usuario"
+          [(ngModel)]="socialDraft.instagram_url"
+          name="instagram_url"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <div class="social-field">
+        <label for="youtube_url">YouTube</label>
+        <input
+          id="youtube_url"
+          class="social-url-input"
+          type="url"
+          placeholder="https://youtube.com/@seu-canal"
+          [(ngModel)]="socialDraft.youtube_url"
+          name="youtube_url"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      @if (profileService.saveError()) {
+        <p class="social-error" role="alert">{{ profileService.saveError() }}</p>
+      }
+
+      @if (profileService.saveSuccess()) {
+        <p class="social-success" role="status">Links salvos com sucesso!</p>
+      }
+
+      <button
+        mat-flat-button
+        type="submit"
+        class="account-button account-button--primary"
+        [disabled]="profileService.saving()"
+      >
+        {{ profileService.saving() ? 'Salvando...' : 'Salvar links' }}
+      </button>
+    </form>
+  </article>
+
+  <!-- Cursos -->
+  <article class="account-card">
+    <span class="account-eyebrow">Cursos</span>
+    <div class="account-courses">
+      @for (course of courses(); track course.id) {
+        <div class="account-course">
+          <strong>{{ course.title }}</strong>
+          <span>{{ course.modules.length }} módulos</span>
+          <span>{{ progressLabel(course.slug, course.modules.length) }}</span>
+          <a
+            mat-flat-button
+            class="account-button account-button--primary"
+            [routerLink]="['/courses', course.slug]"
+          >
+            Abrir
+          </a>
+        </div>
+      }
+    </div>
+  </article>
+
+</section>

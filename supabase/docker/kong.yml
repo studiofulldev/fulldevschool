@@ -103,15 +103,18 @@ services:
           headers:
             - Accept
             - Accept-Version
+            - Accept-Profile
             - Content-Length
             - Content-MD5
             - Content-Type
+            - Content-Profile
             - Date
             - apikey
             - Authorization
             - Prefer
             - Range
             - X-Client-Info
+            - X-Retry-Count
             - X-Supabase-Api-Version
           exposed_headers:
             - Content-Range
@@ -122,3 +125,41 @@ services:
       - name: key-auth
         config:
           hide_credentials: false
+
+  # ---------------------------------------------------------------------------
+  # Edge Functions — Deno edge-runtime
+  # ---------------------------------------------------------------------------
+  - name: functions-v1
+    url: http://functions:9999/
+    routes:
+      - name: functions-v1-sync-pr-data
+        strip_path: true
+        paths:
+          - /functions/v1/sync-pr-data
+    plugins:
+      - name: cors
+        config:
+          origins:
+            - http://localhost:4200
+            - http://localhost:3000
+          methods:
+            - GET
+            - POST
+            - PUT
+            - PATCH
+            - DELETE
+            - OPTIONS
+            - HEAD
+          headers:
+            - Accept
+            - Accept-Version
+            - Content-Length
+            - Content-MD5
+            - Content-Type
+            - Date
+            - apikey
+            - Authorization
+            - X-Client-Info
+            - X-Supabase-Api-Version
+          credentials: true
+          max_age: 3600

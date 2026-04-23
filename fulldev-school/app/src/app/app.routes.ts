@@ -14,6 +14,7 @@ import { ModulePageComponent } from './pages/module-page/module-page.component';
 import { ProfileCompletionPageComponent } from './pages/profile-completion-page/profile-completion-page.component';
 import { PlatformDashboardComponent } from './pages/platform-dashboard/platform-dashboard.component';
 import { PlatformHomeComponent } from './pages/platform-home/platform-home.component';
+import { PrReviewPageComponent } from './pages/pr-review-page/pr-review-page.component';
 import { CourseShellComponent } from './shells/course-shell.component';
 import { PlatformShellComponent } from './shells/platform-shell.component';
 
@@ -68,6 +69,10 @@ export const routes: Routes = [
       {
         path: 'account',
         component: AccountPageComponent
+      },
+      {
+        path: 'pr-review',
+        component: PrReviewPageComponent
       }
     ]
   },
