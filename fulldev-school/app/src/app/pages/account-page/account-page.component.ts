@@ -2,12 +2,15 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, computed
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { CourseProgressService } from '../../services/course-progress.service';
 import { PlatformDataService } from '../../services/platform-data.service';
 import { ProfileService, SocialLinks } from '../../services/profile.service';
+import { MpInfoDialogComponent } from './mp-info-dialog.component';
 
 @Component({
   selector: 'app-account-page',
@@ -23,10 +26,10 @@ export class AccountPageComponent implements OnInit {
   private readonly progress = inject(CourseProgressService);
   protected readonly profileService = inject(ProfileService);
   private readonly cdr = inject(ChangeDetectorRef);
+  private readonly dialog = inject(MatDialog);
   protected readonly courses = computed(() => this.platform.courses());
 
   protected socialDraft: SocialLinks = {
-    github_username: '',
     linkedin_url: '',
     instagram_url: '',
     youtube_url: '',
@@ -45,14 +48,41 @@ export class AccountPageComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    await firstValueFrom(this.auth.sessionCheckComplete$);
     await this.profileService.loadSocialLinks();
     this.socialDraft = { ...this.profileService.socialLinks() };
     this.cdr.markForCheck();
   }
 
+  protected openMpInfo(): void {
+    const isMobile = window.innerWidth < 600;
+    this.dialog.open(MpInfoDialogComponent, {
+      width: isMobile ? '100%' : '560px',
+      maxWidth: isMobile ? '100vw' : '95vw',
+      panelClass: isMobile ? 'mp-bottom-sheet' : 'mp-dialog-panel',
+      position: isMobile ? { bottom: '0', left: '0', right: '0' } : undefined,
+    });
+  }
+
   protected async saveSocialLinks(): Promise<void> {
     await this.profileService.saveSocialLinks(this.socialDraft);
     this.socialDraft = { ...this.profileService.socialLinks() };
+  }
+
+  protected linkGitHub(): void {
+    void this.profileService.linkGitHub();
+  }
+
+  protected unlinkGitHub(): void {
+    void this.profileService.unlinkGitHub();
+  }
+
+  protected linkLinkedIn(): void {
+    void this.profileService.linkLinkedIn();
+  }
+
+  protected unlinkLinkedIn(): void {
+    void this.profileService.unlinkLinkedIn();
   }
 
   protected progressPercent(): number {

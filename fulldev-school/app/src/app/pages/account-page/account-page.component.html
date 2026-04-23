@@ -55,10 +55,99 @@
         <span class="mp-max">Nível máximo atingido 🏆</span>
       }
     </div>
-    <a mat-flat-button class="account-button account-button--primary" routerLink="/courses/pr-review">
-      <mat-icon>code</mat-icon>
-      Área de PR Review
-    </a>
+    <div class="mp-actions">
+      <a mat-flat-button class="account-button account-button--primary" routerLink="/courses/pr-review">
+        <mat-icon>code</mat-icon>
+        Área de PR Review
+      </a>
+      <button mat-stroked-button class="account-button account-button--ghost" type="button" (click)="openMpInfo()">
+        <mat-icon>military_tech</mat-icon>
+        Como ganhar MP
+      </button>
+    </div>
+  </article>
+
+  <!-- GitHub -->
+  <article class="account-card">
+    <span class="account-eyebrow">GitHub</span>
+    <p class="account-help">Vincule sua conta do GitHub para enviar PRs para review. O username é verificado via OAuth.</p>
+
+    @if (profileService.githubUsername(); as username) {
+      <div class="github-connected">
+        <img
+          class="github-avatar"
+          [src]="'https://github.com/' + username + '.png?size=48'"
+          [alt]="'Avatar de ' + username"
+          width="48"
+          height="48"
+        />
+        <div class="github-connected__info">
+          <span class="github-connected__name">@{{ username }}</span>
+          <span class="github-connected__badge">
+            <mat-icon>verified</mat-icon>
+            Conta verificada
+          </span>
+        </div>
+        <button
+          mat-stroked-button
+          class="account-button account-button--ghost"
+          type="button"
+          (click)="unlinkGitHub()"
+        >
+          <mat-icon>link_off</mat-icon>
+          Desvincular
+        </button>
+      </div>
+    } @else {
+      <button
+        mat-flat-button
+        class="account-button account-button--primary"
+        type="button"
+        [disabled]="profileService.githubConnecting()"
+        (click)="linkGitHub()"
+      >
+        <mat-icon>link</mat-icon>
+        {{ profileService.githubConnecting() ? 'Redirecionando...' : 'Conectar com GitHub' }}
+      </button>
+    }
+  </article>
+
+  <!-- LinkedIn -->
+  <article class="account-card">
+    <span class="account-eyebrow">LinkedIn</span>
+    <p class="account-help">Vincule sua conta do LinkedIn para confirmar identidade.</p>
+
+    @if (profileService.linkedinConnected()) {
+      <div class="github-connected">
+        <div class="github-connected__info">
+          <span class="github-connected__name">LinkedIn vinculado</span>
+          <span class="github-connected__badge">
+            <mat-icon>verified</mat-icon>
+            Conta verificada
+          </span>
+        </div>
+        <button
+          mat-stroked-button
+          class="account-button account-button--ghost"
+          type="button"
+          (click)="unlinkLinkedIn()"
+        >
+          <mat-icon>link_off</mat-icon>
+          Desvincular
+        </button>
+      </div>
+    } @else {
+      <button
+        mat-flat-button
+        class="account-button account-button--primary"
+        type="button"
+        [disabled]="profileService.linkedinConnecting()"
+        (click)="linkLinkedIn()"
+      >
+        <mat-icon>link</mat-icon>
+        {{ profileService.linkedinConnecting() ? 'Redirecionando...' : 'Conectar com LinkedIn' }}
+      </button>
+    }
   </article>
 
   <!-- Redes sociais -->
@@ -68,76 +157,45 @@
 
     <form class="social-form" (ngSubmit)="saveSocialLinks()">
       <div class="social-field">
-        <label for="github_username">GitHub</label>
-        <p class="social-unverified">Username não verificado — use apenas o seu próprio. Verificação via OAuth em breve.</p>
-        <div class="social-input-group">
-          <span class="social-prefix">github.com/</span>
-          <input
-            id="github_username"
-            type="text"
-            placeholder="seu-usuario"
-            [(ngModel)]="socialDraft.github_username"
-            name="github_username"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          />
-        </div>
-      </div>
-
-      <div class="social-field">
-        <label for="linkedin_url">LinkedIn</label>
-        <div class="social-input-group">
-          <span class="social-prefix">linkedin.com/in/</span>
-          <input
-            id="linkedin_url"
-            type="text"
-            placeholder="seu-perfil"
-            [(ngModel)]="socialDraft.linkedin_url"
-            name="linkedin_url"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          />
-        </div>
+        <label for="linkedin_url">LinkedIn — URL do perfil público</label>
+        <input
+          id="linkedin_url"
+          class="social-url-input"
+          type="url"
+          placeholder="https://linkedin.com/in/seu-perfil"
+          [(ngModel)]="socialDraft.linkedin_url"
+          name="linkedin_url"
+          autocomplete="off"
+          spellcheck="false"
+        />
       </div>
 
       <div class="social-field">
         <label for="instagram_url">Instagram</label>
-        <div class="social-input-group">
-          <span class="social-prefix">instagram.com/</span>
-          <input
-            id="instagram_url"
-            type="text"
-            placeholder="seu-usuario"
-            [(ngModel)]="socialDraft.instagram_url"
-            name="instagram_url"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          />
-        </div>
+        <input
+          id="instagram_url"
+          class="social-url-input"
+          type="url"
+          placeholder="https://instagram.com/seu-usuario"
+          [(ngModel)]="socialDraft.instagram_url"
+          name="instagram_url"
+          autocomplete="off"
+          spellcheck="false"
+        />
       </div>
 
       <div class="social-field">
         <label for="youtube_url">YouTube</label>
-        <div class="social-input-group">
-          <span class="social-prefix">youtube.com/@</span>
-          <input
-            id="youtube_url"
-            type="text"
-            placeholder="seu-canal"
-            [(ngModel)]="socialDraft.youtube_url"
-            name="youtube_url"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
-          />
-        </div>
+        <input
+          id="youtube_url"
+          class="social-url-input"
+          type="url"
+          placeholder="https://youtube.com/@seu-canal"
+          [(ngModel)]="socialDraft.youtube_url"
+          name="youtube_url"
+          autocomplete="off"
+          spellcheck="false"
+        />
       </div>
 
       @if (profileService.saveError()) {

@@ -1,5 +1,9 @@
-import { describe, it, expect } from 'vitest';
-import { resolveLevel, resolveNextThreshold } from './mentor-points.service';
+import { TestBed } from '@angular/core/testing';
+import { describe, it, expect, afterEach, vi } from 'vitest';
+import { signal } from '@angular/core';
+import { resolveLevel, resolveNextThreshold, MentorPointsService } from './mentor-points.service';
+import { AuthService } from './auth.service';
+import { SupabaseService } from './supabase.service';
 
 describe('resolveLevel', () => {
   describe('boundaries exatos (off-by-one críticos)', () => {
@@ -30,4 +34,61 @@ describe('resolveNextThreshold', () => {
   it('350 pontos → próximo marco é 700', () => expect(resolveNextThreshold(350)).toBe(700));
   it('700 pontos → null (nível máximo, sem próximo)', () => expect(resolveNextThreshold(700)).toBeNull());
   it('9999 pontos → null (nível máximo)', () => expect(resolveNextThreshold(9999)).toBeNull());
+});
+
+// ---------------------------------------------------------------------------
+// MentorPointsService — loadPoints (integration with TestBed)
+// ---------------------------------------------------------------------------
+
+const MOCK_USER = { id: 'user-uuid-123' };
+
+function setup(opts: { mentorPoints?: number | null; user?: unknown } = {}) {
+  const authUser = 'user' in opts ? opts.user : MOCK_USER;
+  const authMock = { user: signal(authUser) };
+
+  const fromMock = {
+    select: vi.fn().mockReturnThis(),
+    eq: vi.fn().mockReturnThis(),
+    single: vi.fn().mockResolvedValue({
+      data: opts.mentorPoints != null ? { mentor_points: opts.mentorPoints } : null,
+      error: null,
+    }),
+  };
+  const supabaseMock = {
+    isConfigured: true,
+    client: { from: vi.fn().mockReturnValue(fromMock) },
+  };
+
+  TestBed.configureTestingModule({
+    providers: [
+      MentorPointsService,
+      { provide: AuthService, useValue: authMock },
+      { provide: SupabaseService, useValue: supabaseMock },
+    ],
+  });
+
+  return { service: TestBed.inject(MentorPointsService), supabaseMock };
+}
+
+describe('MentorPointsService — loadPoints', () => {
+  afterEach(() => { vi.clearAllMocks(); TestBed.resetTestingModule(); });
+
+  it('carrega mentor_points do perfil e atualiza o signal points', async () => {
+    const { service } = setup({ mentorPoints: 75 });
+    await service.loadPoints();
+    expect(service.points()).toBe(75);
+  });
+
+  it('não altera points quando data é null (usuário sem pontos ainda)', async () => {
+    const { service } = setup({ mentorPoints: null });
+    await service.loadPoints();
+    expect(service.points()).toBe(0);
+  });
+
+  it('retorna imediatamente quando usuário não está autenticado', async () => {
+    const { service, supabaseMock } = setup({ user: null });
+    await service.loadPoints();
+    expect(supabaseMock.client.from).not.toHaveBeenCalled();
+  });
+
 });

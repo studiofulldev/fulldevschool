@@ -11,6 +11,15 @@ function makeSupabaseMock() {
   };
 }
 
+// Simulates the FunctionsHttpError structure Supabase JS returns for 4xx/5xx responses.
+// The service reads error codes via error.context.json().
+function makeHttpError(code: string) {
+  return {
+    message: 'FunctionsHttpError',
+    context: { json: vi.fn().mockResolvedValue({ error: code }) },
+  };
+}
+
 describe('parsePrUrl', () => {
   describe('happy path — URLs válidas', () => {
     it('extrai owner, repo e prNumber de URL padrão', () => {
@@ -127,7 +136,7 @@ describe('PrSubmissionService', () => {
     });
 
     it('define errorMessage específica para repositório privado', async () => {
-      supabaseMock.invokeFn.mockResolvedValue({ data: { error: 'private_or_not_found' }, error: null });
+      supabaseMock.invokeFn.mockResolvedValue({ data: null, error: makeHttpError('private_or_not_found') });
       await service.submitPr(validUrl);
       const msg = service.errorMessage();
       expect(msg).toBeTruthy();
@@ -135,9 +144,43 @@ describe('PrSubmissionService', () => {
     });
 
     it('não altera submissions para repositório privado', async () => {
-      supabaseMock.invokeFn.mockResolvedValue({ data: { error: 'private_or_not_found' }, error: null });
+      supabaseMock.invokeFn.mockResolvedValue({ data: null, error: makeHttpError('private_or_not_found') });
       await service.submitPr(validUrl);
       expect(service.submissions()).toHaveLength(0);
+    });
+
+    it('define errorMessage específica para rate limit do GitHub', async () => {
+      supabaseMock.invokeFn.mockResolvedValue({ data: null, error: makeHttpError('rate_limited') });
+      await service.submitPr(validUrl);
+      expect(service.errorMessage()!.toLowerCase()).toContain('minutos');
+    });
+
+    it('define errorMessage específica para github_username não cadastrado', async () => {
+      supabaseMock.invokeFn.mockResolvedValue({ data: null, error: makeHttpError('github_username_not_set') });
+      await service.submitPr(validUrl);
+      expect(service.errorMessage()!.toLowerCase()).toContain('username');
+    });
+
+    it('define errorMessage específica para PR de outro usuário', async () => {
+      supabaseMock.invokeFn.mockResolvedValue({ data: null, error: makeHttpError('not_your_pr') });
+      await service.submitPr(validUrl);
+      expect(service.errorMessage()!.toLowerCase()).toContain('própria');
+    });
+
+    it('define errorMessage específica para PR já enviado', async () => {
+      supabaseMock.invokeFn.mockResolvedValue({ data: null, error: makeHttpError('already_submitted') });
+      await service.submitPr(validUrl);
+      expect(service.errorMessage()!.toLowerCase()).toContain('já');
+    });
+
+    it('limpa errorMessage anterior ao submeter novamente com sucesso', async () => {
+      supabaseMock.invokeFn.mockResolvedValueOnce({ data: null, error: makeHttpError('rate_limited') });
+      await service.submitPr(validUrl);
+      expect(service.errorMessage()).toBeTruthy();
+
+      supabaseMock.invokeFn.mockResolvedValueOnce({ data: mockSubmission, error: null });
+      await service.submitPr(validUrl);
+      expect(service.errorMessage()).toBeNull();
     });
   });
 
@@ -162,6 +205,19 @@ describe('PrSubmissionService', () => {
 
       expect(service.submissions()).toHaveLength(1);
       expect(service.submissions()[0].review_count).toBe(3);
+    });
+
+    it('não altera submissions quando syncPr retorna erro', async () => {
+      const existing = { id: 'uuid-1', github_pr_url: 'https://github.com/a/b/pull/1', pr_state: 'open', review_count: 0 } as any;
+
+      supabaseMock.invokeFn.mockResolvedValueOnce({ data: existing, error: null });
+      await service.submitPr('https://github.com/a/b/pull/1');
+
+      supabaseMock.invokeFn.mockResolvedValueOnce({ data: null, error: { message: 'server error' } });
+      await service.syncPr('uuid-1');
+
+      expect(service.submissions()).toHaveLength(1);
+      expect(service.submissions()[0].review_count).toBe(0);
     });
   });
 });

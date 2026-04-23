@@ -112,6 +112,95 @@
   font-weight: 600;
 }
 
+.mp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* MP table */
+.mp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fd-text-sm);
+
+  th {
+    text-align: left;
+    padding: 6px 10px;
+    font-size: var(--fd-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fd-soft);
+    border-bottom: 1px solid var(--fd-border);
+  }
+
+  td {
+    padding: 8px 10px;
+    color: var(--fd-muted);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.mp-table__pts {
+  text-align: right;
+  font-weight: 700;
+  color: var(--fd-accent) !important;
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* GitHub connect */
+.github-connected {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--fd-border);
+  border-radius: var(--fd-radius);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.github-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--fd-border);
+  flex-shrink: 0;
+}
+
+.github-connected__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.github-connected__name {
+  font-size: var(--fd-text-sm);
+  font-weight: 600;
+  color: var(--fd-foreground);
+}
+
+.github-connected__badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fd-text-xs);
+  color: #22c55e;
+
+  mat-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+  }
+}
+
 /* Social links form */
 .social-form {
   display: grid;
@@ -171,11 +260,26 @@
   }
 }
 
-.social-unverified {
-  margin: 0;
-  font-size: var(--fd-text-xs);
-  color: var(--fd-soft);
-  opacity: 0.7;
+.social-url-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--fd-border);
+  border-radius: var(--fd-radius);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--fd-foreground);
+  font-size: var(--fd-text-sm);
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--fd-muted);
+    opacity: 0.5;
+  }
+
+  &:focus {
+    border-color: var(--fd-accent);
+  }
 }
 
 .social-error {
@@ -228,4 +332,15 @@
 .account-button--primary:hover {
   border-color: var(--fd-accent-strong) !important;
   background: var(--fd-accent-strong) !important;
+}
+
+.account-button--ghost {
+  border: 1px solid var(--fd-border) !important;
+  color: var(--fd-foreground) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.account-button--ghost:hover {
+  border-color: var(--fd-soft) !important;
 }

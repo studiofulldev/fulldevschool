@@ -310,3 +310,21 @@ input {
   background: #b22d00;
   color: #ffffff;
 }
+
+/* MP Info dialog — bottom sheet on mobile */
+.mp-bottom-sheet .mat-mdc-dialog-container {
+  border-radius: 16px 16px 0 0 !important;
+  max-height: 85vh;
+}
+
+.mp-dialog-panel .mat-mdc-dialog-container {
+  border-radius: 12px !important;
+}
+
+.mp-bottom-sheet,
+.mp-dialog-panel {
+  .mat-mdc-dialog-surface {
+    background: var(--fd-surface-overlay) !important;
+    border: 1px solid var(--fd-border);
+  }
+}
