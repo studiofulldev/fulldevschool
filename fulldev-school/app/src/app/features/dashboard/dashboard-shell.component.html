@@ -1,0 +1,54 @@
+<mat-sidenav-container class="shell">
+  <mat-sidenav
+    class="sidebar"
+    [class.sidebar--collapsed]="collapsed()"
+    [mode]="'side'"
+    [opened]="true"
+    [fixedInViewport]="true"
+    [fixedTopGap]="0"
+    [fixedBottomGap]="0"
+  >
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="brand-mark">FD</div>
+        <div class="brand-text" *ngIf="!collapsed()">FullDev School</div>
+      </div>
+
+      <button mat-icon-button type="button" (click)="toggleCollapsed()" aria-label="Recolher sidebar">
+        <mat-icon>{{ collapsed() ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+      </button>
+    </div>
+
+    <mat-nav-list class="nav">
+      <a
+        mat-list-item
+        *ngFor="let item of navItems()"
+        [routerLink]="item.to"
+        routerLinkActive="nav-item--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle *ngIf="!collapsed()">{{ item.label }}</span>
+      </a>
+    </mat-nav-list>
+
+    <div class="sidebar-footer">
+      <a mat-list-item [routerLink]="'/app/profile'" routerLinkActive="nav-item--active">
+        <mat-icon matListItemIcon>person</mat-icon>
+        <span matListItemTitle *ngIf="!collapsed()">Perfil</span>
+      </a>
+
+      <button mat-list-item type="button" (click)="logout()">
+        <mat-icon matListItemIcon>logout</mat-icon>
+        <span matListItemTitle *ngIf="!collapsed()">Logout</span>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <div class="content-inner">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
