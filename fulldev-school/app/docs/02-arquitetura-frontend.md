@@ -97,6 +97,27 @@ Cada rota resolve:
 - contexto de navegacao
 - redirecionamento automatico do curso para a primeira licao disponivel
 
+## Rotas (V2 / fluxo de produto)
+
+O fluxo novo (wireframe) usa um shell dedicado em `/app/*` e organiza as telas por `features/` com lazy loading.
+
+Formato:
+
+```text
+/app/home
+/app/courses
+/app/courses/:courseSlug
+/app/courses/:courseSlug/content
+/app/mentoring
+/app/mentoring/:mentorId
+/app/profile
+```
+
+Diretrizes:
+
+- manter V1 (`/courses/*`) enquanto o V2 evolui
+- `features/shared/ui` concentra componentes reutilizÃ¡veis (header, empty state, loading)
+
 ## Estrategia de composicao
 
 Componentes principais previstos:
