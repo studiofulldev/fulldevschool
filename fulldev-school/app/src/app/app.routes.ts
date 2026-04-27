@@ -16,6 +16,7 @@ import { PlatformDashboardComponent } from './pages/platform-dashboard/platform-
 import { PlatformHomeComponent } from './pages/platform-home/platform-home.component';
 import { CourseShellComponent } from './shells/course-shell.component';
 import { PlatformShellComponent } from './shells/platform-shell.component';
+import { dashboardRoutes } from './features/dashboard/dashboard.routes';
 
 export const routes: Routes = [
   {
@@ -46,6 +47,10 @@ export const routes: Routes = [
     data: {
       document: 'terms'
     }
+  },
+  {
+    path: '',
+    children: dashboardRoutes
   },
   {
     path: 'courses',

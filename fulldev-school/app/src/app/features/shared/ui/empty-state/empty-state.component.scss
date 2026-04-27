@@ -1,0 +1,30 @@
+.empty {
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.15);
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.icon {
+  color: var(--fd-muted);
+}
+
+.title {
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.message {
+  color: var(--fd-muted);
+}
+
+.actions {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+

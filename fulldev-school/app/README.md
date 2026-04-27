@@ -12,6 +12,11 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 
 ## Fluxo atual
 
+- **V2 (fluxo de produto)**: navegaÃ§Ã£o principal em `/app/*` com arquitetura por `features/` (dashboard, courses, mentoring, shared) e mocks locais para evoluÃ§Ã£o futura.
+- **V1 (reader do curso)**: rotas em `/courses/*` continuam existindo para leitura do conteÃºdo do `mock-db` e a experiÃªncia atual de curso/liÃ§Ã£o.
+
+Obs: a lista abaixo descreve principalmente o comportamento do V1 (reader).
+
 - sidebar baseada na árvore de navegação
 - cursos usam a mesma linguagem visual da sidebar principal da plataforma
 - dentro de um curso, a sidebar mostra `Home` e o atalho do curso atual
@@ -47,6 +52,7 @@ Aplicação Angular que renderiza o guia de tecnologia a partir de conteúdo Mar
 - `src/app/app.scss`
 - `src/app/pages/lesson-page.component.ts`
 - `src/app/data/school-content.service.ts`
+- `src/app/features/` (V2: dashboard/courses/mentoring/shared)
 
 ## Documentação técnica
 
