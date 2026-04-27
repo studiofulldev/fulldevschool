@@ -4,54 +4,60 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CoursesService } from './courses.service';
+import { PageShellComponent } from '../shared/ui/page-shell/page-shell.component';
+import { EmptyStateComponent } from '../shared/ui/empty-state/empty-state.component';
 
 @Component({
   selector: 'app-course-detail-page',
   standalone: true,
-  imports: [NgIf, RouterLink, MatCardModule, MatButtonModule],
+  imports: [NgIf, RouterLink, MatCardModule, MatButtonModule, PageShellComponent, EmptyStateComponent],
   template: `
     <ng-container *ngIf="course() as c; else notFound">
-      <div class="hero">
-        <div class="thumb" [style.backgroundImage]="'url(' + c.imageUrl + ')'"></div>
-        <div class="info">
-          <div class="meta">
-            <span class="pill">{{ c.category }}</span>
-            <span class="hours">{{ c.hours }}h</span>
-          </div>
-          <h1>{{ c.title }}</h1>
-          <p class="desc">{{ c.longDescription }}</p>
+      <fd-page-shell [title]="c.title" subtitle="Resumo do curso e detalhes principais.">
+        <div slot="actions">
+          <a mat-stroked-button [routerLink]="['/app/courses']">Voltar</a>
+        </div>
 
-          <div class="facts">
-            <div class="fact">
-              <div class="label">Professor</div>
-              <div class="value">{{ c.instructorName }}</div>
+        <div class="hero">
+          <div class="thumb" [style.backgroundImage]="'url(' + c.imageUrl + ')'"></div>
+          <div class="info">
+            <div class="meta">
+              <span class="pill">{{ c.category }}</span>
+              <span class="hours">{{ c.hours }}h</span>
             </div>
-            <div class="fact">
-              <div class="label">Carga horária</div>
-              <div class="value">{{ c.hours }} horas</div>
-            </div>
-          </div>
 
-          <div class="actions">
-            <a mat-raised-button color="primary" [routerLink]="['/app/courses', c.slug, 'content']">
-              Acessar conteúdo
-            </a>
-            <a mat-stroked-button [routerLink]="['/app/courses']">Voltar</a>
+            <p class="desc">{{ c.longDescription }}</p>
+
+            <div class="facts">
+              <div class="fact">
+                <div class="label">Professor</div>
+                <div class="value">{{ c.instructorName }}</div>
+              </div>
+              <div class="fact">
+                <div class="label">Carga horária</div>
+                <div class="value">{{ c.hours }} horas</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <a mat-raised-button color="primary" [routerLink]="['/app/courses', c.slug, 'content']">
+                Acessar conteúdo
+              </a>
+              <a mat-stroked-button [routerLink]="['/app/courses']">Explorar cursos</a>
+            </div>
           </div>
         </div>
-      </div>
+      </fd-page-shell>
     </ng-container>
 
     <ng-template #notFound>
-      <mat-card class="card">
-        <mat-card-title>Curso não encontrado</mat-card-title>
-        <mat-card-content>
-          <p>O curso pode ter sido removido ou o link está incorreto.</p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-          <a mat-stroked-button [routerLink]="['/app/courses']">Voltar para cursos</a>
-        </mat-card-actions>
-      </mat-card>
+      <fd-empty-state
+        icon="school"
+        title="Curso não encontrado"
+        message="O curso pode ter sido removido ou o link está incorreto."
+      >
+        <a mat-stroked-button [routerLink]="['/app/courses']">Voltar para cursos</a>
+      </fd-empty-state>
     </ng-template>
   `,
   styles: [
@@ -97,14 +103,12 @@ import { CoursesService } from './courses.service';
       }
 
       h1 {
-        margin: 10px 0 0;
-        font-weight: 850;
-        letter-spacing: -0.02em;
+        margin: 0;
       }
 
       .desc {
         margin: 10px 0 0;
-        color: rgba(232, 234, 240, 0.85);
+        color: var(--fd-muted);
         max-width: 70ch;
       }
 
@@ -118,13 +122,13 @@ import { CoursesService } from './courses.service';
       .fact {
         padding: 12px;
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--fd-border);
       }
 
       .label {
         font-size: 12px;
-        color: rgba(232, 234, 240, 0.7);
+        color: var(--fd-muted);
       }
 
       .value {
@@ -142,7 +146,7 @@ import { CoursesService } from './courses.service';
       .card {
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--fd-border);
       }
 
       @media (max-width: 960px) {
@@ -167,4 +171,3 @@ export class CourseDetailPageComponent {
     return this.courses.getBySlug(slug);
   });
 }
-
