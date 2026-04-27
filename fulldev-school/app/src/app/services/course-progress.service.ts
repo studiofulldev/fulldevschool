@@ -1,4 +1,6 @@
 import { Injectable, inject } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { distinctUntilChanged, filter } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { LoggerService } from './logger.service';
 import { SupabaseService } from './supabase.service';
@@ -21,6 +23,7 @@ export class CourseProgressService {
   private readonly lessonStorageKey = 'fulldev-school.progress.lessons';
   private readonly moduleStorageKey = 'fulldev-school.progress.modules';
   private readonly courseStorageKey = 'fulldev-school.progress.courses';
+  private readonly legacyMigratedUsers = new Set<string>();
 
   constructor() {
     // After the initial session check completes, pull Supabase progress and
@@ -29,6 +32,22 @@ export class CourseProgressService {
     this.auth.sessionCheckComplete$.subscribe(() => {
       void this.hydrateFromSupabase();
     });
+
+    // If the user changes after the initial check (logout/login), keep local
+    // progress isolated by user id and hydrate again.
+    toObservable(this.auth.user)
+      .pipe(
+        filter(() => this.auth.sessionCheckComplete()),
+        distinctUntilChanged((a, b) => a?.id === b?.id)
+      )
+      .subscribe((user) => {
+        if (!user) {
+          return;
+        }
+
+        this.migrateLegacyProgressToUser(user.id);
+        void this.hydrateFromSupabase(user.id);
+      });
   }
 
   // ----------------------------------------------------------------
@@ -36,15 +55,18 @@ export class CourseProgressService {
   // ----------------------------------------------------------------
 
   isLessonCompleted(courseSlug: string, lessonSlug: string): boolean {
-    return this.readState(this.lessonStorageKey)[this.lessonKey(courseSlug, lessonSlug)] ?? false;
+    const storageKey = this.resolveStorageKey(this.lessonStorageKey);
+    return this.readState(storageKey)[this.lessonKey(courseSlug, lessonSlug)] ?? false;
   }
 
   isModuleCompleted(courseSlug: string, moduleSlug: string): boolean {
-    return this.readState(this.moduleStorageKey)[this.moduleKey(courseSlug, moduleSlug)] ?? false;
+    const storageKey = this.resolveStorageKey(this.moduleStorageKey);
+    return this.readState(storageKey)[this.moduleKey(courseSlug, moduleSlug)] ?? false;
   }
 
   isCourseCompleted(courseSlug: string): boolean {
-    return this.readState(this.courseStorageKey)[courseSlug] ?? false;
+    const storageKey = this.resolveStorageKey(this.courseStorageKey);
+    return this.readState(storageKey)[courseSlug] ?? false;
   }
 
   // ----------------------------------------------------------------
@@ -57,9 +79,10 @@ export class CourseProgressService {
     completed: boolean,
     trackingContext?: LessonTrackingContext
   ): void {
-    const state = this.readState(this.lessonStorageKey);
+    const storageKey = this.resolveStorageKey(this.lessonStorageKey);
+    const state = this.readState(storageKey);
     state[this.lessonKey(courseSlug, lessonSlug)] = completed;
-    this.writeState(this.lessonStorageKey, state);
+    this.writeState(storageKey, state);
 
     if (completed && trackingContext) {
       const time = this.tracking.calculateTimeOnLesson(lessonSlug);
@@ -76,9 +99,10 @@ export class CourseProgressService {
   }
 
   setModuleCompleted(courseSlug: string, moduleSlug: string, completed: boolean): void {
-    const state = this.readState(this.moduleStorageKey);
+    const storageKey = this.resolveStorageKey(this.moduleStorageKey);
+    const state = this.readState(storageKey);
     state[this.moduleKey(courseSlug, moduleSlug)] = completed;
-    this.writeState(this.moduleStorageKey, state);
+    this.writeState(storageKey, state);
 
     void this.syncToSupabase({
       course_slug: courseSlug,
@@ -90,9 +114,10 @@ export class CourseProgressService {
   }
 
   setCourseCompleted(courseSlug: string, completed: boolean): void {
-    const state = this.readState(this.courseStorageKey);
+    const storageKey = this.resolveStorageKey(this.courseStorageKey);
+    const state = this.readState(storageKey);
     state[courseSlug] = completed;
-    this.writeState(this.courseStorageKey, state);
+    this.writeState(storageKey, state);
 
     void this.syncToSupabase({
       course_slug: courseSlug,
@@ -109,22 +134,25 @@ export class CourseProgressService {
 
   // Pull all progress rows from Supabase and merge into localStorage.
   // Supabase wins on conflict — server is the source of truth.
-  private async hydrateFromSupabase(): Promise<void> {
-    const user = this.auth.user();
-    if (!user) {
+  private async hydrateFromSupabase(userId = this.auth.user()?.id): Promise<void> {
+    if (!userId) {
       return;
     }
 
     try {
-      const { data, error } = await this.supabase.fetchUserProgress(user.id);
+      const { data, error } = await this.supabase.fetchUserProgress(userId);
       if (error || !data) {
         this.logger.error('CourseProgressService', 'hydrateFromSupabase failed', error);
         return;
       }
 
-      const lessons = this.readState(this.lessonStorageKey);
-      const modules = this.readState(this.moduleStorageKey);
-      const courses = this.readState(this.courseStorageKey);
+      const lessonStorageKey = this.resolveStorageKey(this.lessonStorageKey, userId);
+      const moduleStorageKey = this.resolveStorageKey(this.moduleStorageKey, userId);
+      const courseStorageKey = this.resolveStorageKey(this.courseStorageKey, userId);
+
+      const lessons = this.readState(lessonStorageKey);
+      const modules = this.readState(moduleStorageKey);
+      const courses = this.readState(courseStorageKey);
 
       for (const row of data) {
         if (row.type === 'lesson' && row.lesson_slug) {
@@ -136,9 +164,9 @@ export class CourseProgressService {
         }
       }
 
-      this.writeState(this.lessonStorageKey, lessons);
-      this.writeState(this.moduleStorageKey, modules);
-      this.writeState(this.courseStorageKey, courses);
+      this.writeState(lessonStorageKey, lessons);
+      this.writeState(moduleStorageKey, modules);
+      this.writeState(courseStorageKey, courses);
     } catch (err) {
       this.logger.error('CourseProgressService', 'hydrateFromSupabase unexpected error', err);
     }
@@ -180,6 +208,36 @@ export class CourseProgressService {
   // localStorage helpers
   // ----------------------------------------------------------------
 
+  private resolveStorageKey(baseKey: string, userId = this.auth.user()?.id): string {
+    // Unauthenticated users keep the legacy keys for backward compatibility.
+    if (!userId) {
+      return baseKey;
+    }
+
+    if (!this.legacyMigratedUsers.has(userId)) {
+      this.migrateLegacyProgressToUser(userId);
+      this.legacyMigratedUsers.add(userId);
+    }
+
+    return `${baseKey}.${userId}`;
+  }
+
+  private migrateLegacyProgressToUser(userId: string): void {
+    // Merge pre-user-scoped progress into this user and delete legacy keys so
+    // progress doesn't leak across accounts on shared browsers.
+    for (const baseKey of [this.lessonStorageKey, this.moduleStorageKey, this.courseStorageKey]) {
+      const legacy = this.readState(baseKey);
+      if (Object.keys(legacy).length === 0) {
+        continue;
+      }
+
+      const scopedKey = `${baseKey}.${userId}`;
+      const scoped = this.readState(scopedKey);
+      this.writeState(scopedKey, { ...legacy, ...scoped });
+      this.removeState(baseKey);
+    }
+  }
+
   private lessonKey(courseSlug: string, lessonSlug: string): string {
     return `${courseSlug}::lesson::${lessonSlug}`;
   }
@@ -207,5 +265,13 @@ export class CourseProgressService {
     }
 
     localStorage.setItem(storageKey, JSON.stringify(state));
+  }
+
+  private removeState(storageKey: string): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
+
+    localStorage.removeItem(storageKey);
   }
 }

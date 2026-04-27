@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { signal } from '@angular/core';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { of } from 'rxjs';
 import { CourseProgressService } from './course-progress.service';
@@ -9,9 +10,13 @@ import { EVENT_TRACKING_PROVIDER } from './event-tracking.provider';
 const mockTrackingProvider = { identify: vi.fn(), capture: vi.fn(), reset: vi.fn() };
 
 function makeAuthMock() {
+  const user = signal<any>(null);
+  const sessionCheckComplete = signal(true);
   return {
-    user: vi.fn().mockReturnValue(null),
-    sessionCheckComplete$: of(true)
+    user,
+    sessionCheckComplete,
+    sessionCheckComplete$: of(true),
+    __test: { user, sessionCheckComplete }
   };
 }
 
@@ -26,13 +31,15 @@ function makeSupabaseMock() {
 
 describe('CourseProgressService', () => {
   let service: CourseProgressService;
+  let authMock: ReturnType<typeof makeAuthMock>;
 
   beforeEach(() => {
     localStorage.clear();
+    authMock = makeAuthMock();
     TestBed.configureTestingModule({
       providers: [
         CourseProgressService,
-        { provide: AuthService, useValue: makeAuthMock() },
+        { provide: AuthService, useValue: authMock },
         { provide: SupabaseService, useValue: makeSupabaseMock() },
         { provide: EVENT_TRACKING_PROVIDER, useValue: mockTrackingProvider }
       ]
@@ -82,16 +89,36 @@ describe('CourseProgressService', () => {
     it('survives a service re-instantiation (reads from localStorage)', () => {
       service.setLessonCompleted('course-start', 'lesson-1', true);
       TestBed.resetTestingModule();
+      const freshAuthMock = makeAuthMock();
       TestBed.configureTestingModule({
         providers: [
           CourseProgressService,
-          { provide: AuthService, useValue: makeAuthMock() },
+          { provide: AuthService, useValue: freshAuthMock },
           { provide: SupabaseService, useValue: makeSupabaseMock() },
           { provide: EVENT_TRACKING_PROVIDER, useValue: mockTrackingProvider }
         ]
       });
       const freshService = TestBed.inject(CourseProgressService);
       expect(freshService.isLessonCompleted('course-start', 'lesson-1')).toBe(true);
+    });
+  });
+
+  describe('authenticated storage isolation', () => {
+    it('migrates legacy progress to a user-scoped key and removes the legacy key', async () => {
+      localStorage.setItem(
+        'fulldev-school.progress.lessons',
+        JSON.stringify({ 'course-start::lesson::lesson-1': true })
+      );
+
+      authMock.__test.user.set({ id: 'user-1' });
+      await Promise.resolve();
+
+      expect(service.isLessonCompleted('course-start', 'lesson-1')).toBe(true);
+      expect(localStorage.getItem('fulldev-school.progress.lessons')).toBeNull();
+
+      const scopedRaw = localStorage.getItem('fulldev-school.progress.lessons.user-1');
+      expect(scopedRaw).not.toBeNull();
+      expect(JSON.parse(scopedRaw!)['course-start::lesson::lesson-1']).toBe(true);
     });
   });
 
