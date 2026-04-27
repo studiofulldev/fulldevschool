@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -54,6 +54,10 @@ import { BookingDrawerService } from './booking-drawer.service';
         z-index: 50;
       }
 
+      .drawer--open {
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+      }
+
       .handle {
         width: 100%;
         display: flex;
@@ -105,6 +109,13 @@ import { BookingDrawerService } from './booking-drawer.service';
       .value {
         font-weight: 700;
       }
+
+      @media (max-width: 720px) {
+        .drawer {
+          left: 12px;
+          right: 12px;
+        }
+      }
     `
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -118,4 +129,3 @@ export class BookingDrawerComponent {
     this.open.update((v) => !v);
   }
 }
-
