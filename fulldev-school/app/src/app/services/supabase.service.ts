@@ -68,7 +68,7 @@ export class SupabaseService {
     return this.client.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: typeof window !== 'undefined' ? window.location.origin + '/courses/home' : undefined
+        redirectTo: typeof window !== 'undefined' ? window.location.origin + '/app/home' : undefined
       }
     });
   }

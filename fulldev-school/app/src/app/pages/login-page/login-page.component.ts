@@ -31,8 +31,8 @@ export class LoginPageComponent {
       .subscribe(() => {
         const returnUrl = this.route.snapshot.queryParams['returnUrl'] as string | undefined;
         // Strip any hash fragment — tokens must not be forwarded as a path segment.
-        const cleanUrl = returnUrl?.split('#')[0] ?? '/courses/home';
-        const safeUrl = cleanUrl.startsWith('/') ? cleanUrl : '/courses/home';
+        const cleanUrl = returnUrl?.split('#')[0] ?? '/app/home';
+        const safeUrl = cleanUrl.startsWith('/') ? cleanUrl : '/app/home';
         void this.router.navigateByUrl(safeUrl);
       });
   }
