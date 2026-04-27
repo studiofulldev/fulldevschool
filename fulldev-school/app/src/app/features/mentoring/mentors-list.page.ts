@@ -4,57 +4,41 @@ import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MentoringService } from './mentoring.service';
+import { PageShellComponent } from '../shared/ui/page-shell/page-shell.component';
 
 @Component({
   selector: 'app-mentors-list-page',
   standalone: true,
-  imports: [NgFor, RouterLink, MatCardModule, MatButtonModule],
+  imports: [NgFor, RouterLink, MatCardModule, MatButtonModule, PageShellComponent],
   template: `
-    <div class="header">
-      <div>
-        <h1>Mentoria</h1>
-        <p>Escolha um mentor e agende seu horário.</p>
+    <fd-page-shell title="Mentoria" subtitle="Escolha um mentor e agende seu horário.">
+      <div class="grid">
+        <mat-card class="mentor" *ngFor="let m of mentors()">
+          <div class="row">
+            <img class="avatar" [src]="m.photoUrl" [alt]="m.name" />
+            <div class="info">
+              <h3>{{ m.name }}</h3>
+              <div class="specialty">{{ m.specialty }}</div>
+            </div>
+          </div>
+
+          <mat-card-content>
+            <p>{{ m.bio }}</p>
+            <div class="tags">
+              <span class="tag" *ngFor="let s of m.stacks">{{ s }}</span>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <a mat-stroked-button color="primary" [routerLink]="['/app/mentoring', m.id]">Exibir dados do mentor</a>
+          </mat-card-actions>
+        </mat-card>
       </div>
-    </div>
-
-    <div class="grid">
-      <mat-card class="mentor" *ngFor="let m of mentors()">
-        <div class="row">
-          <img class="avatar" [src]="m.photoUrl" [alt]="m.name" />
-          <div class="info">
-            <h3>{{ m.name }}</h3>
-            <div class="specialty">{{ m.specialty }}</div>
-          </div>
-        </div>
-
-        <mat-card-content>
-          <p>{{ m.bio }}</p>
-          <div class="tags">
-            <span class="tag" *ngFor="let s of m.stacks">{{ s }}</span>
-          </div>
-        </mat-card-content>
-
-        <mat-card-actions align="end">
-          <a mat-stroked-button color="primary" [routerLink]="['/app/mentoring', m.id]">Exibir dados do mentor</a>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+    </fd-page-shell>
   `,
   styles: [
     `
-      h1 {
-        margin: 0;
-        font-weight: 850;
-        letter-spacing: -0.02em;
-      }
-
-      p {
-        margin: 6px 0 0;
-        color: rgba(232, 234, 240, 0.85);
-      }
-
       .grid {
-        margin-top: 18px;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
@@ -63,7 +47,7 @@ import { MentoringService } from './mentoring.service';
       .mentor {
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--fd-border);
       }
 
       .row {
@@ -88,7 +72,7 @@ import { MentoringService } from './mentoring.service';
 
       .specialty {
         margin-top: 4px;
-        color: rgba(232, 234, 240, 0.72);
+        color: var(--fd-muted);
         font-size: 13px;
       }
 
@@ -102,8 +86,8 @@ import { MentoringService } from './mentoring.service';
       .tag {
         padding: 4px 10px;
         border-radius: 999px;
-        background: rgba(124, 58, 237, 0.14);
-        border: 1px solid rgba(124, 58, 237, 0.22);
+        background: rgba(178, 45, 0, 0.14);
+        border: 1px solid rgba(178, 45, 0, 0.22);
         font-size: 12px;
         font-weight: 650;
       }
@@ -121,4 +105,3 @@ export class MentorsListPageComponent {
   private readonly mentoring = inject(MentoringService);
   readonly mentors = computed(() => this.mentoring.list());
 }
-
